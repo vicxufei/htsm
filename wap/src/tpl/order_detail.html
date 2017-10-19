@@ -1,0 +1,109 @@
+<div class="card">
+  <div class="card-header">
+	  订单号:{{order_sn}}
+	  <span class="pull-right">{{add_time}}</span></div>
+  <div class="card-content">
+    <div class="card-content-inner">
+	    {{state_desc}}
+	    <span class="pull-right" data-order_id="{{order_id}}" data-order_sn="{{order_sn}}">
+		    {{if if_buyer_cancel}}<a href="#" class="button button-danger jOrderOp" data-optype="order_cancel">取消订单</a>{{/if}}
+	      {{if if_buyer_cancel}}<a href="#pay" class="button button-fill button-danger jGoPay" data-pay_sn="{{pay_sn}}" data-order_total="{{order_amount}}">去支付</a>{{/if}}
+	      {{if if_delete}}<a href="" class="button button-danger jOrderOp" data-optype="order_del">删除订单</a>{{/if}}
+	      {{if if_receive}}<a href="" class="button button-danger jOrderOp" data-optype="order_receive">确认收货</a>{{/if}}
+	      {{if if_evaluation}}<a href="" class="button button-danger jEvaluate">评论</a>{{/if}}
+	    </span>
+    </div>
+  </div>
+</div>
+<div class="list-block media-list">
+	<div class="item-content">
+		<div class="item-media">
+			{{if extend_order_common}}收货地址:{{/if}}
+			{{if chain_info}}门店信息:{{/if}}
+		</div>
+		<div class="item-inner">
+			{{if extend_order_common.reciver_info}}
+			<div class="item-title">{{extend_order_common.reciver_name}} {{extend_order_common.reciver_info.mob_phone}}</div>
+			<div class="item-subtitle">{{extend_order_common.reciver_info.address}}</div>
+			{{/if}}
+			{{if chain_info}}
+			<div class="item-title">{{chain_info.chain_name}} </div>
+			<div class="item-subtitle">
+				<p>{{chain_info.area_info}} {{chain_info.chain_address}}</p>
+				<p>营业时间:{{chain_info.chain_opening_hours}}</p>
+				<p>电话:{{chain_info.chain_phone}}</p>
+			</div>
+			{{/if}}
+		</div>
+	</div>
+	<div class="item-content">
+		<div class="item-media">
+			配送方式:
+		</div>
+		<div class="item-inner">
+			<div class="item-title-row">
+				<div class="item-title">{{if chain_info}}自提{{else}}普通快递{{/if}}</div>
+				{{if if_deliver}}
+				<div class="item-after" data-order_sn="{{order_sn}}">
+					<a href="" class="button button-small jSearchDeliver">查看物流</a>
+				</div>
+				{{/if}}
+				{{if chain_code != 0}}
+				<div class="item-after">提货码:{{chain_code}}</div>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="card">
+	<div class="card-content">
+		<div class="list-block media-list">
+			<ul>
+				{{each extend_order_goods as value i}}
+				<li class="item-content">
+					<div class="item-media">
+						<img src="{{value.image_url}}" alt="">
+					</div>
+					<div class="item-inner">
+						<div class="item-title-row">
+							<div class="item-title">{{value.goods_name}}</div>
+						</div>
+						<div class="item-subtitle color-danger">{{value.goods_price}}</div>
+						<div class="item-text pull-right">
+							<span class="badge">{{value.goods_num}}</span>
+						</div>
+					</div>
+				</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+	<div class="card-footer">
+		数量:{{extend_order_goods.length}}
+    <span class="pull-right">
+	    合计:¥{{goods_amount}}
+    </span>
+  </div>
+</div>
+<div class="list-block">
+  <ul>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">商品金额</div>
+        <div class="item-after">¥{{goods_amount}}</div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">配送费用</div>
+        <div class="item-after">¥{{shipping_fee}}</div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">订单金额</div>
+        <div class="item-after">¥{{order_amount}}</div>
+      </div>
+    </li>
+  </ul>
+</div>

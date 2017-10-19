@@ -1,0 +1,23 @@
+{{if !favorites_list}}
+	<div class="empty">
+		<p class="icon iconfont icon-form f14"></p>
+		<p class="emt-txt">暂无评论</p>
+	</div>
+{{else}}
+	{{each favorites_list as value i}}
+	<li>
+	  <a href="" data-good_id="{{value.goods_id}}" class="item-content jGo">
+	    <div class="item-media">
+	      <img class="b-lazy" data-src="{{value.goods_image_url}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></div>
+	    <div class="item-inner">
+	      <div class="item-title-row">
+	        <div class="item-title f12">{{value.goods_name}}</div>
+	      </div>
+	      <div class="item-text">
+	        <span class="present color-danger f13 mr10">¥{{value.goods_price}}</span>
+	      </div>
+	    </div>
+	  </a>
+	</li>
+	{{/each}}
+{{/if}}

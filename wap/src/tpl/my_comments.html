@@ -1,0 +1,30 @@
+{{if !goodsevallist}}
+	<div class="empty">
+		<p class="icon iconfont icon-form f14"></p>
+		<p class="emt-txt">暂无商品评论</p>
+	</div>
+{{else}}
+{{each goodsevallist as value i}}
+	<li>
+	  <a href="" data-good_id="{{value.geval_goodsid}}" class="item-content jGo">
+	    <div class="item-media">
+	      <img class="b-lazy" data-src="{{value.goods_image_url}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></div>
+	    <div class="item-inner">
+	      <div class="item-title-row">
+	        <div class="item-title f12">{{value.geval_goodsname}}</div>
+	      </div>
+		    <div class="item-subtitle starts-{{value.geval_scores}}">
+			    <span class="icon iconfont icon-start lv-1"></span>
+					<span class="icon iconfont icon-start lv-2"></span>
+					<span class="icon iconfont icon-start lv-3"></span>
+					<span class="icon iconfont icon-start lv-4"></span>
+					<span class="icon iconfont icon-start lv-5"></span>
+				</div>
+	      <div class="item-text">
+	        <span class="present f13 mr10">{{value.geval_content}}</span>
+	      </div>
+	    </div>
+	  </a>
+	</li>
+{{/each}}
+{{/if}}

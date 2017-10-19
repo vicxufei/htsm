@@ -1,0 +1,40 @@
+<div class="swiper-container" id="slide" data-space-between='10'>
+            <div class="swiper-wrapper">
+	            {{each slide as value i}}
+	            <div class="swiper-slide">
+		            <img src="{{value}}" alt="">
+	            </div>
+	            {{/each}}
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+		      <div class="item-prices">
+			      <span class="item-price show-price-tag" data-text="促销价">{{goods_info.goods_price}}</span>
+			      <span class="item-price-origin">{{goods_info.goods_marketprice}}</span>
+				  <span class="pull-right">
+					  <i id="favorate" class="icon iconfont icon-like {{is_favorate ? 'active':''}}"></i>
+				  </span>
+		      </div>
+		      <div class="item-info">
+			      <div class="item-title">{{goods_info.goods_name}}</div>
+			      <div class="item-desc">
+					  {{goods_info.goods_jingle}}
+			      </div>
+		      </div>
+		      <div class="freight-info" id="freight-info">
+			      <p>配送:{{freight_title}}</p>
+			      <p>送至:{{freight_to}},运费{{freight_text}}</p>
+          </div>
+{{if goods_info.spec_name}}
+		      <div class="good-spec">
+		      {{each goods_info.spec_name as value i}}
+			      <div class="content-block-title">{{value}}</div>
+			      <div class="spec-item goods-list">
+				      {{each goods_info.spec_value[i] as specValue x}}
+				      <a href="" data-good_id="{{spec_list[x]}}"
+				         class="{{if goods_info.goods_spec[x]}}active{{/if}}">{{specValue}}</a>
+				      {{/each}}
+			      </div>
+		      {{/each}}
+		      </div>
+{{/if}}

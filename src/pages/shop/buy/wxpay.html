@@ -1,0 +1,80 @@
+---
+layout: cart
+---
+<div class="mod-pay">
+	<div class="bd">
+		<div class="tips">
+  			<h1 class="title">
+				  <i class="icon iconfont iconfont-gouxuan"></i>
+				  <span class="text">订单提交成功，仅差一步完成购买，请尽快支付！</span>
+			  </h1>
+  		</div>
+		<div class="ctn ctn-2">
+			<div class="inner">
+				<div class="broadcast clearfix">
+              <p class="wrap">
+                  <i class="icon iconfont"></i>
+                  <span class="text">订单详情内容可通过查看<a href="index.php?controller=member_order" target="_blank">我的订单</a>进行核对处理。</span>
+              </p>
+          </div>
+				<div class="pay-list">
+					<div class="item-hd">
+						<table>
+							<tbody>
+							<tr>
+								<th><div class="box-1">支付方式</div></th>
+								<th><div class="box-2">订单号</div></th>
+								<th><div>应付金额</div></th>
+								<th><div>操作</div></th>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="item">
+						<table>
+							<tbody>
+							<?php foreach ($output['order_list'] as $key => $order_info) { ?>
+							<tr>
+								<td><div class="box-1">微信扫码支付</div></td>
+								<td>
+									<div class="box-2">
+										<p class="item-p">
+  									<a class="item-a" href="#" target="_blank"><?php echo $order_info['order_sn']; ?></a>
+										</p>
+									</div>
+								</td>
+                <td>
+                  <div>
+                    <p class="money-text jPaymentTotal"><?php echo ncPriceFormat($output['api_pay_amount']);?></p>
+                  </div>
+                </td>
+                <td>
+                  <div class="jTradeStatus"><a href="javascript:history.back(-1)" class="btn jSubMit">选择其他支付方式</a></div>
+                </td>
+							</tr>
+							<?php } ?>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="wxpayment" data-order-id="<?php echo $output['order_id'];?>" data-pay-id="<?php echo $output['pay_id'];?>">
+    <!-- 微信支付 -->
+    <div class="pay-weixin">
+      <div class="p-w-hd">微信支付</div>
+      <div class="p-w-bd">
+        <div class="p-w-box">
+          <div class="pw-box-hd"> <img width="298" src="<?php echo SHOP_SITE_URL?>/index.php?controller=payment&action=qrcode&data=<?php echo urlencode($output['pay_url']);?>"> </div>
+          <div class="pw-box-ft">
+            <p>请使用微信扫一扫</p>
+            <p>扫描二维码支付</p>
+          </div>
+        </div>
+        <div class="p-w-sidebar"></div>
+      </div>
+    </div>
+				<!-- 微信支付 end -->
+  </div>
+		</div>
+	</div>
+</div>

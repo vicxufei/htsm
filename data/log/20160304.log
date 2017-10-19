@@ -1,0 +1,21 @@
+[2016-03-04 13:10:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=minutes&op=index ) 
+ERR: Db Error: Unknown column 'spec_value' in 'field list'
+SELECT goods_id,goods_commonid,store_id,spec_name,spec_value FROM `ht_goods` WHERE ( goods_commonid IN ('101473','101474','101475','101476','101477','101478','101479','101480','101481','101482','101483','101484') ) LIMIT 1000  
+[2016-03-04 13:10:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=minutes&op=index ) 
+ERR: Db Error: Unknown column 'spec_value' in 'field list'
+SELECT goods_id,goods_commonid,store_id,spec_name,spec_value FROM `ht_goods` WHERE ( goods_commonid IN ('101473','101474','101475','101476','101477','101478','101479','101480','101481','101482','101483','101484') ) LIMIT 1000  
+[2016-03-04 13:30:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=minutes&op=index ) 
+ERR: Db Error: Unknown column 'goods_attr' in 'field list'
+SELECT goods_id,goods_commonid,store_id,goods_attr FROM `ht_goods` WHERE ( goods_commonid IN ('101473','101474','101475','101476','101477','101478','101479','101480','101481','101482','101483','101484') ) LIMIT 10  
+[2016-03-04 13:30:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=minutes&op=index ) 
+ERR: Db Error: Unknown column 'goods_attr' in 'field list'
+SELECT goods_id,goods_commonid,store_id,goods_attr FROM `ht_goods` WHERE ( goods_commonid IN ('101473','101474','101475','101476','101477','101478','101479','101480','101481','101482','101483','101484') ) LIMIT 10  
+[2016-03-04 13:40:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=minutes&op=index ) 
+ERR: Db Error: Unknown column 'goods_attr' in 'field list'
+SELECT goods_attr FROM `ht_goods` WHERE ( goods_commonid IN ('101473','101474','101475','101476','101477','101478','101479','101480','101481','101482','101483','101484') ) LIMIT 10  
+[2016-03-04 13:40:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=minutes&op=index ) 
+ERR: Db Error: Unknown column 'goods_attr' in 'field list'
+SELECT goods_attr FROM `ht_goods` WHERE ( goods_commonid IN ('101473','101474','101475','101476','101477','101478','101479','101480','101481','101482','101483','101484') ) LIMIT 10  
+[2016-03-04 13:50:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=minutes&op=index ) 
+ERR: Db Error: Column 'goods_commonid' in field list is ambiguous
+SELECT goods_id,goods_commonid,store_id FROM `ht_goods` AS `goods`,`ht_goods_common` AS `goods_common` LIMIT 30  

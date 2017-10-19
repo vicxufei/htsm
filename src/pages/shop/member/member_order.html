@@ -1,0 +1,206 @@
+<div class="main">
+	<div class="clearfix">
+		{{> member-menu}}
+		<div class="cnt f-l">
+			<div class="tab">
+				<div class="tab-title clearfix">
+					<a class="<?php echo $_GET['state_type']==''?'hover':''; ?>"
+					   href="<?php echo urlShop('member_order', 'index'); ?>">全部订单</a>
+					<a class="<?php echo $_GET['state_type']=='state_new'?'hover':''; ?>"
+					   href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_new')); ?>">
+						待付款
+					</a>
+					<a class="<?php echo $_GET['state_type']=='state_pay'?'hover':''; ?>"
+					   href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_pay')); ?>">
+						待发货
+					</a>
+					<a class="<?php echo $_GET['state_type']=='state_send'?'hover':''; ?>"
+					   href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_send')); ?>">
+						待收货
+					</a>
+					<a class="<?php echo $_GET['state_type']=='state_success'?'hover':''; ?>"
+					   href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_success')); ?>">
+						已完成
+					</a>
+					<a class="<?php echo $_GET['state_type']=='state_noeval'?'hover':''; ?>"
+					   href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_noeval')); ?>">
+						待评价
+					</a>
+					<a class="<?php echo $_GET['state_type']=='state_notakes'?'hover':''; ?>"
+					   href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_notakes')); ?>">
+						待自提
+					</a>
+					<a class="<?php echo $_GET['state_type']=='state_cancel'?'hover':''; ?>"
+					   href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_cancel')); ?>">
+						已取消
+					</a>
+				</div>
+			</div>
+			<table class="table order">
+				<thead>
+		      <tr>
+		        <th colspan="2">商品</th>
+		        <th class="w90">单价（元）</th>
+		        <th class="w40">数量</th>
+		        <th class="w110">订单金额</th>
+		        <th class="w90">交易状态</th>
+		        <th class="w120">交易操作</th>
+		      </tr>
+				</thead>
+				<?php if ($output['order_group_list']) { ?>
+				<?php foreach ($output['order_group_list'] as $order_pay_sn => $group_info) { ?>
+				<tbody>
+				<?php foreach($group_info['order_list'] as $order_id => $order_info) {?>
+	      <tr>
+	        <td colspan="19" class="pay-td">
+		        <span>订单号:<?php echo $order_info['order_sn']; ?>
+			        <?php if ($order_info['order_from'] == 2){?><i class="icon-mobile-phone"></i><?php }?>
+						</span>
+						<span>下单时间:<?php echo date("Y-m-d H:i:s",$order_info['add_time']); ?></span>
+
+		        <?php if ($order_info['chain_id']) { ?>
+		        <span>取货方式：门店自提</span>
+		        <?php } ?>
+
+	        </td>
+	      </tr>
+
+				<!-- S 商品列表 -->
+				<?php $i = 0;?>
+				<?php if (is_array($order_info['goods_list'])) { ?>
+				<?php foreach ($order_info['goods_list'] as $k => $goods_info) {?>
+				<?php $i++;?>
+				<tr>
+					<td class="w70 bdleft">
+						<div class="goods-thumb">
+							<a href="<?php echo $goods_info['goods_url'];?>" target="_blank">
+								<img src="<?php echo $goods_info['image_60_url'];?>"/></a>
+						</div>
+					</td>
+					<td class="tl">
+						<dl class="goods-name">
+							<dt>
+								<a href="<?php echo $goods_info['goods_url'];?>" target="_blank">
+									<?php echo $goods_info['goods_name']; ?>
+								</a>
+							</dt>
+							<?php if (!empty($goods_info['goods_spec'])) { ?>
+							<dd><?php echo $goods_info['goods_spec'];?></dd>
+							<?php } ?>
+							<?php if (!empty($goods_info['goods_type_cn'])) { ?>
+							<dd class="goods-type"><?php echo $goods_info['goods_type_cn'];?></>
+							<?php } ?>
+						</dl>
+					</td>
+					<td><?php echo ncPriceFormat($goods_info['goods_price']);?>
+		        <p class="green">
+	            <?php if (is_array($order_info['refund_all']) && !empty($order_info['refund_all']) && $order_info['refund_all']['admin_time'] > 0) {?>
+			        <?php echo $goods_info['goods_pay_price'];?>(退)
+			        <?php } elseif ($goods_info['extend_refund']['admin_time'] > 0) { ?>
+			        <?php echo $goods_info['extend_refund']['refund_amount'];?>(退)
+			        <?php } ?>
+	          </p>
+					</td>
+        <td><?php echo $goods_info['goods_num']; ?></td>
+					<!-- S 合并TD -->
+					<?php if (($order_info['goods_count'] > 1 && $k ==0) || ($order_info['goods_count'] == 1)){?>
+        <td class="bdl" rowspan="<?php echo $order_info['goods_count'];?>">
+	        <p class="">
+		        <strong><?php echo $order_info['order_amount']; ?></strong>
+	        </p>
+          <p class="goods-freight">
+            <?php if ($order_info['shipping_fee'] > 0){?>
+            (<?php echo $lang['member_order_shipping_han'];?>运费<?php echo $order_info['shipping_fee'];?>)
+	          <?php }else{?>
+	          <?php echo $lang['nc_common_shipping_free'];?>
+	          <?php }?>
+          </p>
+          <p title="<?php echo $lang['member_order_pay_method'].$lang['nc_colon'];?><?php echo $order_info['payment_name']; ?>">
+	          <?php echo $order_info['payment_name']; ?>
+          </p>
+        </td>
+        <td class="bdl" rowspan="<?php echo $order_info['goods_count'];?>">
+	        <p>
+		        <?php echo $order_info['state_desc']; ?>
+		        <?php echo $order_info['evaluation_status'] ? $lang['member_order_evaluated'] : '';?>
+	        </p>
+	        <p>
+		        <?php if ($group_info['pay_amount'] > 0) {?>
+		        <span class="ml15">在线支付金额：<em>￥<?php echo ncPriceFormat($group_info['pay_amount']);?></em></span>
+		        <?php }?>
+	        </p>
+	        <!-- 物流跟踪 -->
+	        <?php if ($order_info['if_deliver']){ ?>
+	        <p><a href='index.php?controller=member_order&action=search_deliver&order_id=<?php echo $order_info['order_id']; ?>&order_sn=<?php echo $order_info['order_sn']; ?>' target="_blank"><?php echo $lang['member_order_show_deliver']?></a></p>
+	        <?php } ?>
+        </td>
+        <td class="bdl bdr" rowspan="<?php echo $order_info['goods_count'];?>"><!-- 永久删除 -->
+	        <!-- 锁定-->
+	        <?php if ($order_info['if_lock']) { ?>
+	        <p>退款退货中</p>
+	        <?php } ?>
+
+	        <?php if ($order_info['if_delete']) { ?><!-- 放入回收站 -->
+		        <a href="javascript:void(0);" class="jOrderOp" data-op-type="order_delete" data-order-id="<?php echo $order_info['order_id']; ?>">删除</a>
+	        <?php } ?>
+	        <?php if ($order_info['if_restore']) { ?><!-- 还原订单 -->
+		        <a href="javascript:void(0);" class="jOrderOp" data-op-type="order_restore" data-order-id="<?php echo $order_info['order_id']; ?>">还原</a>
+	        <?php } ?>
+
+
+	        <?php if ($order_info['if_complain']){ ?><!-- 投诉 -->
+	        <?php } ?>
+
+	        <a href="index.php?controller=member_order&action=show_order&order_id=<?php echo $order_info['order_id']; ?>" target="_blank">订单查看</a>
+	        <?php if ($order_info['if_buyer_cancel']) { ?>
+	        <a href="javascript:void(0)"  class="jOrderOp" data-op-type="order_cancel" data-order-id="<?php echo $order_info['order_id']; ?>">取消订单</a>
+	        <?php } ?>
+
+	        <?php if ($group_info['pay_amount'] > 0) {?>
+	        <a class="btn" href="index.php?controller=buy&action=pay&pay_sn=<?php echo $order_pay_sn; ?>">订单支付</a>
+	        <?php }?>
+
+	        <?php if ($order_info['if_refund_cancel'] =='yefengKK'){ ?><!-- 退款取消订单 -->
+	        <?php } ?>
+
+	        <?php if ($order_info['if_receive']) { ?>
+	        <a href="javascript:void(0)" class="jOrderOp btn"  data-op-type="order_receive" data-order-id="<?php echo $order_info['order_id']; ?>"   data-order-sn="<?php echo $order_info['order_sn']; ?>">确认收货</a>
+	        <?php } ?>
+
+	        <?php if ($order_info['if_evaluation']) { ?><!-- 评价 -->
+	        <a class="btn" href="index.php?controller=member_evaluate&action=add&order_id=<?php echo $order_info['order_id']; ?>"><?php echo $lang['member_order_want_evaluate'];?></a>
+	        <?php } ?>
+
+	        <?php if ($order_info['if_evaluation_again']) { ?>
+	        <a class="ncbtn" href="index.php?controller=member_evaluate&action=add_again&order_id=<?php echo $order_info['order_id']; ?>"><i class="icon-thumbs-up-alt"></i>追加评价</a>
+	        <?php } ?>
+	        <?php if ($order_info['if_drop']) { ?>
+	        <a href="javascript:void(0);" onclick="ajax_get_confirm('您确定要永久删除吗?永久删除后您将无法再查看该订单，也无法进行投诉维权，请谨慎操作！', 'index.php?controller=member_order&action=change_state&state_type=order_drop&order_id=<?php echo $order_info['order_id']; ?>');" class="ncbtn ncbtn-grapefruit mt5"><i class="icon-trash"></i>永久删除</a>
+	        <?php } ?>
+        </td>
+					  <!-- E 合并TD -->
+					  <?php } ?>
+      </tr>
+
+
+				  <?php } ?>
+				  <?php } ?>
+				  <!-- E 商品列表 -->
+
+				  <?php } ?>
+				  </tbody>
+				  <?php } ?>
+				  <?php } else { ?>
+				  <tbody>
+      <tr>
+        <td colspan="20" class="norecord"><div class="warning-option"><i>&nbsp;</i><span><?php echo $lang['no_record'];?></span></div></td>
+      </tr>
+    </tbody>
+				  <?php } ?>
+  </table>
+			<?php if($output['order_group_list']) { ?>
+			<?php echo $output['show_page']; ?>
+			<?php } ?>
+		</div>
+	</div>
+</div>

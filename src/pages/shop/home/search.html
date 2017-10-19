@@ -1,0 +1,190 @@
+<div class="cnt clearfix">
+	<div class="f-l left-nav">
+		<div class="left-block left-cat" id="jLeftCat">
+			<h2 class="t14">全部商品分类</h2>
+			<?php foreach ($output['goods_class_array'] as $value) {?>
+			<div class="cat-item <?php if ($value['gc_id'] == $_GET['cate_id'] || count($output['goods_class_array']) == 1) {?>cat-item-hover<?php }?> ">
+				<h3 class="cat-father"><i class="icon iconfont icon-add"></i><i class="icon iconfont icon-min"></i>
+					<a href="<?php echo urlShop('search', 'index', array('cate_id' => $value['gc_id'], 'keyword' => $_GET['keyword']));?>">
+						<?php echo $value['gc_name']?>
+					</a>
+				</h3>
+				<?php if (!empty($value['class2'])) {?>
+				<ul class="cat-child">
+					<?php foreach ($value['class2'] as $val) {?>
+					<li>
+						<a href="<?php echo urlShop('search', 'index', array('cate_id' => $val['gc_id'], 'keyword' => $_GET['keyword']));?>">
+							<?php echo $val['gc_name']?>
+						</a>
+					</li>
+					<?php }?>
+				</ul>
+				<?php }?>
+			</div>
+			<?php }?>
+		</div>
+	</div>
+	<div class="f-r right-cnt">
+		<?php if((!empty($output['brand_array']) && is_array($output['brand_array'])) || (!empty($output['attr_array']) && is_array($output['attr_array']))){?>
+		<div class="choose " id="jChoose">
+			<div class="title">商品筛选</div>
+			<!--已选择的品牌和属性 start-->
+			<?php if((isset($output['checked_brand']) && is_array($output['checked_brand'])) || (isset($output['checked_attr']) && is_array($output['checked_attr']))){?>
+			<div class="attr attr-selected">
+				<div class="attr-key">已经选择</div>
+					<div class="attr-values">
+						<ul class="clearfix">
+							<!--已选择的品牌 start-->
+							<?php if(isset($output['checked_brand']) && is_array($output['checked_brand'])){?>
+							<?php foreach ($output['checked_brand'] as $key=>$val){?>
+							<li>
+								<a class="jSelected" href="<?php echo removeParam(array('b_id' => $key));?>">
+									<span>
+									品牌<?php echo $val['brand_name']?>
+									</span>
+									<i class="icon iconfont"></i>
+								</a>
+							</li>
+							<?php }?>
+							<?php }?>
+							<!--已选择的品牌 end-->
+							<!--已选择的属性 start-->
+							<?php if(isset($output['checked_attr']) && is_array($output['checked_attr'])){?>
+							<?php foreach ($output['checked_attr'] as $val){?>
+							<li>
+								<a class="jSelected" href="<?php echo removeParam(array('a_id' => $val['attr_value_id']));?>">
+									<span>
+									<?php echo $val['name']?><?php echo $val['attr_name']?>
+									</span>
+									<i class="icon iconfont"></i>
+								</a>
+							</li>
+							<?php }?>
+							<?php }?>
+							<!--已选择的属性 end-->
+						</ul>
+					</div>
+					<div class="attr-op">
+						<a href="http://list.yunhou.com/hs_0-so_desc-sf_default-ps_48-fc_95740036_103950074.html"><i class="icon iconfont"></i>撤销条件</a>
+					</div>
+			</div>
+			<?php }?>
+			<!--已选择的品牌和属性 end-->
+			<!--未选择的品牌 start-->
+			<?php if (!isset($output['checked_brand']) || empty($output['checked_brand'])){?>
+			<?php if(!empty($output['brand_array']) && is_array($output['brand_array'])){?>
+			<div class="attr attr-fix attr-first" data-type="b" data-selected="" data-propsid="">
+				<div class="attr-key">品牌</div>
+				<div class="attr-values">
+					<ul class="clearfix">
+						<?php $i = 0;foreach ($output['brand_array'] as $k=>$v){$i++;?>
+						<li>
+							<a class="jAttrVal" title="<?php echo $v['brand_name'];?>"
+							   href="<?php $b_id = (($_GET['b_id'] != '' && intval($_GET['b_id']) != 0)?$_GET['b_id'].'_'.$k:$k); echo replaceParam(array('b_id' => $b_id));?>"
+							   data-id="928500010"><?php echo $v['brand_name'];?><i class="icon iconfont icon-mult-del jMultDel"></i></a>
+						</li>
+						<?php }?>
+					</ul>
+				</div>
+				<div class="attr-op">
+					<?php if (count($output['brand_array']) > 16){?>
+					<span class="op-more">
+						<a href="javascript:;" class="unfold jUnfold">更多<i class="icon iconfont"></i></a>
+						<a href="javascript:;" class="fold jFold">收起<i class="icon iconfont"></i></a>
+					</span>
+					<?php }?>
+				</div>
+				<div class="attr-btn">
+					<a href="javascript:;" class="btn jMultOk">确定</a>
+					<a href="javascript:;" class="btn btn-sec jMultCancel">取消</a>
+				</div>
+			</div>
+			<?php $dl++;}?>
+			<?php }?>
+			<!--未选择的品牌 end-->
+			<!--未选择的属性 start-->
+			<?php if(!empty($output['attr_array']) && is_array($output['attr_array'])){?>
+			<?php $j = 0;foreach ($output['attr_array'] as $key=>$val){$j++;?>
+			<?php if(!isset($output['checked_attr'][$key]) && !empty($val['value']) && is_array($val['value'])){?>
+			<div class="attr attr-fix">
+				<div class="attr-key"><?php echo $val['name'].$lang['nc_colon'];?></div>
+		      <div class="attr-values">
+		        <ul class="clearfix">
+		          <?php $i = 0;foreach ($val['value'] as $k=>$v){$i++;?>
+		          <li>
+			          <a href="<?php $a_id = (($_GET['a_id'] != '' && $_GET['a_id'] != 0)?$_GET['a_id'].'_'.$k:$k); echo replaceParam(array('a_id' => $a_id));?>">
+				          <?php echo $v['attr_value_name'];?>
+			          </a>
+		          </li>
+		          <?php }?>
+		        </ul>
+		      </div>
+				<?php if (count($val['value']) > 10){?>
+		            <dd class="all"><span nc_type="show"><i class="icon-angle-down"></i><?php echo $lang['goods_class_index_more'];?></span></dd>
+				<?php }?>
+		          </div>
+			<?php }?>
+			<?php $dl++;} ?>
+			<?php }?>
+			<!--未选择的属性 end-->
+		</div>
+		<?php }?>
+		<div class="filter" id="jFilter" style="height: 38px;">
+	    <div class="title">
+		    <ul class="filter-items">
+			    <li class="order">
+				    <!-- 默认 -->
+						<?php if (!$_GET['key']){ ?>
+						<span class="btn btn-hover">默认</span>
+						<?php }else { ?>
+				    <a href="<?php echo dropParam(array('order', 'key')); ?>" class="btn" rel="nofollow">默认</a>
+						<?php } ?>
+						<!-- 销量 -->
+						<?php if ($_GET['key'] == '1'){ ?>
+						<span class="btn btn-hover">销量</span>
+						<?php }else { ?>
+						<a href="<?php echo ($_GET['order'] == '2' && $_GET['key'] == '1') ? replaceParam(array('key' => '1', 'order' => '1')) : replaceParam(array('key' => '1', 'order' => '2')); ?>" class="btn" rel="nofollow">销量<i class="icon iconfont icon-hover"></i></a>
+						<?php } ?>
+						<!-- 人气 -->
+						<?php if ($_GET['key'] == '2'){ ?>
+						<span class="btn btn-hover">人气</span>
+						<?php }else { ?>
+						<a href="<?php echo ($_GET['order'] == '2' && $_GET['key'] == '2') ? replaceParam(array('key' => '2', 'order' => '1')) : replaceParam(array('key' => '2', 'order' => '2')); ?>"
+						   class="btn" rel="nofollow">人气<i class="icon iconfont icon-hover"></i></a>
+						<?php } ?>
+						<!-- 价格 -->
+				    <a href="<?php echo ($_GET['order'] == '2' && $_GET['key'] == '3') ? replaceParam(array('key' => '3', 'order' => '1')) : replaceParam(array('key' => '3', 'order' => '2')); ?>"
+				       class="btn btn-price <?php if($_GET['key'] == '3') {   echo ($_GET['order'] == '2' && $_GET['key'] == '3') ? 'btn-asc' : 'btn-desc';  } ?>" rel="nofollow">价格<i class="icon iconfont icon-up"></i><i class="icon iconfont icon-down"></i></a>
+			    </li>
+		    </ul>
+	    </div>
+		</div>
+		<div class="goods-cnt" id="jGoodsCnt">
+			<?php if (!empty($output['goods_list']) && is_array($output['goods_list'])){ ?>
+			<div class="goods-lists clearfix">
+				<?php foreach ($output['goods_list'] as $value){ ?>
+				<div class="cols" data-node-type="goods-cols">
+					<div class="col-cnt clearfix">
+						<div class="col" data-targetid="10096000213" data-product-id="10096000249" data-bpm="4.1.1.13.0.10096000249">
+							<a href="<?php echo urlShop('goods', 'index', array('goods_id' => $value['goods_id'])); ?>" target="_blank" class="goods-img">
+								<img class="jImg" alt="<?php echo $value['goods_name']; ?>"
+								     src="<?php echo yf_cthumb($value['goods_image'], 220, $value['store_id']); ?>" rel="nofollow" style="display: inline;">
+							</a>
+							<p class="goods-name">
+								<a target="_blank" href="<?php echo urlShop('goods', 'index', array('goods_id' => $value['goods_id'])); ?>"><?php echo $value['goods_name']; ?></a>
+							</p>
+							<div class="goods-price" id="jProductPrice-10096000249" data-price-sale="29.90" data-price-market="0">
+								<span class="p-normal f-l"><em>¥</em><?php echo ncPriceFormat($value['goods_promotion_price']); ?></span>
+								<span class="p-del"><em>¥</em><?php echo ncPriceFormat($value['goods_marketprice']); ?></span>
+								<div class="goods-sales" style="display: none;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<?php } ?>
+			</div>
+			<?php } ?>
+		</div>
+		<?php echo $output['show_page']; ?>
+	</div>
+</div>

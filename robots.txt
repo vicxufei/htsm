@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /api/
+Disallow: /chain/
+Disallow: /chat/
+Disallow: /core/
+Disallow: /crontab/
+Disallow: /data/
+Disallow: /delivery/
+Disallow: /htadmin868/
+Disallow: /member/
+Disallow: /src/
+Disallow: /yf_shop/

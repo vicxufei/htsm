@@ -1,0 +1,56 @@
+<div class="main">
+	<div class="clearfix">
+		{{> member-menu}}
+<div class="cnt f-l">
+					<div class="security-center">
+						<h1><span>安全中心</span></h1>
+						<div class="ct">
+							<!-- 安全等级 begin -->
+							<div class="rank">
+								<div class="rank-l">
+									<span>您的安全等级为</span>
+									<i class="schedule-bar schedule-bar-<?php echo $output['member_info']['security_level'] ?>">
+									</i>
+									<span class="level-txt-<?php echo $output['member_info']['security_level'] ?>">
+										<?php if ($output['member_info']['security_level'] <= 1) { ?>低
+										<?php } elseif ($output['member_info']['security_level'] == 2) {?>中
+										<?php }else {?>高
+										<?php } ?>
+									</span>
+								</div>
+								<div class="rank-r">
+									<p class="txt-orange mar-t-20">强烈建议您启用全部安全设置，以保障账户安全。</p>
+									<p class="time">上次登录地址：<?php echo encryptShow($output['member_info']['member_old_login_ip'],4,4);?></p>
+									<p class="time">上次登录时间：<?php echo date('Y年m月d日 H:i:s',$output['member_info']['member_old_login_time']);?></p>
+								</div>
+							</div>
+							<!-- 安全等级 end -->
+							<!-- 登录密码 begin -->
+							<div class="operate verified">
+								<span class="icon iconfont iconfont-gouxuan"></span>
+								<i></i>
+								<span class="operate-txt">登录密码</span>
+								<i></i>
+								<span class="operate-info">建议您定期更改密码以保护账户安全，不要和其他帐号使用共用的的密码
+								</span>
+								<i></i>
+								<a class="operate-modify" href="<?php echo urlShop('member_security', 'auth', array('type' => 'modify_pwd')); ?>">修改&gt;&gt;</a>
+							</div>
+							<!-- 登录密码 end -->
+							<!-- 手机绑定 begin -->
+							<div class="operate <?php echo $output['member_info']['member_mobile_bind'] == 1 ? 'verified' : '';?>">
+								<span class="icon iconfont <?php echo $output['member_info']['member_mobile_bind'] == 1 ? 'iconfont-gouxuan' : 'iconfont-close2';?>"></span>
+								<i></i>
+								<span class="operate-txt">手机绑定</span>
+								<i></i>
+								<span class="operate-info">绑定后，可用于手机号快速登录，在忘记密码时也可通过短信验证码找回密码
+								</span>
+								<i></i>
+								<a class="operate-modify" href="<?php echo urlShop('member_security', 'auth', array('type' => 'modify_mobile')); ?>">修改&gt;&gt;</a>
+							</div>
+							<!-- 手机绑定 end -->
+						</div>
+					</div>
+				</div>
+	</div>
+</div>

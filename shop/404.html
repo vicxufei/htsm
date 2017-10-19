@@ -1,0 +1,322 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	  <meta name="keywords" content="<?php echo $output['seo_keywords']; ?>"/>
+    <meta name="description" content="<?php echo $output['seo_description']; ?>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $output['html_title']; ?></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.htths.com/">
+    <link rel="stylesheet" href="http://static.htths.com/css/base-fb2b7f94f8.min.css?v10">
+	  <link rel="stylesheet" href="http://static.htths.com/css/404-96aa8d19cb.min.css?v9">
+  </head>
+  <body>
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="global-topbar">
+      <div class="bd w1190 clearfix">
+    	  <ul class="sn-block sn-login f-l" id="is-login">
+    		  <?php if ($_SESSION['is_login'] == '1'){ ?>
+    		  <li data-is-login="1">
+    			  您好,
+    			  <a rel="nofollow" href="<?php echo urlMember('member_security', 'index');?>"><?php echo $_SESSION['member_name']; ?></a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'logout'); ?>">退出登录</a>
+    		  </li>
+    		  <?php }else{ ?>
+    		  <li data-is-login="0">
+    			  <a rel="nofollow" href="<?php echo urlMember('login'); ?>">登录</a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'register'); ?>">免费注册</a>
+    		  </li>
+    		  <?php } ?>
+    	  </ul>
+        <ul class="sn-block sn-quick f-r">
+          <li class="jMenu">
+              <a class="menu-hd block-item" rel="nofollow" href="<?php echo SHOP_SITE_URL; ?>/index.php?act=member_order">我的订单<b
+    		          class="arrow"></b></a>
+              <div class="menu-bd">
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_new">待付款订单</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_send">待确认收货</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_noeval">待评价交易</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_goods&op=fglist">商品收藏</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_store&op=fslist">店铺收藏</a>
+              </div>
+          </li>
+          <li class="sn-cart"><a class="block-item" href="http://cart.yunhou.com/">我的购物车<b class="jCartCount sn-cart-count">0</b></a></li>
+          <li class="jMenu">
+              <a class="menu-hd block-item" href="#">客户服务<b class="arrow"></b></a>
+              <div class="menu-bd">
+                  <ul>
+                      <li><a href="<?php echo urlMember('article', 'article', array('ac_id' => 2)); ?>">帮助中心</a></li>
+                      <li><a href="<?php echo urlMember('article', 'article', array('ac_id' => 5)); ?>">售后服务</a></li>
+                      <li><a href="<?php echo urlMember('article', 'article', array('ac_id' => 6)); ?>">客服中心</a></li>
+                  </ul>
+              </div>
+          </li>
+          <li class="sn-msg jNotification"><a class="block-item" href="http://i.yunhou.com/news/getUnReadMsg">消息</a></li>
+          <li class="qr-codes jMenu">
+            <a class="menu-hd block-item" href="javascript:;">手机版</a>
+            <div class="menu-bd">
+              <div class="qr-codes-img"><img class="jImgPhoneCode img-error" src="//static.htths.com/img/htsm-qrcode.jpg" alt="太划算二维码"></div><div
+    		        class="qr-codes-txt">太划算手机版</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="site-head">
+      <div class="bd w1190 clearfix">
+        <div class="s-box" id="jSearch" data-node-type="jSearch">
+    	    <div class="s-main">
+    		    <label class="lbl-key" for="mq"></label>
+    		    <input class="input" type="text" name="keyword" autocomplete="off" x-webkit-grammar="builtin:translate" value="" id="mq" data-node-type="mq">
+    		    <a  class="btn-search jBtnAllSearch" href="javascript:;">搜索</a>
+    	    </div>
+    	    <div class="kw-suggest" id="jKwSuggest" data-node-type="jKwSuggest">
+    		    <?php if (is_array($output['hot_search']) && !empty($output['hot_search'])){ ?>
+    		      <?php foreach ($output['hot_search'] as $val){ ?>
+    		    <a href="<?php echo urlShop('search', 'index', array('keyword' => $val)); ?>" target="_blank"><?php echo $val; ?></a>
+    		    <?php } } ?>
+    	    </div>
+    
+          <div class="k-history" id="jSearchHistoryBox">
+    	      <?php if (is_array($output['his_search_list']) && !empty($output['his_search_list'])){ ?>
+    	      <ul class="kh-list">
+    		      <?php foreach ($output['his_search_list'] as $v){ ?>
+    		      <li class="kh-item" data-key="<?php echo $v ?>"><span class="kh-key"><?php echo $v ?></span><a class="kh-button">删除</a></li>
+    		      <?php } ?>
+    	      </ul>
+    	      <div class="kh-infos clearfix"><span>搜索记录</span><a class="kh-clear">清空搜索记录</a></div>
+    	      <?php }else{ ?>
+    	      <div class="kh-none">无历史搜索记录</div>
+    	      <?php } ?>
+          </div>
+        </div>
+        <h1>
+    	    <a href="<?php echo SHOP_SITE_URL; ?>" title="太划算商城" class="go-home">
+    		    <img alt="太划算商城" class="logo" src="<?php echo STATIC_URL; ?>/images/logo.png">
+            </a>
+        </h1>
+      </div>
+    </div>
+    
+    
+      <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+      <div class="navigation navigation_101">
+          <div class="w1190 bd">
+              <ul class="nav-cnt jNav">
+                  <li class="jNavTop <?php if($output['index_sign'] == 'index' && $output['index_sign'] != '0') {?>nav-hover<?php }?>">
+      	            <a target="_blank" href="<?php echo SHOP_SITE_URL;?>">首页</a>
+                  </li>
+      	        <?php if(!empty($output['show_goods_class'])){ ?>
+      	        <?php foreach ($output['show_goods_class'] as $key => $val){ ?>
+                  <li class="jNavTop <?php if($_GET['cate_id'] == $val['gc_id']) {?>nav-hover<?php } ?>">
+      	            <a href="<?php echo urlShop('search', 'index', array('cate_id' => $val['gc_id'])); ?>" target="_blank"><?php echo $val['gc_name']; ?></a>
+      	            <div class="pin-down jPinDown jNavLoad pin-down-6" cat_menu_id="<?php echo $val['gc_id']; ?>">
+                          <div class="pin-down-cate">
+                              <?php if (!empty($val['class2']) && is_array($val['class2'])){ ?>
+      	                    <?php foreach ($val['class2'] as $k => $v){ ?>
+                                      <dl class="item-list">
+                                      <dt>
+                                          <a href="<?php echo urlShop('search', 'index', array('cate_id' => $v['gc_id'])); ?>" target="_blank"><?php echo $v['gc_name']; ?></a>
+                                      </dt>
+                                      <dd><?php if (!empty($v['class3']) && is_array($v['class3'])){ ?>
+      	                                <?php foreach ($v['class3'] as $k3 => $v3){ ?>
+                                                  <a href="<?php echo urlShop('search', 'index', array('cate_id' => $v3['gc_id'])); ?>" target="_blank">
+                                                  <?php echo $v3['gc_name']; ?></a>
+      	                                <?php }} ?>
+                                      </dd>
+                                      </dl>
+      	                    <?php }} ?>
+                          </div>
+                          <div class="pin-down-brand">
+      	                    <?php if (!empty($val['cn_brands'])){ ?>
+      	                    <div class="brands-list">
+                                  <ul><?php foreach ($val['cn_brands'] as $brand){ ?>
+      	                            <li> <a href="<?php echo urlShop('brand', 'list', array('brand' => $brand['brand_id'])); ?>"
+      			                            title="<?php echo $brand['brand_name']; ?>"><?php if ($brand['brand_pic'] != '')
+                                              { ?><img src="<?php echo brandImage($brand['brand_pic']); ?>"/><?php } ?>
+      		                            <span><?php echo $brand['brand_name']; ?></span></a></li>
+      	                            <?php } ?></ul>
+                                  </div>
+      	                    <?php } ?>
+                          </div>
+                          <div class="pin-down-banner"><?php if ($val['cn_adv1'] != ''){ ?>
+                            <a <?php echo $val['cn_adv1_link'] == '' ? 'href="javascript:;"' : 'target="_blank" href="' . $val['cn_adv1_link'] . '"'; ?>
+                            >
+                <img src="<?php echo $val['cn_adv1']; ?>"></a><?php } ?><?php if ($val['cn_adv2'] != '')
+            { ?>
+                            <a <?php echo $val['cn_adv2_link'] == '' ? 'href="javascript:;"' : 'target="_blank" href="' . $val['cn_adv2_link'] . '"'; ?>
+                            >
+                <img src="<?php echo $val['cn_adv2']; ?>"></a><?php } ?></div>
+                      </div>
+                  </li>
+      	        <?php } ?>
+      	        <?php } ?>
+              </ul>
+          </div>
+      </div>
+      
+      <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+      
+      <?php if(!empty($output['nav_link_list']) && is_array($output['nav_link_list'])){?>
+      <div class="mod-crumbs-nav">
+      	<?php foreach($output['nav_link_list'] as $nav_link){?>
+      	<?php if(!empty($nav_link['link'])){?>
+        <div class="crumbs-nav-item one-level">
+          <a href="<?php echo $nav_link['link'];?>" class="crumbs-link" title="<?php echo $nav_link['title'];?>"><?php echo $nav_link['title'];?></a>
+          <span>&gt;</span>
+        </div>
+      	<?php }else{?>
+        <b><?php echo $nav_link['title'];?></b>
+      	<?php }?>
+      	<?php }?>
+      </div>
+      <?php }?>
+      
+      
+
+
+    <div class="cnt bg w1190" id="plax_content">
+      <div class="content">
+        <div class="can-move plax-sphere content-bg">
+          <div class="fail-reason">
+            <h1><?php  if ($output['msg']){echo $output['msg'];}else{echo '您访问的页面不存在';} ?></h1><br>
+            <span class="return-home">建议您：<a id="return_home" href="http://www1.htths.com">返回首页</a></span>
+            <span>&nbsp;<span id="return_time">4</span> 秒后自动跳转到首页</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="footer">
+    	<div class="bd">
+    		<div class="help w1190">
+    
+    			<?php if(is_array($output['article_list']) && !empty($output['article_list'])){ ?>
+    			<div class="list">
+    								<?php foreach ($output['article_list'] as $k=> $article_class){ ?>
+    				<?php if(!empty($article_class)){ ?>
+    				<dl>
+                  <dt><?php if(is_array($article_class['class'])) echo $article_class['class']['ac_name'];?></dt>
+    					<?php if(is_array($article_class['list']) && !empty($article_class['list'])){ ?>
+    					<?php foreach ($article_class['list'] as $article){ ?>
+    					<dd>
+    	            <a href="<?php if($article['article_url'] != '')echo $article['article_url'];else echo urlShop('article', 'show',array('article_id'=> $article['article_id']));?>" title="<?php echo $article['article_title']; ?>">
+    		            <?php echo $article['article_title'];?> </a>
+                </dd>
+    					<?php }}?>
+              </dl>
+    				<?php }}?>
+    			</div>
+    			<?php }?>
+    
+    			<div class="contact">
+              <div class="item"><i class="icon iconfont iconfont-tel"></i><span>0512-53228886</span></div>
+              <div class="item item-email"><i class="icon iconfont iconfont-email"></i><span>654370122@qq.com</span></div>
+          </div>
+            </div>
+        </div>
+        <div class="ft">
+          <div class="copyright">
+              <p class="links">
+    	          <a rel="nofollow" href="http://www1.htths.com/article-22.html" target="_blank">关于太划算</a><span>|</span>
+    	          <a rel="nofollow" href="http://www1.htths.com/article-23.html" target="_blank">联系我们</a><span>|</span>
+              </p>
+              <p class="cprt-icp">苏ICP备14036053号-1<span>|</span>Copyright© 太划算商城 2014-2016，All Rights Reserved</p>
+          </div>
+        </div>
+    </div>
+    
+    
+    <link rel="stylesheet" href="http://mall.htths.com/dist/css/mini-bar-b81df7d5bf.min.css">
+    <div node-type="miniBar" class="ui-mini-bar">
+    	<div node-type="richMain" class="rich-main" style="right: 0px;">
+    		<div node-type="richTabs" class=" rich-tabs">
+    			<div class="tabs-wrap">
+    				<div node-type="tabTop" class=" tab-top"></div>
+    				<div node-type="tabMidWrap" class="tab-mid-wrap">
+    					<div node-type="tabMid" class=" tab-mid">
+    						<div node-type="tab-item" class="rich-tab-box ui-animated t-cart" data-type="cart">
+    							<a class="tab-item tab-cart" id="jMinCart" data-type="Cart" href="javascript:;">
+    								<div class="tab-item-icon"><i class="icon iconfont iconfont-cart-kong"></i></div>
+    								<div class="tab-item-txt">购物车</div>
+    								<div class="cart-count jCartCount">0</div>
+    							</a>
+    						</div>
+    					</div>
+    				</div>
+    				<div node-type="tabBottom" class=" tab-bottom">
+    					<div node-type="tab-item" class="rich-tab-box ui-animated t-sct" data-type="sct">
+    						<a class="tab-item tab-item-to-top jScrollToTop" href="javascript:;" style="display: none;">
+    						<b class="arrow"></b>
+    						<div class="tab-item-txt">TOP</div>
+    						<div class="tab-item-txt">置顶</div>
+    						</a>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    		<div node-type="richPanels" class=" rich-panels">
+    			<div node-type="panel-item" class="rich-panel-box box-hide p-cart" data-type="cart">
+    				<div class="plug-cart">
+    					<div class="bar-plug-top">
+    						<a href="javascript:;" class="bar-plug-close jBarPlugClose"></a>
+    					</div>
+    					<ul class="cart-cnt">
+    						<li class="cart-empty">^_^&nbsp;&nbsp;既来之，则买之！</li>
+    					</ul>
+    					<div class="cart-op clearfix">
+    						<div class="cart-total clearfix">
+    							<span class="f-l">共<b class="jCartCount">0</b>件</span>
+    							<span class="f-r">商品总额：
+    								<span class="p-normal"><em>¥</em>
+    									<span class="jTotalPrice">0.00</span>
+    								</span>
+    							</span>
+    						</div>
+    						<a href="http://www1.htths.com/index.php?controller=cart" class="btn jGoCart" target="_blank">去购物车结算</a>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
+    <script id="tplCartList" type="text/html">
+    <% for (var i = 0; i < list.length; i ++) { %>
+    <li class="jCartItem">
+    	<a class="goods-img" href="<%= list[i]['goods_url'] %>" target="_blank">
+    		<img class="jImgMinCart" alt="<%= list[i]['goods_name'] %>" src="<%= list[i]['goods_image'] %>" style="display: inline;">
+    	</a>
+    	<a class="goods-name" href="<%= list[i]['goods_url'] %>" target="_blank"><%= list[i]['goods_name'] %></a>
+    	<div class="goods-des clearfix">
+    		<span class="goods-price p-normal f-l"><em>¥</em><%= list[i]['goods_price'] %></span>
+    		<span class="goods-num f-r"><%= list[i]['goods_num'] %></span>
+    	</div>
+    	<a class="op-del jOpDel" data-cart-id="<%= list[i]['cart_id'] %>" data-good-id="<%= list[i]['goods_id'] %>" href="javascript:;"><i class="icon iconfont"></i></a>
+    </li>
+    <% } %>
+    </script>
+
+    <script src="http://static.htths.com/js/lib/require.js"></script>
+    <script>
+      requirejs(['http://static.htths.com/js/common.js'], function (common) {
+        requirejs(['http://static.htths.com/js/app/404.js']);
+      });
+  </script>
+  </body>
+</html>

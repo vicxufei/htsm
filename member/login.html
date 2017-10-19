@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>用户登录-太划算商城-更近更贴心</title>
+ 	<meta charset="utf-8" />
+  <meta name="renderer" content="webkit" />
+	<link rel="stylesheet" href="http://static.htths.com/css/login-dfad67a5c1.min.css">
+
+</head>
+<body>
+	<div class="head">
+		<div class="login w990">
+			<a href="<?php echo SHOP_SITE_URL;?>" class="hd f-l">
+				<img alt="" src="<?php echo STATIC_URL; ?>/images/logo.png">
+			</a>
+			<span class="bd f-l">欢迎登录</span>
+			<span class="ft f-r">
+				<label>没有账号？</label>
+				<a href="<?php echo urlLogin('login','register');?>" class="barder" >立即注册</a>
+				<a target="_blank" href="http://www1.htths.com/article-26.html">帮助中心</a>
+			</span>
+		</div>
+	</div>
+	    	<div class="middle" >
+	    		<div class="w990">
+	    			<div class="r_icon1"></div>
+	    			<div class="r_icon2"></div>
+	    			<div class="r_icon3"></div>
+	    			<div class="r_icon4"></div>
+	    			<div class="r_icon5"></div>
+	    			<div class="login-panel">
+	    				<div class="bd">
+	    					<ul id="jLoginSwitch">
+	    						<li>
+	    							<form method="post" id="jForm" autocomplete="off" data-formhash="<?php echo Security::getTokenValue();?>">
+	    								<div class="txt-box txt-box-margin">
+	    									<input id="loginName" name="loginName" type="text" value="" class="txt"  tabindex="1" placeholder="手机号码/邮箱/用户名">
+	    									<em class="iconfont iconfont-user2"></em>
+	    								</div>
+	    								<div class="txt-box">
+	    									<input id="password" name="password" type="password" class="txt auto-password-check-handle" maxlength="20" tabindex="2" placeholder="登录密码">
+	    									<em class="iconfont iconfont-jiesuo"></em>
+	    								</div>
+	    								<div class="txt-box txt-box-captcha-verify11 clearfix">
+	    									<input id="captchaCode" name="captchaCode" type="text" class="txt txt-code" maxlength="4" tabindex="3" placeholder="验证码">
+	    									<img src="index.php?act=seccode&op=makecode&type=50,120&nchash=<?php echo getNchash();?>" title="点击更换验证码" class="img-verify jGetCaptcha" data-hash="<?php echo yf_hash(); ?>" data-type="PC_LOGIN">
+	    									<span class="change-img">看不清楚?<a href="javascript:;" class="jGetCaptcha">换一个</a></span>
+	    									<em class="iconfont iconfont-tuwenxiangqing"></em>
+	    								</div>
+	    								<div class="txt-remember clearfix">
+	    									<div class="f-l">
+	    										<input type="checkbox" id="autoLogin" name="autoLogin" tabindex="5"><label for="autoLogin">2周内自动登录</label>
+	    									</div>
+	    									<div class="f-r">
+	    										<a href="<?php echo urlMember('login','forget_password');?>">忘记密码?</a>
+	    									</div>
+	    								</div>
+	    								<div class="txt-btn txt-btn-height">
+	    									<input data-ref-url="<?php echo $_GET['ref_url']?>" type="submit" class="btn" id="jSubmit" value="登录" />
+	    								</div>
+	    							</form>
+	    						</li>
+	    					</ul>
+	    				</div>
+	    			</div>
+	    		</div>
+	    
+	    	</div>
+	<!--footer begin-->
+<div class="footer">
+	  <p class="links">
+	  <a rel="nofollow" href="http://www1.htths.com/article-22.html" target="_blank">关于太划算</a><span>|</span>
+	  <a rel="nofollow" href="http://www1.htths.com/article-23.html" target="_blank">联系我们</a><span>|</span>
+	</p>
+	<p class="cprt-icp">苏ICP备14036053号-1<span>|</span>Copyright© 太划算商城 2014-2016，All Rights Reserved</p>
+</div>
+	<!--footer end-->
+		<script src="http://static.htths.com/js/lib/require.js"></script>
+    <script>
+      requirejs(['http://static.htths.com/js/common.js'], function (common) {
+	      requirejs(['http://static.htths.com/js/app/login.js']);
+      });
+  </script>
+</body>
+</html>

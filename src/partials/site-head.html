@@ -1,0 +1,37 @@
+<?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+<div class="site-head">
+  <div class="bd w1190 clearfix">
+    <div class="s-box" id="jSearch" data-node-type="jSearch">
+	    <div class="s-main">
+		    <label class="lbl-key" for="mq"></label>
+		    <input class="input" type="text" name="keyword" autocomplete="off" x-webkit-grammar="builtin:translate" value="" id="mq" data-node-type="mq">
+		    <a  class="btn-search jBtnAllSearch" href="javascript:;">搜索</a>
+	    </div>
+	    <div class="kw-suggest" id="jKwSuggest" data-node-type="jKwSuggest">
+		    <?php if (is_array($output['hot_search']) && !empty($output['hot_search'])){ ?>
+		      <?php foreach ($output['hot_search'] as $val){ ?>
+		    <a href="<?php echo urlShop('search', 'index', array('keyword' => $val)); ?>" target="_blank"><?php echo $val; ?></a>
+		    <?php } } ?>
+	    </div>
+
+      <div class="k-history" id="jSearchHistoryBox">
+	      <?php if (is_array($output['his_search_list']) && !empty($output['his_search_list'])){ ?>
+	      <ul class="kh-list">
+		      <?php foreach ($output['his_search_list'] as $v){ ?>
+		      <li class="kh-item" data-key="<?php echo $v ?>"><span class="kh-key"><?php echo $v ?></span><a class="kh-button">删除</a></li>
+		      <?php } ?>
+	      </ul>
+	      <div class="kh-infos clearfix"><span>搜索记录</span><a class="kh-clear">清空搜索记录</a></div>
+	      <?php }else{ ?>
+	      <div class="kh-none">无历史搜索记录</div>
+	      <?php } ?>
+      </div>
+    </div>
+    <h1>
+	    <a href="<?php echo SHOP_SITE_URL; ?>" title="太划算商城" class="go-home">
+		    <img alt="太划算商城" class="logo" src="<?php echo STATIC_URL; ?>/images/logo.png">
+        </a>
+    </h1>
+  </div>
+</div>
+

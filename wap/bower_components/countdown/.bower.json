@@ -1,0 +1,15 @@
+{
+  "name": "countdown",
+  "homepage": "https://github.com/qianniuc/countdown",
+  "version": "0.1.0",
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.0",
+    "commit": "c0c3cd4695febbf9c1c7fa2a96dc0fa07c629c58"
+  },
+  "_source": "git://github.com/qianniuc/countdown.git",
+  "_target": "^0.1.0",
+  "_originalSource": "qianniuc/countdown",
+  "_direct": true
+}

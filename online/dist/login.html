@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>用户登录-云猴网-更近更贴心</title>
+	<meta name="pageid" content="1.9" />
+ 	<meta charset="utf-8" />
+<meta name="renderer" content="webkit" />
+<script>
+!function() {
+	var r, s = navigator.userAgent.match(/MSIE\s([^;]*)/);
+	s && s[1] && (r = parseInt(s[1], 10)),
+	8 > r && !function(r, s, t) {
+		r.write('<link href="//' + s + "/pub/module/browser/1.0.0/browser.css?v=" + t + '" rel="stylesheet"/>'),
+				r.write('<script src="//' + s + "/pub/module/browser/1.0.0/browser.js?v=" + t + '"></sc' + 'ript>');
+	}(document, ("http:" == location.protocol ? "s3" : "ssl") + ".bbgstatic.com", "v1");
+}();
+</script>	<!--页面私有css begin-->
+	<link rel="stylesheet" href="//ssl.bbgstatic.com/member/css/passport/login.css?v=b4a28511a99935a6">
+	<!--页面私有css end-->
+</head>
+<body>
+	<div class="head">
+		<div class="login w990">
+			<a href="http://www.yunhou.com" class="hd f-l">
+				<img alt="" src="//ssl.bbgstatic.com/member/img/login/logo-login.png?v=33047bba832a6269">
+			</a>
+			<span class="bd f-l">欢迎登录</span>
+			<span class="ft f-r">
+				<label>没有账号？</label>
+				<a href="register?returnUrl=http://item.yunhou.com/9692000030.html" class="barder" >立即注册</a>
+                <a target="_blank" href="http://help.yunhou.com/">帮助中心</a>
+			</span>
+		</div>
+	</div>
+	<div class="middle">
+		<div class="w990">
+			<div id="jAd"></div>
+    
+			<div class="login-panel">
+				<div class="hd" id="jTitleLogin">
+					<i class="iconfont" id="jCoordinate">&#xe614;</i>
+					<span class="hover" id="juserNameLogin">账号登录</span>
+					<span id="jPhoneLogin">手机动态码登录</span>
+				</div>
+				<div class="bd">
+					<ul id="jLoginSwitch">
+						<li>
+							<form method="post" id="jForm" autocomplete="off">
+								<div class="txt-box txt-box-margin">
+									<label for="loginName" class="tips">手机号码/邮箱/用户名</label>
+									<input id="loginName" name="loginName" type="text" value="" class="txt"  tabindex="1">
+									<em class="iconfont">&#xe61a;</em>
+								</div>
+								<div class="txt-box">
+									<label for="password" class="tips">登录密码</label>
+									<input id="password" name="password" type="password" class="txt auto-password-check-handle" maxlength="20" tabindex="2"/>
+									<em class="iconfont">&#xe619;</em>
+								</div>
+								<div class="txt-box txt-box-captcha-verify clearfix">
+									<label for="captchaCode" class="tips">验证码</label>
+									<input id="captchaCode" name="captchaCode" type="text" class="txt txt-code" maxlength="4" tabindex="3">
+									<img src="" title="点击更换验证码" class="img-verify" data-type="PC_LOGIN">
+									<span class="change-img">看不清楚?<a href="javascript:;">换一个</a></span>
+									<em class="iconfont">&#xe609;</em>
+								</div>
+								<div class="txt-remember clearfix">
+									<div class="f-l">
+										<input type="checkbox" id="autoLogin" name="autoLogin" tabindex="5"><label for="autoLogin">2周内自动登录</label>
+									</div>
+									<div class="f-r">
+										<a href="forgotPassword">忘记密码?</a>
+									</div>
+								</div>
+								<div class="txt-btn txt-btn-height">
+									<input type="hidden" name="returnUrl" value="http://item.yunhou.com/9692000030.html" />
+									<input type="submit" class="btn btn-disabled" id="jSubmit" value="正在加载中..." disabled="disabled" />
+								</div>
+							</form>
+						</li>
+						<li>
+							<form method="post" id="jFormPhone">
+								<div class="txt-box txt-box-margin">
+									<label for="loginName2" class="tips">请输入手机号码</label>
+									<input id="loginName2" name="mobile" type="text" value="" class="txt">
+									<em class="iconfont">&#xe61a;</em>
+								</div>
+								<div class="txt-box txt-code-captcha-verify clearfix">
+									<label for="captchaCode2" class="tips">验证码</label>
+									<input id="captchaCode2" name="captchaCode" type="text" class="txt txt-code"  maxlength="4" tabindex="3">
+									<img src="" title="点击更换验证码" class="img-verify" data-type="PC_MOBILE_LOGIN">
+									<span class="change-img">看不清楚?<a href="javascript:;">换一个</a></span>
+									<em class="iconfont">&#xe609;</em>
+								</div>
+								<div class="txt-box">
+									<label for="verifyCode" class="tips">短信动态验证码</label>
+									<input id="verifyCode" name="verifyCode" type="text" class="txt txt-code-mb"/>
+									<input type="button" id="jCold" class="btn-code" value="获取短信验证码"/>
+									<em class="iconfont">&#xe609;</em>
+								</div>
+								<div class="txt-btn">
+									<input type="hidden" name="returnUrl" value="http://item.yunhou.com/9692000030.html" />
+									<input type="submit" class="btn btn-disabled" id="jLogBet" value="正在加载中..." disabled="disabled" />
+								</div>
+								<div class="txt-forgot">
+									注意：未注册过云猴网的手机号在首次登录时将自动完成注册，使用该登录方式代表您已接受<a href="http://help.yunhou.com/help_147.html" target="_blank">《会员注册协议》</a>
+								</div>
+							</form>
+						</li>
+					</ul>
+				</div>
+				<div class="ft">
+					<div class="title">直接使用以下账号登录</div>
+					<div class="quick-login">
+						<a class="iconfont yunhou" href="https://ssl.yunhou.com/passport/oauth2/yunhou?returnUrl=http://item.yunhou.com/9692000030.html" title="云猴大会员平台登录">&#xe600;</a>
+						<a class="iconfont qq" href="https://ssl.yunhou.com/passport/oauth2/qq?returnUrl=http://item.yunhou.com/9692000030.html" title="使用QQ登录">&#xe606;</a>
+						<a class="iconfont weixin" href="https://ssl.yunhou.com/passport/oauth2/weixin?returnUrl=http://item.yunhou.com/9692000030.html" title="使用微信扫码登录">&#xe618;</a>
+						<a class="iconfont alipay" href="https://ssl.yunhou.com/passport/oauth2/alipay?returnUrl=http://item.yunhou.com/9692000030.html" title="使用支付宝登录">&#xe602;</a>
+						<a class="iconfont sina" href="https://ssl.yunhou.com/passport/oauth2/sina?returnUrl=http://item.yunhou.com/9692000030.html" title="使用新浪微博登录">&#xe604;</a>
+						<a class="iconfont baidu" href="https://ssl.yunhou.com/passport/oauth2/baidu?returnUrl=http://item.yunhou.com/9692000030.html" title="使用百度账号登录">&#xe601;</a>
+						<a class="iconfont renren" href="https://ssl.yunhou.com/passport/oauth2/renren?returnUrl=http://item.yunhou.com/9692000030.html" title="使用人人网登录">&#xe605;</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!--footer begin-->
+<div class="footer">
+	<p class="">
+		<a href="http://www.yunhou.com/article-cominfo-146.html" target="_blank">关于云猴</a><span>|</span>
+        <a href="http://job.bubugao.com/" target="_blank">诚聘英才</a><span>|</span>
+        <a href="http://www.yunhou.com/article-news-list.html" target="_blank">新闻动态</a><span>|</span>
+        <a rel="nofollow" href="http://www.yunhou.com/article-cominfo-147.html" target="_blank">联系我们</a>
+    </p>
+	<p class="">湘ICP备06014709号-3<span>|</span>Copyright© 云猴网  2013-2016，All Rights Reserved</p>
+</div>
+	<!--footer end-->
+<script src="//ssl.bbgstatic.com/lib/require/2.1/require.js">
+</script>
+<script src="//ssl.bbgstatic.com/member/js/app.js">
+</script>	<script>
+
+require(['conf/login']);
+</script>
+</body>
+</html>

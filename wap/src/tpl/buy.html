@@ -1,0 +1,76 @@
+<div class="list-block mb10">
+	<a href="" class="item-link item-content" id="delivery">
+    <div class="item-inner">
+      <div class="item-title">配送方式</div>
+      <div class="item-after" id="delivery-text">{{deliveryText}}</div>
+    </div>
+	</a>
+</div>
+{{if selected_address_info}}
+<div class="list-block media-list">
+  <ul>
+    <li>
+      <a href="#address" data-no-history="true" class="item-link item-content">
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div
+              class="item-title">{{selected_address_info['true_name']}}-{{selected_address_info['mob_phone']}}</div>
+          </div>
+          <div class="item-subtitle">{{selected_address_info['area_info']}}</div>
+          <div class="item-text">{{selected_address_info['address']}}</div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+{{else}}
+<div class="content-block">
+	<a href="#address" class="button button-fill button-danger">添加收货地址</a>
+</div>
+{{/if}}
+{{if error_message}}
+<div class="list-block">
+  <li class="item-content f14 color-danger">提示信息:{{error_message}}</li>
+</div>
+{{/if}}
+<div class="list-block media-list mt10">
+	<ul class="list-container goods-list">
+		{{each store_cart_list as value i}}
+		<li>
+		  <a href="" data-good_id="{{value.goods_id}}" class="item-content jGo">
+		    <div class="item-media">
+		      <img src="{{value.goods_image_url}}">
+		    </div>
+		    <div class="item-inner">
+		      <div class="item-title-row">
+		        <div class="item-title f14">{{value.goods_name}}</div>
+		      </div>
+		      <div class="item-subtitle">
+			      <span class="present color-danger f13 mr10">¥{{value.goods_price}}</span>
+		        <span class="original f10 color-gray"><del>¥{{value.goods_marketprice}}</del></span>
+		      </div>
+		      <div class="item-text">{{if value.is_chain}}支持自提{{/if}}
+			      <span class="badge pull-right">x{{value.goods_num}}</span>
+		      </div>
+		    </div>
+		  </a>
+		</li>
+		{{/each}}
+	</ul>
+</div>
+		  <div class="list-block">
+		    <ul>
+		      <li class="item-content">
+		        <div class="item-inner">
+		          <div class="item-title">商品总计</div>
+		          <div class="item-after">¥{{store_cart_total}}</div>
+		        </div>
+		      </li>
+		      <li class="item-content">
+		        <div class="item-inner">
+		          <div class="item-title">运费总计</div>
+		          <div class="item-after">¥{{freight_total}}</div>
+		        </div>
+		      </li>
+		    </ul>
+		  </div>

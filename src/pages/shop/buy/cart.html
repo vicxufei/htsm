@@ -1,0 +1,146 @@
+---
+layout: cart
+---
+<div class="main">
+	<div class="clearfix">
+		<div class="cart">
+			<form action="<?php echo SHOP_SITE_URL;?>/index.php?controller=buy&action=buy_step1" method="POST" id="form_buy" name="form_buy">
+				<input type="hidden" value="1" name="ifcart">
+			<div id="jCart"  class="cart-wrap">
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script id="tpl-jCart" type="text/html">
+<div class="list">
+	<table>
+		<tbody>
+			<tr>
+				<% if(cart_all_checked === 1) { %>
+				<th class="chk"><input type="checkbox" class="jChkAll chkAll" checked="checked" data-cart-all="<%=cart_all_item%>">全选</th>
+				<% }else{ %>
+				<th class="chk"><input type="checkbox" class="jChkAll chkAll" data-cart-all="<%=cart_all_item%>">全选</th>
+				<% } %>
+				<th class="product">商品</th>
+				<th class="sales-price">单价(元)</th>
+				<th class="quantity">数量</th>
+				<th class="subtotal">小计(元)</th>
+				<th class="pro">操作</th>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="list list-border">
+	<% for (var i = 0; i < cart_list.length; i ++) { %>
+	<table class="jTable jProInfo jProList table-checked jAllTableItem" data-cart-id="<%=cart_list[i]['cart_id']%>" data-qty-num="<%=cart_list[i]['goods_num']%>">
+		<tbody>
+		<tr>
+			<td class="chk">
+				<input type="checkbox"  class="jChkItem"
+				<% if(cart_list[i]['cart_checked'] == '1') { %>checked = "checked"<% } %>
+				name="cart_id[]"value="<%=cart_list[i]['cart_id']%>|<%=cart_list[i]['goods_num']%>"
+				data-if-bonded="<%= cart_list[i]['is_bonded']%>"
+				>
+			</td>
+      <td class="product">
+        <div class="product-box">
+	        <a target="_blank" href="<%=cart_list[i]['goods_url']%>" class="pro-img">
+		        <img class="jImg" src="<%=cart_list[i]['goods_image']%>" style="display: inline;">
+	        </a>
+	        <p class="first-p">
+		        <span class="txt-els text">
+			        <a target="_blank" href="<%=cart_list[i]['goods_url']%>"><%=cart_list[i]['goods_name']%></a>
+		        </span>
+	        </p>
+	        <% if(cart_list[i]['transport_id'] == 3) { %>
+	        <p><span class="txt-red">[限上门自提]</span></p>
+	        <% } %>
+	        <% if(cart_list[i]['is_bonded']) { %>
+	        <p><span class="txt-red">[保税仓发货]</span></p>
+	        <% } %>
+        </div>
+      </td>
+			<td class="sales-price">
+				<p class="current-price">￥<%=cart_list[i]['goods_price']; %></p>
+				<p class="origin-price">￥<%=cart_list[i]['goods_marketprice']; %></p>
+			</td>
+			<td class="quantity">
+				<div class="tight-box">
+					<div class="quantity-box jQty">
+						<a href="javascript:;" class="jQtyMin">-</a>
+						<input class="jQtyTxt" data-max="343" value="<%=cart_list[i]['goods_num'];%>">
+						<a class="jQtyAdd" href="javascript:;">+</a>
+					</div>
+				</div>
+			</td>
+			<td class="discount-amount">￥0.00</td>
+			<td class="subtotal">
+				<p>￥<%=cart_list[i]['goods_tprice'];%></p>
+				<p class="weight">( <%=cart_list[i]['goods_tweight'];%>kg )</p>
+			</td>
+			<td class="pro">
+				<a class="jDel" href="javascript:;">删除</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<%}%>
+	<div class="mod-shipment-box">
+		<div class="mod-shipping-method">
+			<ul>
+				<li class="total-item">
+					<span class="total-txt">共</span>
+					<b class="jtotal-b"><%=cart_count%></b>
+					<span class="total-pro">件商品</span>
+				</li>
+				<li class="total-item">
+					<span class="total-txt">重量合计：</span>
+					<span class="jtotal-weight"><%=cart_weight %>Kg</span>
+				</li>
+				<li class="total-item shipping-items">
+					<div class="items-wrap jShippingItems">
+						<span class="shipping-icon"><i class="icon iconfont iconfont-wuliu"></i></span>
+						<label class="cont-c">快递费</label><span class="cont-price"><b class="shipping-price"><%=freight_total%></b>元</span>
+					</div>
+				</li>
+				<% if(has_chain_checked) { %>
+				<li class="total-item shipping-items">
+					<div class="items-wrap jShippingItems">
+						<label class="cont-c">上门自提费用</label><span class="cont-price"><b class="shipping-price">0.00</b>元</span>
+						<span class="span-box">选择:上门自提</span>
+						<span class="span-input"><input type="radio" name="ifchain" value="1"></span>
+						<span class="span-box">快递配送</span>
+						<span class="span-input"><input type="radio" name="ifchain" value="0" checked="checked"></span>
+					</div>
+				</li>
+				<% } %>
+			</ul>
+		</div>
+		<div class="mod-total-info">
+			<ul class="total-ul clearfix">
+				<li class="total-item">
+					<span class="total-txt">商品应付总额：</span>
+					<span class="total-money jCartTotal" data-cart-total="<%=cart_total%>">￥<%=cart_total%></span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="mod-settle" id="jSetBox">
+	<div class="settlement-l">
+		<% if(cart_all_checked === 1) { %>
+		<span class="span-input"><input type="checkbox" class="jChkAll" checked="checked" data-cart-all="<%=cart_all_item%>"></span><span class="span-box">全选</span>
+		<% }else{ %>
+		<span class="span-input"><input type="checkbox" class="jChkAll" data-cart-all="<%=cart_all_item%>"></span><span class="span-box">全选</span>
+		<% } %>
+	</div>
+	<div class="settlement-r">
+		<ul class="priceUl">
+			<li><span class="pri-span">总金额：</span><span class="total-pri jNeed2Pay" data-need-pay="<%=need2pay%>">￥<%=need2pay%></span></li>
+			<li><a href="javascript:;" class="btn btn-l jSubmit" data-both-bonded-none="<%=both_bonded_none%>" data-non-bonded-checked="<%=non_bonded_checked%>" data-bonded-checked="<%=bonded_checked%>">立即结算</a></li>
+		</ul>
+	</div>
+</div>
+</script>

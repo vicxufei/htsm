@@ -1,0 +1,52 @@
+<div class="main">
+	<div class="clearfix">
+		{{> member-menu}}
+		<div class="cnt f-l">
+			<div class="fav-list">
+				<div class="table-list table-top">
+					<table>
+						<tbody><tr>
+							<th><div class="div-line f t-c">商品信息</div></th>
+							<th><div class="div-line s">商品价格</div></th>
+							<th><div class="div-line s">收藏时间</div></th>
+							<th><div class="div-line s">库存情况</div></th>
+							<th><div class="fi">操作</div></th>
+						</tr>
+					</tbody></table>
+				</div>
+
+				<div class="table-list table-wrap">
+					<?php foreach($output['favorites_list'] as $key=>$favorites){$i++;?>
+					<table>
+						<tbody>
+						<tr>
+							<td>
+								<div class="fav-goods clearfix">
+									<a href="<?php echo urlShop('goods', 'index', array('goods_id' => $favorites['goods']['goods_id'])); ?>" target="_blank">
+									    <img src="<?php echo thumb($favorites['goods'], 240);?>" class="jImg it-img" style="display: inline;">
+									</a>
+									<a href="<?php echo urlShop('goods', 'index', array('goods_id' => $favorites['goods']['goods_id'])); ?>" target="_blank">
+										<div><?php echo $favorites['goods']['goods_name'];?></div>
+										<div class="cl-r"></div>
+									</a>
+								</div>
+							</td>
+							<td><div class="s div-line-none"><?php echo ncPriceFormat($favorites['log_price']);?></div></td>
+							<td><div class="t"><?php echo date('Y-m-d',$favorites['fav_time']) ;?></div></td>
+							<td><p class="fav-status"><?php echo $favorites['goods']['goods_state'] == 1 ? '现货':'缺货';?></p></td>
+							<td>
+								<div class="fav-handle">
+									<a class="def jCancelF"  data-fav-id="<?php echo  $favorites['goods']['goods_id']; ?>">取消收藏</a>
+								</div>
+							</td>
+						</tr>
+					</tbody></table>
+					<?php }?>
+				</div>
+
+
+				</div>
+
+		</div>
+	</div>
+</div>

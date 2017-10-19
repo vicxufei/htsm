@@ -1,0 +1,95 @@
+<div>
+	<?php if (!empty($output['slide']) && is_array($output['slide']['slides'])){ ?>
+	<div class="mod-scroll">
+    <div class="slide" id="jSlide" data-slide-count="<?php echo count($output['slide']['slides']) ?>">
+      <ul class="slide-list" style="background: none;">
+	      <?php foreach ($output['slide']['slides'] as $key=>$slide){ ?>
+        <li class="slide-item" data-slide-idx="<?php echo $key ?>" style="display: list-item; <?php  if($key== 0){ ?> opacity: 1; z-index: 9;<?php } ?> background-image: url(&quot;<?php echo $slide['src']; ?>&quot;);">
+          <div class="w1190">
+	          <a target="_blank" href="<?php echo $slide['url']; ?>" class="slid-click" title="<?php echo $slide['title']; ?>"></a>
+          </div>
+          </li>
+	      <?php } ?>
+      </ul>
+      <div class="slide-num">
+	      <?php foreach ($output['slide']['slides'] as $key=>$slide){ ?>
+        <a href="javascript:void(0)" class="<?php  if($key== 0){ ?>hover<?php } ?>" data-slide-idx="<?php echo $key ?>"></a>
+	      <?php } ?>
+      </div>
+	    <a class="arrow-l jImgLeft" href="javascript:;" style="display: none;">
+		    <em></em><i class="icon iconfont iconfont-slider-left"></i>
+	    </a>
+	    <a class="arrow-r jImgRight" href="javascript:;" style="display: none;">
+		    <em></em><i class="icon iconfont iconfont-slider-right"></i>
+	    </a>
+    </div>
+	</div>
+	<?php } ?>
+</div>
+<div class="w1190 p-t-15">
+	<div>
+		<?php if (!empty($output['new_arrivals']) && is_array($output['new_arrivals'])){ ?>
+		<div class="mod-floor mod-floor-xpsx" node-type="floor-anchor" data-floor-title="新品上线">
+			<div class="mod-floor-hd">
+				<div class="hd">
+					<div class="hd-zh">新品上线</div>
+					<div class="hd-en">NEW ARRIVAL</div>
+				</div>
+			</div>
+			<div class="mod-floor-bd">
+        <div class="slider" node-type="items-slider">
+          <div class="slider-item" style="width: 3887px; position: relative; left: 0px;">
+	          <?php foreach ($output['new_arrivals'] as $value){ ?>
+            <div class="product-item jProduct" data-product-id="<?php echo $value['goods_id']; ?>">
+              <div class="icon-flag">
+                <img class="jImg" src="http://static.htths.com/img/xin-pin.png">
+              </div>
+              <div class="pro-wrap">
+                <div class="country">
+	                <?php if ($value['brand_country_code']){ ?>
+                  <img src="http://static.htths.com/images/flags/<?php echo $value['brand_country_code']; ?>.svg">
+	                <?php } ?>
+                </div>
+                <a target="_blank" class="com-img"
+                   href="<?php echo urlShop('goods', 'index', array('goods_id' => $value['goods_id'])); ?>"
+                   title="<?php echo $value['goods_name']; ?>">
+                  <img class="jImg"
+                       alt="<?php echo $value['goods_name']; ?>"
+                       src="<?php echo yf_cthumb($value['goods_image'], 220, $value['store_id']); ?>">
+                </a>
+                <div class="com-box">
+                  <div class="com-txt">
+                    <a target="_blank" class="com-img"
+                       href="<?php echo urlShop('goods', 'index', array('goods_id' => $value['goods_id'])); ?>"
+                       title="<?php echo $value['goods_name']; ?>">
+                      <?php echo $value['goods_name']; ?>
+                    </a>
+                    <div class="p-promote">
+                      <span class="p-normal"><em>￥</em><?php echo ncPriceFormat($value['goods_promotion_price']); ?></span>
+                      <span class="p-discount"><?php echo intval($value['goods_promotion_price']/$value['goods_marketprice']*100); ?>折</span>
+                    </div>
+                    <div class="p-origin">￥<?php echo ncPriceFormat($value['goods_marketprice']); ?></div>
+                  </div>
+                </div>
+              </div>
+          <div class="icon-sold-out"></div>
+        </div>
+	          <?php } ?>
+			    </div>
+	        <a href="#" class="ui-slider-prev ui-slider-navigation">
+		        <em></em><i class="iconfont iconfont-slider-left"></i>
+	        </a>
+	        <a href="#" class="ui-slider-next ui-slider-navigation">
+		        <em></em><i class="iconfont iconfont-slider-right"></i>
+	        </a>
+	        <ul class="ui-slider-pagination">
+		        <li class="ui-slider-pagination-item"><a href="#" data-slide-idx="0" class="">0</a></li>
+		        <li class="ui-slider-pagination-item"><a href="#" data-slide-idx="1" class="">1</a></li>
+		        <li class="ui-slider-pagination-item hover"><a href="#" data-slide-idx="2" class="">2</a></li>
+	        </ul>
+        </div>
+      </div>
+		</div>
+		<?php } ?>
+	</div>
+</div>

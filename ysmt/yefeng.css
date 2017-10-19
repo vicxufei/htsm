@@ -1,0 +1,245 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font:16px/1.8 "Microsoft YaHei",verdana;
+    color:#fff;
+}
+.container {
+    color: #000;
+}
+#menu li {
+    display:inline-block;
+    margin: 10px;
+    color: #000;
+    background:#fff;
+    background: rgba(255,255,255, 0.5);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+#menu li.active{
+    background:#666;
+    background: rgba(0,0,0, 0.5);
+    color: #fff;
+}
+#menu li a{
+    text-decoration:none;
+    color: #000;
+}
+#menu li.active a:hover{
+    color: #000;
+}
+#menu li:hover{
+    background: rgba(255,255,255, 0.8);
+}
+#menu li a,
+#menu li.active a{
+    padding: 9px 18px;
+    display:block;
+}
+#menu li.active a{
+    color: #fff;
+}
+#menu{
+    position:fixed;
+    top:0;
+    left:30%;
+    height: 40px;
+    z-index: 70;
+    width: 100%;
+    padding: 0;
+    margin:0;
+}
+
+.section10{
+    /*solves problem with overflowing video in Mac with Chrome */
+    overflow: hidden;
+}
+
+
+#myVideo{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-color: black; /* in case the video doesn't fit the whole page*/
+    /*background-image: !* our video *!;*/
+    background-position: center center;
+    /*background-size: contain;*/
+    object-fit: cover; /*cover video background */
+    z-index:3;
+}
+
+.logo{
+    position: absolute;
+    z-index: 5;
+    background: url("./img/ysmt.PNG");
+    /*background-size:200px 147px;*/
+    background-size: cover;
+    background-repeat:no-repeat;
+    width:296px;
+    height: 210px;
+    top:10px;
+    left:10px;
+}
+img.bee{
+    position: absolute;
+    z-index: 4;
+    top:40%;
+    left:35%;
+}
+
+.ysmt{
+    position: absolute;
+    z-index: 4;
+    top: 70px;
+    left:40%;
+    text-align: left;
+}
+.ysmt p{
+    top:10%;
+    left:10%;
+}
+
+.section1{
+    background-color: #fff;
+    /*background: url("./img/section1.jpg");*/
+}
+.section2 img{
+    width: 100%;
+    height: 100%;
+}
+
+.section3{
+    background: -webkit-gradient(linear, top left, bottom left, from(#4bbfc3), to(#7baabe));
+    background: -webkit-linear-gradient(#4BBFC3, #7BAABE);
+    background: linear-gradient(#4BBFC3,#7BAABE);
+}
+.section4{
+    background: -webkit-gradient(linear, top left, bottom left, from(#969ac6), to(#636F8F));
+    background: -webkit-linear-gradient(#969AC6, #636F8F);
+    background: linear-gradient(#969AC6,#636F8F);
+}
+.section{
+    color: #000;
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+    text-align: center;
+    background-size: cover;
+}
+
+.slide{
+    text-align: center;
+}
+
+/*.container{*/
+    /*display: -webkit-flex;*/
+    /*display: flex;*/
+/*}*/
+.container p, .container h1{
+    text-align: left;
+}
+/*.container h1{*/
+    /*margin-bottom: 20px;*/
+    /*margin-left: -200%;*/
+/*}*/
+/*.container p{*/
+    /*margin-left: 200%;*/
+/*}*/
+/*.flex{*/
+    /*-webkit-flex: 1;*/
+    /*flex: 1;*/
+    /*border: 1px solid #1f6377;*/
+/*}*/
+/*img.goods{*/
+    /*width:500px;*/
+    /*height: 500px;*/
+/*}*/
+.half{
+    width: 49%;
+    float: left;
+    /*border:solid 1px #1f6377;*/
+}
+
+.wrapTopMenu{
+    width: 100%;
+    background-color: #80b500;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color:#fff;
+}
+.topMenu{
+    width: 1240px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.wrapTopMenu .topMenu>ul>li{
+    list-style-type: none;
+    display: inline-block;
+    position: relative;
+}
+
+.wrapTopMenu .topMenu>ul>li>a{
+    color: #fff;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 20px;
+    margin: 0 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+}
+.wrapTopMenu .topMenu>ul>li>a:before {
+    content: '';
+    height: 1px;
+    background-color: #fff;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    right: 50%;
+    opacity: 0;
+    -webkit-transition: left 0.5s ease, right 0.5s ease, opacity 0.5s 0.5s ease;
+    -moz-transition: left 0.5s ease, right 0.5s ease, opacity 0.5s 0.5s ease;
+    -o-transition: left 0.5s ease, right 0.5s ease, opacity 0.5s 0.5s ease;
+    transition: left 0.5s ease, right 0.5s ease, opacity 0.5s 0.5s ease;
+}
+
+.wrapTopMenu .topMenu>ul>li>a:hover:before {
+    left: 20px;
+    right: 20px;
+    opacity: 1;
+    -webkit-transition: left 0.5s ease,right 0.5s ease,opacity 0.5s ease;
+    -moz-transition: left 0.5s ease,right 0.5s ease,opacity 0.5s ease;
+    -o-transition: left 0.5s ease,right 0.5s ease,opacity 0.5s ease;
+    transition: left 0.5s ease,right 0.5s ease,opacity 0.5s ease;
+}
+
+.fixedBar{
+    position: fixed;
+    /*width: 210px;*/
+    width: 100%;
+    height: 60px;
+    top:0;
+    left:0;
+    /*background-color: #80b500;*/
+    /*background-color: #EEFFDB;*/
+    /*background-color: #fff;*/
+    z-index: 99;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    width:100%;
+    background: red;
+    z-index: 99;
+}

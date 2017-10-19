@@ -1,0 +1,55 @@
+<?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+<div class="global-topbar">
+  <div class="bd w1190 clearfix">
+	  <ul class="sn-block sn-login f-l" id="is-login">
+		  <?php if ($_SESSION['is_login'] == '1'){ ?>
+		  <li data-is-login="1">
+			  您好,
+			  <a rel="nofollow" href="<?php echo urlMember('member_security', 'index');?>"><?php echo $_SESSION['member_name']; ?></a>
+			  <span class="split"></span>
+			  <a rel="nofollow" href="<?php echo urlLogin('login', 'logout'); ?>">退出登录</a>
+		  </li>
+		  <?php }else{ ?>
+		  <li data-is-login="0">
+			  <a rel="nofollow" href="<?php echo urlMember('login'); ?>">登录</a>
+			  <span class="split"></span>
+			  <a rel="nofollow" href="<?php echo urlLogin('login', 'register'); ?>">免费注册</a>
+		  </li>
+		  <?php } ?>
+	  </ul>
+    <ul class="sn-block sn-quick f-r">
+      <li class="jMenu">
+          <a class="menu-hd block-item" rel="nofollow" href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order">我的订单<b
+		          class="arrow"></b></a>
+          <div class="menu-bd">
+              <a rel="nofollow"
+                 href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_new">待付款订单</a>
+              <a rel="nofollow"
+                 href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_send">待确认收货</a>
+              <a rel="nofollow"
+                 href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_noeval">待评价交易</a>
+              <a rel="nofollow"
+                 href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_goods&action=fglist">商品收藏</a>
+          </div>
+      </li>
+      <li class="sn-cart"><a class="block-item" href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=cart">我的购物车<b class="jCartCount sn-cart-count">0</b></a></li>
+      <li class="jMenu">
+          <a class="menu-hd block-item" href="#">客户服务<b class="arrow"></b></a>
+          <div class="menu-bd">
+              <ul>
+                  <li><a href="<?php SHOP_SITE_URL; ?>/article-23.html">关于我们</a></li>
+                  <li><a href="<?php SHOP_SITE_URL; ?>/article-22.html">联系我们</a></li>
+              </ul>
+          </div>
+      </li>
+      <li class="qr-codes jMenu">
+        <a class="menu-hd block-item" href="javascript:;">手机版</a>
+        <div class="menu-bd">
+          <div class="qr-codes-img"><img class="jImgPhoneCode img-error" src="//static.htths.com/img/htsm-qrcode.jpg" alt="太划算二维码"></div><div
+		        class="qr-codes-txt">太划算手机版</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+

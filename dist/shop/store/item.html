@@ -1,0 +1,738 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	  <meta name="keywords" content="<?php echo $output['seo_keywords']; ?>"/>
+    <meta name="description" content="<?php echo $output['seo_description']; ?>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $output['html_title']; ?></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.htths.com/">
+    <link rel="stylesheet" href="http://static.htths.com/css/base.min.css">
+	  <link rel="stylesheet" href="http://static.htths.com/css/item.min.css">
+  </head>
+  <body>
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="global-topbar">
+      <div class="bd w1190 clearfix">
+    	  <ul class="sn-block sn-login f-l" id="is-login">
+    		  <?php if ($_SESSION['is_login'] == '1'){ ?>
+    		  <li data-is-login="1">
+    			  您好,
+    			  <a rel="nofollow" href="<?php echo urlMember('member_security', 'index');?>"><?php echo $_SESSION['member_name']; ?></a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'logout'); ?>">退出登录</a>
+    		  </li>
+    		  <?php }else{ ?>
+    		  <li data-is-login="0">
+    			  <a rel="nofollow" href="<?php echo urlMember('login'); ?>">登录</a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'register'); ?>">免费注册</a>
+    		  </li>
+    		  <?php } ?>
+    	  </ul>
+        <ul class="sn-block sn-quick f-r">
+          <li class="jMenu">
+              <a class="menu-hd block-item" rel="nofollow" href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order">我的订单<b
+    		          class="arrow"></b></a>
+              <div class="menu-bd">
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_new">待付款订单</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_send">待确认收货</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_noeval">待评价交易</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_goods&action=fglist">商品收藏</a>
+              </div>
+          </li>
+          <li class="sn-cart"><a class="block-item" href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=cart">我的购物车<b class="jCartCount sn-cart-count">0</b></a></li>
+          <li class="jMenu">
+              <a class="menu-hd block-item" href="#">客户服务<b class="arrow"></b></a>
+              <div class="menu-bd">
+                  <ul>
+                      <li><a href="<?php SHOP_SITE_URL; ?>/article-23.html">关于我们</a></li>
+                      <li><a href="<?php SHOP_SITE_URL; ?>/article-22.html">联系我们</a></li>
+                  </ul>
+              </div>
+          </li>
+          <li class="qr-codes jMenu">
+            <a class="menu-hd block-item" href="javascript:;">手机版</a>
+            <div class="menu-bd">
+              <div class="qr-codes-img"><img class="jImgPhoneCode img-error" src="//static.htths.com/img/htsm-qrcode.jpg" alt="太划算二维码"></div><div
+    		        class="qr-codes-txt">太划算手机版</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="site-head">
+      <div class="bd w1190 clearfix">
+        <div class="s-box" id="jSearch" data-node-type="jSearch">
+    	    <div class="s-main">
+    		    <label class="lbl-key" for="mq"></label>
+    		    <input class="input" type="text" name="keyword" autocomplete="off" x-webkit-grammar="builtin:translate" value="" id="mq" data-node-type="mq">
+    		    <a  class="btn-search jBtnAllSearch" href="javascript:;">搜索</a>
+    	    </div>
+    	    <div class="kw-suggest" id="jKwSuggest" data-node-type="jKwSuggest">
+    		    <?php if (is_array($output['hot_search']) && !empty($output['hot_search'])){ ?>
+    		      <?php foreach ($output['hot_search'] as $val){ ?>
+    		    <a href="<?php echo urlShop('search', 'index', array('keyword' => $val)); ?>" target="_blank"><?php echo $val; ?></a>
+    		    <?php } } ?>
+    	    </div>
+    
+          <div class="k-history" id="jSearchHistoryBox">
+    	      <?php if (is_array($output['his_search_list']) && !empty($output['his_search_list'])){ ?>
+    	      <ul class="kh-list">
+    		      <?php foreach ($output['his_search_list'] as $v){ ?>
+    		      <li class="kh-item" data-key="<?php echo $v ?>"><span class="kh-key"><?php echo $v ?></span><a class="kh-button">删除</a></li>
+    		      <?php } ?>
+    	      </ul>
+    	      <div class="kh-infos clearfix"><span>搜索记录</span><a class="kh-clear">清空搜索记录</a></div>
+    	      <?php }else{ ?>
+    	      <div class="kh-none">无历史搜索记录</div>
+    	      <?php } ?>
+          </div>
+        </div>
+        <h1>
+    	    <a href="<?php echo SHOP_SITE_URL; ?>" title="太划算商城" class="go-home">
+    		    <img alt="太划算商城" class="logo" src="<?php echo STATIC_URL; ?>/images/logo.png">
+            </a>
+        </h1>
+      </div>
+    </div>
+    
+    
+      <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+      <div class="navigation navigation_101">
+          <div class="w1190 bd">
+              <ul class="nav-cnt jNav">
+                  <li class="jNavTop <?php if($output['index_sign'] == 'index' && $output['index_sign'] != '0') {?>nav-hover<?php }?>">
+      	            <a target="_blank" href="<?php echo SHOP_SITE_URL;?>">首页</a>
+                  </li>
+      	        <?php if(!empty($output['show_goods_class'])){ ?>
+      	        <?php foreach ($output['show_goods_class'] as $key => $val){ ?>
+                  <li class="jNavTop <?php if($_GET['cate_id'] == $val['gc_id']) {?>nav-hover<?php } ?>">
+      	            <a href="<?php echo urlShop('search', 'index', array('cate_id' => $val['gc_id'])); ?>" target="_blank"><?php echo $val['gc_name']; ?></a>
+      	            <div class="pin-down jPinDown jNavLoad pin-down-6" cat_menu_id="<?php echo $val['gc_id']; ?>">
+                          <div class="pin-down-cate">
+                              <?php if (!empty($val['class2']) && is_array($val['class2'])){ ?>
+      	                    <?php foreach ($val['class2'] as $k => $v){ ?>
+                                      <dl class="item-list">
+                                      <dt>
+                                          <a href="<?php echo urlShop('search', 'index', array('cate_id' => $v['gc_id'])); ?>" target="_blank"><?php echo $v['gc_name']; ?></a>
+                                      </dt>
+                                      <dd><?php if (!empty($v['class3']) && is_array($v['class3'])){ ?>
+      	                                <?php foreach ($v['class3'] as $k3 => $v3){ ?>
+                                                  <a href="<?php echo urlShop('search', 'index', array('cate_id' => $v3['gc_id'])); ?>" target="_blank">
+                                                  <?php echo $v3['gc_name']; ?></a>
+      	                                <?php }} ?>
+                                      </dd>
+                                      </dl>
+      	                    <?php }} ?>
+                          </div>
+                          <div class="pin-down-brand">
+      	                    <?php if (!empty($val['cn_brands'])){ ?>
+      	                    <div class="brands-list">
+                                  <ul><?php foreach ($val['cn_brands'] as $brand){ ?>
+      	                            <li> <a href="<?php echo urlShop('brand', 'list', array('brand' => $brand['brand_id'])); ?>"
+      			                            title="<?php echo $brand['brand_name']; ?>"><?php if ($brand['brand_pic'] != '')
+                                              { ?><img src="<?php echo brandImage($brand['brand_pic']); ?>"/><?php } ?>
+      		                            <span><?php echo $brand['brand_name']; ?></span></a></li>
+      	                            <?php } ?></ul>
+                                  </div>
+      	                    <?php } ?>
+                          </div>
+                          <div class="pin-down-banner"><?php if ($val['cn_adv1'] != ''){ ?>
+                            <a <?php echo $val['cn_adv1_link'] == '' ? 'href="javascript:;"' : 'target="_blank" href="' . $val['cn_adv1_link'] . '"'; ?>
+                            >
+                <img src="<?php echo $val['cn_adv1']; ?>"></a><?php } ?><?php if ($val['cn_adv2'] != '')
+            { ?>
+                            <a <?php echo $val['cn_adv2_link'] == '' ? 'href="javascript:;"' : 'target="_blank" href="' . $val['cn_adv2_link'] . '"'; ?>
+                            >
+                <img src="<?php echo $val['cn_adv2']; ?>"></a><?php } ?></div>
+                      </div>
+                  </li>
+      	        <?php } ?>
+      	        <?php } ?>
+              </ul>
+          </div>
+      </div>
+      
+      <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+      
+      <?php if(!empty($output['nav_link_list']) && is_array($output['nav_link_list'])){?>
+      <div class="mod-crumbs-nav">
+      	<?php foreach($output['nav_link_list'] as $nav_link){?>
+      	<?php if(!empty($nav_link['link'])){?>
+        <div class="crumbs-nav-item one-level">
+          <a href="<?php echo $nav_link['link'];?>" class="crumbs-link" title="<?php echo $nav_link['title'];?>"><?php echo $nav_link['title'];?></a>
+          <span>&gt;</span>
+        </div>
+      	<?php }else{?>
+        <b><?php echo $nav_link['title'];?></b>
+      	<?php }?>
+      	<?php }?>
+      </div>
+      <?php }?>
+      
+      
+
+
+    <div class="cnt" id="jGoodsItem">
+    	<div class="mod-pro-info clearfix">
+    		<div class="f-l">
+    			<!-- 商品详情左侧商品大图begin -->
+    			<div class="goods-preview" id="jGoodsPreview">
+    				<div class="prev-box">
+    					<div class="pic-big">
+    						<img class="img-error" src="<?php echo $output['goods_image']['0']['2'] ?>" style="width:800px;height:800px;top: -163px; left: 0px;">
+    					</div>
+    					<div class="pic-mid">
+    						<div class="prev-drag-box" style="top: 0px; left: 0px; width: 398px; height: 400px; line-height: 400px; cursor: auto;">
+    							<div class="prev-drag" style="display: none; width: 200px; height: 200px; top: 108.667px; left: 0px;"></div>
+    							<img class="img-error" src="<?php echo $output['goods_image']['0']['1'] ?>" style="max-width: 398px; max-height: 400px; vertical-align: middle;">  </div>
+    					</div>
+    					<div class="pic-pager">
+    						<div class="pic-list-box">
+    							<div class="pic-list clearfix">
+    								<?php foreach ($output["goods_image"] as $key => $value){ ?>
+    								<a class="<?php echo $key==0 ? 'current': '' ?>" data-pic-mid="<?php echo $value['1'] ?>" data-pic-big="<?php echo $value['2'] ?>">
+    									<em></em><img class="img-error" src="<?php echo $value['0'] ?>"> </a>
+    								<?php } ?>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    
+    			<!-- 商品详情左侧商品大图end -->
+    		</div>
+    		<div class="goods-info f-l">
+    			<!-- 商品详情右侧商品名称begin -->
+    			<div class="clearfix">
+    				<div class="goods-name f-l">
+    					<h1 id="jGoodsH1" data-goodid="<?php echo $output['goods']['goods_id']; ?>" data-transport-id="<?php echo $output['goods']['transport_id']; ?>"><?php echo $output['goods']['goods_name']; ?></h1>
+    				</div>
+    				<!--&lt;!&ndash;国旗&ndash;&gt;-->
+    				<!--<div class="goods-flag f-l">-->
+    					<!--<div class="f-l">-->
+    						<!--<img class="jImg" src="<?php echo STATIC_URL.'/images/flags/'.$output['goods']['brand_info']['brand_country_code'].'.svg'; ?>">-->
+    					<!--</div>-->
+    					<!--<ul class="f-l">-->
+    						<!--<li class="area-en" title=""><?php echo $output['goods']['brand_info']['brand_country_en']; ?></li>-->
+    						<!--<li class="area-zh" title=""><?php echo $output['goods']['brand_info']['brand_country_zh']; ?></li>-->
+    					<!--</ul>-->
+    				<!--</div>-->
+    			</div>
+    			<div class="goods-desc">
+    				<span class="adword"></span>
+    				<?php if($output['goods']['goods_jingle']){?>
+    				<span><?php echo str_replace("\n", "<br>", $output['goods']['goods_jingle']); ?></span>
+    				<?php } ?>
+    			</div>
+    			<!-- 商品详情左侧商品详细信息end -->
+    			<div id="jProInfo">
+    	<div class="goods-value clearfix">
+    	<!-- 倒计时和提示信息 begin -->
+    
+    	<!-- 倒计时和提示信息 end-->
+    	<div class="goods-value clearfix">
+    
+    
+    	<!-- 销售价 begin -->
+    	<div class="value-item clearfix" data-node-type="normal-pri">
+    	  <span data-node-type="yunhou-pri">
+    	<label class="f-l">太划算价</label>
+    	<div class="pri-yh f-l">
+    		<em>¥</em>
+    		<span data-node-type="pri-value" class="jFirstPrice"><?php echo ncPriceFormat($output['goods']['goods_promotion_price']); ?></span>
+    	  </div>
+    	</span>
+    
+    	<span data-node-type="normal-pri">
+    	<label class="f-l">国内参考价</label>
+    	<div class="pri-del f-l">
+    		<em>¥</em>
+    		<span data-node-type="pri-value" class="jSecondPrice"><?php echo ncPriceFormat($output['goods']['goods_marketprice']); ?></span>
+    	</div>
+    	</span>
+    
+    	</div>
+    		<!-- 销售价 end-->
+    
+    	</div>
+    
+    	</div>
+    
+    	<div class="goods-attr">
+    		<?php if($output['goods']['goods_promotion_type'] == 2) {?>
+    		<div class="attr-item promotion">
+    			<label class="attr-key ">活动</label>
+    			<div class="attr-value" id="jTariffInfo" style="padding-right:0px!important;">
+    				<span class="tips-info">
+    					<span class="tips-cl">[<?php echo $output['goods']['xianshi_info']['xianshi_title'] ?>]</span>
+    					<?php echo $output['goods']['xianshi_info']['xianshi_explain'] ?>
+    				</span>
+    			</div>
+        </div>
+    		<?php } ?>
+    		<?php if ($output['goods_evaluate_info']['all'] > 0){ ?>
+    	  <div class="goods-evaluation">
+    		  <a href="#gd-comment" class="" id="jBtnCmdList"><?php echo $output['goods_evaluate_info']['all']; ?>人已评价</a>
+    	  </div>
+    		<?php } ?>
+    		<?php if (is_array($output['goods']['spec_name'])){ ?>
+    		<!-- 商品规格 begin-->
+    		<div id="spec-list" data-spec-list="<?php echo htmlspecialchars($output['spec_list'], ENT_QUOTES, 'UTF-8'); ?>">
+    			<?php foreach ($output['goods']['spec_name'] as $key => $val){ ?>
+    		  <div class="attr-item attr-item-choose  ">
+    			<label class="attr-key" data-attr-key="<?php echo $key; ?>"><?php echo $val; ?></label>
+    			<?php if (is_array($output['goods']['spec_value'][$key]) and !empty($output['goods']['spec_value'][$key])){ ?>
+    			<div class="attr-value ">
+    				<?php foreach ($output['goods']['spec_value'][$key] as $k => $v){ ?>
+    				<a data-attr-value="<?php echo $k; ?>" class="<?php if (isset($output['goods']['goods_spec'][$k])){echo 'cur';} ?>"><?php echo $v; ?></a>
+    				<?php } ?>
+    			</div>
+    			<?php } ?>
+    		</div>
+    			<?php } ?>
+    		</div>
+    		<!-- 商品规格 end-->
+    		<?php } ?>
+    		<div class="attr-item addr-box">
+    		  <label class="attr-key">配送至</label>
+          <div class="attr-value addr">
+    	      <div id="freight-selector" class="ui-linkage-tab">
+    			    <div class="text">
+    				    <div><?php if($output['store_info']['deliver_region'] == '|'){echo '请选择地区';}else{echo $output['store_info']['deliver_region'] ? str_replace(' ','',$output['store_info']['deliver_region'][1]) : '请选择地区';}?></div>
+    				    <b>∨</b>
+    			    </div>
+    			    <div class="content">
+    				    <div id="ncs-stock" class="ncs-stock" data-widget="tabs">
+    	            <div class="mt">
+    	              <ul class="tab">
+    	                <li data-index="0" data-widget="tab-item" class="curr"><a href="javascript:void(0)" href="#none" class="hover"><em><?php echo $output['store_info']['deliver_region_names'][0] ? $output['store_info']['deliver_region_names'][0] : '请选择'?></em><i> ∨</i></a></li>
+    	              </ul>
+    	            </div>
+    	            <div id="stock_province_item" class="mc" data-widget="tab-content" data-area="0">
+    	              <ul class="area-list">
+    	              </ul>
+    	            </div>
+    	            <div id="stock_city_item" class="mc" data-widget="tab-content" data-area="1" style="display: none;">
+    	              <ul class="area-list">
+    	              </ul>
+    	            </div>
+    	            <div id="stock_area_item" class="mc" data-widget="tab-content" data-area="2" style="display: none;">
+    	              <ul class="area-list">
+    	              </ul>
+    	            </div>
+    				    </div>
+    				    <span class="clr">X</span>
+    			    </div>
+    	      </div>
+          </div>
+    		</div>
+    		<div class="goods-tips-inner" id="jExpress">
+    配送区域:<?php echo $output['goods']['freight_info']['transport_title']; ?>
+    
+    			<?php if($output['goods']['freight_info']['supported']){?>
+    			,配送费:<?php echo $output['goods']['freight_info']['sprice']; ?>元
+    			<?php } ?>
+    
+    			<?php if($output['goods']['freight_info']['baoyou'] > 0){?>
+       ,满 <?php echo $output['goods']['freight_info']['baoyou']; ?>包邮!
+    			<?php } ?>
+    		</div>
+    
+    	</div>
+    
+    
+    	<div class="attr-item attr-item-num jAttrItemNum">
+    	<label class="attr-key">数量</label>
+    	<div class="attr-value clearfix" id="jNumBox">
+    
+    	  <div class="num-box">
+    	      <a href="javascript:;" class="min jQtyMin">-</a>
+    	<input type="text" value="1" class="jQtyTxt" data-max="10" data-good-storage="<?php echo $output['goods']['goods_storage']; ?>" data-upper-limit="<?php echo $output['goods']['upper_limit']; ?>">
+    	      <a href="javascript:;" class="add jQtyAdd">+</a>
+    	</div>
+    
+    	<div class="stock-info" id="jStockBox" desc="库存信息"><?php echo $output['goods']['goods_storage'] > 0 ? 有货:无货 ; ?></div>
+    	<span class="inf-txt jIntTxt" desc="限购信息"></span>
+    	</div>
+    	</div>
+    
+    	<div id="jGoodsBtn">
+    
+    	<div class="goods-btns">
+    	<p>
+    <form id="buynow_form" method="post" action="<?php echo SHOP_SITE_URL;?>/index.php?controller=buy&action=buy_step1">
+    		<input id="cart_id" name="cart_id[]" type="hidden">
+    		<input id="ifchain" name="ifchain" type="hidden" value="">
+    </form>
+    		<?php if(!$output['goods']['xianshi_info']){?>
+    	<a href="javascript:;" class="btn btn-pink jFastBuy" data-ifchain="<?php echo $output['goods']['is_chain']; ?>">立即购买</a>
+    		<?php } ?>
+    		<span id="jBtnOnly"><a href="javascript:;" class=" btn jAddCart">加入购物车</a></span>
+    	</p>
+    	<p class="xsqg-tip txt-red" id="jInfoBox"></p>
+    	</div>
+    
+    	</div>
+    	</div>
+    			<!-- 分享 begin -->
+    			<p class="share-div " id="jShareDiv" data-share-title="#海购就去太划算商城#<?php echo $output['goods']['goods_name']; ?>。我刚刚在太划算商城看到 <?php echo $output['goods']['goods_name']; ?> #100%正品，便宜又省心。一起来看看吧#">
+    				<a href="javascript:;" class="col-div jColGoods" data-product-id="9986001023" data-goods-id="9986000895" id="jColGoods" data-bpm="3.1.1.1.4.9986001023"><span class="colText jHeartTxt">收藏</span><i class="icon iconfont jHeart" style="display: inline-block;"></i><i class="icon iconfont jHeart" style="display:none;"></i></a>
+    				<span>告诉小伙伴</span>
+    				<a class="bds-qzone jShareQzone" ref="nofollow" data-cmd="tqzone" title="QQ空间" target="_blank" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=<?php echo urlShop('goods', 'index', array('goods_id' => $output['goods']['goods_id'])); ?>&amp;title=<?php echo $output['goods']['goods_name']; ?>&amp;pics=&amp;desc=<?php echo $output['goods']['goods_name']; ?>"><i class="icon iconfont"></i></a>
+    				<a class="bds-ten jShareQQ" ref="nofollow" data-cmd="tqq" title="QQ" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=<?php echo urlShop('goods', 'index', array('goods_id' => $output['goods']['goods_id'])); ?>&amp;title=<?php echo $output['goods']['goods_name']; ?>&amp;pic=<?php echo $output['goods_image']['0']['1'] ?>"><i class="icon iconfont"></i></a>
+    				<a class="bds-sina jShareSina" ref="nofollow" data-cmd="tsina" title="新浪微博" target="_blank" href="http://v.t.sina.com.cn/share/share.php?url=<?php echo urlShop('goods', 'index', array('goods_id' => $output['goods']['goods_id'])); ?>&amp;title=<?php echo $output['goods']['goods_name']; ?>&amp;pic=<?php echo $output['goods_image']['0']['1'] ?>"><i class="icon iconfont"></i></a>
+    				<a class="bds-plp jShareRenRen" ref="nofollow" data-cmd="renren" title="人人网" target="_blank" href="http://widget.renren.com/dialog/share?resourceUrl=<?php echo urlShop('goods', 'index', array('goods_id' => $output['goods']['goods_id'])); ?>&amp;title=<?php echo $output['goods']['goods_name']; ?>&amp;pic=<?php echo $output['goods_image']['0']['1'] ?>&amp;srcUrl=<?php echo urlShop('goods', 'index', array('goods_id' => $output['goods']['goods_id'])); ?>&amp;description=<?php echo $output['goods']['goods_name']; ?>"><i class="icon iconfont"></i></a>
+    			</p>
+    			<!-- 分享 end -->
+    		</div>
+    	</div>
+    	<!-- 商品详情左侧商品店铺信息end -->
+    	<div class="mod-recommend" data-looked="" style="display: block;" id="jRecommend">
+    		<div class="hd">猜您喜欢
+    			<a class="jFreshRec" data-gcid="<?php echo $output['goods']['gc_id_1']; ?>"><i class=" icon iconfont"></i><span>换一换</span></a>
+    		</div>
+    		<div class="bd">
+    			<ul class="recommend-list" id="jUmlikeList"></ul>
+    		</div>
+    	</div>
+    	<div class="cnt-main clearfix" id="jCutmain">
+    		<!--详情页title-->
+    		<div class="nav-tab-title-cnt">
+    			<div class="nav-tab-title-cnt jAnchorNav">
+    				<div class="nav-tab-title" id="jNavTabTitle">
+    					<ul class="nav-tab-ul">
+    						<li class="jTabTitle hover" data-type="gd-msg">
+    							<a href="javascript:;">商品信息</a>
+    						</li>
+    						<li class="jTabTitle" data-type="gd-details">
+    							<a href="javascript:;">商品详情</a>
+    						</li>
+    						<!-- 详细参数 -->
+    						<!-- 自定义label -->
+    						<li class="jTabTitle jNavForComment" data-type="gd-comment">
+    							<a href="javascript:;">商品评价</a>
+    						</li>
+    					</ul>
+    					<ul class="buys-info" data-node-type="buys-info" style="float:right;display:none;" id="jPriceBox">
+    						<li>
+    							<span class="pri-now"><em>¥</em><?php echo ncPriceFormat($output['goods']['goods_promotion_price']); ?></span>
+    							<span class="pri-del"><em>¥</em><?php echo ncPriceFormat($output['goods']['goods_marketprice']); ?></span>
+    						</li>
+    						<li><a href="javascript:;" class=" btn jAddCart" data-product-id="9986001023" data-bpm="3.1.1.1.3.9986001023" data-img="http://img1.bbgstatic.com/14f2b0f1b51_2_b32060013d9adacba654bce5cbde7059_800x800.jpeg!s1">加入购物车</a></li></ul>
+    				</div>
+    			</div>
+    		</div>
+    		<!--商品详情页 具体内容-->
+    		<div id="jGoodsDetailCnt">
+    			<div>
+    				<?php if(is_array($output['goods']['goods_attr']) || isset($output['goods']['brand_name'])){?>
+    				<div class="nav-tab-cnt jTabCntBox" id="gd-msg" style="display:block">
+    					<!-- 商品详情商品信息begin -->
+    					<div class="hd clearfix">
+    						<div class="bg"></div>
+    						<span>商品信息</span>
+    						<div class="bg"></div>
+    					</div>
+    					<div class="bd">
+    						<ul class="detail-list clearfix">
+    							<li title="<?php echo $output['goods']['goods_name']; ?>">商品名称：<?php echo $output['goods']['goods_name']; ?></li>
+    							<li>商家货号：<?php echo $output['goods']['goods_serial'];?></li>
+    							<?php if(isset($output['goods']['brand_name'])){echo '<li>'.$lang['goods_index_brand'].$lang['nc_colon'].$output['goods']['brand_name'].'</li>';}?>
+    							<?php if(is_array($output['goods']['goods_attr']) && !empty($output['goods']['goods_attr'])){?>
+    							<?php foreach ($output['goods']['goods_attr'] as $val){ $val= array_values($val);echo '<li>'.$val[0].$lang['nc_colon'].$val[1].'</li>'; }?>
+    							<?php }?>
+    							<?php if (is_array($output['goods']['goods_custom'])) {
+                foreach ($output['goods']['goods_custom'] as $val) {
+                    if ($val['value']!= '') {
+                        echo '<li>'.$val['name'].$lang['nc_colon'].$val['value'].'</li>';
+                    }
+                }}?>
+    						</ul>
+    					</div>
+    				</div>
+    				<?php }?>
+    			<!-- 商品详情商品详情begin -->
+    				<div class="nav-tab-cnt jTabCntBox" id="gd-details">
+    					<div class="hd clearfix">
+    						<div class="bg"></div>
+    						<span>商品详情</span>
+    						<div class="bg"></div>
+    					</div>
+    					<div class="bd">
+    						<div class="pro-detail">
+    							<div class="content ke-post" style="height: auto;">
+    								<?php if (isset($output['plate_top'])){ ?>
+    								<div class="top-template"><?php echo $output['plate_top']['plate_content'] ?></div>
+    								<?php } ?>
+    								<div class="default"><?php echo $output['goods']['goods_body']; ?></div>
+    								<?php if (isset($output['plate_bottom'])){ ?>
+    								<div class="bottom-template"><?php echo $output['plate_bottom']['plate_content'] ?></div>
+    								<?php } ?>
+    							</div>
+    						</div>
+    					</div>
+    					<!-- 商品详情商品详情end -->
+    				</div>
+    			<!-- 商品详情商品实拍begin -->
+    			</div></div>
+    		<!-- 商品详情商品实拍end -->
+    		<!-- 评论 begin -->
+    		<div class="nav-tab-cnt jNavTabCnt jTabCntBox" id="gd-comment" data-loading="true">
+    <div class="jComment">
+    	<div class="hd clearfix">
+    		<div class="bg"></div>
+    		<span>商品评价</span>
+    		<div class="bg"></div>
+    	</div>
+    	<div class="bd">
+    		<div class="pro-comments" id="jProComments">
+    			<div class="cnt-bg clearfix">
+    				<div class="cmt-grade-des f-l">
+    					<div class="cmt-grade">
+    						100<em>%</em>
+    					</div>
+    					<div class="cmt-txt">好评率</div>
+    					<div class="cmt-txt">共
+    						<a><?php echo $output['goods_evaluate_info']['all'] ?></a>人评论</div>
+    				</div>
+    				<div class="cmt-total f-l">
+    					<ul class="cmt-detail">
+    						<li class="cmt-level-goods clearfix">
+    							<div class="level" style="width:<?php echo $output['goods_evaluate_info']['good_percent'] ?>%"></div>
+    							<div class="level-title">好评
+    								<em>(<?php echo $output['goods_evaluate_info']['good'] ?>)</em>
+    							</div>
+    						</li>
+    						<li class="cmt-level-mid clearfix">
+    							<div class="level" style="width:<?php echo $output['goods_evaluate_info']['normal_percent'] ?>%"></div>
+    							<div class="level-title">中评
+    								<em>(<?php echo $output['goods_evaluate_info']['normal'] ?>)</em>
+    							</div>
+    						</li>
+    						<li class="cmt-level-bad clearfix">
+    							<div class="level" style="width:<?php echo $output['goods_evaluate_info']['bad_percent'] ?>%"></div>
+    							<div class="level-title">差评
+    								<em>(<?php echo $output['goods_evaluate_info']['bad'] ?>)</em>
+    							</div>
+    						</li>
+    					</ul>
+    				</div>
+    			</div>
+    			<div class="cmt-list">
+    				<div class="tab-cnt">
+    					    <?php foreach ($output['goodsevallist'] as $k => $v){ ?>
+        					<div class="cmt-item">
+        						<div class="user-hd">
+        							<img class="jImg" src="<?php echo $v['member_avatar']; ?>" style="display: inline;">
+        							<div class="user-name"><?php echo $v['geval_frommembername']; ?></div>
+        						</div>
+        						<div class="cmt-right">
+        							<div class="cmt-title clearfix">
+        								<ul class="starts starts-4 f-l">
+        									<li class="lv-1">
+        										<i class="icon iconfont"></i>
+        									</li>
+        									<li class="lv-2">
+        										<i class="icon iconfont"></i>
+        									</li>
+        									<li class="lv-3">
+        										<i class="icon iconfont"></i>
+        									</li>
+        									<li class="lv-4">
+        										<i class="icon iconfont"></i>
+        									</li>
+        									<li class="lv-5">
+        										<i class="icon iconfont"></i>
+        									</li>
+        								</ul>
+        								<div class="update-time f-r">评价日期：<?php echo $v['add_time']; ?></div>
+        							</div>
+        							<div class="cmt-cnt-bottom">
+        								<div class="cmt-cnt"><?php echo $v['geval_content']; ?></div>
+        							</div>
+        						</div>
+        					</div>
+    					<?php } ?>
+    
+        				</div>
+    			</div>
+    		</div>
+    	</div></div>
+    		      <div class="cmt-pager" id="jCommentPager"></div>
+    			</div>
+    		</div>
+    	<!-- 评论 end -->
+    	<!-- 商品信息 end-->
+    	<!-- 浏览历史 -start -->
+    	<?php if(!empty($output['viewed_goods']) && is_array($output['viewed_goods']) && count($output['viewed_goods'])>1){?>
+    		<div id="jHistoryBox" class="mod-view-history">
+    			<div class="content-body lazy-slider jLazySlider">
+    				<div class="hd"><i></i></div>
+    				<h2 class="t14">最近浏览</h2>
+    				<div id="jHistoryList" data-loading="true" class="jSliderShow history-list">
+    					<ul class="pro-list clearfix jSliderMod">
+    						<?php foreach ((array) $output['viewed_goods'] as $g) { ?>
+    						<li class="jSliderBox">
+    							<a target="_blank" title="<?php echo $g['goods_name']; ?>" href="<?php echo urlShop('goods', 'index', array('goods_id' => $g['goods_id'], )); ?>" class="pro-img" >
+    								<img class="jImg" alt="<?php echo $g['goods_name']; ?>" src="<?php echo cthumb($g['goods_image'], 240); ?>" style="opacity: 1;">
+    								<div class="pro-price">
+    									<span class="p-normal"><em>￥</em>89.00</span>
+    								</div>
+    							</a>
+    						</li>
+    						<?php }?>
+    					</ul>
+    				</div>
+    			</div>
+    		</div>
+    	<!-- 内容为js动态生成 -end -->
+    	<?php }?>
+    </div>
+    <script id="tplUlike" type="text/html">
+    <% for (var i = 0; i < datas.length; i ++) { %>
+    <li>
+    	<a target="_blank" href="<?php echo SHOP_SITE_URL;?>/item-<%= datas[i]['goods_id'] %>.html" class="pro-img">
+    	<img class="img-error img" title="<%= datas[i]['goods_name'] %>" src="http://img2.htths.com/shop/store/goods/1/<%= datas[i]['goods_image'] %>" alt="<%= datas[i]['goods_name'] %>">
+    </a>
+    	<a title="<%= datas[i]['goods_name'] %>" target="_blank" href="<?php echo SHOP_SITE_URL;?>/item-<%= datas[i]['goods_id'] %>.html" class="pro-name">
+    	<%= datas[i]['goods_name'] %>
+    	</a>
+    	<div class="pro-price">
+    		<span class="p-normal"><em>￥</em><%= datas[i]['goods_price'] %></span>
+    	</div>
+    </li>
+    <% } %>
+    </script>
+
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="footer">
+        <div class="ft">
+          <div class="copyright">
+              <p class="links">
+    	          <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-43.html" target="_blank">隐私政策</a><span>|</span>
+    	          <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-44.html" target="_blank">购物流程</a><span>|</span>
+    	          <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-45.html" target="_blank">退换货政策</a><span>|</span>
+                  <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-22.html" target="_blank">关于太划算</a><span>|</span>
+                  <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-23.html" target="_blank">联系我们</a>
+              </p>
+              <p class="cprt-icp">Copyright© 太划算商城 2014-2016，All Rights Reserved</p>
+              <p class="cprt-icp">ICP备案:苏ICP备14036053号-1<span>|</span>增值电信业务经营许可证：<a href="http://jscainfo.miitbeian.gov.cn/state/outPortal/loginPortal.action">苏B2-20160487</a><span>|</span>食品流通许可证：SP3205851410003535<span>|</span>酒类流通备案：320504101788</p>
+              <p class="pic">
+                  <img border="0" src="http://static.htths.com/images/szicbok.gif">
+              </p>
+          </div>
+        </div>
+    </div>
+    
+    
+    <link rel="stylesheet" href="http://static.htths.com/css/mini-bar.min.css">
+    <div node-type="miniBar" class="ui-mini-bar">
+    	<div node-type="richMain" class="rich-main" style="right: 0px;">
+    		<div node-type="richTabs" class=" rich-tabs">
+    			<div class="tabs-wrap">
+    				<div node-type="tabTop" class=" tab-top"></div>
+    				<div node-type="tabMidWrap" class="tab-mid-wrap">
+    					<div node-type="tabMid" class=" tab-mid">
+    						<div node-type="tab-item" class="rich-tab-box ui-animated t-cart" data-type="cart">
+    							<a class="tab-item tab-cart" id="jMinCart" data-type="Cart" href="javascript:;">
+    								<div class="tab-item-icon"><i class="icon iconfont iconfont-cart-kong"></i></div>
+    								<div class="tab-item-txt">购物车</div>
+    								<div class="cart-count jCartCount">0</div>
+    							</a>
+    						</div>
+    						<div node-type="tab-item" class="rich-tab-box ui-animated t-nkf" data-type="nkf">
+    							<a rel="nofollow" class="tab-item" id="jNormalKefu" href="javascript:void(0)" onclick="_MEIQIA('showPanel')">
+    								<div class="tab-item-icon">
+    									<i class="icon iconfont iconfont-kefu"></i>
+    								</div>
+    								<div class="tab-item-txt">客服</div>
+    							</a>
+    						</div>
+    					</div>
+    				</div>
+    				<div node-type="tabBottom" class=" tab-bottom">
+    					<div node-type="tab-item" class="rich-tab-box ui-animated t-sct" data-type="sct">
+    						<a class="tab-item tab-item-to-top jScrollToTop" href="javascript:;" style="display: none;">
+    						<b class="arrow"></b>
+    						<div class="tab-item-txt">TOP</div>
+    						<div class="tab-item-txt">置顶</div>
+    						</a>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    		<div node-type="richPanels" class=" rich-panels">
+    			<div node-type="panel-item" class="rich-panel-box box-hide p-cart" data-type="cart">
+    				<div class="plug-cart">
+    					<div class="bar-plug-top">
+    						<a href="javascript:;" class="bar-plug-close jBarPlugClose"></a>
+    					</div>
+    					<ul class="cart-cnt">
+    						<li class="cart-empty">^_^&nbsp;&nbsp;既来之，则买之！</li>
+    					</ul>
+    					<div class="cart-op clearfix">
+    						<div class="cart-total clearfix">
+    							<span class="f-l">共<b class="jCartCount">0</b>件</span>
+    							<span class="f-r">商品总额：
+    								<span class="p-normal"><em>¥</em>
+    									<span class="jTotalPrice">0.00</span>
+    								</span>
+    							</span>
+    						</div>
+    						<a href="<?php echo SHOP_SITE_URL;?>/index.php?controller=cart" class="btn jGoCart" target="_blank">去购物车结算</a>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
+    <script id="tplCartList" type="text/html">
+    <% for (var i = 0; i < list.length; i ++) { %>
+    <li class="jCartItem">
+    	<a class="goods-img" href="<%= list[i]['goods_url'] %>" target="_blank">
+    		<img class="jImgMinCart" alt="<%= list[i]['goods_name'] %>" src="<%= list[i]['goods_image'] %>" style="display: inline;">
+    	</a>
+    	<a class="goods-name" href="<%= list[i]['goods_url'] %>" target="_blank"><%= list[i]['goods_name'] %></a>
+    	<div class="goods-des clearfix">
+    		<span class="goods-price p-normal f-l"><em>¥</em><%= list[i]['goods_price'] %></span>
+    		<span class="goods-num f-r"><%= list[i]['goods_num'] %></span>
+    	</div>
+    	<a class="op-del jOpDel" data-cart-id="<%= list[i]['cart_id'] %>" data-good-id="<%= list[i]['goods_id'] %>" href="javascript:;"><i class="icon iconfont"></i></a>
+    </li>
+    <% } %>
+    </script>
+    <script>
+	    var require = {urlArgs: 'v=123' };
+    </script>
+	  <script src="http://static.htths.com/js/lib/require.js" data-main="http://static.htths.com/js/item"></script>
+    <script type='text/javascript'>
+      (function(m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function() {
+                  (m[i].a = m[i].a || []).push(arguments)
+                };
+        j = ei.createElement(q),
+                s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = '//static.meiqia.com/dist/meiqia.js';
+        s.parentNode.insertBefore(j, s);
+      })(window, document, 'script', '_MEIQIA');
+      _MEIQIA('entId', 29969);
+      _MEIQIA('withoutBtn');
+      _MEIQIA('init');
+    </script>
+  </body>
+</html>

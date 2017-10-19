@@ -1,0 +1,497 @@
+@charset "UTF-8";
+@import "common/member";
+.bed-nav, .linkage-tab .content .mt .tab li a em, .linkage-tab .limit, .linkage-tab .text .text-div, .text-limit, .ui-dialog-title {
+  text-overflow: ellipsis;
+  overflow: hidden
+}
+
+
+.linkage-tab .limit {
+  white-space: nowrap;
+  display: inline-block;
+  _zoom: 1;
+  _display: inline;
+  width: 70px
+}
+
+.linkage-tab .text .text-div {
+  white-space: nowrap;
+  zoom: 1
+}
+
+
+
+.fav-list .v-m, .sech-btn:hover, .table-list table, .ui-dialog-content, .ui-dialog-loading, .ui-dialog-statusbar .label, .ui-dialog-statusbar input {
+  vertical-align: middle
+}
+
+
+
+.linkage-tab .content .mt .tab li a em {
+  font-style: normal;
+  color: #959595 !important;
+  white-space: nowrap;
+  display: inline-block;
+  _zoom: 1;
+  _display: inline;
+  width: 45px
+}
+
+
+
+.linkage-tab label.error {
+  position: absolute !important;
+  left: 372px !important;
+  color: red !important;
+  text-align: left !important;
+  width: 300px !important
+}
+
+
+
+.bed-nav {
+  height: 44px;
+  white-space: nowrap
+}
+
+
+
+.mod-crumbs-nav .crumbs-nav-item {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  height: 24px;
+  padding: 0 4px 0 0
+}
+
+
+
+.mod-crumbs-nav .crumbs-nav-item .menu-drop {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  height: 24px;
+  position: relative;
+  z-index: 1
+}
+
+
+
+
+
+
+
+
+.ui-popup-bottom-right .ui-dialog-arrow-a, .ui-popup-bottom-right .ui-dialog-arrow-b, .ui-popup-top-right .ui-dialog-arrow-a, .ui-popup-top-right .ui-dialog-arrow-b {
+  right: 15px
+}
+
+
+
+.ui-dialog-body {
+  padding: 10px 15px;
+  text-align: center;
+  border-radius: 2px
+}
+
+
+
+.cnt, .fav-goods, .sfav, .ui-dialog-loading {
+  overflow: hidden
+}
+
+
+
+
+
+.ui-popup-bottom .ui-dialog-arrow-a, .ui-popup-bottom .ui-dialog-arrow-b {
+  margin-left: -8px;
+  left: 50%
+}
+
+
+
+.ui-dialog-loading {
+  position: relative;
+  display: block;
+  *zoom: 1;
+  *display: inline;
+  width: 32px;
+  height: 32px;
+  top: 50%;
+  margin: -16px auto 0;
+  font-size: 0;
+  text-indent: -999em;
+  color: #666;
+  width: 100% \9
+;
+  text-indent: 0 \9
+;
+  line-height: 32px \9
+;
+  text-align: center \9
+;
+  font-size: 12px \9
+}
+
+
+
+
+
+.cnt {
+  width: 980px;
+  margin-top: 10px;
+  padding: 20px;
+  background-color: #fff;
+  min-height: 458px
+}
+
+.fav-list {
+  //padding: 15px 0 0;
+  width: 1020px
+}
+
+.fav-list .nav {
+  position: relative;
+  width: 980px
+}
+
+.fav-list .nav .t-x {
+  padding: 0 5px
+}
+
+.fav-list .opr {
+  position: absolute;
+  right: 0;
+  top: -7px
+}
+
+.fav-list .v-m {
+  font-style: normal;
+  padding: 0;
+  margin: 0;
+  height: auto;
+  line-height: auto;
+  border: 0
+}
+
+.fav-list .t-l {
+  text-align: left
+}
+
+.fav-list .t-r {
+  text-align: right
+}
+
+.fav-list .bt {
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  color: #666;
+  display: inline-block;
+  font-family: tahoma, SimSun;
+  height: 24px;
+  line-height: 24px;
+  margin-left: 2px;
+  padding: 0 8px;
+  text-align: center
+}
+
+.fav-list .bt:hover {
+  color: #f03468
+}
+
+.fav-chk {
+  margin: 0 10px
+}
+
+.fav-goods {
+  width: 355px;
+  height: 73px;
+  position: relative;
+  margin: 8px 0 10px
+}
+
+.fav-goods a {
+  min-width: 70px;
+  float: left;
+  display: inline-block
+}
+
+.fav-goods a img {
+  width: auto;
+  margin: 0 auto
+}
+
+.fav-goods a:hover {
+  text-decoration: none
+}
+
+.fav-goods .fav-goods-img {
+  width: 68px;
+  height: 68px;
+  border: 1px solid #f2f2f2;
+  position: absolute;
+  left: 5px;
+  top: 3px
+}
+
+.fav-goods a div {
+  width: 270px;
+  padding-left: 10px
+}
+
+.pager {
+  margin-top: 5px
+}
+
+.table-top {
+  margin-top: 15px
+}
+
+.table-list {
+  width: 978px;
+  color: #666
+}
+
+.table-list table {
+  border-collapse: collapse;
+  width: 100%
+}
+
+.table-wrap {
+  margin-top: 10px;
+  padding-bottom: 10px
+}
+
+.table-wrap table {
+  border: 1px solid #e4e4e4;
+  margin-bottom: 15px
+}
+
+.table-list table th {
+  text-align: center;
+  background: #f2f2f2;
+  font-weight: 400;
+  padding: 12px 0
+}
+
+.table-list table td {
+  text-align: left
+}
+
+.table-list table .f {
+  text-align: left;
+  width: 400px
+}
+
+.table-list table .s {
+  width: 140px;
+  text-align: center;
+  font-family: 'microsoft yahei'
+}
+
+.table-list table .t {
+  width: 150px;
+  text-align: center
+}
+
+.table-list table .cl-r {
+  color: red
+}
+
+.table-list table .cl-9 {
+  color: #999
+}
+
+.table-list table .fi {
+  width: 145px
+}
+
+.table-list .fav-handle {
+  width: 145px;
+  margin-top: 10px;
+  text-align: center
+}
+
+.table-list table .t-c {
+  text-align: center
+}
+
+.table-list .fav-handle a {
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 2px;
+  margin: 0 20px
+}
+
+.table-list .fav-handle a.def:hover {
+  color: #f03468;
+  text-decoration: none
+}
+
+.table-list table .div-line {
+  border-right: 1px solid #e4e4e4
+}
+
+.table-list .fav-status {
+  text-align: center;
+  width: 125px
+}
+
+.sfav {
+  width: 980px;
+  margin: 40px 0 0
+}
+
+.sfav .shop-list {
+  padding-left: 360px;
+  margin-bottom: 20px;
+  position: relative;
+  height: 204px;
+  border-bottom: 1px solid #e7e7e7;
+  border-right: 1px solid #e7e7e7
+}
+
+.sfav .shop-survey {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 210px;
+  height: 179px;
+  background-color: #f2f2f2;
+  padding: 25px 0 0 150px
+}
+
+.sfav .shop-survey img {
+  display: block;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  left: 20px;
+  top: 29px
+}
+
+.sfav .shop-cmt {
+  font: 100 12px/22px '宋体';
+  color: #999
+}
+
+.sfav .shop-cmt h2 {
+  color: #666;
+  font: 700 16px/20px 'microsoft yahei';
+  margin-bottom: 10px
+}
+
+.sfav .shop-cmt em {
+  color: #666;
+  font-weight: 700
+}
+
+.sfav .shop-cmt em.date {
+  font-family: Tahoma;
+  font-weight: 100
+}
+
+.sfav .c-fav {
+  margin-top: 10px
+}
+
+.sfav .c-fav:hover {
+  background: #fff
+}
+
+.sfav .c-fav i {
+  font-size: 16px;
+  color: #ccc;
+  float: left;
+  margin-top: 1px
+}
+
+.sfav .online, .sfav .online i {
+  color: #f90
+}
+
+.sfav .gd-lsit {
+  width: 800px;
+  padding: 37px 0 0 22px;
+  border-top: 1px solid #e7e7e7
+}
+
+.sfav .gd-lsit img {
+  width: 100px;
+  height: 100px
+}
+
+.sfav .gd-lsit li {
+  width: 100px;
+  text-align: center;
+  margin-right: 60px;
+  float: left
+}
+
+.sfav .gd-lsit li .gd-tle {
+  display: block;
+  text-align: left;
+  word-break: break-all
+}
+
+.sfav .gd-lsit li .p-normal {
+  text-align: left;
+  font-size: 14px;
+  color: #f03468
+}
+
+.sfav .shop-gd-hot {
+  position: absolute;
+  top: 8px;
+  left: 382px;
+  font: 700 14px/20px 'microsoft yahei';
+  color: #333
+}
+
+.arrivalnotice {
+  line-height: 28px
+}
+
+.arrivalnotice span {
+  color: #f03468
+}
+
+.arrivalnotice-botton {
+  text-align: right;
+  padding: 5px 140px 5px 0
+}
+
+.bet {
+  background: #f03468;
+  border: 0;
+  padding: 2px 15px 5px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 2px
+}
+
+.bet:hover {
+  background: #f40000
+}
+
+.p-t {
+  background: red;
+  line-height: 21px;
+  float: left
+}
+
+.fav-list .nav .opr .search-cnt .f-l {
+  margin-top: 8px;
+  margin-right: 5px
+}
+
+.attivalnotice-td {
+  width: 130px;
+  text-align: right;
+  height: 40px
+}

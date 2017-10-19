@@ -1,0 +1,523 @@
+@charset "UTF-8";
+@import "common/member";
+.bed-nav, .linkage-tab .content .mt .tab li a em, .linkage-tab .limit, .linkage-tab .text .text-div, .text-limit, .ui-dialog-title {
+  text-overflow: ellipsis;
+  overflow: hidden
+}
+
+.linkage-tab .limit {
+  white-space: nowrap;
+  display: inline-block;
+  _zoom: 1;
+  _display: inline;
+  width: 70px
+}
+
+.linkage-tab .text .text-div {
+  white-space: nowrap;
+  zoom: 1
+}
+
+.linkage-tab .text .text-div i {
+  padding-left: 10px
+}
+
+.linkage-tab .content .mt .tab li a em {
+  font-style: normal;
+  color: #959595 !important;
+  white-space: nowrap;
+  display: inline-block;
+  _zoom: 1;
+  _display: inline;
+  width: 45px
+}
+
+
+
+.linkage-tab label.error {
+  position: absolute !important;
+  left: 372px !important;
+  color: red !important;
+  text-align: left !important;
+  width: 300px !important
+}
+
+
+
+.bed-nav {
+  height: 44px;
+  white-space: nowrap
+}
+
+
+.cnt {
+  width: 1020px
+}
+
+.btn, .loading-box, .sech-btn, .tab a, .tips-div {
+  text-align: center
+}
+
+
+
+
+.ui-popup-bottom-right .ui-dialog-arrow-a, .ui-popup-bottom-right .ui-dialog-arrow-b, .ui-popup-top-right .ui-dialog-arrow-a, .ui-popup-top-right .ui-dialog-arrow-b {
+  right: 15px
+}
+
+
+
+.ui-dialog-body {
+  padding: 10px 15px;
+  text-align: center;
+  border-radius: 2px
+}
+
+
+
+
+
+.ui-popup-bottom .ui-dialog-arrow-a, .ui-popup-bottom .ui-dialog-arrow-b {
+  margin-left: -8px;
+  left: 50%
+}
+
+
+
+
+
+
+
+.tips-msg, .ui-dialog-error .ui-dialog-cnt-icon {
+  color: #f03468
+}
+
+
+
+.form .group, .pop-form .group, .validate-form .group {
+  clear: both;
+  position: relative
+}
+
+.form, .form .group, .validate-form {
+  overflow: hidden
+}
+
+select {
+  padding: 3px 0;
+  border: 1px solid #ccc;
+  display: inline-block;
+  vertical-align: middle;
+  font-style: normal;
+  border-radius: 2px
+}
+
+input[type=tel], input[type=text] {
+  display: inline-block;
+  vertical-align: middle;
+  font-style: normal;
+  height: 22px;
+  line-height: 22px;
+  padding: 0 5px;
+  width: auto;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  outline: 0
+}
+
+textarea {
+  border-radius: 2px;
+  border: 1px solid #ccc
+}
+
+.form .group {
+  color: #666
+}
+
+.form .group label {
+  width: 190px;
+  padding-right: 10px;
+  text-align: right;
+  float: left;
+  display: inline-block;
+  padding-top: 10px
+}
+
+.form .group label em {
+  color: red;
+  margin-right: 5px;
+  display: inline-block;
+  vertical-align: middle
+}
+
+.form .group .controls {
+  padding-left: 20px;
+  float: left;
+  min-width: 165px;
+  padding-top: 10px
+}
+
+.form .end .controls, .form .end label {
+  padding-bottom: 10px
+}
+
+.pop-form {
+  font-size: 12px;
+  float: left
+}
+
+.pop-form .group {
+  color: #999;
+  margin: 7px 0;
+  min-height: 35px
+}
+
+.tips-msg {
+  margin: 0;
+  display: none;
+  padding: 0 0 0 130px;
+  min-height: 0;
+  height: 10px;
+  position: relative
+}
+
+.pop-form .group .label, .validate-form .group label {
+  padding-right: 10px;
+  text-align: right;
+  float: left;
+  display: inline-block
+}
+
+.pop-form .z-index-1 {
+  z-index: 1
+}
+
+.pop-form .group .label {
+  width: 120px;
+  padding-top: 10px;
+  color: #999;
+  line-height: 24px
+}
+
+.pop-form .group .label em {
+  color: #f03468;
+  margin-right: 5px;
+  display: inline-block;
+  vertical-align: middle
+}
+
+.pop-form .group .controls {
+  float: left;
+  min-width: 165px;
+  padding-top: 10px
+}
+
+.pop-form .group .controls input[type=text] {
+  height: 25px;
+  line-height: 25px
+}
+
+.pop-form .group .controls input[type=checkbox] {
+  display: inline-block;
+  vertical-align: middle
+}
+
+.pop-form .group .controls .tips {
+  color: #ccc;
+  font-size: 12px;
+  font-family: '宋体'
+}
+
+.pop-form .group .controls span {
+  margin-left: 5px
+}
+
+.pop-form .group .controls .btn-sec {
+  margin-left: 40px
+}
+
+.pop-form label.error, .validate-form .group .controls span {
+  margin-left: 5px
+}
+
+.pop-form .end .controls, .pop-form .end label {
+  padding-top: 20px
+}
+
+.pop-form .input-address {
+  width: 320px
+}
+
+.pop-form .group .controls .address {
+  width: 331px
+}
+
+.pop-form .group .controls .address .linkage-tab .content, .pop-form .group .controls .address .linkage-tab .text {
+  border: 1px solid #ccc
+}
+
+.pop-form .group .controls .linkage-tab-hover .text {
+  border-bottom: 0 !important;
+  z-index: 1
+}
+
+.validate-form .group {
+  overflow: hidden;
+  color: #666
+}
+
+.validate-form .group label {
+  width: 140px;
+  padding-top: 10px;
+  line-height: 25px
+}
+
+.validate-form .group label em {
+  color: #f03468;
+  margin-right: 5px;
+  display: inline-block;
+  vertical-align: middle
+}
+
+.validate-form .group label i {
+  display: inline-block;
+  vertical-align: middle;
+  font-style: normal
+}
+
+.validate-form .group .controls {
+  float: left;
+  min-width: 165px;
+  padding-top: 10px
+}
+
+.validate-form .group .controls input[type=text] {
+  height: 25px;
+  line-height: 25px;
+  width: 165px
+}
+
+.validate-form .group .controls a {
+  color: #06c;
+  cursor: pointer
+}
+
+.validate-form .group .controls .btn {
+  color: #666
+}
+
+.form .end .controls, .validate-form .end label {
+  padding-bottom: 10px
+}
+
+.validate-form .group .controls .phone-txt {
+  color: #55c788;
+  font-family: 'microsoft yahei';
+  margin-left: 0;
+  line-height: 25px
+}
+
+.validate-form .tips {
+  color: #f03468;
+  padding-top: 3px;
+  padding-left: 150px;
+  line-height: 16px
+}
+
+.validate-form .info {
+  text-align: center;
+  background: #fff3d0;
+  line-height: 30px;
+  margin-top: 10px
+}
+
+.validate-form .btn-box {
+  padding-top: 20px;
+  padding-left: 150px
+}
+
+.placeholder {
+  display: inline-block;
+  position: relative
+}
+
+.placeholder label, .placeholder span {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 5px !important;
+  font-style: normal;
+  color: #ccc;
+  width: auto;
+  line-height: normal !important;
+  padding: 4px 0 0 !important
+}
+
+.btn-box .btn {
+  line-height: 11px
+}
+
+.cnt {
+  overflow: hidden
+}
+
+.security-center {
+  padding: 5px 0 0;
+  background: #fff
+}
+
+.security-center h1 {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  font-family: 'Microsoft YaHei';
+  font-size: 15px;
+  position: relative;
+  font-weight: 400;
+  border-bottom: 1px solid #e4e4e4
+}
+
+.security-center .operate a, .security-center .operate i, .security-center .operate span, .security-center .rank .rank-l span {
+  display: inline-block;
+  vertical-align: middle
+}
+
+.security-center h1 span {
+  border-bottom: 1px solid red;
+  position: absolute;
+  padding: 0 20px
+}
+
+.security-center .ct {
+  padding: 30px 80px 10px;
+  min-height: 412px
+}
+
+.security-center .rank {
+  overflow: hidden;
+  border: 1px solid #f2f2f2;
+  margin-bottom: 20px
+}
+
+.security-center .rank .rank-l {
+  float: left;
+  height: 85px;
+  line-height: 85px;
+  background: #f2f2f2;
+  width: 465px;
+  text-align: center
+}
+
+.security-center .rank .rank-l span {
+  font-family: 'Microsoft YaHei';
+  font-size: 16px;
+  margin: 0 5px
+}
+
+.security-center .rank .rank-l .schedule-bar {
+  display: inline-block;
+  width: 274px;
+  height: 20px;
+  line-height: 20px;
+  //background: url(//s1.bbgstatic.com/uc/img/index/safe-level.png) no-repeat;
+  vertical-align: middle;
+  text-align: left
+}
+
+.security-center .rank .rank-l .schedule-bar-2 {
+  background-position: 0 -30px
+}
+
+.security-center .rank .rank-l .schedule-bar-3 {
+  background-position: 0 -60px
+}
+
+.security-center .rank .rank-l .schedule-bar-4 {
+  background-position: 0 -90px
+}
+
+.security-center .rank .rank-r {
+  float: left;
+  width: 390px;
+  text-align: left
+}
+
+.security-center .rank .rank-r p {
+  padding-left: 25px
+}
+
+.security-center .rank .rank-r .time {
+  color: #999
+}
+
+.security-center .operate {
+  margin-bottom: 10px;
+  border: 1px solid #e4e4e4;
+  border-left: 4px solid #f9b511;
+  height: 70px;
+  line-height: 70px;
+  overflow: hidden
+}
+
+.security-center .operate i {
+  border-right: 1px solid #e4e4e4;
+  width: 2px;
+  height: 15px;
+  line-height: 15px
+}
+
+.security-center .operate .iconfont {
+  color: #f9b511;
+  font-size: 40px;
+  width: 70px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center
+}
+
+.security-center .operate .operate-txt {
+  text-align: center;
+  width: 110px;
+  font-family: 'Microsoft YaHei';
+  font-size: 16px;
+  font-weight: 700
+}
+
+.security-center .operate .operate-info {
+  width: 525px;
+  padding-left: 25px
+}
+
+.security-center .operate .operate-modify {
+  padding-left: 15px;
+  color: #69a0d3;
+  cursor: pointer
+}
+
+.security-center .verified {
+  border-left: 4px solid #6acf97
+}
+
+.security-center .verified .iconfont {
+  color: #6acf97
+}
+
+.level-txt-1 {
+  color: red
+}
+
+.level-txt-2 {
+  color: #E8DB56
+}
+
+.level-txt-3 {
+  color: #f90
+}
+
+.level-txt-4 {
+  color: #3bc225
+}
+
+.txt-orange {
+  color: #f03468
+}

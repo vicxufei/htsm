@@ -1,0 +1,241 @@
+-----------2016-06-01 10:31:08-----------------array (
+  'fpic' => 
+  array (
+    'name' => '20070102x1003x6718.jpg',
+    'type' => 'image/jpeg',
+    'tmp_name' => '/tmp/phpfWUo0O',
+    'error' => 0,
+    'size' => 340904,
+  ),
+  'bpic' => 
+  array (
+    'name' => '',
+    'type' => '',
+    'tmp_name' => '',
+    'error' => 4,
+    'size' => 0,
+  ),
+)
+
+
+-----------2016-06-01 11:06:19-----------------array (
+  'fpic' => 
+  array (
+    'name' => '6806eaad-e19e-2014-6e22-7fbd56041caa.png',
+    'type' => 'image/png',
+    'tmp_name' => '/tmp/phpgTblvl',
+    'error' => 0,
+    'size' => 38361,
+  ),
+)
+
+
+-----------2016-06-01 11:07:26-----------------array (
+  'bpic' => 
+  array (
+    'name' => 'df42fac1-69ea-158b-022e-ef04f45b158d.png',
+    'type' => 'image/png',
+    'tmp_name' => '/tmp/phpd29Py8',
+    'error' => 0,
+    'size' => 33064,
+  ),
+)
+
+
+-----------2016-06-01 11:07:47-----------------array (
+  'bpic' => 
+  array (
+    'name' => '9d493acd-dc96-9cec-059e-c1539732aa7b.png',
+    'type' => 'image/png',
+    'tmp_name' => '/tmp/phpOvV4MG',
+    'error' => 0,
+    'size' => 56155,
+  ),
+)
+
+
+-----------2016-06-01 11:19:13-----------------'23-bpic.png'
+
+
+-----------2016-06-01 11:22:39-----------------true
+
+
+-----------2016-06-01 11:25:38-----------------'23-fpic7221d7d8.png'
+
+
+-----------2016-06-01 11:28:05-----------------'http://img2.htths.com/shop/idcards/23-fpic0d20ac89.png'
+
+
+-----------2016-06-01 11:54:21-----------------'fpic'
+
+
+-----------2016-06-01 11:58:32-----------------'png'
+
+
+-----------2016-06-01 11:59:01-----------------'png'
+
+
+-----------2016-06-01 12:02:22-----------------UploadFile::__set_state(array(
+   'save_path' => NULL,
+   'allow_type' => 
+  array (
+    0 => 'gif',
+    1 => 'jpg',
+    2 => 'jpeg',
+    3 => 'bmp',
+    4 => 'png',
+    5 => 'swf',
+    6 => 'tbi',
+  ),
+   'max_size' => '1024',
+   'thumb_width' => 340,
+   'thumb_height' => 200,
+   'thumb_ext' => '58e2ed98',
+   'upload_file' => NULL,
+   'ifremove' => true,
+   'file_name' => '23-fpic.png',
+   'ext' => NULL,
+   'new_ext' => NULL,
+   'default_dir' => 'shop/idcards',
+   'error' => '',
+   'thumb_image' => NULL,
+   'if_show_error' => false,
+   'if_show_error_one' => false,
+   'fprefix' => NULL,
+   'filling' => true,
+   'config' => 
+  array (
+    'thumb_type' => NULL,
+  ),
+))
+
+
+-----------2016-06-01 12:03:38-----------------UploadFile::__set_state(array(
+   'save_path' => NULL,
+   'allow_type' => 
+  array (
+    0 => 'gif',
+    1 => 'jpg',
+    2 => 'jpeg',
+    3 => 'bmp',
+    4 => 'png',
+    5 => 'swf',
+    6 => 'tbi',
+  ),
+   'max_size' => '1024',
+   'thumb_width' => 340,
+   'thumb_height' => 200,
+   'thumb_ext' => '8d881aa8',
+   'upload_file' => NULL,
+   'ifremove' => true,
+   'file_name' => '23-fpic.jpg',
+   'ext' => NULL,
+   'new_ext' => NULL,
+   'default_dir' => 'shop/idcards',
+   'error' => '',
+   'thumb_image' => NULL,
+   'if_show_error' => false,
+   'if_show_error_one' => false,
+   'fprefix' => NULL,
+   'filling' => true,
+   'config' => 
+  array (
+    'thumb_type' => NULL,
+  ),
+))
+
+
+-----------2016-06-01 12:04:19-----------------UploadFile::__set_state(array(
+   'save_path' => NULL,
+   'allow_type' => 
+  array (
+    0 => 'gif',
+    1 => 'jpg',
+    2 => 'jpeg',
+    3 => 'bmp',
+    4 => 'png',
+    5 => 'swf',
+    6 => 'tbi',
+  ),
+   'max_size' => '1024',
+   'thumb_width' => 340,
+   'thumb_height' => 200,
+   'thumb_ext' => '7364fa71',
+   'upload_file' => NULL,
+   'ifremove' => true,
+   'file_name' => '23-fpic.jpg',
+   'ext' => NULL,
+   'new_ext' => NULL,
+   'default_dir' => 'shop/idcards',
+   'error' => '',
+   'thumb_image' => NULL,
+   'if_show_error' => false,
+   'if_show_error_one' => false,
+   'fprefix' => NULL,
+   'filling' => true,
+   'config' => 
+  array (
+    'thumb_type' => NULL,
+  ),
+))
+
+
+-----------2016-06-01 12:07:18-----------------array (
+  'name' => '20070102x1003x6718.jpg',
+  'type' => 'image/jpeg',
+  'tmp_name' => '/tmp/phpNOvYqH',
+  'error' => 0,
+  'size' => 340904,
+)
+
+
+-----------2016-06-01 12:07:59-----------------array (
+  'name' => 'bf485cee-0468-20e8-7bd5-e0b9d1fccf02.png',
+  'type' => 'image/png',
+  'tmp_name' => '/tmp/phpF4YVfu',
+  'error' => 0,
+  'size' => 32726,
+)
+
+
+-----------2016-06-01 12:11:05-----------------false
+
+
+-----------2016-06-01 12:11:40-----------------false
+
+
+-----------2016-06-01 12:49:15-----------------false
+
+
+-----------2016-06-01 13:16:57-----------------false
+
+
+-----------2016-06-01 13:18:14-----------------false
+
+
+-----------2016-06-01 13:20:03-----------------false
+
+
+-----------2016-06-01 13:29:57-----------------'shop/idcards'
+
+
+-----------2016-06-01 13:34:41-----------------'阿布'
+
+
+-----------2016-06-01 13:35:39-----------------'阿布GG'
+
+
+-----------2016-06-01 13:38:18-----------------'/data/wwwroot/mall.htths.com/data/upload/shop/idcards/23-bpic.png'
+
+
+-----------2016-06-01 13:42:38-----------------'/data/wwwroot/mall.htths.com/data/upload/shop/idcards/23-fpic.png'
+
+
+-----------2016-06-01 13:46:11-----------------'/data/wwwroot/mall.htths.com/data/upload/shop/idcards'
+
+
+-----------2016-06-01 14:00:52-----------------array (
+  0 => 333.33333333333331,
+)
+
+

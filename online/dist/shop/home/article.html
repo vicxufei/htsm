@@ -1,0 +1,260 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	  <meta name="keywords" content="<?php echo $output['seo_keywords']; ?>"/>
+    <meta name="description" content="<?php echo $output['seo_description']; ?>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $output['html_title']; ?></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.htths.com/">
+    <link rel="stylesheet" href="http://static.htths.com/css/base.min.css">
+	  <link rel="stylesheet" href="http://static.htths.com/css/article.min.css">
+  </head>
+  <body>
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="global-topbar">
+      <div class="bd w1190 clearfix">
+    	  <ul class="sn-block sn-login f-l" id="is-login">
+    		  <?php if ($_SESSION['is_login'] == '1'){ ?>
+    		  <li data-is-login="1">
+    			  您好,
+    			  <a rel="nofollow" href="<?php echo urlMember('member_security', 'index');?>"><?php echo $_SESSION['member_name']; ?></a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'logout'); ?>">退出登录</a>
+    		  </li>
+    		  <?php }else{ ?>
+    		  <li data-is-login="0">
+    			  <a rel="nofollow" href="<?php echo urlMember('login'); ?>">登录</a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'register'); ?>">免费注册</a>
+    		  </li>
+    		  <?php } ?>
+    	  </ul>
+        <ul class="sn-block sn-quick f-r">
+          <li class="jMenu">
+              <a class="menu-hd block-item" rel="nofollow" href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order">我的订单<b
+    		          class="arrow"></b></a>
+              <div class="menu-bd">
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_new">待付款订单</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_send">待确认收货</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_noeval">待评价交易</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_goods&action=fglist">商品收藏</a>
+              </div>
+          </li>
+          <li class="sn-cart"><a class="block-item" href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=cart">我的购物车<b class="jCartCount sn-cart-count">0</b></a></li>
+          <li class="jMenu">
+              <a class="menu-hd block-item" href="#">客户服务<b class="arrow"></b></a>
+              <div class="menu-bd">
+                  <ul>
+                      <li><a href="<?php SHOP_SITE_URL; ?>/article-23.html">关于我们</a></li>
+                      <li><a href="<?php SHOP_SITE_URL; ?>/article-22.html">联系我们</a></li>
+                  </ul>
+              </div>
+          </li>
+          <li class="qr-codes jMenu">
+            <a class="menu-hd block-item" href="javascript:;">手机版</a>
+            <div class="menu-bd">
+              <div class="qr-codes-img"><img class="jImgPhoneCode img-error" src="//static.htths.com/img/htsm-qrcode.jpg" alt="太划算二维码"></div><div
+    		        class="qr-codes-txt">太划算手机版</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="site-head">
+      <div class="bd w1190 clearfix">
+        <div class="s-box" id="jSearch" data-node-type="jSearch">
+    	    <div class="s-main">
+    		    <label class="lbl-key" for="mq"></label>
+    		    <input class="input" type="text" name="keyword" autocomplete="off" x-webkit-grammar="builtin:translate" value="" id="mq" data-node-type="mq">
+    		    <a  class="btn-search jBtnAllSearch" href="javascript:;">搜索</a>
+    	    </div>
+    	    <div class="kw-suggest" id="jKwSuggest" data-node-type="jKwSuggest">
+    		    <?php if (is_array($output['hot_search']) && !empty($output['hot_search'])){ ?>
+    		      <?php foreach ($output['hot_search'] as $val){ ?>
+    		    <a href="<?php echo urlShop('search', 'index', array('keyword' => $val)); ?>" target="_blank"><?php echo $val; ?></a>
+    		    <?php } } ?>
+    	    </div>
+    
+          <div class="k-history" id="jSearchHistoryBox">
+    	      <?php if (is_array($output['his_search_list']) && !empty($output['his_search_list'])){ ?>
+    	      <ul class="kh-list">
+    		      <?php foreach ($output['his_search_list'] as $v){ ?>
+    		      <li class="kh-item" data-key="<?php echo $v ?>"><span class="kh-key"><?php echo $v ?></span><a class="kh-button">删除</a></li>
+    		      <?php } ?>
+    	      </ul>
+    	      <div class="kh-infos clearfix"><span>搜索记录</span><a class="kh-clear">清空搜索记录</a></div>
+    	      <?php }else{ ?>
+    	      <div class="kh-none">无历史搜索记录</div>
+    	      <?php } ?>
+          </div>
+        </div>
+        <h1>
+    	    <a href="<?php echo SHOP_SITE_URL; ?>" title="太划算商城" class="go-home">
+    		    <img alt="太划算商城" class="logo" src="<?php echo STATIC_URL; ?>/images/logo.png">
+            </a>
+        </h1>
+      </div>
+    </div>
+    
+    
+      <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+      <div class="navigation navigation_101">
+          <div class="w1190 bd">
+              <ul class="nav-cnt jNav">
+                  <li class="jNavTop <?php if($output['index_sign'] == 'index' && $output['index_sign'] != '0') {?>nav-hover<?php }?>">
+      	            <a target="_blank" href="<?php echo SHOP_SITE_URL;?>">首页</a>
+                  </li>
+      	        <?php if(!empty($output['show_goods_class'])){ ?>
+      	        <?php foreach ($output['show_goods_class'] as $key => $val){ ?>
+                  <li class="jNavTop <?php if($_GET['cate_id'] == $val['gc_id']) {?>nav-hover<?php } ?>">
+      	            <a href="<?php echo urlShop('search', 'index', array('cate_id' => $val['gc_id'])); ?>" target="_blank"><?php echo $val['gc_name']; ?></a>
+      	            <div class="pin-down jPinDown jNavLoad pin-down-6" cat_menu_id="<?php echo $val['gc_id']; ?>">
+                          <div class="pin-down-cate">
+                              <?php if (!empty($val['class2']) && is_array($val['class2'])){ ?>
+      	                    <?php foreach ($val['class2'] as $k => $v){ ?>
+                                      <dl class="item-list">
+                                      <dt>
+                                          <a href="<?php echo urlShop('search', 'index', array('cate_id' => $v['gc_id'])); ?>" target="_blank"><?php echo $v['gc_name']; ?></a>
+                                      </dt>
+                                      <dd><?php if (!empty($v['class3']) && is_array($v['class3'])){ ?>
+      	                                <?php foreach ($v['class3'] as $k3 => $v3){ ?>
+                                                  <a href="<?php echo urlShop('search', 'index', array('cate_id' => $v3['gc_id'])); ?>" target="_blank">
+                                                  <?php echo $v3['gc_name']; ?></a>
+      	                                <?php }} ?>
+                                      </dd>
+                                      </dl>
+      	                    <?php }} ?>
+                          </div>
+                          <div class="pin-down-brand">
+      	                    <?php if (!empty($val['cn_brands'])){ ?>
+      	                    <div class="brands-list">
+                                  <ul><?php foreach ($val['cn_brands'] as $brand){ ?>
+      	                            <li> <a href="<?php echo urlShop('brand', 'list', array('brand' => $brand['brand_id'])); ?>"
+      			                            title="<?php echo $brand['brand_name']; ?>"><?php if ($brand['brand_pic'] != '')
+                                              { ?><img src="<?php echo brandImage($brand['brand_pic']); ?>"/><?php } ?>
+      		                            <span><?php echo $brand['brand_name']; ?></span></a></li>
+      	                            <?php } ?></ul>
+                                  </div>
+      	                    <?php } ?>
+                          </div>
+                          <div class="pin-down-banner"><?php if ($val['cn_adv1'] != ''){ ?>
+                            <a <?php echo $val['cn_adv1_link'] == '' ? 'href="javascript:;"' : 'target="_blank" href="' . $val['cn_adv1_link'] . '"'; ?>
+                            >
+                <img src="<?php echo $val['cn_adv1']; ?>"></a><?php } ?><?php if ($val['cn_adv2'] != '')
+            { ?>
+                            <a <?php echo $val['cn_adv2_link'] == '' ? 'href="javascript:;"' : 'target="_blank" href="' . $val['cn_adv2_link'] . '"'; ?>
+                            >
+                <img src="<?php echo $val['cn_adv2']; ?>"></a><?php } ?></div>
+                      </div>
+                  </li>
+      	        <?php } ?>
+      	        <?php } ?>
+              </ul>
+          </div>
+      </div>
+      
+      <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+      
+      <?php if(!empty($output['nav_link_list']) && is_array($output['nav_link_list'])){?>
+      <div class="mod-crumbs-nav">
+      	<?php foreach($output['nav_link_list'] as $nav_link){?>
+      	<?php if(!empty($nav_link['link'])){?>
+        <div class="crumbs-nav-item one-level">
+          <a href="<?php echo $nav_link['link'];?>" class="crumbs-link" title="<?php echo $nav_link['title'];?>"><?php echo $nav_link['title'];?></a>
+          <span>&gt;</span>
+        </div>
+      	<?php }else{?>
+        <b><?php echo $nav_link['title'];?></b>
+      	<?php }?>
+      	<?php }?>
+      </div>
+      <?php }?>
+      
+      
+
+
+    <div class="w1190">
+    	<div class="page-breadcrumb">
+    	</div>
+    	<div class="page-cnt">
+    		<?php if(is_array($output['article_list']) && !empty($output['article_list'])){ ?>
+    		<div class="left-nav">
+    			<?php foreach ($output['article_list'] as $k=> $article_class){ ?>
+    			<?php if(!empty($article_class)){ ?>
+    			<dl>
+    				<dt><?php if(is_array($article_class['class'])) echo $article_class['class']['ac_name'];?></dt>
+    				<?php if(is_array($article_class['list']) && !empty($article_class['list'])){ ?>
+    				<dd>
+    					<ul>
+    						<?php foreach ($article_class['list'] as $article){ ?>
+    						<li>
+    							<a  class="<?php if($_GET['article_id'] == $article['article_id'] ){ echo 'active';  } ?>"   href="<?php if($article['article_url'] != '')echo $article['article_url'];else echo urlShop('article', 'show',array('article_id'=> $article['article_id']));?>" title="<?php echo $article['article_title']; ?>">
+    						    <?php echo $article['article_title'];?>
+    					    </a>
+    						</li>
+    						<?php }}?>
+    					</ul>
+    				</dd>
+    			</dl>
+    			<?php }}?>
+    		</div>
+    		<?php }?>
+    <div class="page-content page-content-main">
+    	<?php echo $output['article']['article_content'];?>
+    </div>
+      </div>
+    </div>
+
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="footer">
+        <div class="ft">
+          <div class="copyright">
+            <p class="links">
+              <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-22.html" target="_blank">关于太划算</a><span>|</span>
+              <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-23.html" target="_blank">联系我们</a>
+            </p>
+    	      <p class="cprt-icp">Copyright© 2003-2016 太仓和团商贸有限公司Htths.com 版权所有</p>
+    	      <p class="cprt-icp">苏ICP备14036053号-1<span>|</span>食品流通许可证：SP3205851410003535<span>|</span>酒类流通备案：320504101788</p>
+    	      <p class="pic">
+    	        <a rel="nofollow" target="_blank" href="http://www.szgswljg.gov.cn/websiteMark?siteid=31390"><img border="0" src="http://static.htths.com/images/szicbok.gif"></a>
+    	        <img class="pay-ali" src="http://static.htths.com/img/alipay.jpg">
+    	        <img class="pay-wx" src="http://static.htths.com/img/wechatpay.jpg">
+    	      </p>
+          </div>
+        </div>
+    </div>
+    
+    
+    <script>
+	    var require = {urlArgs: 'v=123' };
+    </script>
+	  <script src="http://static.htths.com/js/lib/require.js" data-main="http://static.htths.com/js/article"></script>
+  <script type='text/javascript'>
+    (function(m, ei, q, i, a, j, s) {
+	    m[i] = m[i] || function() {
+			    (m[i].a = m[i].a || []).push(arguments)
+		    };
+	    j = ei.createElement(q),
+		    s = ei.getElementsByTagName(q)[0];
+	    j.async = true;
+	    j.charset = 'UTF-8';
+	    j.src = '//static.meiqia.com/dist/meiqia.js';
+	    s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', 29969);
+    _MEIQIA('withoutBtn');
+    _MEIQIA('init');
+</script>
+  </body>
+</html>

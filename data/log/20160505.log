@@ -1,0 +1,2 @@
+[2016-05-05 16:13:04] /api/payment/wxpay/notify_url.php ( act=payment&op=wxpay_notify ) 
+ERR: {"appid":"wxeda52f5413d2e571","attach":"r","bank_type":"CFT","cash_fee":"2900","fee_type":"CNY","is_subscribe":"Y","mch_id":"1226353802","nonce_str":"c78zwrg7ro516mrnytctuneu41sefeq9","openid":"o7TftjpV5qvSyrtQrAh-PvUx28cE","out_trade_no":"970515779876756002","result_code":"SUCCESS","return_code":"SUCCESS","sign":"9E7EC21FCE5CC65508E4E2B455F95425","time_end":"20160505161303","total_fee":"2900","trade_type":"NATIVE","transaction_id":"4006722001201605055534149276"}

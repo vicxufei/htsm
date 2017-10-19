@@ -1,0 +1,12 @@
+[2015-12-16 03:00:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=date&op=index ) 
+ERR: Db Error: Unknown column 'orders.order_id' in 'field list'
+SELECT  orders.order_id,orders.add_time,orders.buyer_id,orders.buyer_name,orders.order_amount,order_log.log_orderstate,orders.payment_code FROM `ht_pd_log` WHERE (  (lg_add_time BETWEEN '1450108800' AND '1450195199' ) ) GROUP BY lg_member_id ORDER BY lg_member_id LIMIT 1000  
+[2015-12-16 03:00:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=date&op=index ) 
+ERR: Db Error: Unknown column 'orders.order_id' in 'field list'
+SELECT  orders.order_id,orders.add_time,orders.buyer_id,orders.buyer_name,orders.order_amount,order_log.log_orderstate,orders.payment_code FROM `ht_points_log` WHERE (  (pl_addtime BETWEEN '1450108800' AND '1450195199' ) ) GROUP BY pl_memberid LIMIT 1000  
+[2015-12-16 03:00:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=date&op=index ) 
+ERR: Db Error: Unknown column 'orders.order_id' in 'field list'
+SELECT  orders.order_id,orders.add_time,orders.buyer_id,orders.buyer_name,orders.order_amount,order_log.log_orderstate,orders.payment_code FROM `ht_pd_log` WHERE (  (lg_add_time BETWEEN '1450195200' AND '1450281599' ) ) GROUP BY lg_member_id ORDER BY lg_member_id LIMIT 1000  
+[2015-12-16 03:00:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=date&op=index ) 
+ERR: Db Error: Unknown column 'orders.order_id' in 'field list'
+SELECT  orders.order_id,orders.add_time,orders.buyer_id,orders.buyer_name,orders.order_amount,order_log.log_orderstate,orders.payment_code FROM `ht_points_log` WHERE (  (pl_addtime BETWEEN '1450195200' AND '1450281599' ) ) GROUP BY pl_memberid LIMIT 1000  

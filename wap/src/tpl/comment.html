@@ -1,0 +1,25 @@
+<div class="list-block media-list">
+	{{if goods_eval_list.length == 0}}
+	<div class="empty">
+		<p class="icon iconfont icon-form f14"></p>
+		<p class="emt-txt">暂无评论</p>
+	</div>
+	{{else}}
+	<ul>
+	  {{each goods_eval_list as value i}}
+	  <li>
+	    <div class="item-content">
+	      <div class="item-media"><img src="{{value.member_avatar}}"></div>
+	      <div class="item-inner">
+	        <div class="item-title-row">
+	          <div class="item-title">{{value.geval_frommembername}}</div>
+	          <div class="item-after">{{value.add_time}}</div>
+	        </div>
+	        <div class="item-subtitle">{{value.geval_content}}</div>
+	      </div>
+	    </div>
+	  </li>
+	  {{/each}}
+	</ul>
+	{{/if}}
+</div>

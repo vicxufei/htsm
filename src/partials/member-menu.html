@@ -1,0 +1,31 @@
+<div class="left-nav f-l">
+<div id="left">
+	<h1 class="title-h1">
+	<!-- <em class="icon iconuc">&#xe605;</em> -->
+		<a href="http://i.yunhou.com">我的太划算</a>
+	</h1>
+	<dl class="nav-item">
+		<dt>
+			<i class="icon iconfont iconfont-order"></i>交易管理
+		</dt>
+		<dd class="{{#ifpage 'member_order'}}hover{{/ifpage}}">
+			<a href="<?php echo urlShop('member_order', 'index');?>">我的订单</a>
+		</dd>
+		<dd class="{{#ifpage 'favorites'}}hover{{/ifpage}}">
+			<a href="<?php echo urlShop('member_favorite_goods', 'index');?>">收藏夹</a>
+		</dd>
+	</dl>
+	<div class="line"></div>
+	<dl class="nav-item">
+		<dt>
+			<i class="icon iconfont iconfont-avatar2"></i>个人信息管理
+		</dt>
+		<dd class="{{#ifpage 'member_security'}}hover{{/ifpage}}">
+			<a href="<?php echo urlMember('member_security', 'index');?>">安全中心</a>
+		</dd>
+		<dd class="{{#ifpage 'member_address'}}hover{{/ifpage}}">
+			<a href="<?php echo urlMember('member_address', 'address');?>">管理收货地址</a>
+		</dd>
+	</dl>
+</div>
+				</div>

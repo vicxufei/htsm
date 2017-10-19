@@ -1,0 +1,767 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	  <meta name="keywords" content="<?php echo $output['seo_keywords']; ?>"/>
+    <meta name="description" content="<?php echo $output['seo_description']; ?>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $output['html_title']; ?></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.htths.com/">
+    <link rel="stylesheet" href="http://static.htths.com/css/base.min.css?v10">
+	  <link rel="stylesheet" href="http://static.htths.com/css/member_order.min.css?v9">
+  </head>
+  <body>
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="global-topbar">
+      <div class="bd w1190 clearfix">
+    	  <ul class="sn-block sn-login f-l">
+    		  <?php if ($_SESSION['is_login'] == '1'){ ?>
+    		  <li>
+    			  您好,
+    			  <a rel="nofollow" href="<?php echo urlMember('member_information', 'index'); ?>"><?php echo $_SESSION['member_name']; ?></a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'logout'); ?>">退出登录</a>
+    		  </li>
+    		  <?php }else{ ?>
+    		  <li>
+    			  <a rel="nofollow" href="<?php echo urlMember('login'); ?>">登录</a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'register'); ?>">免费注册</a>
+    		  </li>
+    		  <?php } ?>
+    	  </ul>
+        <ul class="sn-block sn-quick f-r">
+          <li class="jMenu">
+              <a class="menu-hd block-item" rel="nofollow" href="<?php echo SHOP_SITE_URL; ?>/index.php?act=member_order">我的订单<b
+    		          class="arrow"></b></a>
+              <div class="menu-bd">
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_new">待付款订单</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_send">待确认收货</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_noeval">待评价交易</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_goods&op=fglist">商品收藏</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_store&op=fslist">店铺收藏</a>
+              </div>
+          </li>
+          <li class="sn-cart"><a class="block-item" href="http://cart.yunhou.com/">我的购物车<b class="jCartCount sn-cart-count">0</b></a></li>
+          <li class="jMenu">
+              <a class="menu-hd block-item" href="#">客户服务<b class="arrow"></b></a>
+              <div class="menu-bd">
+                  <ul>
+                      <li><a href="<?php echo urlMember('article', 'article', array('ac_id' => 2)); ?>">帮助中心</a></li>
+                      <li><a href="<?php echo urlMember('article', 'article', array('ac_id' => 5)); ?>">售后服务</a></li>
+                      <li><a href="<?php echo urlMember('article', 'article', array('ac_id' => 6)); ?>">客服中心</a></li>
+                  </ul>
+              </div>
+          </li>
+          <li class="sn-msg jNotification"><a class="block-item" href="http://i.yunhou.com/news/getUnReadMsg">消息</a></li>
+          <li class="qr-codes jMenu">
+            <a class="menu-hd block-item" href="javascript:;">手机版</a>
+            <div class="menu-bd">
+              <div class="qr-codes-img"><img class="jImgPhoneCode img-error" src="//static.htths.com/img/htsm-qrcode.jpg" alt="太划算二维码"></div><div
+    		        class="qr-codes-txt">太划算手机版</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="site-head">
+      <div class="bd w1190 clearfix">
+        <div class="s-box" id="jSearch" data-node-type="jSearch">
+    	    <div class="s-main">
+    		    <label class="lbl-key" for="mq"></label>
+    		    <input class="input" type="text" name="keyword" autocomplete="off" x-webkit-grammar="builtin:translate" value="" id="mq" data-node-type="mq">
+    		    <a  class="btn-search jBtnAllSearch" href="javascript:;">搜索</a>
+    	    </div>
+    	    <div class="kw-suggest" id="jKwSuggest" data-node-type="jKwSuggest">
+    		    <?php if (is_array($output['hot_search']) && !empty($output['hot_search'])){ ?>
+    		      <?php foreach ($output['hot_search'] as $val){ ?>
+    		    <a href="<?php echo urlShop('search', 'index', array('keyword' => $val)); ?>" target="_blank"><?php echo $val; ?></a>
+    		    <?php } } ?>
+    	    </div>
+    
+          <div class="k-history" id="jSearchHistoryBox">
+    	      <?php if (is_array($output['his_search_list']) && !empty($output['his_search_list'])){ ?>
+    	      <ul class="kh-list">
+    		      <?php foreach ($output['his_search_list'] as $v){ ?>
+    		      <li class="kh-item" data-key="<?php echo $v ?>"><span class="kh-key"><?php echo $v ?></span><a class="kh-button">删除</a></li>
+    		      <?php } ?>
+    	      </ul>
+    	      <div class="kh-infos clearfix"><span>搜索记录</span><a class="kh-clear">清空搜索记录</a></div>
+    	      <?php }else{ ?>
+    	      <div class="kh-none">无历史搜索记录</div>
+    	      <?php } ?>
+          </div>
+        </div>
+        <h1 class="title">
+    	    <a href="<?php echo SHOP_SITE_URL; ?>" title="太划算商城" class="go-home">
+    		    <img alt="太划算商城" class="logo" src="<?php echo STATIC_URL; ?>/images/logo.png">
+            </a>
+        </h1>
+      </div>
+    </div>
+    
+    
+
+
+    <div class="main">
+    	<div class="clearfix">
+    		<div class="left-nav f-l">
+    		<div id="left">
+    			<h1 class="title-h1">
+    			<!-- <em class="icon iconuc">&#xe605;</em> -->
+    				<a href="http://i.yunhou.com">我的太划算</a>
+    			</h1>
+    			<dl class="nav-item">
+    				<dt>
+    					<i class="icon iconfont"></i>交易管理
+    				</dt>
+    				<dd class="">
+    					<a href="<?php echo urlShop('member_order', 'index');?>">我的订单</a>
+    				</dd>
+    				<dd class="">
+    					<a href="<?php echo urlShop('member_favorite_goods', 'index');?>">收藏夹</a>
+    				</dd>
+    			</dl>
+    			<div class="line"></div>
+    			<dl class="nav-item">
+    				<dt>
+    					<i class="icon iconfont"></i>服务中心
+    				</dt>
+    				<dd class="">
+    					<a href="http://i.yunhou.com/personal/arrivalnotice/getArrivalNotice">到货通知</a>
+    				</dd>
+    				<dd class="">
+    					<a href="http://i.yunhou.com/coupons/getNotUsedCoupons">我的优惠券</a>
+    				</dd>
+    				<dd class="">
+    					<a href="http://i.yunhou.com/personal/evaluation/unevaluationList">我的评价</a>
+    				</dd>
+    				<!-- dd>
+    					<a href="http://i.yunhou.com/consult/getConsult">购买咨询</a>
+    				</dd-->
+    				<dd class="">
+    					<a href="http://i.yunhou.com/complaints/complaintsApply">发起投诉</a>
+    				</dd>
+    		
+    			</dl>
+    			<div class="line"></div>
+    			<dl class="nav-item">
+    				<dt>
+    					<i class="icon iconfont"></i>个人信息管理
+    				</dt>
+    				<dd class="">
+    					<a href="http://i.yunhou.com/profile">个人资料</a>
+    				</dd>
+    				<dd class="">
+    					<a href="http://safe.yunhou.com/safe/center">安全中心</a>
+    				</dd>
+    				<dd class="">
+    					<a href="<?php echo urlMember('member_address', 'address');?>">管理收货地址</a>
+    				</dd>
+    				<dd class="">
+    					<a href="http://i.yunhou.com/news/getUnReadMsg">我的消息</a>
+    				</dd>
+    			</dl>
+    		</div>
+    						</div>
+    <div class="cnt f-l">
+    				<div class="tab">
+    					<div class="tab-title clearfix">
+    						<a class="hover" href="/personal/order/orderList">全部订单</a>
+    						<a href="/personal/order/orderList?orderStatus=wait_pay&amp;resultKey=pending-payment">待付款</a>
+    						<a href="/personal/order/orderList?orderStatus=finish_send_goods&amp;resultKey=pending-receipt">待收货</a>
+    						<a href="/personal/order/orderUnevaluatedList">待评价(4)</a>
+    					</div>
+    				</div>
+    				<div class="order-ryc">
+    				<!-- 回收站 -->
+    					<!--<div class="order-ryc red">-->
+    				    <span class="icon iconfont"></span>
+    				    <a href="/personal/order/orderTrashList">订单回收站</a>
+    				</div>
+    				<div class="order-list">
+    					<div class="nav">
+    							<span class="v-m"><input type="checkbox" id="jChkAll"></span>
+    						<!-- label class="t-x" for="jChkAll">全选</label-->
+    							<a class="bt" href="javascript:" id="jMergePay">合并付款</a>
+    							<form action="/personal/order/combinePay" method="post" id="jFormCombine">
+    								<input type="hidden" name="orderIds" value="" id="jOrderIds">
+    							</form>
+    							<div class="opr">
+    <div class="pager clearfix jPager">	<form id="pageJump" action="/personal/order/orderList" method="post">
+    
+    	</form>
+    </div>								<!-- a class="bt">上一页</a> <a class="bt">下一页</a-->
+    							</div>
+    					</div>
+    					<div class="table-list table-top">
+    						<form action="/personal/order/orderList" method="post" id="jFormList">
+    							<input type="hidden" name="memberId" id="memberId" value="">
+    							<table>
+    								<tbody><tr>
+    									<th><div class="div-line f t-c">订单信息</div></th>
+    									<th><div class="div-line s">订单金额</div></th>
+    									<th>
+    										<div class="div-line t" id="jAllTime">
+    											<!-- select>
+    												<option>全部时间</option>
+    												<option>最近一个月</option>
+    												<option>最近三个月</option>
+    												<option>最近一年</option>
+    												<option>一年以前</option>
+    											</select-->
+    
+    <select id="orderPeriod" name="orderPeriod" data-default_value="">
+    		<option value="0">全部时间</option>
+    		<option value="1">最近一个月</option>
+    		<option value="2">最近二个月</option>
+    		<option selected="selected" value="3">最近三个月</option>
+    		<option value="12">最近一年</option>
+    </select>
+    										</div>
+    									</th>
+    									<th>
+    										<div class="div-line t" id="jAllStatus">
+    											<!-- select>
+    												<option>全部状态</option>
+    												<option>待付款</option>
+    												<option>已付款</option>
+    												<option>已发货</option>
+    												<option>已收货</option>
+    												<option>交易完成</option>
+    												<option>交易关闭</option>
+    											</select-->
+    
+    <select id="orderStatus" name="orderStatus" data-default_value="">
+    		<option selected="selected" value="">全部状态</option>
+    		<option value="wait_pay">待付款</option>
+    		<option value="paid">已付款</option>
+    		<option value="finish_send_goods">已发货</option>
+    		<option value="reject_sign">已拒收</option>
+    		<option value="wait_self_take">待自提</option>
+    		<option value="finish_sign">已签收</option>
+    		<option value="ship_success">配送成功</option>
+    		<option value="ship_failed">配送失败</option>
+    		<option value="trade_success">交易成功</option>
+    		<option value="trade_failed">交易失败</option>
+    		<option value="canceling">取消中</option>
+    		<option value="canceled">已取消</option>
+    </select>
+    										</div>
+    									</th>
+    									<th><div class="fi">操作</div></th>
+    								</tr>
+    							</tbody></table>
+    						</form>
+    					</div>
+    					<!-- 没有下单记录begin -->
+    					<!-- 没有下单记录end -->
+    					<div class="table-list table-wrap jTableList">
+    						<table>
+    							<tbody><tr>
+    								<td colspan="5" class="td-top">
+    									<ul>
+    										<li class="txt-els "><span class="v-m">
+    										<input type="checkbox" class="chk-b jChk" value="161172100028" disabled="disabled">
+    											<!--全球购订单不能合并付款-->
+    										</span>
+    										<span class="v-m">订单号：</span><span class="v-m" id="161172100028">161172100028</span></li>
+    										<li class="txt-els shop-name">
+    											<b>
+    												<a target="_blank" href="http://shop.yunhou.com/bh">云猴全球百货自营店</a>
+    											</b></li>
+    										<li class="customer-service">
+    										<!--
+    										<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=" class="btn"><i class="icon iconfont">&#xe638;</i>在线客服</a>
+    										 -->
+    											<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=" class="btn"><i class="icon iconfont"></i>QQ客服</a>
+    
+    										</li>
+    										<li class="order-ryc-btn">
+    											<span class="order-share-text jOrderShareText" data-id="161172100028"><label>分享有钱赚</label><a title="了解分享有钱赚" class="iconfont" target="_blank" href="http://union.yunhou.com/help/15.html"></a></span>
+    											    	<a href="javascript:;" class="jRemoveOrd" order-id="161172100028"><i class="icon iconfont"></i></a>
+    										</li>
+    									</ul>
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									<div class="f div-line-none">
+    													<a target="_blank" href="http://item.yunhou.com/19585000021.html">
+    													<img src="http://img04.bubugao.com/1540e428e36_2_6030e462142de85ad396ef67cf7c1c59_800x800.jpeg!s1" class="jImg" style="display: inline-block;">
+    													</a>
+    									</div>
+    								</td>
+    								<td><div class="s div-line-none">￥603.14</div></td>
+    								<td><div class="t div-line-none">2016-04-26
+    										16:09:34</div></td>
+    								<td><div class="t div-line-none cl-r">
+    										<p>已取消</p>
+    									</div></td>
+    								<td>
+    									<div class="fi p-b-10">
+    
+    										<a class="def" href="/personal/order/orderDetail?orderNo=161172100028">查看详情</a>
+    													<a class="def jReBuy" order-id="161172100028" href="javascript:;">再次购买</a>
+    
+    									</div>
+    								</td>
+    							</tr>
+    						</tbody></table>
+    
+    					</div>
+    					<div class="table-list table-wrap jTableList">
+    						<table>
+    							<tbody><tr>
+    								<td colspan="5" class="td-top">
+    									<ul>
+    										<li class="txt-els "><span class="v-m">
+    										<input type="checkbox" class="chk-b jChk" value="161171600041" disabled="disabled">
+    											<!--全球购订单不能合并付款-->
+    										</span>
+    										<span class="v-m">订单号：</span><span class="v-m" id="161171600041">161171600041</span></li>
+    										<li class="txt-els shop-name">
+    											<b>
+    												<a target="_blank" href="http://shop.yunhou.com/ausway">Ausway国际免税店</a>
+    											</b></li>
+    										<li class="customer-service">
+    										<!--
+    										<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1206280903" class="btn"><i class="icon iconfont">&#xe638;</i>在线客服</a>
+    										 -->
+    											<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1206280903" class="btn"><i class="icon iconfont"></i>QQ客服</a>
+    
+    										</li>
+    										<li class="order-ryc-btn">
+    											<span class="order-share-text jOrderShareText" data-id="161171600041"><label>分享有钱赚</label><a title="了解分享有钱赚" class="iconfont" target="_blank" href="http://union.yunhou.com/help/15.html"></a></span>
+    											    	<a href="javascript:;" class="jRemoveOrd" order-id="161171600041"><i class="icon iconfont"></i></a>
+    										</li>
+    									</ul>
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									<div class="f div-line-none">
+    													<a target="_blank" href="http://item.yunhou.com/9594000182.html">
+    													<img src="http://img04.bubugao.com/14cf9ec61d6_2_e536b29c9fb219897f7666b47a197250_395x395.jpeg!s1" class="jImg" style="display: inline-block;">
+    													</a>
+    									</div>
+    								</td>
+    								<td><div class="s div-line-none">￥329.00</div></td>
+    								<td><div class="t div-line-none">2016-04-26
+    										11:15:36</div></td>
+    								<td><div class="t div-line-none cl-r">
+    										<p>已取消</p>
+    									</div></td>
+    								<td>
+    									<div class="fi p-b-10">
+    
+    										<a class="def" href="/personal/order/orderDetail?orderNo=161171600041">查看详情</a>
+    													<a class="def jReBuy" order-id="161171600041" href="javascript:;">再次购买</a>
+    
+    									</div>
+    								</td>
+    							</tr>
+    						</tbody></table>
+    
+    					</div>
+    					<div class="table-list table-wrap jTableList">
+    						<table>
+    							<tbody><tr>
+    								<td colspan="5" class="td-top">
+    									<ul>
+    										<li class="txt-els "><span class="v-m">
+    										<input type="checkbox" class="chk-b jChk" value="161171600042" disabled="disabled">
+    											<!--全球购订单不能合并付款-->
+    										</span>
+    										<span class="v-m">订单号：</span><span class="v-m" id="161171600042">161171600042</span></li>
+    										<li class="txt-els shop-name">
+    											<b>
+    												<a target="_blank" href="http://shop.yunhou.com/yhhk">云猴国际母婴自营店</a>
+    											</b></li>
+    										<li class="customer-service">
+    										<!--
+    										<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=800031608" class="btn"><i class="icon iconfont">&#xe638;</i>在线客服</a>
+    										 -->
+    											<a target="_blank" href="http://www.sobot.com/chat/pc/index.html?sysNum=dc4ff8354775446d8fcfe7669014bbef" class="btn"><i class="icon iconfont"></i>在线客服</a>
+    
+    										</li>
+    										<li class="order-ryc-btn">
+    											<span class="order-share-text jOrderShareText" data-id="161171600042"><label>分享有钱赚</label><a title="了解分享有钱赚" class="iconfont" target="_blank" href="http://union.yunhou.com/help/15.html"></a></span>
+    											    	<a href="javascript:;" class="jRemoveOrd" order-id="161171600042"><i class="icon iconfont"></i></a>
+    										</li>
+    									</ul>
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									<div class="f div-line-none">
+    													<a target="_blank" href="http://item.yunhou.com/10276000314.html">
+    													<img src="http://img04.bubugao.com/150f00a960c_2_373f167371a0bb8f276cf19a117aac15_800x800.jpeg!s1" class="jImg" style="display: inline-block;">
+    													</a>
+    													<a target="_blank" href="http://item.yunhou.com/9702000208.html">
+    													<img src="http://img04.bubugao.com/150ef7e7188_2_598f9c8cc95c2dcaceb0ab8ace69c653_800x800.jpeg!s1" class="jImg" style="display: inline-block;">
+    													</a>
+    									</div>
+    								</td>
+    								<td><div class="s div-line-none">￥1379.72</div></td>
+    								<td><div class="t div-line-none">2016-04-26
+    										11:15:36</div></td>
+    								<td><div class="t div-line-none cl-r">
+    										<p>已取消</p>
+    									</div></td>
+    								<td>
+    									<div class="fi p-b-10">
+    
+    										<a class="def" href="/personal/order/orderDetail?orderNo=161171600042">查看详情</a>
+    													<a class="def jReBuy" order-id="161171600042" href="javascript:;">再次购买</a>
+    
+    									</div>
+    								</td>
+    							</tr>
+    						</tbody></table>
+    
+    					</div>
+    					<div class="table-list table-wrap jTableList">
+    						<table>
+    							<tbody><tr>
+    								<td colspan="5" class="td-top">
+    									<ul>
+    										<li class="txt-els "><span class="v-m">
+    										<input type="checkbox" class="chk-b jChk" value="161131600038" disabled="disabled">
+    											<!--全球购订单不能合并付款-->
+    										</span>
+    										<span class="v-m">订单号：</span><span class="v-m" id="161131600038">161131600038</span></li>
+    										<li class="txt-els shop-name">
+    											<b>
+    												<a target="_blank" href="http://www.yunhou.com">云猴网自营</a>
+    											</b></li>
+    										<li class="customer-service">
+    										<!--
+    										<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=800092268" class="btn"><i class="icon iconfont">&#xe638;</i>在线客服</a>
+    										 -->
+    											<a target="_blank" href="http://www.sobot.com/chat/pc/index.html?sysNum=dc4ff8354775446d8fcfe7669014bbef" class="btn"><i class="icon iconfont"></i>在线客服</a>
+    
+    										</li>
+    										<li class="order-ryc-btn">
+    											<span class="order-share-text jOrderShareText" data-id="161131600038"><label>分享有钱赚</label><a title="了解分享有钱赚" class="iconfont" target="_blank" href="http://union.yunhou.com/help/15.html"></a></span>
+    											    	<a href="javascript:;" class="jRemoveOrd" order-id="161131600038"><i class="icon iconfont"></i></a>
+    										</li>
+    									</ul>
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									<div class="f div-line-none">
+    													<a target="_blank" href="http://item.yunhou.com/38350.html">
+    													<img src="http://img04.bubugao.com/15417d0ca09_2_89d9c0600de13f4412b980a6aa49216d_600x600.jpeg!s1" class="jImg" style="display: inline-block;">
+    													</a>
+    									</div>
+    								</td>
+    								<td><div class="s div-line-none">￥49.00</div></td>
+    								<td><div class="t div-line-none">2016-04-22
+    										11:07:09</div></td>
+    								<td><div class="t div-line-none cl-r">
+    										<p>已取消</p>
+    									</div></td>
+    								<td>
+    									<div class="fi p-b-10">
+    
+    										<a class="def" href="/personal/order/orderDetail?orderNo=161131600038">查看详情</a>
+    													<a class="def jReBuy" order-id="161131600038" href="javascript:;">再次购买</a>
+    
+    									</div>
+    								</td>
+    							</tr>
+    						</tbody></table>
+    
+    					</div>
+    					<div class="table-list table-wrap jTableList">
+    						<table>
+    							<tbody><tr>
+    								<td colspan="5" class="td-top">
+    									<ul>
+    										<li class="txt-els "><span class="v-m">
+    										<input type="checkbox" class="chk-b jChk" value="160581500106" disabled="disabled">
+    											<!--全球购订单不能合并付款-->
+    										</span>
+    										<span class="v-m">订单号：</span><span class="v-m" id="160581500106">160581500106</span></li>
+    										<li class="txt-els shop-name">
+    											<b>
+    												<a target="_blank" href="http://shop.yunhou.com/yhhk">云猴国际母婴自营店</a>
+    											</b></li>
+    										<li class="customer-service">
+    										<!--
+    										<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=800031608" class="btn"><i class="icon iconfont">&#xe638;</i>在线客服</a>
+    										 -->
+    											<a target="_blank" href="http://www.sobot.com/chat/pc/index.html?sysNum=dc4ff8354775446d8fcfe7669014bbef" class="btn"><i class="icon iconfont"></i>在线客服</a>
+    
+    										</li>
+    										<li class="order-ryc-btn">
+    											<span class="order-share-text jOrderShareText" data-id="160581500106"><label>分享有钱赚</label><a title="了解分享有钱赚" class="iconfont" target="_blank" href="http://union.yunhou.com/help/15.html"></a></span>
+    											    	<a href="javascript:;" class="jRemoveOrd" order-id="160581500106"><i class="icon iconfont"></i></a>
+    										</li>
+    									</ul>
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									<div class="f div-line-none">
+    													<a target="_blank" href="http://item.yunhou.com/9700000207.html">
+    													<img src="http://img04.bubugao.com/150f0682b02_2_1a589a73284d974b6fb5adb0ef7e6391_800x800.jpeg!s1" class="jImg" style="display: inline-block;">
+    													</a>
+    									</div>
+    								</td>
+    								<td><div class="s div-line-none">￥438.00</div></td>
+    								<td><div class="t div-line-none">2016-02-27
+    										10:57:01</div></td>
+    								<td><div class="t div-line-none cl-r">
+    										<p>已取消</p>
+    									</div></td>
+    								<td>
+    									<div class="fi p-b-10">
+    
+    										<a class="def" href="/personal/order/orderDetail?orderNo=160581500106">查看详情</a>
+    													<a class="def jReBuy" order-id="160581500106" href="javascript:;">再次购买</a>
+    
+    									</div>
+    								</td>
+    							</tr>
+    						</tbody></table>
+    
+    					</div>
+    					<div class="table-list table-wrap jTableList">
+    						<table>
+    							<tbody><tr>
+    								<td colspan="5" class="td-top">
+    									<ul>
+    										<li class="txt-els "><span class="v-m">
+    										<input type="checkbox" class="chk-b jChk" value="160581500107" disabled="disabled">
+    											<!--全球购订单不能合并付款-->
+    										</span>
+    										<span class="v-m">订单号：</span><span class="v-m" id="160581500107">160581500107</span></li>
+    										<li class="txt-els shop-name">
+    											<b>
+    												<a target="_blank" href="http://shop.yunhou.com/yhhk">云猴国际母婴自营店</a>
+    											</b></li>
+    										<li class="customer-service">
+    										<!--
+    										<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=800031608" class="btn"><i class="icon iconfont">&#xe638;</i>在线客服</a>
+    										 -->
+    											<a target="_blank" href="http://www.sobot.com/chat/pc/index.html?sysNum=dc4ff8354775446d8fcfe7669014bbef" class="btn"><i class="icon iconfont"></i>在线客服</a>
+    
+    										</li>
+    										<li class="order-ryc-btn">
+    											<span class="order-share-text jOrderShareText" data-id="160581500107"><label>分享有钱赚</label><a title="了解分享有钱赚" class="iconfont" target="_blank" href="http://union.yunhou.com/help/15.html"></a></span>
+    											    	<a href="javascript:;" class="jRemoveOrd" order-id="160581500107"><i class="icon iconfont"></i></a>
+    										</li>
+    									</ul>
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									<div class="f div-line-none">
+    													<a target="_blank" href="http://item.yunhou.com/9700000213.html">
+    													<img src="http://img04.bubugao.com/150f57eb647_2_074b83b7759c5db27c2fc44a4960e5d5_800x800.jpeg!s1" class="jImg" style="display: inline-block;">
+    													</a>
+    									</div>
+    								</td>
+    								<td><div class="s div-line-none">￥359.00</div></td>
+    								<td><div class="t div-line-none">2016-02-27
+    										10:57:01</div></td>
+    								<td><div class="t div-line-none cl-r">
+    										<p>已取消</p>
+    									</div></td>
+    								<td>
+    									<div class="fi p-b-10">
+    
+    										<a class="def" href="/personal/order/orderDetail?orderNo=160581500107">查看详情</a>
+    													<a class="def jReBuy" order-id="160581500107" href="javascript:;">再次购买</a>
+    
+    									</div>
+    								</td>
+    							</tr>
+    						</tbody></table>
+    
+    					</div>
+    					<div class="table-list table-wrap jTableList">
+    						<table>
+    							<tbody><tr>
+    								<td colspan="5" class="td-top">
+    									<ul>
+    										<li class="txt-els "><span class="v-m">
+    										<input type="checkbox" class="chk-b jChk" value="160581500108" disabled="disabled">
+    											<!--全球购订单不能合并付款-->
+    										</span>
+    										<span class="v-m">订单号：</span><span class="v-m" id="160581500108">160581500108</span></li>
+    										<li class="txt-els shop-name">
+    											<b>
+    												<a target="_blank" href="http://shop.yunhou.com/mzbs">云猴国际美妆自营店</a>
+    											</b></li>
+    										<li class="customer-service">
+    										<!--
+    										<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=" class="btn"><i class="icon iconfont">&#xe638;</i>在线客服</a>
+    										 -->
+    											<a target="_blank" href="http://www.sobot.com/chat/pc/index.html?sysNum=dc4ff8354775446d8fcfe7669014bbef" class="btn"><i class="icon iconfont"></i>在线客服</a>
+    
+    										</li>
+    										<li class="order-ryc-btn">
+    											<span class="order-share-text jOrderShareText" data-id="160581500108"><label>分享有钱赚</label><a title="了解分享有钱赚" class="iconfont" target="_blank" href="http://union.yunhou.com/help/15.html"></a></span>
+    											    	<a href="javascript:;" class="jRemoveOrd" order-id="160581500108"><i class="icon iconfont"></i></a>
+    										</li>
+    									</ul>
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									<div class="f div-line-none">
+    													<a target="_blank" href="http://item.yunhou.com/9997000335.html">
+    													<img src="http://img04.bubugao.com/14f83a2c4b0_2_9d6bad3f76b942188a7d23d0134b4e5b_800x800.jpeg!s1" class="jImg" style="display: inline-block;">
+    													</a>
+    									</div>
+    								</td>
+    								<td><div class="s div-line-none">￥37.00</div></td>
+    								<td><div class="t div-line-none">2016-02-27
+    										10:57:01</div></td>
+    								<td><div class="t div-line-none cl-r">
+    										<p>已取消</p>
+    									</div></td>
+    								<td>
+    									<div class="fi p-b-10">
+    
+    										<a class="def" href="/personal/order/orderDetail?orderNo=160581500108">查看详情</a>
+    													<a class="def jReBuy" order-id="160581500108" href="javascript:;">再次购买</a>
+    
+    									</div>
+    								</td>
+    							</tr>
+    						</tbody></table>
+    
+    					</div>
+    					<div class="table-list table-wrap jTableList">
+    						<table>
+    							<tbody><tr>
+    								<td colspan="5" class="td-top">
+    									<ul>
+    										<li class="txt-els "><span class="v-m">
+    										<input type="checkbox" class="chk-b jChk" value="160581400094" disabled="disabled">
+    											<!--全球购订单不能合并付款-->
+    										</span>
+    										<span class="v-m">订单号：</span><span class="v-m" id="160581400094">160581400094</span></li>
+    										<li class="txt-els shop-name">
+    											<b>
+    												<a target="_blank" href="http://www.yunhou.com">云猴网自营</a>
+    											</b></li>
+    										<li class="customer-service">
+    										<!--
+    										<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=800092268" class="btn"><i class="icon iconfont">&#xe638;</i>在线客服</a>
+    										 -->
+    											<a target="_blank" href="http://www.sobot.com/chat/pc/index.html?sysNum=dc4ff8354775446d8fcfe7669014bbef" class="btn"><i class="icon iconfont"></i>在线客服</a>
+    
+    										</li>
+    										<li class="order-ryc-btn">
+    											<span class="order-share-text jOrderShareText" data-id="160581400094"><label>分享有钱赚</label><a title="了解分享有钱赚" class="iconfont" target="_blank" href="http://union.yunhou.com/help/15.html"></a></span>
+    											    	<a href="javascript:;" class="jRemoveOrd" order-id="160581400094"><i class="icon iconfont"></i></a>
+    										</li>
+    									</ul>
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									<div class="f div-line-none">
+    													<a target="_blank" href="http://item.yunhou.com/9992001224.html">
+    													<img src="http://img04.bubugao.com/1501826d5ca_2_3ba4b1b31872b3d21e013342fde91b31_600x600.jpeg!s1" class="jImg" style="display: inline-block;">
+    													</a>
+    									</div>
+    								</td>
+    								<td><div class="s div-line-none">￥40.90</div></td>
+    								<td><div class="t div-line-none">2016-02-27
+    										09:42:51</div></td>
+    								<td><div class="t div-line-none cl-r">
+    										<p>已取消</p>
+    									</div></td>
+    								<td>
+    									<div class="fi p-b-10">
+    
+    										<a class="def" href="/personal/order/orderDetail?orderNo=160581400094">查看详情</a>
+    													<a class="def jReBuy" order-id="160581400094" href="javascript:;">再次购买</a>
+    
+    									</div>
+    								</td>
+    							</tr>
+    						</tbody></table>
+    
+    					</div>
+    				</div>
+    <div class="pager clearfix jPager">	<form id="pageJump" action="/personal/order/orderList" method="post">
+    	<b>1</b>
+    
+    	<em>共1页
+    
+    </em></form></div><em>
+    			</em></div>
+    	</div>
+    </div>
+
+
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="footer">
+    	<div class="bd">
+    		<div class="help w1190">
+    
+    			<?php if(is_array($output['article_list']) && !empty($output['article_list'])){ ?>
+    			<div class="list">
+    								<?php foreach ($output['article_list'] as $k=> $article_class){ ?>
+    				<?php if(!empty($article_class)){ ?>
+    				<dl>
+                  <dt><?php if(is_array($article_class['class'])) echo $article_class['class']['ac_name'];?></dt>
+    					<?php if(is_array($article_class['list']) && !empty($article_class['list'])){ ?>
+    					<?php foreach ($article_class['list'] as $article){ ?>
+    					<dd>
+    	            <a href="<?php if($article['article_url'] != '')echo $article['article_url'];else echo urlMember('article', 'show',array('article_id'=> $article['article_id']));?>" title="<?php echo $article['article_title']; ?>">
+    		            <?php echo $article['article_title'];?> </a>
+                </dd>
+    					<?php }}?>
+              </dl>
+    				<?php }}?>
+    			</div>
+    			<?php }?>
+    
+    			<div class="contact">
+              <div class="item"><i class="icon iconfont iconfont-tel"></i><span>0512-53228886</span></div>
+              <div class="item item-email"><i class="icon iconfont iconfont-email"></i><span>654370122@qq.com</span></div>
+          </div>
+            </div>
+        </div>
+        <div class="ft">
+          <div class="copyright">
+              <p class="links">
+    	          <a rel="nofollow" href="http://www.yunhou.com/article-cominfo-146.html" target="_blank">关于云猴</a><span>|</span>
+    	          <a href="http://www.yunhou.com/article-news-list.html" target="_blank">新闻动态</a><span>|</span>
+    	          <a rel="nofollow" href="http://www.yunhou.com/article-cominfo-147.html" target="_blank">联系我们</a><span>|</span>
+    	          <a rel="nofollow" href="http://www.yunhou.com/tag/category/all.html" target="_blank">分类导航</a></p>
+              <p class="cprt-icp">苏ICP备14036053号-1<span>|</span>Copyright© 太划算商城 2014-2016，All Rights Reserved</p>
+          </div>
+        </div>
+    </div>
+    
+    
+
+    <script src="http://static.htths.com/js/lib/require.js"></script>
+    <script>
+      requirejs(['http://static.htths.com/js/common.js'], function (common) {
+        requirejs(['http://static.htths.com/js/app/member_order.js']);
+      });
+  </script>
+  </body>
+</html>

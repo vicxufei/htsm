@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	  <meta name="keywords" content="<?php echo $output['seo_keywords']; ?>"/>
+    <meta name="description" content="<?php echo $output['seo_description']; ?>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $output['html_title']; ?></title>
+	  {{!-- Set render engine for 360 browser --}}
+    <meta name="renderer" content="webkit">
+	  {{!-- No Baidu Siteapp --}}
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+	  {{!-- 对于桌面端网页，添加 link rel="alternate" 标签指向相关的移动端地址 --}}
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.htths.com/">
+    <link rel="stylesheet" href="http://static.htths.com/css/base.min.css">
+	  <link rel="stylesheet" href="http://static.htths.com/css/{{page}}.min.css">
+  </head>
+  <body>
+    {{> topbar}}
+    {{> site-head}}
+    {{#ifpage 'index' 'item' 'search' '404' 'article'}}
+      {{> navigation}}
+      {{> crumbs-nav}}
+    {{/ifpage}}
+
+
+    {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
+    {{> body}}
+
+    {{> footer}}
+    {{#ifpage 'index' 'item' 'search' '404'}}
+    {{> mini-bar}}
+    {{/ifpage}}
+    <script>
+	    var require = {urlArgs: 'v=123' };
+    </script>
+	  <script src="http://static.htths.com/js/lib/require.js" data-main="http://static.htths.com/js/{{page}}"></script>
+    <script type='text/javascript'>
+      (function(m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function() {
+                  (m[i].a = m[i].a || []).push(arguments)
+                };
+        j = ei.createElement(q),
+                s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = '//static.meiqia.com/dist/meiqia.js';
+        s.parentNode.insertBefore(j, s);
+      })(window, document, 'script', '_MEIQIA');
+      _MEIQIA('entId', 29969);
+      _MEIQIA('withoutBtn');
+      _MEIQIA('init');
+    </script>
+  </body>
+</html>

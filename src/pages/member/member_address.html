@@ -1,0 +1,106 @@
+<div class="main">
+	<div class="clearfix">
+		{{> member-menu}}
+		<div class="cnt f-l" id="jAddress">
+		</div>
+	</div>
+</div>
+<script id="tpl-member-address" type="text/html">
+<div class="tips">已有
+	<span class="txt-red" id="jCurAddrNum"><%=address_list.length%></span>
+	个收货地址，最多可以添加
+	<span class="txt-red" id="jTotalAddrNum">10</span>
+	个收货地址。
+	<a href="javascript:void('0');" class="btn jAddAddr"><i class="icon iconfont"></i> 新增地址</a>
+</div>
+<div class="address-list">
+	<div class="address-list-inner" id="jAddAddrList">
+		<% for (var i = 0; i < address_list.length; i ++) { %>
+		<ul class="jAddrItem" data-addrid="<%=address_list[i]['address_id']%>">
+			<li class="postmark"></li>
+			<% if (address_list[i]['is_default']== 1 ) {%>
+			<li class="setDefault"></li>
+			<%}%>
+			<li><label>收货人：</label><%=address_list[i]['true_name']%></li>
+			<li><label>联系电话：</label><%=address_list[i]['mob_phone']%></li>
+			<li>
+				<label>收货地址：</label>
+				<div class="addr-data">
+					<p class="txt-els"><%=address_list[i]['area_info']%></p>
+					<p class="txt-els"><%=address_list[i]['address']%></p>
+				</div>
+			</li>
+			<li class="operate">
+				<label>操作：</label>
+				<div class="operate-elem">
+					<a class="jEditAddr" data-true-name="<%=address_list[i]['true_name']%>" data-pr-id="<%=address_list[i]['pr_id']%>"
+					   data-city-id="<%=address_list[i]['city_id']%>" data-area-id="<%=address_list[i]['area_id']%>"
+					   data-area-info="<%=address_list[i]['area_info']%>" data-address="<%=address_list[i]['address']%>" data-mob-phone="<%=address_list[i]['mob_phone']%>">编辑</a>
+					<a class="jDeleteAddr">删除</a>
+				</div>
+			</li>
+		</ul>
+		<% } %>
+		<ul class="jAddAddr">
+			<li class="add-new-address">
+				<a><em class="icon iconfont"></em><span>添加新地址</span></a>
+			</li>
+		</ul>
+	</div>
+</div>
+</script>
+<script id="tpl-address-add" type="text/html">
+<div class="new-address ui-dialog-content" id="jNewAddrModule" data-flag="">
+	<form class="pop-form" id="jAddAddrForm">
+		<input type="hidden" name="form_submit" value="ok">
+		<input type="hidden" value="<%= address_id %>" name="address_id">
+		<input type="hidden" value="<%= pr_id %>" name="pr_id" id="_area_1">
+		<input type="hidden" value="<%= city_id %>" name="city_id" id="_area_2">
+		<input type="hidden" value="<%= area_id %>" name="area_id" id="_area">
+		<ul>
+			<li>
+				<label class="control-lable"><span class="txt-red star-flag">*</span>收货人</label>
+				<div class="d-r">
+					<input class="input-txt jInput" name="true_name" id="jName" placeholder="限20个字" value="<%= true_name %>" maxlength="20">
+				</div>
+			</li>
+			<li class="z-i-1">
+				<label class="control-lable"><span class="txt-red star-flag">*</span>收货地址</label>
+				<div class="d-r">
+						<input type="hidden" name="area_info" id="region" value="">
+				</div>
+			</li>
+			<li>
+				<label class="control-lable"><span class="txt-red star-flag">*</span>详细地址</label>
+				<div class="d-r">
+					<input class="input-address jInput" name="address" id="jAddr" placeholder="无需重复填写省市区，小于50个字" value="<%= address %>" maxlength="50">
+				</div>
+			</li>
+			<li>
+				<label class="control-lable"><span class="txt-red star-flag">*</span>手机</label>
+				<div class="d-r">
+					<input class="input-txt jInput" name="mob_phone" id="jMobile" placeholder="请输入正确的手机号" value="<%= mob_phone %>">
+				</div>
+			</li>
+			<li>
+				<label class="control-lable">身份证号码</label>
+				<div class="d-r">
+					<input class="input-txt" name="idcard_no" placeholder="有购买保税仓商品时需要" value="" maxlength="20">
+				</div>
+			</li>
+			<li>
+				<div class="d-r">
+					<input type="checkbox" class="chk" checked="checked" id="jSetDef" name="is_default">
+					<label for="jSetDef" class="label-chk">设为默认地址</label>
+				</div>
+			</li>
+			<li>
+				<div class="d-r">
+					<a class="btn" id="jSaveBtn">确定</a>
+					<a class="btn btn-sec" id="jCancelBtn" action-type="close">取消</a>
+				</div>
+			</li>
+		</ul>
+	</form>
+</div>
+</script>

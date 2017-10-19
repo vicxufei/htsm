@@ -1,0 +1,110 @@
+-----------2017-06-12 10:14:55-----------------array (
+  'dealTime' => '20170612101655',
+  'errCode' => '000000',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170612101435',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003083',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '10',
+  'ext1' => 'ext1',
+  'orderAmount' => '1040',
+  'ext2' => 'ext2',
+  'signMsg' => 'cGFWOJxfuWWTOA1zFBCNJ2K%2FEC4%2BBfJxEGZqFViu4WL04fQRWUvdaCA78q3rv1rje%2B4ZElsQk%2BHJGrjY2MXhxO0oidj2ojNhGp4PgPytOHv%2F4VKW%2FPqdz5K9pld8fm3%2FGRsuUrk9ncjo6Uu7alih3GoUdmxnRNMlTY7tLTCxkxQ%3D',
+  'payType' => '30',
+  'orderId' => '20170612101435',
+)
+
+
+-----------2017-06-12 10:14:55-----------------$MAC:paV8œ_¹e“8s'b¿.>òqfjX®ábôáôYKİh ;ò­ë¿Zã{î[“áÉ¸ØØÅáÄí(‰Øö¢3a€ü­8{ÿáR–üúÏ’½¦W|~mÿ.R¹=ÈèéK»jX¡ÜjvlgDÓ%Mí-0±“
+
+
+-----------2017-06-12 10:14:55-----------------$msg:check sign failed
+
+
+-----------2017-06-12 10:51:29-----------------array (
+  'dealTime' => '20170612104840',
+  'errCode' => '120069',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170612044831',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003087',
+  'version' => '3.0',
+  'bankId' => 'cpnrep',
+  'terminalId' => '10001',
+  'payResult' => '11',
+  'ext1' => 'ext1',
+  'orderAmount' => '1040',
+  'ext2' => 'ext2',
+  'signMsg' => 'sSOuW5unIoucFIQMHObayOrsQEPia779IgoMBHzaBB30SyEwlvvaWJN74fTkquMddKmgx%2F3nLW6saD0Tnuhkw467uW6yRT342NXlDjW99JqwKTDnGgSadr9JYfv2JuAUGmsgzBIowHIPskB6x2dQlYB8WPISG7oqZbiNk2W%2Fqg0%3D',
+  'payType' => '30',
+  'orderId' => '20170612044831',
+)
+
+
+-----------2017-06-12 10:51:29-----------------$MAC:±#®[›§"‹œ„æÚÈêì@Câk¾ı"
+|ÚôK!0–ûÚX“{áôäªãt© Çıç-n¬h=èdÃ»¹n²E=øØÕå5½ôš°)0çšv¿Iaûö&àk Ì(Àr²@zÇgP•€|Xòº*e¸“e¿ª
+
+
+-----------2017-06-12 10:51:29-----------------$msg:check sign failed
+
+
+-----------2017-06-12 10:51:44-----------------array (
+  'dealTime' => '20170612104858',
+  'errCode' => '120069',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170612044849',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003088',
+  'version' => '3.0',
+  'bankId' => 'cpnrep',
+  'terminalId' => '10001',
+  'payResult' => '11',
+  'ext1' => 'ext1',
+  'orderAmount' => '1040',
+  'ext2' => 'ext2',
+  'signMsg' => 'N2LnCt8zN0XtfATkTY9%2FPf%2BUKk1aBMgZMM%2FjAmhMy7sKxpuv%2FOAEVP4K8IQ%2FV8aTq4%2BtEsfhmuGzhb%2BCgnVh05ECUQhQmg1EfAgHDLNV2zP7O1wHOl171G5sm5JGIAPqxj%2FLTnOPKm3ti6STNtiAz%2BBb05VHFDqkkc2ZmDizzEo%3D',
+  'payType' => '30',
+  'orderId' => '20170612044849',
+)
+
+
+-----------2017-06-12 10:51:44-----------------$MAC:7bç
+ß37Eí|äM=ÿ”*MZÈ0ÏãhLË»
+Æ›¯üàTş
+ğ„?WÆ“«­Çášá³…¿‚‚uaÓ‘QPšD|³UÛ3û;\:]{Ônl›’F êÆ?ËNs*mí‹¤“6Ø€Ïà[Ó•G:¤‘Í™˜8³ÌJ
+
+
+-----------2017-06-12 10:51:44-----------------$msg:check sign failed
+
+
+-----------2017-06-12 10:58:42-----------------array (
+  'dealTime' => '20170612105053',
+  'errCode' => '120069',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170612101435',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003089',
+  'version' => '3.0',
+  'bankId' => 'cpnrep',
+  'terminalId' => '10001',
+  'payResult' => '11',
+  'ext1' => 'ext1',
+  'orderAmount' => '1040',
+  'ext2' => 'ext2',
+  'signMsg' => 'Z3TdnUNjemVKy8iqnozKvd%2F6Lkriis8haVzFO9vp33JhnOKrZLjaRm%2FICvfhQaTLafkxX%2BCMc38opaqKuNCyW1yVa0DYFtEYe3ygnnfiVUVdQXAMd4kbbax6eb8ae9sO%2B5wKMOM4tcE9ZtjtqiW8ZS%2FdEIYWYuamkqbGGojR5uM%3D',
+  'payType' => '30',
+  'orderId' => '20170612101435',
+)
+
+
+-----------2017-06-12 10:58:42-----------------$MAC:gtİCczeJËÈªŒÊ½ßú.JâŠÏ!i\Å;Ûéßraœâ«d¸ÚFoÈ
+÷áA¤Ëiù1_àŒs(¥ªŠ¸Ğ²[\•k@ØÑ{| wâUE]Apw‰m¬zy¿{Ûûœ
+0ã8µÁ=fØíª%¼e/İ†bæ¦’¦ÆˆÑæã
+
+
+-----------2017-06-12 10:58:42-----------------$msg:check sign failed
+
+

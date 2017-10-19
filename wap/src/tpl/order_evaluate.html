@@ -1,0 +1,32 @@
+
+<div class="list-block media-list">
+	<ul>
+		{{each extend_order_goods as value i}}
+		<li class="item-content">
+			<div class="item-media">
+				<img src="{{value.image_url}}">
+			</div>
+			<div class="item-inner" data-rec_id="{{value.rec_id}}">
+				<div class="item-title-row">
+					<div class="item-title starts-5" data-start="5">
+						<span class="icon iconfont icon-start lv-1" data-start="1"></span>
+						<span class="icon iconfont icon-start lv-2" data-start="2"></span>
+						<span class="icon iconfont icon-start lv-3" data-start="3"></span>
+						<span class="icon iconfont icon-start lv-4" data-start="4"></span>
+						<span class="icon iconfont icon-start lv-5" data-start="5"></span>
+					</div>
+					<div class="item-after">
+						匿名:<span class="icon iconfont icon-roundcheck jAnony"></span>
+					</div>
+				</div>
+				<div class="item-subtitle">
+					<textarea></textarea>
+				</div>
+			</div>
+		</li>
+		{{/each}}
+	</ul>
+</div>
+<div class="content-block">
+	<a href="" class="button button-fill button-danger" id="evaluate_btn" data-order_id="{{order_id}}">提交评价</a>
+</div>

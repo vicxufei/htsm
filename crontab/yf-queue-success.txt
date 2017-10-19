@@ -1,0 +1,112 @@
+-----------2016-05-29 19:18:40-----------------array (
+  'method' => 'updateGoodsPromotionPriceByGoodsId',
+  'arg' => '101959',
+  'result' => 
+  array (
+    'state' => true,
+    'msg' => '',
+    'data' => 
+    array (
+    ),
+  ),
+)
+
+
+-----------2016-05-29 19:18:40-----------------array (
+  'method' => 'updateGoodsPromotionPriceByGoodsId',
+  'arg' => '101959',
+  'result' => 
+  array (
+    'state' => true,
+    'msg' => '',
+    'data' => 
+    array (
+    ),
+  ),
+)
+
+
+-----------2016-05-30 08:07:53-----------------array (
+  'method' => 'updateGoodsPromotionPriceByGoodsId',
+  'arg' => '101959',
+  'result' => 
+  array (
+    'state' => true,
+    'msg' => '',
+    'data' => 
+    array (
+    ),
+  ),
+)
+
+
+-----------2016-05-30 08:07:53-----------------array (
+  'method' => 'updateGoodsPromotionPriceByGoodsId',
+  'arg' => '101959',
+  'result' => 
+  array (
+    'state' => true,
+    'msg' => '',
+    'data' => 
+    array (
+    ),
+  ),
+)
+
+
+-----------2016-05-30 08:07:53-----------------array (
+  'method' => 'updateGoodsPromotionPriceByGoodsId',
+  'arg' => '101959',
+  'result' => 
+  array (
+    'state' => true,
+    'msg' => '',
+    'data' => 
+    array (
+    ),
+  ),
+)
+
+
+-----------2016-05-30 08:07:53-----------------array (
+  'method' => 'updateGoodsPromotionPriceByGoodsId',
+  'arg' => '101532',
+  'result' => 
+  array (
+    'state' => true,
+    'msg' => '',
+    'data' => 
+    array (
+    ),
+  ),
+)
+
+
+-----------2016-05-30 08:07:53-----------------array (
+  'method' => 'updateGoodsPromotionPriceByGoodsId',
+  'arg' => '101532',
+  'result' => 
+  array (
+    'state' => true,
+    'msg' => '',
+    'data' => 
+    array (
+    ),
+  ),
+)
+
+
+-----------2016-05-30 08:07:53-----------------array (
+  'method' => 'updateGoodsPromotionPriceByGoodsId',
+  'arg' => '101959',
+  'result' => 
+  array (
+    'state' => true,
+    'msg' => '',
+    'data' => 
+    array (
+    ),
+  ),
+)
+
+

@@ -1,0 +1,186 @@
+@import "common/register-login";
+
+.txt-box-captcha-verify, .txt-code-captcha-verify {
+  display: none
+}
+
+.middle {
+  background: 50% 50% no-repeat
+}
+
+.middle .w990 {
+  position: relative
+}
+
+.middle .w990 #jAd a {
+  display: block;
+  height: 100%
+}
+
+.middle .login-panel {
+  position: relative;
+  margin:65px auto 0;
+  z-index: 200;
+  background: #fff;
+  width: 350px;
+}
+
+.middle .login-panel .hd {
+  position: relative;
+  font-size: 16px;
+  height: 53px;
+  color: #999;
+  border-bottom: solid #e4e4e4 1px
+}
+
+.middle .login-panel .hd span {
+  float: left;
+  width: 50%;
+  text-align: center;
+  margin-top: 20px;
+  cursor: pointer
+}
+
+.middle .login-panel .hd .hover {
+  color: #333
+}
+
+.middle .login-panel .hd i {
+  position: absolute;
+  color: #fff5f5;
+  bottom: -1px;
+  font-size: 20px;
+  left: 46px;
+  width: 80px;
+  background: #f03468;
+  height: 2px;
+  overflow: hidden
+}
+
+.middle .login-panel .bd {
+  overflow: hidden;
+  position: relative
+}
+
+.middle .login-panel .bd ul {
+  width: 700px
+}
+
+.middle .login-panel .bd li {
+  float: left;
+  width: 350px
+}
+
+.middle .login-panel .bd li form {
+  width: 316px;
+  margin: 0 auto
+}
+
+.middle .login-panel .bd li form .txt-box-margin {
+  margin-top: 25px
+}
+
+.middle .login-panel .bd li form .txt {
+  padding-left: 50px;
+  width: 264px
+}
+
+.middle .login-panel .bd li form .error {
+  border: 1px solid #f03468
+}
+
+.middle .login-panel .bd li form .txt-box .tips {
+  left: 50px
+}
+
+.middle .login-panel .bd li form .txt-code {
+  width: 70px;
+  float: left
+}
+
+.middle .login-panel .bd li form .txt-code-mb {
+  width: 140px
+}
+
+.middle .login-panel .bd li form .btn {
+  width: 316px
+}
+
+.middle .login-panel .bd li form .txt-btn {
+  margin-bottom: 20px
+}
+
+.middle .login-panel .bd li form .txt-btn-height {
+  margin-top: 15px
+}
+
+.middle .login-panel .bd li form .txt-forgot {
+  margin-bottom: 15px
+}
+
+.middle .login-panel .bd li form .txt-forgot a {
+  color: #f03468
+}
+
+.middle .login-panel .bd li form em {
+  background: $tea-dark;
+  left: 1px;
+  top: 1px;
+  width: 40px;
+  color: #fff;
+  text-align: center;
+  line-height: 38px;
+  font-size: 22px;
+  -webkit-text-stroke-width: 0;
+  height: 38px
+}
+
+.middle .login-panel .ft {
+  padding: 10px 0 10px 20px;
+  color: #999
+}
+
+.middle .login-panel .ft .title {
+  margin-bottom: 3px
+}
+
+.middle .login-panel .ft .quick-login a {
+  color: #d6d6d6;
+  font-size: 28px
+}
+
+.middle .login-panel .ft .quick-login a:hover {
+  text-decoration: none;
+  transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -o-transform: rotate(360deg)
+}
+
+.middle .login-panel .ft .quick-login .yunhou:hover {
+  color: #fa9a78
+}
+
+.middle .login-panel .ft .quick-login .qq:hover {
+  color: #7ee3db
+}
+
+.middle .login-panel .ft .quick-login .sina:hover {
+  color: #fda2a2
+}
+
+.middle .login-panel .ft .quick-login .baidu:hover {
+  color: #89beff
+}
+
+.middle .login-panel .ft .quick-login .alipay:hover {
+  color: #73d2e6
+}
+
+.middle .login-panel .ft .quick-login .weixin:hover {
+  color: #60ce8c
+}
+
+.middle .login-panel .ft .quick-login .renren:hover {
+  color: #98ccf1
+}

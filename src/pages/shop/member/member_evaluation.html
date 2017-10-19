@@ -1,0 +1,75 @@
+<div class="main">
+	<div class="clearfix">
+		{{> member-menu}}
+		<div class="cnt f-l">
+			<div class="tips">
+				<h1>小贴士</h1>
+				<ul>
+					<li>1、欢迎您发表与商品质量相关、对其他用户有参考价值的原创评论；</li>
+					<li>2、成功发表一个商品评价即可获得被展示的机会；</li>
+					<li>3、订单完成后才可发表评论，每个商品只可以评价一次。</li>
+				</ul>
+			</div>
+			<div class="evaluation">
+						<!-- 表单头 -->
+				<div class="list">
+					<table>
+						<tbody><tr>
+							<th><div class="product-info">商品信息</div></th>
+							<th><div class="buy-time">评价</div></th>
+							<th><div class="operate">发表评论</div></th>
+						</tr>
+					</tbody></table>
+				</div>
+				<!-- 表单内容 begin -->
+				<div id="jEvaluationList">
+					<!-- 没有下单记录begin -->
+					<!-- 没有下单记录end -->
+					<?php if(!empty($output['order_goods'])){?>
+					<form id="evalform" method="post" action="index.php?controller=member_evaluate&action=<?php echo $_GET['op'];?>&order_id=<?php echo $_GET['order_id'];?>">
+					<!-- 评价列表begin -->
+					<?php foreach($output['order_goods'] as $goods){?>
+					<div class="list list-table">
+						<table>
+							<tbody>
+								<tr>
+									<td>
+										<div class="product-info">
+											<a target="_blank" href="<?php echo urlShop('goods', 'index', array('goods_id' => $goods['goods_id'])); ?>">
+											<img src="<?php echo $goods['goods_image_url']; ?>" class="jImg it-img" style="display: block;">
+											</a>
+											<a target="_blank" href="<?php echo urlShop('goods', 'index', array('goods_id' => $goods['goods_id'])); ?>"><p class="p-txt"><?php echo $goods['goods_name'];?></p></a>
+											<p class="price">￥<?php echo $goods['goods_price'];?></p>
+										</div>
+									</td>
+									<td class="buy-time">
+										<span class="star-list star-margin starts starts-5 jStarGoods" score="5">
+											<input name="goods[<?php echo $goods['rec_id']; ?>][score]" value="5" type="hidden">
+											<a class="icon iconfont iconfont-star-o lv-1" lv="1"></a>
+											<a class="icon iconfont iconfont-star-o lv-2" lv="2"></a>
+											<a class="icon iconfont iconfont-star-o lv-3" lv="3"></a>
+											<a class="icon iconfont iconfont-star-o lv-4" lv="4"></a>
+											<a class="icon iconfont iconfont-star-o lv-5" lv="5"></a>
+										</span>
+									</td>
+									<td class="operate">
+										<textarea name="goods[<?php echo $goods['rec_id']; ?>][comment]" class="jPinput"></textarea>
+									</td>
+							</tr>
+						</tbody>
+						</table>
+					</div>
+					<?php } ?>
+					<!-- 评价列表end -->
+						<input name="form_submit" value="ok" type="hidden">
+					<div class="submit-comment">
+						<a href="javascript:" class="btn btn-yellow" id="jSubmitComment" data-url="/evaluation/evaluate">提交评价</a>
+					</div>
+					</form>
+					<?php } ?>
+				</div>
+				<!-- 表单内容 end -->
+			</div>
+		</div>
+	</div>
+</div>

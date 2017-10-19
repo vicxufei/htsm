@@ -1,0 +1,625 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	  <meta name="keywords" content="<?php echo $output['seo_keywords']; ?>"/>
+    <meta name="description" content="<?php echo $output['seo_description']; ?>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $output['html_title']; ?></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.htths.com/">
+    <link rel="stylesheet" href="http://static.htths.com/css/base-fb2b7f94f8.min.css?v10">
+	  <link rel="stylesheet" href="http://static.htths.com/css/member-3b018758a5.min.css?v9">
+  </head>
+  <body>
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="global-topbar">
+      <div class="bd w1190 clearfix">
+    	  <ul class="sn-block sn-login f-l" id="is-login">
+    		  <?php if ($_SESSION['is_login'] == '1'){ ?>
+    		  <li data-is-login="1">
+    			  您好,
+    			  <a rel="nofollow" href="<?php echo urlMember('member_security', 'index');?>"><?php echo $_SESSION['member_name']; ?></a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'logout'); ?>">退出登录</a>
+    		  </li>
+    		  <?php }else{ ?>
+    		  <li data-is-login="0">
+    			  <a rel="nofollow" href="<?php echo urlMember('login'); ?>">登录</a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'register'); ?>">免费注册</a>
+    		  </li>
+    		  <?php } ?>
+    	  </ul>
+        <ul class="sn-block sn-quick f-r">
+          <li class="jMenu">
+              <a class="menu-hd block-item" rel="nofollow" href="<?php echo SHOP_SITE_URL; ?>/index.php?act=member_order">我的订单<b
+    		          class="arrow"></b></a>
+              <div class="menu-bd">
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_new">待付款订单</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_send">待确认收货</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_noeval">待评价交易</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_goods&op=fglist">商品收藏</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_store&op=fslist">店铺收藏</a>
+              </div>
+          </li>
+          <li class="sn-cart"><a class="block-item" href="http://cart.yunhou.com/">我的购物车<b class="jCartCount sn-cart-count">0</b></a></li>
+          <li class="jMenu">
+              <a class="menu-hd block-item" href="#">客户服务<b class="arrow"></b></a>
+              <div class="menu-bd">
+                  <ul>
+                      <li><a href="<?php echo urlMember('article', 'article', array('ac_id' => 2)); ?>">帮助中心</a></li>
+                      <li><a href="<?php echo urlMember('article', 'article', array('ac_id' => 5)); ?>">售后服务</a></li>
+                      <li><a href="<?php echo urlMember('article', 'article', array('ac_id' => 6)); ?>">客服中心</a></li>
+                  </ul>
+              </div>
+          </li>
+          <li class="sn-msg jNotification"><a class="block-item" href="http://i.yunhou.com/news/getUnReadMsg">消息</a></li>
+          <li class="qr-codes jMenu">
+            <a class="menu-hd block-item" href="javascript:;">手机版</a>
+            <div class="menu-bd">
+              <div class="qr-codes-img"><img class="jImgPhoneCode img-error" src="//static.htths.com/img/htsm-qrcode.jpg" alt="太划算二维码"></div><div
+    		        class="qr-codes-txt">太划算手机版</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="site-head">
+      <div class="bd w1190 clearfix">
+        <div class="s-box" id="jSearch" data-node-type="jSearch">
+    	    <div class="s-main">
+    		    <label class="lbl-key" for="mq"></label>
+    		    <input class="input" type="text" name="keyword" autocomplete="off" x-webkit-grammar="builtin:translate" value="" id="mq" data-node-type="mq">
+    		    <a  class="btn-search jBtnAllSearch" href="javascript:;">搜索</a>
+    	    </div>
+    	    <div class="kw-suggest" id="jKwSuggest" data-node-type="jKwSuggest">
+    		    <?php if (is_array($output['hot_search']) && !empty($output['hot_search'])){ ?>
+    		      <?php foreach ($output['hot_search'] as $val){ ?>
+    		    <a href="<?php echo urlShop('search', 'index', array('keyword' => $val)); ?>" target="_blank"><?php echo $val; ?></a>
+    		    <?php } } ?>
+    	    </div>
+    
+          <div class="k-history" id="jSearchHistoryBox">
+    	      <?php if (is_array($output['his_search_list']) && !empty($output['his_search_list'])){ ?>
+    	      <ul class="kh-list">
+    		      <?php foreach ($output['his_search_list'] as $v){ ?>
+    		      <li class="kh-item" data-key="<?php echo $v ?>"><span class="kh-key"><?php echo $v ?></span><a class="kh-button">删除</a></li>
+    		      <?php } ?>
+    	      </ul>
+    	      <div class="kh-infos clearfix"><span>搜索记录</span><a class="kh-clear">清空搜索记录</a></div>
+    	      <?php }else{ ?>
+    	      <div class="kh-none">无历史搜索记录</div>
+    	      <?php } ?>
+          </div>
+        </div>
+        <h1>
+    	    <a href="<?php echo SHOP_SITE_URL; ?>" title="太划算商城" class="go-home">
+    		    <img alt="太划算商城" class="logo" src="<?php echo STATIC_URL; ?>/images/logo.png">
+            </a>
+        </h1>
+      </div>
+    </div>
+    
+    
+
+
+    <div class="main mt10">
+    
+    			<div class="clearfix">
+    				<div class="left-nav f-l">
+    
+    <div id="left">
+    	<h1 class="title-h1">
+    	<!-- <em class="icon iconuc">&#xe605;</em> -->
+    		<a href="http://i.yunhou.com">我的云猴</a>
+    	</h1>
+    	<dl class="nav-item">
+    		<dt>
+    			<i class="icon iconfont"></i>交易管理
+    		</dt>
+    		<dd class="">
+    			<a href="http://i.yunhou.com/personal/order/orderList">我的订单</a>
+    		</dd>
+    		<dd class="">
+    			<a href="http://i.yunhou.com/personal/favorite/productList">收藏夹</a>
+    		</dd>
+    		<dd class="">
+    			<a href="http://i.yunhou.com/personal/order/orderRefundList">退款/退货申请</a>
+    		</dd>
+    		<dd class="">
+    			<a href="http://i.yunhou.com/refund/refundList">我的退款</a>
+    		</dd>
+    	</dl>
+    	<div class="line"></div>
+    	<dl class="nav-item">
+    		<dt>
+    			<i class="icon iconfont"></i>服务中心
+    		</dt>
+    		<dd class="">
+    			<a href="http://i.yunhou.com/personal/arrivalnotice/getArrivalNotice">到货通知</a>
+    		</dd>
+    		<dd class="">
+    			<a href="http://i.yunhou.com/coupons/getNotUsedCoupons">我的优惠券</a>
+    		</dd>
+    		<dd class="">
+    			<a href="http://i.yunhou.com/personal/evaluation/unevaluationList">我的评价</a>
+    		</dd>
+    		<!-- dd>
+    			<a href="http://i.yunhou.com/consult/getConsult">购买咨询</a>
+    		</dd-->
+    		<dd class="">
+    			<a href="http://i.yunhou.com/complaints/complaintsApply">发起投诉</a>
+    		</dd>
+    
+    	</dl>
+    	<div class="line"></div>
+    	<dl class="nav-item">
+    		<dt>
+    			<i class="icon iconfont"></i>个人信息管理
+    		</dt>
+    		<dd class="">
+    			<a href="http://i.yunhou.com/profile">个人资料</a>
+    		</dd>
+    		<dd class="">
+    			<a href="http://safe.yunhou.com/safe/center">安全中心</a>
+    		</dd>
+    		<dd class="">
+    			<a href="<?php echo urlMember('member_address', 'address');?>">管理收货地址</a>
+    		</dd>
+    		<dd class="">
+    			<a href="http://i.yunhou.com/news/getUnReadMsg">我的消息</a>
+    		</dd>
+    	</dl>
+    </div>
+    				</div>
+    				<div class="cnt f-l" id="jIndex">
+    					<div class="top-info clearfix">
+    
+    						<div class="f-l user-info clearfix">
+    							<img class="f-l user-hd jImg" alt="头像" src="//s1.bbgstatic.com/pub/img/user-hd/male.png?v=a18df9f5651fad2a" style="display: block;">
+    							<div class="f-l">
+    								<div class="welcome">
+    									186****0656 中午好！欢迎来到太划算商城！
+    								</div>
+    								<ul class="total clearfix">
+    									<li class="total-coupons">
+    										<span>
+    											<i class="icon iconuc"></i>优惠券：<b class="cl-st">0</b>张
+    										</span>
+    									</li>
+    								</ul>
+    								<div class="user-status">我的会员等级：<span>注册会员</span></div>
+    
+    									<div class="invitation">
+    										<span class="f-l">
+    										分享链接有钱赚<a title="了解分享链接有钱赚" target="_blank" href="http://union.yunhou.com/help/15.html" class="iconfont"></a>
+    										</span>
+    										<div class="f-l code" style="display:">
+    											<input class="txt jCopyTxt" type="text" value="http://www.yunhou.com/?tk=pd40EHX8">
+    											<a class="btn btn-yellow jCopyBtn" href="javascript:;">复制</a>
+    										<div class="zclip" id="zclip-ZeroClipboardMovie_1" style="position: absolute; left: 203px; top: 0px; width: 47px; height: 24px; z-index: 99;"><embed id="ZeroClipboardMovie_1" src="//s1.bbgstatic.com/lib/plugins/zclip/1.1.1/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="47" height="24" name="ZeroClipboardMovie_1" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=1&amp;width=47&amp;height=24" wmode="transparent"></div></div>
+    										<a class="btn btn-yellow jParticipate" href="javascript:;" style="display:none">现在参与</a>
+    
+    									</div>
+    
+    							</div>
+    						</div>
+    						<div class="f-l safety">
+    							<h3 class="t16"><span class="ip-zhanpg">账户安全评估</span><label class="ip-scdldz">上次登录地址：180.106.**.**</label></h3>
+    							<ul class="safety-level safety-level-2 clearfix">
+    								<li class="level-txt level-txt-2">
+    									中等
+    								</li>
+    								<li class="level-img"></li>
+    								<li class="upgrade"><a href="http://safe.yunhou.com/safe/center">提升安全等级&gt;&gt;</a></li>
+    							</ul>
+    							<ul class="safety-des clearfix">
+    								<li class="bind-phone">
+    									<i class="icon iconuc"></i>手机：<span class="level-goods">已绑定<i class="icon iconfont"></i></span>
+    								</li>
+    								<li class="bind-email">
+    									<i class="icon iconfont"></i>邮箱：<a href="http://safe.yunhou.com/safe/center" class="level-bad">未绑定<i class="icon iconfont"></i></a>
+    								</li>
+    								<!-- <li class="pwd-level">
+    									<i class="icon iconfont">&#xe610;</i>登录密码：<span class="level-goods">较强<i class="icon iconfont">&#xe634;</i></span>
+    								</li> -->
+    							</ul>
+    						</div>
+    					</div>
+    					<div class="order">
+    						<div class="blk-title">
+    							<h2 class="title-txt f-l">最近订单</h2>
+    							<div class="title-sel f-l">
+    								<a class="sel-first" href="/order/orderList?orderStatus=wait_pay&amp;resultKey=pending-payment">待付款<b class="cl-st">0</b></a>
+    								<a href="/order/orderList?orderStatus=finish_send_goods&amp;resultKey=pending-receipt">待收货<b class="cl-st">0</b></a>
+    								<a href="/evaluation/unevaluationList">待评价<b class="cl-st">4</b></a>
+    							</div>
+    							<a class="more f-r" href="/order/orderList">更多&gt;&gt;</a>
+    						</div>
+    						<div class="od-lists">
+    							<ul class="od-item clearfix">
+    								<li class="goods-img">
+    									<a class="goods-link" href="http://item.yunhou.com/9700000207.html" target="_blank">
+    										<img class="f-l user-hd jImg" alt="商品图片" src="http://img04.bubugao.com/150f0682b02_2_1a589a73284d974b6fb5adb0ef7e6391_800x800.jpeg!s1" style="display: inline;">
+    										<span>共1件</span>
+    										<span class="bg"></span>
+    									</a>
+    								</li>
+    								<li class="consignee">
+    									龚叶锋
+    								</li>
+    								<li class="goods-price">
+    									<span class="p-normal"><em>￥</em>438</span>
+    								</li>
+    								<li class="order-data">
+    									2016-02-27
+    										10:57:01
+    								</li>
+    								<li class="order-status">
+    已取消								</li>
+    								<li class="order-op">
+    																		<a href="/order/orderDetail?orderNo=160581500106" class="btn btn-sec">查看订单</a>
+    								</li>
+    							</ul>
+    							<ul class="od-item clearfix">
+    								<li class="goods-img">
+    									<a class="goods-link" href="http://item.yunhou.com/9700000213.html" target="_blank">
+    										<img class="f-l user-hd jImg" alt="商品图片" src="http://img04.bubugao.com/150f57eb647_2_074b83b7759c5db27c2fc44a4960e5d5_800x800.jpeg!s1" style="display: inline;">
+    										<span>共1件</span>
+    										<span class="bg"></span>
+    									</a>
+    								</li>
+    								<li class="consignee">
+    									龚叶锋
+    								</li>
+    								<li class="goods-price">
+    									<span class="p-normal"><em>￥</em>359</span>
+    								</li>
+    								<li class="order-data">
+    									2016-02-27
+    										10:57:01
+    								</li>
+    								<li class="order-status">
+    已取消								</li>
+    								<li class="order-op">
+    																		<a href="/order/orderDetail?orderNo=160581500107" class="btn btn-sec">查看订单</a>
+    								</li>
+    							</ul>
+    							<ul class="od-item clearfix">
+    								<li class="goods-img">
+    									<a class="goods-link" href="http://item.yunhou.com/9997000335.html" target="_blank">
+    										<img class="f-l user-hd jImg" alt="商品图片" src="http://img04.bubugao.com/14f83a2c4b0_2_9d6bad3f76b942188a7d23d0134b4e5b_800x800.jpeg!s1" style="display: inline;">
+    										<span>共1件</span>
+    										<span class="bg"></span>
+    									</a>
+    								</li>
+    								<li class="consignee">
+    									龚叶锋
+    								</li>
+    								<li class="goods-price">
+    									<span class="p-normal"><em>￥</em>37</span>
+    								</li>
+    								<li class="order-data">
+    									2016-02-27
+    										10:57:01
+    								</li>
+    								<li class="order-status">
+    已取消								</li>
+    								<li class="order-op">
+    																		<a href="/order/orderDetail?orderNo=160581500108" class="btn btn-sec">查看订单</a>
+    								</li>
+    							</ul>
+    							<ul class="od-item clearfix">
+    								<li class="goods-img">
+    									<a class="goods-link" href="http://item.yunhou.com/9992001224.html" target="_blank">
+    										<img class="f-l user-hd jImg" alt="商品图片" src="http://img04.bubugao.com/1501826d5ca_2_3ba4b1b31872b3d21e013342fde91b31_600x600.jpeg!s1" style="display: inline;">
+    										<span>共1件</span>
+    										<span class="bg"></span>
+    									</a>
+    								</li>
+    								<li class="consignee">
+    									龚叶锋
+    								</li>
+    								<li class="goods-price">
+    									<span class="p-normal"><em>￥</em>40.9</span>
+    								</li>
+    								<li class="order-data">
+    									2016-02-27
+    										09:42:51
+    								</li>
+    								<li class="order-status">
+    已取消								</li>
+    								<li class="order-op">
+    																		<a href="/order/orderDetail?orderNo=160581400094" class="btn btn-sec">查看订单</a>
+    								</li>
+    							</ul>
+    							<ul class="od-item clearfix">
+    								<li class="goods-img">
+    									<a class="goods-link" href="http://item.yunhou.com/10275000247.html" target="_blank">
+    										<img class="f-l user-hd img-error jImg" alt="商品图片" src="//s1.bbgstatic.com/pub/img/blank.gif" data-url="http://img04.bubugao.com/1510e21bd48_2_c8b85d520d49e3e5c51c73f38122dfdd_800x800.jpeg!s1">
+    										<span>共1件</span>
+    										<span class="bg"></span>
+    									</a>
+    								</li>
+    								<li class="consignee">
+    									龚叶锋
+    								</li>
+    								<li class="goods-price">
+    									<span class="p-normal"><em>￥</em>285</span>
+    								</li>
+    								<li class="order-data">
+    									2015-12-26
+    										21:49:50
+    								</li>
+    								<li class="order-status">
+    交易成功								</li>
+    								<li class="order-op">
+    																		<a href="/order/orderDetail?orderNo=153602600420" class="btn btn-sec">查看订单</a>
+    								</li>
+    							</ul>
+    							<ul class="od-item clearfix">
+    								<li class="goods-img">
+    									<a class="goods-link" href="http://item.yunhou.com/10079000496.html" target="_blank">
+    										<img class="f-l user-hd img-error jImg" alt="商品图片" src="//s1.bbgstatic.com/pub/img/blank.gif" data-url="http://img04.bubugao.com/14fa6f90ab5_2_b9b0342f33926ccf4f429f5a4ea8f4fc_800x800.jpeg!s1">
+    										<span>共1件</span>
+    										<span class="bg"></span>
+    									</a>
+    								</li>
+    								<li class="consignee">
+    									龚叶锋
+    								</li>
+    								<li class="goods-price">
+    									<span class="p-normal"><em>￥</em>28</span>
+    								</li>
+    								<li class="order-data">
+    									2015-12-24
+    										14:38:03
+    								</li>
+    								<li class="order-status">
+    已取消								</li>
+    								<li class="order-op">
+    																		<a href="/order/orderDetail?orderNo=153581901232" class="btn btn-sec">查看订单</a>
+    								</li>
+    							</ul>
+    							<ul class="od-item clearfix">
+    								<li class="goods-img">
+    									<a class="goods-link" href="http://item.yunhou.com/9903000172.html" target="_blank">
+    										<img class="f-l user-hd img-error jImg" alt="商品图片" src="//s1.bbgstatic.com/pub/img/blank.gif" data-url="http://img04.bubugao.com/14ee3605dcf_2_ddb819c14b3c8648458a65f0c45bc148_800x800.jpeg!s1">
+    										<span>共1件</span>
+    										<span class="bg"></span>
+    									</a>
+    								</li>
+    								<li class="consignee">
+    									龚叶锋
+    								</li>
+    								<li class="goods-price">
+    									<span class="p-normal"><em>￥</em>58</span>
+    								</li>
+    								<li class="order-data">
+    									2015-12-24
+    										14:38:03
+    								</li>
+    								<li class="order-status">
+    已取消								</li>
+    								<li class="order-op">
+    																		<a href="/order/orderDetail?orderNo=153581901233" class="btn btn-sec">查看订单</a>
+    								</li>
+    							</ul>
+    							<ul class="od-item clearfix">
+    								<li class="goods-img">
+    									<a class="goods-link" href="http://item.yunhou.com/9899000057.html" target="_blank">
+    										<img class="f-l user-hd img-error jImg" alt="商品图片" src="//s1.bbgstatic.com/pub/img/blank.gif" data-url="http://img04.bubugao.com/150b6a65b5d_2_ec1c742a197262a25997d2efcedfb693_800x800.jpeg!s1">
+    										<span>共3件</span>
+    										<span class="bg"></span>
+    									</a>
+    								</li>
+    								<li class="consignee">
+    									龚叶锋
+    								</li>
+    								<li class="goods-price">
+    									<span class="p-normal"><em>￥</em>77.7</span>
+    								</li>
+    								<li class="order-data">
+    									2015-12-24
+    										10:09:12
+    								</li>
+    								<li class="order-status">
+    已取消								</li>
+    								<li class="order-op">
+    																		<a href="/order/orderDetail?orderNo=153581500270" class="btn btn-sec">查看订单</a>
+    								</li>
+    							</ul>
+    							<ul class="od-item clearfix">
+    								<li class="goods-img">
+    									<a class="goods-link" href="http://item.yunhou.com/10090000100.html" target="_blank">
+    										<img class="f-l user-hd img-error jImg" alt="商品图片" src="//s1.bbgstatic.com/pub/img/blank.gif" data-url="http://img04.bubugao.com/14fdfc5e727_2_dc29acef65edb82074af4fb7919e9591_600x600.jpeg!s1">
+    										<span>共1件</span>
+    										<span class="bg"></span>
+    									</a>
+    								</li>
+    								<li class="consignee">
+    									龚叶锋
+    								</li>
+    								<li class="goods-price">
+    									<span class="p-normal"><em>￥</em>129</span>
+    								</li>
+    								<li class="order-data">
+    									2015-11-02
+    										10:45:57
+    								</li>
+    								<li class="order-status">
+    已取消								</li>
+    								<li class="order-op">
+    																		<a href="/order/orderDetail?orderNo=153061500117" class="btn btn-sec">查看订单</a>
+    								</li>
+    							</ul>
+    							<ul class="od-item clearfix">
+    								<li class="goods-img">
+    									<a class="goods-link" href="http://item.yunhou.com/9783001274.html" target="_blank">
+    										<img class="f-l user-hd img-error jImg" alt="商品图片" src="//s1.bbgstatic.com/pub/img/blank.gif" data-url="http://img04.bubugao.com/14e32eb4b8d_2_14e98e227575fd3789875254afe3c917_800x800.jpeg!s1">
+    										<span>共3件</span>
+    										<span class="bg"></span>
+    									</a>
+    								</li>
+    								<li class="consignee">
+    									龚叶锋
+    								</li>
+    								<li class="goods-price">
+    									<span class="p-normal"><em>￥</em>187</span>
+    								</li>
+    								<li class="order-data">
+    									2015-10-14
+    										20:38:04
+    								</li>
+    								<li class="order-status">
+    交易成功								</li>
+    								<li class="order-op">
+    																		<a href="/order/orderDetail?orderNo=152879000075" class="btn btn-sec">查看订单</a>
+    								</li>
+    							</ul>
+    						</div>
+    					</div>
+    					<div class="clearfix collect-and-history">
+    						<div class="collect f-l">
+    							<div class="blk-title">
+    								<h2 class="title-txt f-l">最近收藏</h2>
+    								<a class="more f-r" href="/favorite/productList">查看全部收藏&gt;&gt;</a>
+    							</div>
+    							<div class="box">
+    								<ul class="goods-list clearfix">
+    									<li>
+    										<a class="goods-img" href="http://item.yunhou.com/9692000030.html" target="_blank" title="德国爱他美Aptamil 3段800g(10-12个月)">
+    											<img class="img-error jImg" alt="德国爱他美Aptamil 3段800g(10-12个月)" src="//s1.bbgstatic.com/pub/img/blank.gif" data-url="http://img04.bubugao.com/14fea1f923f_2_8a198914b2cdb7b7bf34c90bb1b50122_800x800.jpeg!s2">
+    										</a>
+    										<a href="http://item.yunhou.com/9692000030.html" class="goods-name" title="德国爱他美Aptamil 3段800g(10-12个月)">德国爱他美Aptamil 3段800g(10-12个月)</a>
+    										<p class="goods-price">
+    											<span class="p-normal"><em>￥</em>168.00</span>
+    										</p>
+    									</li>
+    									<li>
+    										<a class="goods-img" href="http://item.yunhou.com/9700000208.html" target="_blank" title="德国爱他美Aptamil 3段800g(10-12个月)">
+    											<img class="img-error jImg" alt="德国爱他美Aptamil 3段800g(10-12个月)" src="//s1.bbgstatic.com/pub/img/blank.gif" data-url="http://img04.bubugao.com/150f06ef1ea_2_e2cfde890f942cb3a68e8d80250eb62a_800x800.jpeg!s2">
+    										</a>
+    										<a href="http://item.yunhou.com/9700000208.html" class="goods-name" title="德国爱他美Aptamil 3段800g(10-12个月)">德国爱他美Aptamil 3段800g(10-12个月)</a>
+    										<p class="goods-price">
+    											<span class="p-normal"><em>￥</em>328.00</span>
+    										</p>
+    									</li>
+    								</ul>
+    							</div>
+    						</div>
+    						<!--
+    						<div class="history f-l">
+    							<div class="blk-title">
+    								<h2 class="title-txt f-l">最近浏览</h2>
+    							</div>
+    							<div class="box">
+    								<a href="javascript:;" class="btn-sp btn-sp-disabled btn-pre"><i class="icon iconfont">&#xe602;</i></a>
+    								<a href="javascript:;" class="btn-sp btn-next"><i class="icon iconfont">&#xe603;</i></a>
+    								<ul class="goods-list clearfix" style="width:560px">
+    									<li>
+    										<a class="goods-img" href="" target="_blank" title="商品名字">
+    											<img class="img-error jImg" alt="商品名字" src="//s1.bbgstatic.com/pub/img/blank.gif" data-url="//s1.bbgstatic.com/pub/img/user-hd/female.png?v=04d71f9f599f299f">
+    										</a>
+    										<a href="" class="goods-name" title="商品名字">2014韩版宽松条纹短袖T恤女纯棉夏装新款上衣服大码女装打底衫潮</a>
+    										<p class="goods-price">
+    											<span class="p-normal"><em>￥</em>17.00</span>
+    										</p>
+    									</li>
+    									<li>
+    										<a class="goods-img" href="" target="_blank" title="商品名字">
+    											<img class="img-error jImg" alt="商品名字" src="//s1.bbgstatic.com/pub/img/blank.gif" data-url="//s1.bbgstatic.com/pub/img/user-hd/female.png?v=04d71f9f599f299f">
+    										</a>
+    										<a href="" class="goods-name" title="商品名字">2014韩版宽松条纹短袖T恤女纯棉夏装新款上衣服大码女装打底衫潮</a>
+    										<p class="goods-price">
+    											<span class="p-normal"><em>￥</em>17.00</span>
+    										</p>
+    									</li>
+    									<li>
+    										<a class="goods-img" href="" target="_blank" title="商品名字">
+    											<img class="img-error jImg" alt="商品名字" src="//s1.bbgstatic.com/pub/img/blank.gif" data-url="//s1.bbgstatic.com/pub/img/user-hd/female.png?v=04d71f9f599f299f">
+    										</a>
+    										<a href="" class="goods-name" title="商品名字">2014韩版宽松条纹短袖T恤女纯棉夏装新款上衣服大码女装打底衫潮</a>
+    										<p class="goods-price">
+    											<span class="p-normal"><em>￥</em>17.00</span>
+    										</p>
+    									</li>
+    									<li>
+    										<a class="goods-img" href="" target="_blank" title="商品名字">
+    											<img class="img-error jImg" alt="商品名字" src="//s1.bbgstatic.com/pub/img/blank.gif" data-url="//s1.bbgstatic.com/pub/img/user-hd/female.png?v=04d71f9f599f299f">
+    										</a>
+    										<a href="" class="goods-name" title="商品名字">2014韩版宽松条纹短袖T恤女纯棉夏装新款上衣服大码女装打底衫潮</a>
+    										<p class="goods-price">
+    											<span class="p-normal"><em>￥</em>17.00</span>
+    										</p>
+    									</li>
+    								</ul>
+    							</div>
+    						</div>
+    					-->
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="footer">
+    	<div class="bd">
+    		<div class="help w1190">
+    
+    			<?php if(is_array($output['article_list']) && !empty($output['article_list'])){ ?>
+    			<div class="list">
+    								<?php foreach ($output['article_list'] as $k=> $article_class){ ?>
+    				<?php if(!empty($article_class)){ ?>
+    				<dl>
+                  <dt><?php if(is_array($article_class['class'])) echo $article_class['class']['ac_name'];?></dt>
+    					<?php if(is_array($article_class['list']) && !empty($article_class['list'])){ ?>
+    					<?php foreach ($article_class['list'] as $article){ ?>
+    					<dd>
+    	            <a href="<?php if($article['article_url'] != '')echo $article['article_url'];else echo urlShop('article', 'show',array('article_id'=> $article['article_id']));?>" title="<?php echo $article['article_title']; ?>">
+    		            <?php echo $article['article_title'];?> </a>
+                </dd>
+    					<?php }}?>
+              </dl>
+    				<?php }}?>
+    			</div>
+    			<?php }?>
+    
+    			<div class="contact">
+              <div class="item"><i class="icon iconfont iconfont-tel"></i><span>0512-53228886</span></div>
+              <div class="item item-email"><i class="icon iconfont iconfont-email"></i><span>654370122@qq.com</span></div>
+          </div>
+            </div>
+        </div>
+        <div class="ft">
+          <div class="copyright">
+              <p class="links">
+    	          <a rel="nofollow" href="http://www1.htths.com/article-22.html" target="_blank">关于太划算</a><span>|</span>
+    	          <a rel="nofollow" href="http://www1.htths.com/article-23.html" target="_blank">联系我们</a><span>|</span>
+              </p>
+              <p class="cprt-icp">苏ICP备14036053号-1<span>|</span>Copyright© 太划算商城 2014-2016，All Rights Reserved</p>
+          </div>
+        </div>
+    </div>
+    
+    
+
+    <script src="http://static.htths.com/js/lib/require.js"></script>
+    <script>
+      requirejs(['http://static.htths.com/js/common.js'], function (common) {
+        requirejs(['http://static.htths.com/js/app/member.js']);
+      });
+  </script>
+  </body>
+</html>

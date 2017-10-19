@@ -1,0 +1,23 @@
+<div class="content-padded">已有<span class="button-danger" id="address-count">{{address_count}}</span>条收货地址（最多添加10条）</div>
+{{each address_list as value i}}
+			<div class="card" data-address-id="{{value['address_id']}}">
+				<div class="card-content">
+					<div class="card-content-inner address-item">
+						<p>{{value['true_name']}} {{value['mob_phone']}}</p>
+						<p>{{value['area_info']}}  {{value['address']}}</p>
+						{{if value['idcard_no']}}<p>身份证号:{{value['idcard_no']}}</p>{{/if}}
+					</div>
+				</div>
+				<div class="card-footer">
+					<div class="op-btn">
+			      <a class="edit" href=""><i class="icon iconfont icon-edit"></i>编辑</a>
+			      <a class="del" href=""><i class="icon iconfont icon-delete"></i>删除</a>
+			      <a class="default" href=""><i
+				      class="icon iconfont {{if value.is_default == 1}}icon-roundcheckfill{{else}}icon-roundcheck{{/if}}"></i>设为默认</a>
+					</div>
+				</div>
+			</div>
+{{/each}}
+			<div class="content-padded">
+				<a class="button button-fill button-warning" id="add-address">添加收货地址</a>
+			</div>

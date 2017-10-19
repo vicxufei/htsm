@@ -1,0 +1,60 @@
+.bg, .bg .content {
+  position: relative
+}
+
+.bg {
+  background: url(../img/404bg2.jpg) 50% 20px fixed #0d456c;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%
+}
+
+.bg .content {
+  margin: 0 auto;
+  width: 1190px;
+  height: 570px
+}
+
+.cnt .content .fail-reason {
+  position: absolute;
+  left: 94px;
+  top: 52px;
+  font-size: 12px;
+  color: #fff8ec;
+  line-height: 20px
+}
+
+
+
+.cnt .hidden-link {
+  display: block;
+  height: 56px;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 82px;
+  margin-left: -10px;
+  margin-bottom: 110px;
+  cursor: pointer;
+  z-index: 3
+}
+
+.cnt .plax-sphere {
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: normal
+}
+
+.cnt .content-bg {
+  background-image: url(../img/404content.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  width: 384px;
+  height: 247px;
+  margin: 65px 0 0 420px
+}
+
+.cnt #return_time {
+  font-weight: 700
+}

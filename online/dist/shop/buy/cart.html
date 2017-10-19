@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>购物车-太划算商城-更近更贴心</title>
+ 	<meta charset="utf-8" />
+  <meta name="renderer" content="webkit" />
+	<link rel="stylesheet" href="http://static.htths.com/css/base.min.css">
+	<link rel="stylesheet" href="http://static.htths.com/css/cart.min.css">
+</head>
+<body>
+  <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+  <div class="global-topbar">
+    <div class="bd w1190 clearfix">
+  	  <ul class="sn-block sn-login f-l" id="is-login">
+  		  <?php if ($_SESSION['is_login'] == '1'){ ?>
+  		  <li data-is-login="1">
+  			  您好,
+  			  <a rel="nofollow" href="<?php echo urlMember('member_security', 'index');?>"><?php echo $_SESSION['member_name']; ?></a>
+  			  <span class="split"></span>
+  			  <a rel="nofollow" href="<?php echo urlLogin('login', 'logout'); ?>">退出登录</a>
+  		  </li>
+  		  <?php }else{ ?>
+  		  <li data-is-login="0">
+  			  <a rel="nofollow" href="<?php echo urlMember('login'); ?>">登录</a>
+  			  <span class="split"></span>
+  			  <a rel="nofollow" href="<?php echo urlLogin('login', 'register'); ?>">免费注册</a>
+  		  </li>
+  		  <?php } ?>
+  	  </ul>
+      <ul class="sn-block sn-quick f-r">
+        <li class="jMenu">
+            <a class="menu-hd block-item" rel="nofollow" href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order">我的订单<b
+  		          class="arrow"></b></a>
+            <div class="menu-bd">
+                <a rel="nofollow"
+                   href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_new">待付款订单</a>
+                <a rel="nofollow"
+                   href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_send">待确认收货</a>
+                <a rel="nofollow"
+                   href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_noeval">待评价交易</a>
+                <a rel="nofollow"
+                   href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_goods&action=fglist">商品收藏</a>
+            </div>
+        </li>
+        <li class="sn-cart"><a class="block-item" href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=cart">我的购物车<b class="jCartCount sn-cart-count">0</b></a></li>
+        <li class="jMenu">
+            <a class="menu-hd block-item" href="#">客户服务<b class="arrow"></b></a>
+            <div class="menu-bd">
+                <ul>
+                    <li><a href="<?php SHOP_SITE_URL; ?>/article-23.html">关于我们</a></li>
+                    <li><a href="<?php SHOP_SITE_URL; ?>/article-22.html">联系我们</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="qr-codes jMenu">
+          <a class="menu-hd block-item" href="javascript:;">手机版</a>
+          <div class="menu-bd">
+            <div class="qr-codes-img"><img class="jImgPhoneCode img-error" src="//static.htths.com/img/htsm-qrcode.jpg" alt="太划算二维码"></div><div
+  		        class="qr-codes-txt">太划算手机版</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  
+  <div class="site-head">
+<div class="bd w1190 clearfix">
+<h1 class="title">
+<a href="<?php echo SHOP_SITE_URL; ?>" title="太划算商城" class="go-home">
+<img alt="太划算商城" class="logo" src="<?php echo STATIC_URL; ?>/images/logo.png">
+</a>
+<span class="span-txt" id="jHdTxt">购物车</span>
+</h1>
+<ul class="s-process">
+<li><em class="icon iconcart process-item"></em><span class="pro-txt">100%正品</span></li>
+<li><em class="icon iconcart  process-item"></em><span class="pro-txt">闪电发货</span></li>
+<li><em class="icon iconcart process-item"></em><span class="pro-txt">售后无忧</span></li>
+</ul>
+</div>
+</div>
+  <div class="main">
+  	<div class="clearfix">
+  		<div class="cart">
+  			<form action="<?php echo SHOP_SITE_URL;?>/index.php?controller=buy&action=buy_step1" method="POST" id="form_buy" name="form_buy">
+  				<input type="hidden" value="1" name="ifcart">
+  			<div id="jCart"  class="cart-wrap">
+  			</div>
+  			</form>
+  		</div>
+  	</div>
+  </div>
+  
+  <script id="tpl-jCart" type="text/html">
+  <div class="list">
+  	<table>
+  		<tbody>
+  			<tr>
+  				<% if(cart_all_checked === 1) { %>
+  				<th class="chk"><input type="checkbox" class="jChkAll chkAll" checked="checked" data-cart-all="<%=cart_all_item%>">全选</th>
+  				<% }else{ %>
+  				<th class="chk"><input type="checkbox" class="jChkAll chkAll" data-cart-all="<%=cart_all_item%>">全选</th>
+  				<% } %>
+  				<th class="product">商品</th>
+  				<th class="sales-price">单价(元)</th>
+  				<th class="quantity">数量</th>
+  				<th class="subtotal">小计(元)</th>
+  				<th class="pro">操作</th>
+  			</tr>
+  		</tbody>
+  	</table>
+  </div>
+  <div class="list list-border">
+  	<% for (var i = 0; i < cart_list.length; i ++) { %>
+  	<table class="jTable jProInfo jProList table-checked jAllTableItem" data-cart-id="<%=cart_list[i]['cart_id']%>" data-qty-num="<%=cart_list[i]['goods_num']%>">
+  		<tbody>
+  		<tr>
+  			<td class="chk">
+  				<input type="checkbox"  class="jChkItem"
+  				<% if(cart_list[i]['cart_checked'] == '1') { %>checked = "checked"<% } %>
+  				name="cart_id[]"value="<%=cart_list[i]['cart_id']%>|<%=cart_list[i]['goods_num']%>"
+  				data-if-bonded="<%= cart_list[i]['is_bonded']%>"
+  				>
+  			</td>
+        <td class="product">
+          <div class="product-box">
+  	        <a target="_blank" href="<%=cart_list[i]['goods_url']%>" class="pro-img">
+  		        <img class="jImg" src="<%=cart_list[i]['goods_image']%>" style="display: inline;">
+  	        </a>
+  	        <p class="first-p">
+  		        <span class="txt-els text">
+  			        <a target="_blank" href="<%=cart_list[i]['goods_url']%>"><%=cart_list[i]['goods_name']%></a>
+  		        </span>
+  	        </p>
+  	        <% if(cart_list[i]['transport_id'] == 3) { %>
+  	        <p><span class="txt-red">[限上门自提]</span></p>
+  	        <% } %>
+  	        <% if(cart_list[i]['is_bonded']) { %>
+  	        <p><span class="txt-red">[保税仓发货]</span></p>
+  	        <% } %>
+          </div>
+        </td>
+  			<td class="sales-price">
+  				<p class="current-price">￥<%=cart_list[i]['goods_price']; %></p>
+  				<p class="origin-price">￥<%=cart_list[i]['goods_marketprice']; %></p>
+  			</td>
+  			<td class="quantity">
+  				<div class="tight-box">
+  					<div class="quantity-box jQty">
+  						<a href="javascript:;" class="jQtyMin">-</a>
+  						<input class="jQtyTxt" data-max="343" value="<%=cart_list[i]['goods_num'];%>">
+  						<a class="jQtyAdd" href="javascript:;">+</a>
+  					</div>
+  				</div>
+  			</td>
+  			<td class="discount-amount">￥0.00</td>
+  			<td class="subtotal">
+  				<p>￥<%=cart_list[i]['goods_tprice'];%></p>
+  				<p class="weight">( <%=cart_list[i]['goods_tweight'];%>kg )</p>
+  			</td>
+  			<td class="pro">
+  				<a class="jDel" href="javascript:;">删除</a>
+  			</td>
+  		</tr>
+  		</tbody>
+  	</table>
+  	<%}%>
+  	<div class="mod-shipment-box">
+  		<div class="mod-shipping-method">
+  			<ul>
+  				<li class="total-item">
+  					<span class="total-txt">共</span>
+  					<b class="jtotal-b"><%=cart_count%></b>
+  					<span class="total-pro">件商品</span>
+  				</li>
+  				<li class="total-item">
+  					<span class="total-txt">重量合计：</span>
+  					<span class="jtotal-weight"><%=cart_weight %>Kg</span>
+  				</li>
+  				<li class="total-item shipping-items">
+  					<div class="items-wrap jShippingItems">
+  						<span class="shipping-icon"><i class="icon iconfont iconfont-wuliu"></i></span>
+  						<label class="cont-c">快递费</label><span class="cont-price"><b class="shipping-price"><%=freight_total%></b>元</span>
+  					</div>
+  				</li>
+  				<% if(has_chain_checked) { %>
+  				<li class="total-item shipping-items">
+  					<div class="items-wrap jShippingItems">
+  						<label class="cont-c">上门自提费用</label><span class="cont-price"><b class="shipping-price">0.00</b>元</span>
+  						<span class="span-box">选择:上门自提</span>
+  						<span class="span-input"><input type="radio" name="ifchain" value="1"></span>
+  						<span class="span-box">快递配送</span>
+  						<span class="span-input"><input type="radio" name="ifchain" value="0" checked="checked"></span>
+  					</div>
+  				</li>
+  				<% } %>
+  			</ul>
+  		</div>
+  		<div class="mod-total-info">
+  			<ul class="total-ul clearfix">
+  				<li class="total-item">
+  					<span class="total-txt">商品应付总额：</span>
+  					<span class="total-money jCartTotal" data-cart-total="<%=cart_total%>">￥<%=cart_total%></span>
+  				</li>
+  			</ul>
+  		</div>
+  	</div>
+  </div>
+  <div class="mod-settle" id="jSetBox">
+  	<div class="settlement-l">
+  		<% if(cart_all_checked === 1) { %>
+  		<span class="span-input"><input type="checkbox" class="jChkAll" checked="checked" data-cart-all="<%=cart_all_item%>"></span><span class="span-box">全选</span>
+  		<% }else{ %>
+  		<span class="span-input"><input type="checkbox" class="jChkAll" data-cart-all="<%=cart_all_item%>"></span><span class="span-box">全选</span>
+  		<% } %>
+  	</div>
+  	<div class="settlement-r">
+  		<ul class="priceUl">
+  			<li><span class="pri-span">总金额：</span><span class="total-pri jNeed2Pay" data-need-pay="<%=need2pay%>">￥<%=need2pay%></span></li>
+  			<li><a href="javascript:;" class="btn btn-l jSubmit" data-both-bonded-none="<%=both_bonded_none%>" data-non-bonded-checked="<%=non_bonded_checked%>" data-bonded-checked="<%=bonded_checked%>">立即结算</a></li>
+  		</ul>
+  	</div>
+  </div>
+  </script>
+  <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+  <div class="footer">
+      <div class="ft">
+        <div class="copyright">
+          <p class="links">
+            <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-22.html" target="_blank">关于太划算</a><span>|</span>
+            <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-23.html" target="_blank">联系我们</a>
+          </p>
+  	      <p class="cprt-icp">Copyright© 2003-2016 太仓和团商贸有限公司Htths.com 版权所有</p>
+  	      <p class="cprt-icp">苏ICP备14036053号-1<span>|</span>食品流通许可证：SP3205851410003535<span>|</span>酒类流通备案：320504101788</p>
+  	      <p class="pic">
+  	        <a rel="nofollow" target="_blank" href="http://www.szgswljg.gov.cn/websiteMark?siteid=31390"><img border="0" src="http://static.htths.com/images/szicbok.gif"></a>
+  	        <img class="pay-ali" src="http://static.htths.com/img/alipay.jpg">
+  	        <img class="pay-wx" src="http://static.htths.com/img/wechatpay.jpg">
+  	      </p>
+        </div>
+      </div>
+  </div>
+  
+  
+  	<script>var require = {urlArgs: 'v=123'};</script>
+	  <script src="http://static.htths.com/js/lib/require.js" data-main="http://static.htths.com/js/cart"></script>
+<script type='text/javascript'>
+    (function(m, ei, q, i, a, j, s) {
+	    m[i] = m[i] || function() {
+			    (m[i].a = m[i].a || []).push(arguments)
+		    };
+	    j = ei.createElement(q),
+		    s = ei.getElementsByTagName(q)[0];
+	    j.async = true;
+	    j.charset = 'UTF-8';
+	    j.src = '//static.meiqia.com/dist/meiqia.js';
+	    s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', 29969);
+    _MEIQIA('withoutBtn');
+    _MEIQIA('init');
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "404.js": "404.js?de3328c16f",
+  "article.js": "article.js?b76ea2ef5d",
+  "buy.js": "buy.js?5c19729af8",
+  "cart.js": "cart.js?7c321b2d63",
+  "favorites.js": "favorites.js?77be7f3edb",
+  "index.js": "index.js?c69e740c5c",
+  "item.js": "item.js?a1a6a571c7",
+  "login.js": "login.js?ec9106db98",
+  "member_address.js": "member_address.js?2c7548def6",
+  "member_evaluation.js": "member_evaluation.js?7964f49702",
+  "member_order.js": "member_order.js?d3347135d9",
+  "member_order_detail.js": "member_order_detail.js?b6cc3ab203",
+  "pay.js": "pay.js?1d091f477a",
+  "register.js": "register.js?afc66d305b",
+  "search.js": "search.js?4dc5321ee2",
+  "wxpay.js": "wxpay.js?2e91ac7ae0"
+}

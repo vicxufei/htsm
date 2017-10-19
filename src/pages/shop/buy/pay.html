@@ -1,0 +1,94 @@
+---
+layout: cart
+---
+<div class="mod-pay">
+	<div class="bd">
+		<form action="index.php?controller=payment&action=real_order" method="POST" id="jPayForm">
+    <input type="hidden" name="pay_sn" value="<?php echo $output['pay_info']['pay_sn']; ?>">
+    <input type="hidden" value="" name="password_callback" id="password_callback">
+		<div class="tips">
+			<h1 class="title"><i class="icon iconfont iconfont-gouxuan"></i><span class="text">订单提交成功，仅差一步完成购买，请尽快支付！逾期订单将自动取消.</span></h1>
+		</div>
+    <div class="time">
+        <span class="text">请在</span><span class="text time-box" id="jCountTime" data-endtime="<?php echo $output['order_list'][0]['add_time']  ?>" ></span><span>内完成支付</span>
+    </div>
+    <div class="money">
+      <em>应付总额：</em><i class="flag">￥</i><span class="num" id="jNumBox"><?php echo ncPriceFormat($output['pay']['pay_amount_online']) ?></span>
+    </div>
+    <div class="ctn">
+      <div class="inner">
+        <div class="broadcast clearfix">
+            <p class="wrap">
+                <i class="icon iconfont"></i>
+                <span class="text">请选择支付方式</span>
+            </p>
+        </div>
+	      <?php if ($output['pay']['pay_amount_online'] > 0) {?>
+          <div class="mod-pay">
+	          <ul id="jPayType">
+	            <?php foreach($output['payment_list'] as $val) { ?>
+		          <li  class="card-item  jCardItem">
+			          <input type="radio" name="payment_code" class="bank-radio" value="<?php echo $val['payment_code']; ?>">
+			          <span class="ico ico-pay pay-<?php echo $val['payment_code']; ?>"></span>
+	            </li>
+		          <?php } ?>
+	          </ul>
+        </div>
+	      <?php } ?>
+
+      </div>
+    </div>
+    <div class="ctn ctn-2">
+      <div class="inner">
+	      <div class="warm-tips">
+		      <b class="text-l">感谢：</b><span class="text-r">感谢您对太划算商城的支持!本商城搞搞上线试运行中,有任何不周到的地方,请随时向我们的客服反馈 </span>
+	      </div>
+      <!-- pay-list begin -->
+        <div class="pay-list">
+	        <div class="item-hd">
+		        <table>
+			        <tbody>
+			        <tr>
+				        <th><div class="box-1">支付方式</div></th>
+				        <th><div class="box-2">订单号</div></th>
+				        <th><div>应付款金额</div></th>
+				        <th><div>操作</div></th>
+			        </tr>
+			        </tbody>
+		        </table>
+	        </div>
+	        <div class="item">
+		        <table>
+			        <tbody>
+			        <?php foreach ($output['order_list'] as $key => $order_info){ ?>
+			        <tr>
+				        <td><div class="box-1"><?php echo $order_info['payment_type']; ?></div></td>
+				        <td>
+					        <div class="box-2">
+						        <!-- 单笔支付 -->
+								<p class="item-p">
+									<a class="item-a" href="#" target="_blank"><?php echo $order_info['order_sn']; ?></a>
+								</p>
+						        <!-- 合并支付 -->
+					        </div>
+				        </td>
+				        <td>
+					        <div>
+						        <p class="money-text jPaymentTotal"><?php echo $order_info['order_amount']; ?></p>
+					        </div>
+				        </td>
+				        <td>
+					        <div class="jTradeStatus"><a class="btn jSubMit">确认支付</a></div>
+				        </td>
+			        </tr>
+			        <?php } ?>
+			        </tbody>
+		        </table>
+	        </div>
+        </div>
+      <!-- pay-list end -->
+      </div>
+    </div>
+		</form>
+	</div>
+</div>

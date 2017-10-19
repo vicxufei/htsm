@@ -1,0 +1,50 @@
+{{if !cart_num}}
+<div class="empty">
+	<p class="emt-img"></p>
+	<p class="emt-txt">购物车快饿瘪了T.T</p>
+	<p class="emt-txt-tag">主人快给我挑点宝贝吧</p>
+	<a href="#home" class="button button-small" >去逛逛</a>
+</div>
+{{else}}
+{{each cart_list as value i}}
+<li class="item-content">
+    <div class="item-media radio" data-cart_id="{{value.cart_id}}" data-checked="{{value.cart_checked}}">
+	    <i class="icon iconfont {{if value.cart_checked== 1}}icon-roundcheckfill{{else}}icon-roundcheck{{/if}}"></i>
+    </div>
+    <div class="item-media">
+	    <a href="" data-good_id="{{value.goods_id}}" class="jGo">
+		    <img src="{{value.goods_image}}">
+	    </a>
+    </div>
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title f12">
+	        <a href="" data-good_id="{{value.goods_id}}" class="jGo">{{value.goods_name}}</a>
+        </div>
+      </div>
+      <div class="item-subtitle">
+	      <div class="add-box jQty">
+		      <a class="box-zone-l {{if value.goods_num > 1}}jQtyMin{{else}}jDel{{/if}}"
+		           data-num="{{value.goods_num}}" data-cart_id="{{value.cart_id}}">
+			      <div class="box-l box-del">
+				      <i class="icon iconfont {{if value.goods_num > 1}}icon-move{{else}}icon-delete{{/if}}"></i>
+			      </div>
+		      </a>
+		      <div class="box-zone-m">
+			      <div class="box-m jQtyTxt">{{value.goods_num}}</div>
+		      </div>
+		      <a class="box-zone-r jQtyAdd" data-num="{{value.goods_num}}" data-cart_id="{{value.cart_id}}">
+			      <div class="box-r">
+				      <i class="icon iconfont icon-add"></i>
+			      </div>
+		      </a>
+	      </div>
+      </div>
+      <div class="item-text">
+	      <span class="present color-danger f13 mr10">¥{{value.good_final_price}}</span>
+	      <span class="original f10 color-gray"><del>¥{{value.goods_marketprice}}</del></span>
+      </div>
+    </div>
+</li>
+{{/each}}
+{{/if}}

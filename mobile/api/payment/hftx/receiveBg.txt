@@ -1,0 +1,400 @@
+-----------2017-06-18 02:34:37-----------------array (
+  'dealTime' => '20170618023301',
+  'errCode' => '000000',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170618023033',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003149',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '10',
+  'ext1' => '320547427512301309',
+  'orderAmount' => '399',
+  'ext2' => 'ext2',
+  'signMsg' => 'p%2FdjuDGEjjtnehvRsexL27ZQwZnEsKTmJWhDwC%2F7ilwqayYk5DV56UWbNLN5W7mWcIBVRJWvAEUUC23XDta8wjEVto0n%2FSk4EFsfR4eR87AdV16OrvbBT6YU2bjLouQsXMAxBxR1USUpEejMhV1qA%2BM%2BFVj9M1VKMwiDAlNuY6w%3D',
+  'payType' => '30',
+  'orderId' => '17050623113106401',
+)
+
+
+-----------2017-06-18 02:43:08-----------------array (
+  'dealTime' => '20170618024459',
+  'errCode' => '000000',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170618024231',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003150',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '10',
+  'ext1' => '410550143163346309',
+  'orderAmount' => '990',
+  'ext2' => 'ext2',
+  'signMsg' => 'j60Vs8xREkjk8eLazpQVobaURiNHk37E99JSp2cHnA4%2FDSSFAejujbKM7CuYSCP93JdYT7S9NnxHELQJ4GCj0UUDYomFqGU2ILMlHqBmtX8TV1UK%2FwcprM0sR1utfVWjZ5GUPzXF2LtrKStes0%2BoRUBRswmJdaHXjXY8os6xySY%3D',
+  'payType' => '30',
+  'orderId' => '17060709323332501',
+)
+
+
+-----------2017-06-18 22:01:14-----------------array (
+  'dealTime' => '20170618220306',
+  'errCode' => '000000',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170618220037',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003151',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '10',
+  'ext1' => '270551138400274309',
+  'orderAmount' => '90',
+  'ext2' => 'ext2',
+  'signMsg' => 'dtEJOSe06cTG1BO6SbldgyuOPpGxiMZx816ZTw7oXTyKidmU02ddEE7C%2FE4gblIXvCqgCuesZ0mh7FXYqnfrq7ZdEuH6SkAE6t2XFTiF6r3c4Pcw%2FS93rvn7xZBWJonharcN8YPGEdA888syvyPtma6WSCFSHgNI1KMefozM9f4%3D',
+  'payType' => '30',
+  'orderId' => '17061822003366601',
+)
+
+
+-----------2017-06-18 22:37:09-----------------array (
+  'dealTime' => '20170618223259',
+  'errCode' => '223206',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170618223029',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003152',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '11',
+  'ext1' => '410551140179145309',
+  'orderAmount' => '90',
+  'ext2' => 'ext2',
+  'signMsg' => 'slvYBi%2Fdo4VHY8Bd53asGBsocmbZosxFfYJiPa2NoDeUlbSut8zlbSDcbMsbqjI0i%2BykDwA8zuTERlya8jQwIMVI7SDRvUowESdx8mGXgASIxMB7HW8CrH1iufJbFCkxG1RaU9wTpUk7c%2B1S%2FUi5OSNFsGS6%2B1azdtT393yefZ4%3D',
+  'payType' => '30',
+  'orderId' => '17061822293366701',
+)
+
+
+-----------2017-06-18 22:54:38-----------------array (
+  'dealTime' => '20170618225025',
+  'errCode' => '120069',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170618224755',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003153',
+  'version' => '3.0',
+  'bankId' => 'cpnrep',
+  'terminalId' => '10001',
+  'payResult' => '11',
+  'ext1' => '410551140179145309',
+  'orderAmount' => '90',
+  'ext2' => 'ext2',
+  'signMsg' => 'xCosdJhOfSPBTtzoS0aclrKYVw4K4leIdfClWqgfX76CXBEkvGBIxCFJiRmYzGUzmAxYuzE2iKBqsExCq7oP7s0Pf7rFUyLVThQlZ4PTd2Q%2B7f4aFZpibnu2RHbkaqXOHDFXE7q3cD%2F8CD%2FVVA7v8eTPndLYTzRpwLNg7%2BznUvA%3D',
+  'payType' => '30',
+  'orderId' => '17061822293366701',
+)
+
+
+-----------2017-06-18 23:02:03-----------------array (
+  'dealTime' => '20170618230411',
+  'errCode' => '000000',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170618230142',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003154',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '10',
+  'ext1' => '410551140179145309',
+  'orderAmount' => '90',
+  'ext2' => 'ext2',
+  'signMsg' => 'wa1CFG4ezl9anm52PLFOwSPvXYcyqQ5Cn8I1dkgJVgZsrx6wsAZI7OjywB%2BxZBDY41IcsGY9HFIcKxDoQ5h1RBH81J7TAPl4yf%2FdheDYBV%2FSfnpMbQczFYjEKK6hVU55%2FY%2BXcj7zCq%2FUWO91KvKVODuo05%2BsY1domZHJR%2FsaAyc%3D',
+  'payType' => '30',
+  'orderId' => '17061822293366701',
+)
+
+
+-----------2017-06-18 23:19:34-----------------array (
+  'dealTime' => '20170618232143',
+  'errCode' => '000000',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170618231914',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003155',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '10',
+  'ext1' => '370551143151167309',
+  'orderAmount' => '90',
+  'ext2' => 'ext2',
+  'signMsg' => 'trFhmvIj5wPuvA6Ngz1G54NgbJ30dPwUODKz5IaMPrbPx3e0LntuLvcpjoiMM7XSfob1BY1xdA92Lc9JUWiTS15xgVuxtjCxdJ2e9YBdhYJudq5wTkVavwG0ehaugEZFjfa3Ovf1ihZx%2FNZLBIMXLHmP5tWZsCg%2FocKw%2Fwi8W6Y%3D',
+  'payType' => '30',
+  'orderId' => '17061823193366901',
+)
+
+
+-----------2017-06-18 23:24:56-----------------array (
+  'dealTime' => '20170618232704',
+  'errCode' => '000000',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170618232434',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003156',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '10',
+  'ext1' => '230551143472372309',
+  'orderAmount' => '90',
+  'ext2' => 'ext2',
+  'signMsg' => 'vGQHraop5zju2iHcMuVnVelUmzX5R1zO5Nxtu%2FALiWr9P540luhF%2BqDwe3Rfaq%2BERHGUmydAsPhnrN%2FMrdZtyDkkz9DyMmjdoPb2ZYGl%2FjOYkNqz%2BYvQT%2Bk5j%2FSRldoX4%2BFkwP7S6xfR04S4%2Frs0jhi8tPcgEItF9Ln9302lEVA%3D',
+  'payType' => '30',
+  'orderId' => '17061823243367001',
+)
+
+
+-----------2017-06-18 23:29:53-----------------array (
+  'dealTime' => '20170618233201',
+  'errCode' => '000000',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170618232931',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003157',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '10',
+  'ext1' => '200551143768957309',
+  'orderAmount' => '90',
+  'ext2' => 'ext2',
+  'signMsg' => 'r7Ege%2BkODkkhZeJz3pemmftmebkSXAOWBPN0G%2BKzUup67aBOAYExCum1PAdE6D36sQDrx%2FAq0DFMTAw%2Fz1O3OuhEP2T4SkDQrwIPBQeWaOm6GIM5bck06N7oXKQbIWhVjVXo7Ue8mgyyWubNSDONdoi0MUi7vHtJ8wUSjzK7gyw%3D',
+  'payType' => '30',
+  'orderId' => '17061823293367101',
+)
+
+
+-----------2017-06-18 23:41:52-----------------array (
+  'dealTime' => '20170618234405',
+  'errCode' => '000000',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170618234135',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003160',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '10',
+  'ext1' => '340551144493331309',
+  'orderAmount' => '90',
+  'ext2' => 'ext2',
+  'signMsg' => 'w93Qb4luWf2hSfVDdSDNyMaivCg4zD8GWyqOckuNTIh0WIo%2FUQlzKl8kprfhtP6jvCWgoQS95YAiVBN0umHCDZSy96TD5FdAUsqv7h2htTP9zkCAV5jMAz9JFX2eWXcq6QembD2guUfZrPXwReWBUVzjFqRCJ5ywhtXmyZr4Cyw%3D',
+  'payType' => '30',
+  'orderId' => '17061823413367301',
+)
+
+
+-----------2017-06-18 23:44:53-----------------array (
+  'dealTime' => '20170618234706',
+  'errCode' => '000000',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170618234437',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003161',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '10',
+  'ext1' => '500551144674625309',
+  'orderAmount' => '90',
+  'ext2' => 'ext2',
+  'signMsg' => '1Gh2UsXIOdmXu7imQJHARcG%2FEIy%2BN8ky%2BpfemlC7HrIAy%2FAnUhNGeYIJSVR%2FqCI293IHd%2FBr6sLNhhTnoAB2JLtuvh5ZRe6smmFimhzCLY%2FvzRtiIhcJNa8nCVN1kMWBUiw1xSjx7B37kyBKdrRiTqb%2BBxwQIPw8uy%2F4weDlsRw%3D',
+  'payType' => '30',
+  'orderId' => '17061823443367401',
+)
+
+
+-----------2017-06-18 23:48:30-----------------array (
+  'dealTime' => '20170618235036',
+  'errCode' => '000000',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170618234807',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003162',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '10',
+  'ext1' => '870551144884870309',
+  'orderAmount' => '90',
+  'ext2' => 'ext2',
+  'signMsg' => 'uyLnQESi1DIzxw3JMGCBtpeXa11VNAhRhla5Iq2ZSNTHNc5pOHniTcfryRIzLR93FJWobJVE%2B7RrgwtocOuOCJ1D64hhWPgeeIsfydVQ0iEdetC0ywnZO019JJIcR4vDFWz05P9w1b0uFQaMTgSpb7cKfyObo5owr39gaborrZg%3D',
+  'payType' => '30',
+  'orderId' => '17061823483367501',
+)
+
+
+-----------2017-06-18 23:50:40-----------------array (
+  'dealTime' => '20170618235242',
+  'errCode' => '000000',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170618235013',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003163',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '10',
+  'ext1' => '200551145011065309',
+  'orderAmount' => '90',
+  'ext2' => 'ext2',
+  'signMsg' => 'Ot4TtGJ9YlAGImUtKcS5Ct%2F7F8FY76u%2B8TRydNhpkvuSVJ8RYg54a%2BQb2NfbfcWhpTZhtKCjsD5XbxmNca6zLEwq9rarVjTbR2tQdO7FfsJ3eOQu6%2B7fxSMizruLLRbwlEGdd95vWAcIcgPVmch%2FwRCjQFW4DdDugx7sRXHJzWw%3D',
+  'payType' => '30',
+  'orderId' => '17061823503367601',
+)
+
+
+-----------2017-06-18 23:57:33-----------------array (
+  'dealTime' => '20170618235935',
+  'errCode' => '000000',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170618235705',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003164',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '10',
+  'ext1' => '340551145422993309',
+  'orderAmount' => '90',
+  'ext2' => 'ext2',
+  'signMsg' => 'o4g3u6OTXFzCtoqboVcQEAY8oITS6XC9Qn%2BiF%2BvjD5%2F1y1O%2BlmsvWI24xgCPcV%2FIwJDIfcLABy1oVzF%2BJikCOJrIYiCjqpvusCgNeU4yt7nTp6kaq1xH5pI0jKAPSFr28y1ae%2BThhbWYkisCzLTfwpxqEtVHscZod4frMx0fTGc%3D',
+  'payType' => '30',
+  'orderId' => '17061823573367701',
+)
+
+
+-----------2017-06-19 00:00:34-----------------array (
+  'dealTime' => '20170619000247',
+  'errCode' => '000000',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170619000017',
+  'orderCurrency' => 'USD',
+  'dealId' => '2000003165',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '10',
+  'ext1' => '680551145615130309',
+  'orderAmount' => '90',
+  'ext2' => 'ext2',
+  'signMsg' => 'hjjqrOCvTgRNp9ytEOs1ElEQpH7qVdt8FSXOotk64wOsJRCzKbXgRNdc%2F2c6covuKrcaG%2FG3o4OSsB0rSschIbOtVVW100WxX2WcGtaAwO32iqqLSQc7P7%2F3vTZc9h%2F20oGq9cLgoDnI1vB%2FG%2BGqJXwAuzF6dcb%2FHrzE1P%2Baw2o%3D',
+  'payType' => '30',
+  'orderId' => '17061900003367801',
+)
+
+
+-----------2017-06-19 10:16:16-----------------array (
+  'dealTime' => '20170619101818',
+  'errCode' => '000000',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170619101548',
+  'orderCurrency' => 'CNY',
+  'dealId' => '2000003166',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => '10001',
+  'payResult' => '10',
+  'ext1' => '870551182544835309',
+  'orderAmount' => '50',
+  'ext2' => 'ext2',
+  'signMsg' => 'mHLicWadJJ57zzPvPm%2F813%2Bw3UoeuN7KuMrWE3a%2BBTx1oxiKiUfHviJcYJ8rxrWRaLr5BqHATgCA9g7i3cK%2BPFdBJbgDldb1hswPqSecReIqDh80kGJo6%2F2v5sGXSK4nyAPr3SsV4ihH5qUneDWFc56bONzHNs4L56FSHvC%2BGaw%3D',
+  'payType' => '30',
+  'orderId' => '17061910153368201',
+)
+
+
+-----------2017-06-19 10:37:43-----------------array (
+  'dealTime' => '20170619103502',
+  'errCode' => '120069',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170619103232',
+  'orderCurrency' => 'CNY',
+  'dealId' => '2000003167',
+  'version' => '3.0',
+  'bankId' => 'cpnrep',
+  'terminalId' => '10001',
+  'payResult' => '11',
+  'ext1' => '430551183388141309',
+  'orderAmount' => '50',
+  'ext2' => 'ext2',
+  'signMsg' => 'R04VlVe6Hg56GpqXorEHhU%2FID%2FzIMkbVhVsepsGDwKs59290JJmVoVpN0c0sQQekWRA6nMRw6Ze2%2BJT%2FFtwXyLMu6ngD%2Fe%2BHmV8iSv%2BMXQgpMPHu2rpJF1A%2F7Tla03ex1uLD6KEq6fyTWIrEgkOEKSrDmWWk%2BTsFwK1UkbDzR80%3D',
+  'payType' => '30',
+  'orderId' => '17061910293368301',
+)
+
+
+-----------2017-06-19 11:00:19-----------------array (
+  'dealTime' => '20170619105614',
+  'errCode' => '120069',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170619105344',
+  'orderCurrency' => 'CNY',
+  'dealId' => '2000003168',
+  'version' => '3.0',
+  'bankId' => 'cpnrep',
+  'terminalId' => '10001',
+  'payResult' => '11',
+  'ext1' => '680551183710553309',
+  'orderAmount' => '50',
+  'ext2' => 'ext2',
+  'signMsg' => 'DKftj8AgNcUkSU5oEj7cwwILfMUY%2BRXlFhEidQkdrJLQ5lph7cMPv9k6l5eMJycuqXw9%2F04bX%2BNt1H%2Bh%2BJGNkgglQPT%2FkeNQxyJC8VNw8gvDFI0%2BAwbWZXbfJDoUcfjKcVZOHe6HjkBS11Z6hvf9HilagLkr2TmvGDf8%2BRDX0bw%3D',
+  'payType' => '30',
+  'orderId' => '17061910353368401',
+)
+
+
+-----------2017-08-10 02:55:27-----------------array (
+  'dealTime' => '20170809225906',
+  'errCode' => '999999',
+  'merchantAcctId' => '1000526000101',
+  'orderTime' => '20170809225521',
+  'orderCurrency' => 'CNY',
+  'dealId' => '2000003849',
+  'version' => '3.0',
+  'bankId' => 'cpnrep',
+  'terminalId' => '10001',
+  'payResult' => '11',
+  'ext1' => '810555634516145309',
+  'orderAmount' => '1200',
+  'ext2' => 'ext2',
+  'signMsg' => 'iEQjoS%2F%2FkrAdR57or9ZVrC6TNwg4DN2h3XpjiBoRCsjTl1RcnJr2x7q1VLKMORrHCMvGQsIYvqaSHUooTz5EwbfSaykzcUmMnFlzBzBWwtds0WQmDofRdaC1fbmdCFmCZEtaSljzn27RK%2FUAgF32DIwRv5VokISZzcGRyK48NB4%3D',
+  'payType' => '30',
+  'orderId' => '17080922553660001',
+)
+
+
+-----------2017-08-11 13:42:55-----------------array (
+  'dealTime' => '20170811134258',
+  'errCode' => '000000',
+  'merchantAcctId' => '1004261707001',
+  'orderTime' => '20170811133910',
+  'orderCurrency' => 'CNY',
+  'dealId' => '2000078898',
+  'version' => '3.0',
+  'bankId' => 'ccb',
+  'terminalId' => 'yd001',
+  'payResult' => '10',
+  'ext1' => '290555773948098309',
+  'orderAmount' => '250',
+  'ext2' => 'ext2',
+  'signMsg' => 'ju6nu%2BiurF2ChsqpwHrP0BFAgQsbTCnD%2BKD3wmKbvwcN1Yxb7XpmvQq4%2FNot2QniiAtsCvL4QnCtvRWYlBPQhFHwOeqOfVFJb9Wt8RYposDzO9eZJes41iQLMuOUBDn38Pj1KXzQMI37kEG31c9A5dUitp%2B9C%2BlKLUQKpDuq8Dg%3D',
+  'payType' => '30',
+  'orderId' => '17081113393686701',
+)
+
+

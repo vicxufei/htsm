@@ -1,0 +1,720 @@
+@charset "UTF-8";
+@import "common/member";
+
+select {
+  padding: 3px 0;
+  border: 1px solid #ccc;
+  display: inline-block;
+  vertical-align: middle;
+  font-style: normal;
+  border-radius: 2px
+}
+
+input[type=tel],input[type=text] {
+  display: inline-block;
+  vertical-align: middle;
+  font-style: normal;
+  height: 22px;
+  line-height: 22px;
+  padding: 0 5px;
+  width: auto;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  outline: 0
+}
+
+textarea {
+  border-radius: 2px;
+  border: 1px solid #ccc
+}
+
+.form .group {
+  clear: both;
+  color: #666
+}
+
+.form .group label {
+  width: 190px;
+  padding-right: 10px;
+  text-align: right;
+  float: left;
+  display: inline-block;
+  padding-top: 10px
+}
+
+.form .group label em {
+  color: red;
+  margin-right: 5px;
+  display: inline-block;
+  vertical-align: middle
+}
+.form .group .controls {
+  padding-left: 20px;
+  float: left;
+  min-width: 165px;
+  padding-top: 10px
+}
+
+.form .end .controls,.form .end label {
+  padding-bottom: 10px
+}
+
+
+.tips-msg {
+  margin: 0;
+  color: #f03468;
+  display: none;
+  padding: 0 0 0 130px;
+  min-height: 0;
+  height: 10px
+}
+
+.validate-form .group {
+  position: relative;
+  clear: both;
+  color: #666
+}
+
+.validate-form .group label {
+  width: 140px;
+  padding-top: 10px;
+  line-height: 25px
+}
+
+.validate-form .group label em {
+  color: #f03468;
+  margin-right: 5px;
+  display: inline-block;
+  vertical-align: middle
+}
+
+.validate-form .group label i {
+  display: inline-block;
+  vertical-align: middle;
+  font-style: normal
+}
+
+.validate-form .group .controls {
+  float: left;
+  min-width: 165px;
+  padding-top: 10px
+}
+
+.validate-form .group .controls input[type=text] {
+  height: 25px;
+  line-height: 25px;
+  width: 165px
+}
+
+.validate-form .group .controls a {
+  color: #06c;
+  cursor: pointer
+}
+
+.validate-form .group .controls .btn {
+  color: #666
+}
+
+.form .end .controls,.validate-form .end label {
+  padding-bottom: 10px
+}
+
+.validate-form .group .controls .phone-txt {
+  color: #55c788;
+  font-family: 'microsoft yahei';
+  margin-left: 0;
+  line-height: 25px
+}
+
+.validate-form .tips {
+  color: #f03468;
+  padding-top: 3px;
+  padding-left: 150px;
+  line-height: 16px
+}
+
+.validate-form .info {
+  text-align: center;
+  background: #fff3d0;
+  line-height: 30px;
+  margin-top: 10px
+}
+
+.validate-form .btn-box {
+  padding-top: 20px;
+  padding-left: 150px
+}
+
+.placeholder {
+  display: inline-block
+}
+
+.placeholder label,.placeholder span {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 5px!important;
+  font-style: normal;
+  color: #ccc;
+  width: auto;
+  line-height: normal!important;
+  padding: 4px 0 0!important
+}
+
+.btn-box .btn {
+  line-height: 11px
+}
+
+.cnt {
+  width: 980px;
+  padding: 20px;
+  background-color: #fff;
+  min-height: 458px
+}
+
+.tips h1 {
+  font-weight: 400;
+  font-size: 14px;
+  font-family: 'microsoft yahei';
+  color: #666;
+  display: block;
+  height: 30px
+}
+
+.tips ul {
+  background: #f2f2f2;
+  padding: 15px 0 15px 15px;
+  border-radius: 2px;
+  margin-bottom: 20px
+}
+
+.tips ul li {
+  line-height: 22px
+}
+
+.evaluation .list {
+  margin-top: 10px
+}
+
+.evaluation .list-table,.evaluation .list-table-bottom {
+  border: 1px solid #e4e4e4
+}
+
+.evaluation .list-table-bottom {
+  border: 0;
+  border-bottom: 1px solid #e4e4e4;
+  position: relative
+}
+
+.evaluation .list-table-bottom .hide-line {
+  position: absolute;
+  width: 100px;
+  height: 10px;
+  bottom: 0;
+  left: 0;
+  background: #fff
+}
+
+.evaluation .list-table-bottom .v-hide-line {
+  height: 1px;
+  border-bottom: 1px dotted #e1e1e1;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 100px
+}
+
+.evaluation .list-table-bottom table .no-border {
+  border: none
+}
+
+.evaluation .list table {
+  border-collapse: collapse;
+  vertical-align: middle;
+  width: 100%
+}
+
+.evaluation .list table th {
+  font-weight: 400;
+  background: #f2f2f2;
+  padding: 13px 0;
+  color: #666
+}
+
+.evaluation .list table th div {
+  border-right: 1px solid #e4e4e4
+}
+
+.evaluation .list table .product-info {
+  width: 398px
+}
+
+.evaluation .list table td {
+  border-right: 1px dotted #e4e4e4;
+  color: #666
+}
+
+.evaluation .list table .end td {
+  border-bottom: 0
+}
+
+.evaluation .list table td a {
+  cursor: pointer;
+}
+
+.evaluation .list table td .product-info {
+  width: 299px;
+  position: relative;
+  min-height: 70px;
+  padding: 10px 0 10px 100px
+}
+
+.evaluation .list table td .product-info p {
+  display: block;
+  line-height: 20px
+}
+
+.evaluation .list table td .product-info img {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border: 0;
+  top: 10px;
+  left: 20px
+}
+
+.evaluation .list table td .product-info .p-txt {
+  width: 375px;
+  display: block;
+  word-wrap: break-word;
+  word-break: normal
+}
+
+.star-list,.star-list a,.star-list em,.star-tips {
+  display: inline-block;
+  vertical-align: middle
+}
+
+.evaluation .list table td .product-info .price {
+  font-family: 'microsoft yahei';
+  color: #f03468
+}
+
+.evaluation .list table .buy-time {
+  width: 239px;
+  text-align: center
+}
+
+.evaluation .list table .operate {
+  width: 342px;
+  border-right: 0;
+  text-align: center;
+  textarea{
+    width:90%;
+  }
+}
+
+.publish-evaluation {
+  width: 930px
+}
+
+.publish-evaluation-s {
+  width: 470px
+}
+
+.publish-evaluation .e-top,.publish-evaluation-s .e-top {
+  height: 42px;
+  line-height: 42px;
+  padding-left: 20px;
+  //background: url(//s3.bbgstatic.com/uc/img/evaluation/evaluation-top.png?v=3824be981f87945a) repeat-x;
+  position: relative
+}
+
+.star-margin {
+  margin: 0 12px 0 20px
+}
+
+.star-list a,.star-list em {
+  color: #e4e4e4;
+  font-size: 25px;
+  margin-right: 2px;
+  cursor: pointer
+}
+
+//.starts a,.starts em {
+//  color: #fc0
+//}
+
+.starts-1 .lv-1,.starts-2 .lv-1,.starts-2 .lv-2,.starts-3 .lv-1,.starts-3 .lv-2,.starts-3 .lv-3,.starts-4 .lv-1,.starts-4 .lv-2,.starts-4 .lv-3,.starts-4 .lv-4,.starts-5 .lv-1,.starts-5 .lv-2,.starts-5 .lv-3,.starts-5 .lv-4,.starts-5 .lv-5 {
+  color: #fc0
+}
+
+
+.star-list a {
+  cursor: pointer
+}
+
+.star-list a:hover {
+  text-decoration: none;
+  color: #fc0
+}
+
+.publish-evaluation {
+  font-size: 12px;
+  margin: -10px
+}
+
+.publish-evaluation .e-top span,.publish-evaluation-s .e-top span {
+  display: inline-block;
+  vertical-align: middle;
+  color: #666
+}
+
+.publish-evaluation .e-top .e-txt,.publish-evaluation-s .e-top .e-txt {
+  line-height: 15px
+}
+
+.publish-evaluation .e-top .icon-close,.publish-evaluation-s .e-top .icon-close {
+  position: absolute;
+  top: -5px;
+  right: 5px;
+  color: silver;
+  font-size: 20px;
+  cursor: pointer
+}
+
+.publish-evaluation .e-top .icon-close:hover,.publish-evaluation-s .e-top .icon-close:hover {
+  text-decoration: none;
+  color: #9c9c9c
+}
+
+.star-tips {
+  background: #fff;
+  border: 1px solid #e4e4e4;
+  height: 18px;
+  line-height: 18px!important;
+ // *+line-height: 20px!important;
+  position: relative;
+  padding: 0 2px;
+  color: #666
+}
+
+.star-tips .ar-l,.star-tips .ar-l em {
+  border-width: 5px;
+  position: absolute;
+  top: 4px;
+  right: auto;
+  bottom: auto;
+  left: -10px;
+  border-style: dashed solid dashed dashed;
+  border-color: transparent #e4e4e4 transparent transparent;
+  height: 0;
+  width: 0;
+  line-height: 0;
+  display: block
+}
+
+.star-tips .ar-l em {
+  top: -5px;
+  left: -4px;
+  border-right-color: #FFF
+}
+
+.star-tips-red {
+  background: #feeeee;
+  border: 1px solid #f77777
+}
+
+.star-tips-red .ar-l,.star-tips-red .ar-l em {
+  border-color: transparent #f77777 transparent transparent
+}
+
+.star-tips-red .ar-l em {
+  border-right-color: #feeeee
+}
+
+.star-list .hover {
+  color: #fc0
+}
+
+.publish-evaluation .e-content,.publish-evaluation-s .e-content {
+  min-height: 166px;
+  position: relative
+}
+
+.publish-evaluation .e-bottom,.publish-evaluation-s .e-bottom {
+  height: 47px;
+  line-height: 47px;
+  //background: url(//s3.bbgstatic.com/uc/img/evaluation/evaluation-bottom.png?v=d6c351b780035264) repeat-x;
+  text-align: right;
+  padding-right: 20px
+}
+
+.publish-evaluation .e-bottom label,.publish-evaluation .e-bottom span,.publish-evaluation-s .e-bottom label,.publish-evaluation-s .e-bottom span {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 3px;
+  line-height: 16px
+}
+
+.publish-evaluation .e-bottom label,.publish-evaluation-s .e-bottom label {
+  line-height: 15px
+}
+
+.publish-evaluation .e-bottom span input,.publish-evaluation-s .e-bottom span input {
+  display: inline-block;
+  vertical-align: middle
+}
+
+.publish-evaluation .e-content .e-content-l,.publish-evaluation-s .e-content .e-content-l {
+  float: left;
+  width: 430px;
+  padding: 10px 20px
+}
+
+.publish-evaluation .e-content .e-content-l p,.publish-evaluation-s .e-content .e-content-l p {
+  position: relative
+}
+
+.publish-evaluation .e-content .e-content-l p label,.publish-evaluation-s .e-content .e-content-l p label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 425px;
+  height: 102px;
+  color: #ccc;
+  padding: 3px 0 0 5px
+}
+
+.publish-evaluation .e-content .e-content-l textarea,.publish-evaluation-s .e-content .e-content-l textarea {
+  width: 430px;
+  max-width: 430px;
+  height: 105px;
+  max-height: 105px;
+  border: 1px solid #ccc;
+  border-radius: 2px
+}
+
+.publish-evaluation .e-content .buy-textarea,.publish-evaluation-s .e-content .buy-textarea {
+  width: 891px
+}
+
+.publish-evaluation .e-content .buy-textarea textarea,.publish-evaluation-s .e-content .buy-textarea textarea {
+  width: 888px;
+  max-width: 888px
+}
+
+.publish-evaluation .e-content .buy-textarea label,.publish-evaluation-s .e-content .buy-textarea label {
+  width: 888px
+}
+
+.publish-evaluation .e-content .e-content-l .txt-tips,.publish-evaluation-s .e-content .e-content-l .txt-tips {
+  line-height: 30px;
+  text-align: right;
+  color: #999
+}
+
+.publish-evaluation .e-content .e-content-r,.publish-evaluation-s .e-content .e-content-r {
+  float: left;
+  width: 430px;
+  margin-top: -42px
+}
+
+.publish-evaluation .e-content .e-content-r p,.publish-evaluation-s .e-content .e-content-r p {
+  padding-left: 105px;
+  position: relative;
+  min-height: 30px
+}
+
+.publish-evaluation .e-content .e-content-r .satisfaction,.publish-evaluation .e-content .e-content-r .satisfaction label,.publish-evaluation-s .e-content .e-content-r .satisfaction,.publish-evaluation-s .e-content .e-content-r .satisfaction label {
+  padding-top: 25px
+}
+
+.publish-evaluation .e-content .e-content-r label,.publish-evaluation-s .e-content .e-content-r label {
+  width: 95px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  line-height: 25px;
+  background: #f2f2f2;
+  height: 98px
+}
+
+.publish-evaluation .e-content .e-content-r span,.publish-evaluation-s .e-content .e-content-r span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 23px
+}
+
+.publish-evaluation .e-content .e-content-r .serviceReviews,.publish-evaluation-s .e-content .e-content-r .serviceReviews {
+  min-height: 40px
+}
+
+.publish-evaluation .e-content .e-content-r .serviceReviews label,.publish-evaluation-s .e-content .e-content-r .serviceReviews label {
+  background: #fff;
+  border-left: 1px solid #f2f2f2;
+  border-right: 1px solid #f2f2f2;
+  width: 93px;
+  height: 40px;
+  line-height: 40px;
+  font-family: 'microsoft yahei';
+  font-size: 17px;
+  color: #ccc
+}
+
+.publish-evaluation .e-content .e-content-r .star-tips,.publish-evaluation-s .e-content .e-content-r .star-tips {
+  margin-left: 7px
+}
+
+.line-h-35 {
+  line-height: 40px!important
+}
+
+.empty {
+  width: 410px
+}
+
+.empty .empty-cnt h2 {
+  padding-top: 13px
+}
+
+.pager {
+  margin-top: 20px
+}
+
+.ui-dialog {
+  border-radius: 0!important
+}
+
+.ui-popup-bottom .ui-dialog-arrow-b,.ui-popup-bottom-left .ui-dialog-arrow-b,.ui-popup-bottom-right .ui-dialog-arrow-b {
+  border-bottom: 8px solid #f2f2f2!important
+}
+
+.ui-popup-top .ui-dialog-arrow-b,.ui-popup-top-left .ui-dialog-arrow-b,.ui-popup-top-right .ui-dialog-arrow-b {
+  border-top: 8px solid #f2f2f2!important
+}
+
+.evaluation .list-table-bottom {
+  padding: 30px 0;
+  margin-top: 0
+}
+
+.evaluation .list-table-bottom table td {
+  border-right: 1px solid #e6e6e6
+}
+
+.evaluation .list table .evaluation-ctn {
+  width: 737px;
+  position: relative
+}
+
+.evaluation .list table td .evaluation-ctn {
+  min-height: 70px;
+  padding-left: 100px;
+  width: 637px
+}
+
+.evaluation .list-table-bottom table td.operate i {
+  display: inline-block;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  _border-top: 5px solid #000;
+  _border-bottom: 5px solid #000;
+  _filter: chroma(color=black);
+  top: 20px;
+  left: -1px;
+  right: auto;
+  border-left: 5px solid #e4e4e4
+}
+
+.evaluation .list table .evaluation-ctn img {
+  display: block;
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  left: 20px;
+  top: 0
+}
+
+.evaluation .list-table-bottom table td.operate {
+  border-right: 0
+}
+
+.evaluation .list-table-bottom table td.operate div {
+  position: relative
+}
+
+.evaluation .list table .operate .time {
+  font-family: '宋体'
+}
+
+.evaluation .list table .operate .star-list em {
+  font-size: 22px
+}
+
+.evaluation .list table .evaluation-ctn h1 {
+  display: block;
+  width: 615px;
+  background: #f2f2f2;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 5px
+}
+
+.evaluation .list table .evaluation-ctn h1 b {
+  display: inline-block;
+  float: left;
+  width: 490px;
+  font-weight: 100
+}
+
+.evaluation .list table .evaluation-ctn h1 span {
+  display: inline-block;
+  float: right;
+  color: #666;
+  font-weight: 400;
+  font-family: 'microsoft yahei';
+  background: #e4e4e4;
+  padding-right: 5px
+}
+
+.evaluation .list table .evaluation-ctn .info-list li img {
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 10px;
+  left: 5px
+}
+
+.evaluation .list table .evaluation-ctn .info-list li {
+  line-height: 20px;
+  position: relative;
+  display: block;
+  padding: 15px 0 10px 45px;
+  margin-right: 12px;
+  word-wrap: break-word
+}
+
+.evaluation .list table .evaluation-ctn .info-list .end {
+  border-bottom: 0
+}
+
+.evaluation .list table .evaluation-ctn .info-list .service {
+  color: #f90
+}
+
+.ico-customer-service,.ico-customers {
+  width: 30px;
+  height: 30px;
+  //background: url(//s3.bbgstatic.com/uc/img/evaluation/roles.png?v=e10f9121fcd0a115) no-repeat
+}
+
+.ico-customer-service {
+  background-position: 0 -30px
+}
+
+.submit-comment{
+  margin-top: 15px;
+  text-align: right;
+}

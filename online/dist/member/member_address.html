@@ -1,0 +1,291 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	  <meta name="keywords" content="<?php echo $output['seo_keywords']; ?>"/>
+    <meta name="description" content="<?php echo $output['seo_description']; ?>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $output['html_title']; ?></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.htths.com/">
+    <link rel="stylesheet" href="http://static.htths.com/css/base.min.css">
+	  <link rel="stylesheet" href="http://static.htths.com/css/member_address.min.css">
+  </head>
+  <body>
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="global-topbar">
+      <div class="bd w1190 clearfix">
+    	  <ul class="sn-block sn-login f-l" id="is-login">
+    		  <?php if ($_SESSION['is_login'] == '1'){ ?>
+    		  <li data-is-login="1">
+    			  您好,
+    			  <a rel="nofollow" href="<?php echo urlMember('member_security', 'index');?>"><?php echo $_SESSION['member_name']; ?></a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'logout'); ?>">退出登录</a>
+    		  </li>
+    		  <?php }else{ ?>
+    		  <li data-is-login="0">
+    			  <a rel="nofollow" href="<?php echo urlMember('login'); ?>">登录</a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'register'); ?>">免费注册</a>
+    		  </li>
+    		  <?php } ?>
+    	  </ul>
+        <ul class="sn-block sn-quick f-r">
+          <li class="jMenu">
+              <a class="menu-hd block-item" rel="nofollow" href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order">我的订单<b
+    		          class="arrow"></b></a>
+              <div class="menu-bd">
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_new">待付款订单</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_send">待确认收货</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_noeval">待评价交易</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_goods&action=fglist">商品收藏</a>
+              </div>
+          </li>
+          <li class="sn-cart"><a class="block-item" href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=cart">我的购物车<b class="jCartCount sn-cart-count">0</b></a></li>
+          <li class="jMenu">
+              <a class="menu-hd block-item" href="#">客户服务<b class="arrow"></b></a>
+              <div class="menu-bd">
+                  <ul>
+                      <li><a href="<?php SHOP_SITE_URL; ?>/article-23.html">关于我们</a></li>
+                      <li><a href="<?php SHOP_SITE_URL; ?>/article-22.html">联系我们</a></li>
+                  </ul>
+              </div>
+          </li>
+          <li class="qr-codes jMenu">
+            <a class="menu-hd block-item" href="javascript:;">手机版</a>
+            <div class="menu-bd">
+              <div class="qr-codes-img"><img class="jImgPhoneCode img-error" src="//static.htths.com/img/htsm-qrcode.jpg" alt="太划算二维码"></div><div
+    		        class="qr-codes-txt">太划算手机版</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="site-head">
+      <div class="bd w1190 clearfix">
+        <div class="s-box" id="jSearch" data-node-type="jSearch">
+    	    <div class="s-main">
+    		    <label class="lbl-key" for="mq"></label>
+    		    <input class="input" type="text" name="keyword" autocomplete="off" x-webkit-grammar="builtin:translate" value="" id="mq" data-node-type="mq">
+    		    <a  class="btn-search jBtnAllSearch" href="javascript:;">搜索</a>
+    	    </div>
+    	    <div class="kw-suggest" id="jKwSuggest" data-node-type="jKwSuggest">
+    		    <?php if (is_array($output['hot_search']) && !empty($output['hot_search'])){ ?>
+    		      <?php foreach ($output['hot_search'] as $val){ ?>
+    		    <a href="<?php echo urlShop('search', 'index', array('keyword' => $val)); ?>" target="_blank"><?php echo $val; ?></a>
+    		    <?php } } ?>
+    	    </div>
+    
+          <div class="k-history" id="jSearchHistoryBox">
+    	      <?php if (is_array($output['his_search_list']) && !empty($output['his_search_list'])){ ?>
+    	      <ul class="kh-list">
+    		      <?php foreach ($output['his_search_list'] as $v){ ?>
+    		      <li class="kh-item" data-key="<?php echo $v ?>"><span class="kh-key"><?php echo $v ?></span><a class="kh-button">删除</a></li>
+    		      <?php } ?>
+    	      </ul>
+    	      <div class="kh-infos clearfix"><span>搜索记录</span><a class="kh-clear">清空搜索记录</a></div>
+    	      <?php }else{ ?>
+    	      <div class="kh-none">无历史搜索记录</div>
+    	      <?php } ?>
+          </div>
+        </div>
+        <h1>
+    	    <a href="<?php echo SHOP_SITE_URL; ?>" title="太划算商城" class="go-home">
+    		    <img alt="太划算商城" class="logo" src="<?php echo STATIC_URL; ?>/images/logo.png">
+            </a>
+        </h1>
+      </div>
+    </div>
+    
+    
+
+
+    <div class="main">
+    	<div class="clearfix">
+    		<div class="left-nav f-l">
+    		<div id="left">
+    			<h1 class="title-h1">
+    			<!-- <em class="icon iconuc">&#xe605;</em> -->
+    				<a href="http://i.yunhou.com">我的太划算</a>
+    			</h1>
+    			<dl class="nav-item">
+    				<dt>
+    					<i class="icon iconfont iconfont-order"></i>交易管理
+    				</dt>
+    				<dd class="">
+    					<a href="<?php echo urlShop('member_order', 'index');?>">我的订单</a>
+    				</dd>
+    				<dd class="">
+    					<a href="<?php echo urlShop('member_favorite_goods', 'index');?>">收藏夹</a>
+    				</dd>
+    			</dl>
+    			<div class="line"></div>
+    			<dl class="nav-item">
+    				<dt>
+    					<i class="icon iconfont iconfont-avatar2"></i>个人信息管理
+    				</dt>
+    				<dd class="">
+    					<a href="<?php echo urlMember('member_security', 'index');?>">安全中心</a>
+    				</dd>
+    				<dd class="hover">
+    					<a href="<?php echo urlMember('member_address', 'address');?>">管理收货地址</a>
+    				</dd>
+    			</dl>
+    		</div>
+    						</div>
+    		<div class="cnt f-l" id="jAddress">
+    		</div>
+    	</div>
+    </div>
+    <script id="tpl-member-address" type="text/html">
+    <div class="tips">已有
+    	<span class="txt-red" id="jCurAddrNum"><%=address_list.length%></span>
+    	个收货地址，最多可以添加
+    	<span class="txt-red" id="jTotalAddrNum">10</span>
+    	个收货地址。
+    	<a href="javascript:void('0');" class="btn jAddAddr"><i class="icon iconfont"></i> 新增地址</a>
+    </div>
+    <div class="address-list">
+    	<div class="address-list-inner" id="jAddAddrList">
+    		<% for (var i = 0; i < address_list.length; i ++) { %>
+    		<ul class="jAddrItem" data-addrid="<%=address_list[i]['address_id']%>">
+    			<li class="postmark"></li>
+    			<% if (address_list[i]['is_default']== 1 ) {%>
+    			<li class="setDefault"></li>
+    			<%}%>
+    			<li><label>收货人：</label><%=address_list[i]['true_name']%></li>
+    			<li><label>联系电话：</label><%=address_list[i]['mob_phone']%></li>
+    			<li>
+    				<label>收货地址：</label>
+    				<div class="addr-data">
+    					<p class="txt-els"><%=address_list[i]['area_info']%></p>
+    					<p class="txt-els"><%=address_list[i]['address']%></p>
+    				</div>
+    			</li>
+    			<li class="operate">
+    				<label>操作：</label>
+    				<div class="operate-elem">
+    					<a class="jEditAddr" data-true-name="<%=address_list[i]['true_name']%>" data-pr-id="<%=address_list[i]['pr_id']%>"
+    					   data-city-id="<%=address_list[i]['city_id']%>" data-area-id="<%=address_list[i]['area_id']%>"
+    					   data-area-info="<%=address_list[i]['area_info']%>" data-address="<%=address_list[i]['address']%>" data-mob-phone="<%=address_list[i]['mob_phone']%>">编辑</a>
+    					<a class="jDeleteAddr">删除</a>
+    				</div>
+    			</li>
+    		</ul>
+    		<% } %>
+    		<ul class="jAddAddr">
+    			<li class="add-new-address">
+    				<a><em class="icon iconfont"></em><span>添加新地址</span></a>
+    			</li>
+    		</ul>
+    	</div>
+    </div>
+    </script>
+    <script id="tpl-address-add" type="text/html">
+    <div class="new-address ui-dialog-content" id="jNewAddrModule" data-flag="">
+    	<form class="pop-form" id="jAddAddrForm">
+    		<input type="hidden" name="form_submit" value="ok">
+    		<input type="hidden" value="<%= address_id %>" name="address_id">
+    		<input type="hidden" value="<%= pr_id %>" name="pr_id" id="_area_1">
+    		<input type="hidden" value="<%= city_id %>" name="city_id" id="_area_2">
+    		<input type="hidden" value="<%= area_id %>" name="area_id" id="_area">
+    		<ul>
+    			<li>
+    				<label class="control-lable"><span class="txt-red star-flag">*</span>收货人</label>
+    				<div class="d-r">
+    					<input class="input-txt jInput" name="true_name" id="jName" placeholder="限20个字" value="<%= true_name %>" maxlength="20">
+    				</div>
+    			</li>
+    			<li class="z-i-1">
+    				<label class="control-lable"><span class="txt-red star-flag">*</span>收货地址</label>
+    				<div class="d-r">
+    						<input type="hidden" name="area_info" id="region" value="">
+    				</div>
+    			</li>
+    			<li>
+    				<label class="control-lable"><span class="txt-red star-flag">*</span>详细地址</label>
+    				<div class="d-r">
+    					<input class="input-address jInput" name="address" id="jAddr" placeholder="无需重复填写省市区，小于50个字" value="<%= address %>" maxlength="50">
+    				</div>
+    			</li>
+    			<li>
+    				<label class="control-lable"><span class="txt-red star-flag">*</span>手机</label>
+    				<div class="d-r">
+    					<input class="input-txt jInput" name="mob_phone" id="jMobile" placeholder="请输入正确的手机号" value="<%= mob_phone %>">
+    				</div>
+    			</li>
+    			<li>
+    				<label class="control-lable">身份证号码</label>
+    				<div class="d-r">
+    					<input class="input-txt" name="idcard_no" placeholder="有购买保税仓商品时需要" value="" maxlength="20">
+    				</div>
+    			</li>
+    			<li>
+    				<div class="d-r">
+    					<input type="checkbox" class="chk" checked="checked" id="jSetDef" name="is_default">
+    					<label for="jSetDef" class="label-chk">设为默认地址</label>
+    				</div>
+    			</li>
+    			<li>
+    				<div class="d-r">
+    					<a class="btn" id="jSaveBtn">确定</a>
+    					<a class="btn btn-sec" id="jCancelBtn" action-type="close">取消</a>
+    				</div>
+    			</li>
+    		</ul>
+    	</form>
+    </div>
+    </script>
+
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="footer">
+        <div class="ft">
+          <div class="copyright">
+            <p class="links">
+              <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-22.html" target="_blank">关于太划算</a><span>|</span>
+              <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-23.html" target="_blank">联系我们</a>
+            </p>
+    	      <p class="cprt-icp">Copyright© 2003-2016 太仓和团商贸有限公司Htths.com 版权所有</p>
+    	      <p class="cprt-icp">苏ICP备14036053号-1<span>|</span>食品流通许可证：SP3205851410003535<span>|</span>酒类流通备案：320504101788</p>
+    	      <p class="pic">
+    	        <a rel="nofollow" target="_blank" href="http://www.szgswljg.gov.cn/websiteMark?siteid=31390"><img border="0" src="http://static.htths.com/images/szicbok.gif"></a>
+    	        <img class="pay-ali" src="http://static.htths.com/img/alipay.jpg">
+    	        <img class="pay-wx" src="http://static.htths.com/img/wechatpay.jpg">
+    	      </p>
+          </div>
+        </div>
+    </div>
+    
+    
+    <script>
+	    var require = {urlArgs: 'v=123' };
+    </script>
+	  <script src="http://static.htths.com/js/lib/require.js" data-main="http://static.htths.com/js/member_address"></script>
+  <script type='text/javascript'>
+    (function(m, ei, q, i, a, j, s) {
+	    m[i] = m[i] || function() {
+			    (m[i].a = m[i].a || []).push(arguments)
+		    };
+	    j = ei.createElement(q),
+		    s = ei.getElementsByTagName(q)[0];
+	    j.async = true;
+	    j.charset = 'UTF-8';
+	    j.src = '//static.meiqia.com/dist/meiqia.js';
+	    s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', 29969);
+    _MEIQIA('withoutBtn');
+    _MEIQIA('init');
+</script>
+  </body>
+</html>

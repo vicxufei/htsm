@@ -1,0 +1,33 @@
+[2016-02-26 00:00:02] /data/wwwroot/mall.htths.com/crontab/index.php ( act=hour&op=index ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456412342' ) AND ( goo' at line 1
+SELECT count(distinct ) AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456412342' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2016-02-26 01:00:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=hour&op=index ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456415941' ) AND ( goo' at line 1
+SELECT count(distinct ) AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456415941' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2016-02-26 02:00:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=hour&op=index ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456419541' ) AND ( goo' at line 1
+SELECT count(distinct ) AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456419541' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2016-02-26 03:00:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=hour&op=index ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456423141' ) AND ( goo' at line 1
+SELECT count(distinct ) AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456423141' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2016-02-26 04:00:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=hour&op=index ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456426741' ) AND ( goo' at line 1
+SELECT count(distinct ) AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456426741' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2016-02-26 05:00:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=hour&op=index ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456430341' ) AND ( goo' at line 1
+SELECT count(distinct ) AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456430341' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2016-02-26 06:00:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=hour&op=index ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456433941' ) AND ( goo' at line 1
+SELECT count(distinct ) AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456433941' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2016-02-26 07:00:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=hour&op=index ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456437541' ) AND ( goo' at line 1
+SELECT count(distinct ) AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456437541' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2016-02-26 08:00:02] /data/wwwroot/mall.htths.com/crontab/index.php ( act=hour&op=index ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456441141' ) AND ( goo' at line 1
+SELECT count(distinct ) AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456441141' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2016-02-26 09:00:02] /data/wwwroot/mall.htths.com/crontab/index.php ( act=hour&op=index ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456444741' ) AND ( goo' at line 1
+SELECT count(distinct ) AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456444741' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2016-02-26 10:00:01] /data/wwwroot/mall.htths.com/crontab/index.php ( act=hour&op=index ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456448341' ) AND ( goo' at line 1
+SELECT count(distinct ) AS nc_count FROM `ht_goods` WHERE ( goods_edittime >= '1456448341' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  

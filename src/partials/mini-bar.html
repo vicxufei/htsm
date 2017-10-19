@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="http://static.htths.com/css/mini-bar.min.css">
+<div node-type="miniBar" class="ui-mini-bar">
+	<div node-type="richMain" class="rich-main" style="right: 0px;">
+		<div node-type="richTabs" class=" rich-tabs">
+			<div class="tabs-wrap">
+				<div node-type="tabTop" class=" tab-top"></div>
+				<div node-type="tabMidWrap" class="tab-mid-wrap">
+					<div node-type="tabMid" class=" tab-mid">
+						<div node-type="tab-item" class="rich-tab-box ui-animated t-cart" data-type="cart">
+							<a class="tab-item tab-cart" id="jMinCart" data-type="Cart" href="javascript:;">
+								<div class="tab-item-icon"><i class="icon iconfont iconfont-cart-kong"></i></div>
+								<div class="tab-item-txt">购物车</div>
+								<div class="cart-count jCartCount">0</div>
+							</a>
+						</div>
+						<div node-type="tab-item" class="rich-tab-box ui-animated t-nkf" data-type="nkf">
+							<a rel="nofollow" class="tab-item" id="jNormalKefu" href="javascript:void(0)" onclick="_MEIQIA('showPanel')">
+								<div class="tab-item-icon">
+									<i class="icon iconfont iconfont-kefu"></i>
+								</div>
+								<div class="tab-item-txt">客服</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div node-type="tabBottom" class=" tab-bottom">
+					<div node-type="tab-item" class="rich-tab-box ui-animated t-sct" data-type="sct">
+						<a class="tab-item tab-item-to-top jScrollToTop" href="javascript:;" style="display: none;">
+						<b class="arrow"></b>
+						<div class="tab-item-txt">TOP</div>
+						<div class="tab-item-txt">置顶</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div node-type="richPanels" class=" rich-panels">
+			<div node-type="panel-item" class="rich-panel-box box-hide p-cart" data-type="cart">
+				<div class="plug-cart">
+					<div class="bar-plug-top">
+						<a href="javascript:;" class="bar-plug-close jBarPlugClose"></a>
+					</div>
+					<ul class="cart-cnt">
+						<li class="cart-empty">^_^&nbsp;&nbsp;既来之，则买之！</li>
+					</ul>
+					<div class="cart-op clearfix">
+						<div class="cart-total clearfix">
+							<span class="f-l">共<b class="jCartCount">0</b>件</span>
+							<span class="f-r">商品总额：
+								<span class="p-normal"><em>¥</em>
+									<span class="jTotalPrice">0.00</span>
+								</span>
+							</span>
+						</div>
+						<a href="<?php echo SHOP_SITE_URL;?>/index.php?controller=cart" class="btn jGoCart" target="_blank">去购物车结算</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script id="tplCartList" type="text/html">
+<% for (var i = 0; i < list.length; i ++) { %>
+<li class="jCartItem">
+	<a class="goods-img" href="<%= list[i]['goods_url'] %>" target="_blank">
+		<img class="jImgMinCart" alt="<%= list[i]['goods_name'] %>" src="<%= list[i]['goods_image'] %>" style="display: inline;">
+	</a>
+	<a class="goods-name" href="<%= list[i]['goods_url'] %>" target="_blank"><%= list[i]['goods_name'] %></a>
+	<div class="goods-des clearfix">
+		<span class="goods-price p-normal f-l"><em>¥</em><%= list[i]['goods_price'] %></span>
+		<span class="goods-num f-r"><%= list[i]['goods_num'] %></span>
+	</div>
+	<a class="op-del jOpDel" data-cart-id="<%= list[i]['cart_id'] %>" data-good-id="<%= list[i]['goods_id'] %>" href="javascript:;"><i class="icon iconfont"></i></a>
+</li>
+<% } %>
+</script>

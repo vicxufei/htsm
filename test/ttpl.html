@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script id="test" type="text/html">
+[: if (title){ :]
+[: for (var i=0;i<list.length; i++) { :]
+        <div>[:=i:]. [:=list[i].user:]</div>
+[:}:]
+[:=this.name||"name is not found !":]
+[:}:]
+</script>
+<script>
+
+
+		tppl = function(tpl, data){
+			var fn =  function(d) {
+				var i, k = [], v = [];
+				for (i in d) {
+					k.push(i);
+					v.push(d[i]);
+				};
+				return (new Function(k, fn.$)).apply(d, v);
+			};
+			if(!fn.$){
+				var tpls = tpl.split('[:');
+				fn.$ = "var $=''";
+				for(var t in tpls){
+					var p = tpls[t].split(':]');
+					if(t!=0){
+						fn.$ += '='==p[0].charAt(0)
+								? "+("+p[0].substr(1)+")"
+								: ";"+p[0].replace(/\r\n/g, '')+"$=$"
+					}
+					// 支持 <pre> 和 [::] 包裹的 js 代码
+					fn.$ += "+'"+p[p.length-1].replace(/\'/g,"\\'").replace(/\r\n/g, '\\n').replace(/\n/g, '\\n').replace(/\r/g, '\\n')+"'";
+				}
+				fn.$ += ";return $;";
+				// log(fn.$);
+			}
+			return data ? fn(data) : fn;
+		};
+
+		var data = {
+			title: '标签',
+			list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
+		};
+		var html = tppl(document.getElementById('test').innerHTML, data);
+		console.log(html);
+
+
+</script>
+
+
+</body>
+</html>

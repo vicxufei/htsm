@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>下单页-太划算商城-更近更贴心</title>
+ 	<meta charset="utf-8" />
+  <meta name="renderer" content="webkit" />
+	<link rel="stylesheet" href="http://static.htths.com/css/base-fb2b7f94f8.min.css?v10">
+	<link rel="stylesheet" href="http://static.htths.com/css/buy-2bbb8ff59b.min.css">
+</head>
+<body>
+  <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+  <div class="global-topbar">
+    <div class="bd w1190 clearfix">
+  	  <ul class="sn-block sn-login f-l" id="is-login">
+  		  <?php if ($_SESSION['is_login'] == '1'){ ?>
+  		  <li data-is-login="1">
+  			  您好,
+  			  <a rel="nofollow" href="<?php echo urlMember('member_security', 'index');?>"><?php echo $_SESSION['member_name']; ?></a>
+  			  <span class="split"></span>
+  			  <a rel="nofollow" href="<?php echo urlLogin('login', 'logout'); ?>">退出登录</a>
+  		  </li>
+  		  <?php }else{ ?>
+  		  <li data-is-login="0">
+  			  <a rel="nofollow" href="<?php echo urlMember('login'); ?>">登录</a>
+  			  <span class="split"></span>
+  			  <a rel="nofollow" href="<?php echo urlLogin('login', 'register'); ?>">免费注册</a>
+  		  </li>
+  		  <?php } ?>
+  	  </ul>
+      <ul class="sn-block sn-quick f-r">
+        <li class="jMenu">
+            <a class="menu-hd block-item" rel="nofollow" href="<?php echo SHOP_SITE_URL; ?>/index.php?act=member_order">我的订单<b
+  		          class="arrow"></b></a>
+            <div class="menu-bd">
+                <a rel="nofollow"
+                   href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_new">待付款订单</a>
+                <a rel="nofollow"
+                   href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_send">待确认收货</a>
+                <a rel="nofollow"
+                   href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_noeval">待评价交易</a>
+                <a rel="nofollow"
+                   href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_goods&op=fglist">商品收藏</a>
+                <a rel="nofollow"
+                   href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_store&op=fslist">店铺收藏</a>
+            </div>
+        </li>
+        <li class="sn-cart"><a class="block-item" href="http://cart.yunhou.com/">我的购物车<b class="jCartCount sn-cart-count">0</b></a></li>
+        <li class="jMenu">
+            <a class="menu-hd block-item" href="#">客户服务<b class="arrow"></b></a>
+            <div class="menu-bd">
+                <ul>
+                    <li><a href="<?php echo urlMember('article', 'article', array('ac_id' => 2)); ?>">帮助中心</a></li>
+                    <li><a href="<?php echo urlMember('article', 'article', array('ac_id' => 5)); ?>">售后服务</a></li>
+                    <li><a href="<?php echo urlMember('article', 'article', array('ac_id' => 6)); ?>">客服中心</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="sn-msg jNotification"><a class="block-item" href="http://i.yunhou.com/news/getUnReadMsg">消息</a></li>
+        <li class="qr-codes jMenu">
+          <a class="menu-hd block-item" href="javascript:;">手机版</a>
+          <div class="menu-bd">
+            <div class="qr-codes-img"><img class="jImgPhoneCode img-error" src="//static.htths.com/img/htsm-qrcode.jpg" alt="太划算二维码"></div><div
+  		        class="qr-codes-txt">太划算手机版</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  
+  <div class="site-head">
+<div class="bd w1190 clearfix">
+<h1 class="title">
+<a href="<?php echo SHOP_SITE_URL; ?>" title="太划算商城" class="go-home">
+<img alt="太划算商城" class="logo" src="<?php echo STATIC_URL; ?>/images/logo.png">
+</a>
+<span class="span-txt" id="jHdTxt">下单页</span>
+</h1>
+<ul class="s-process">
+<li><em class="icon iconcart process-item"></em><span class="pro-txt">100%正品</span></li>
+<li><em class="icon iconcart  process-item"></em><span class="pro-txt">闪电发货</span></li>
+<li><em class="icon iconcart process-item"></em><span class="pro-txt">售后无忧</span></li>
+</ul>
+</div>
+</div>
+  <form id="jSubForm">
+  	<input value="<?php echo $output['ifcart'];?>" type="hidden" name="ifcart">
+  <div class="main">
+  	<div class="clearfix">
+  		<div class="settlement order">
+  			<!-- 收货信息begin -->
+  			<!-- 结算模板 begin -->
+  			<div id="jSettlement" class="min-h" data-is-first="1">
+  				<?php if( $output['ifchain'] == 1 ){ ?>
+  				<!-- 自提点选择 -->
+  				<div id="jChain">
+  					<!-- 收货地址 begin -->
+  					<div class="address clearfix">
+  						<div class="list">
+  							<div class="inner">
+  								<div class="hd">
+  									<em class="line"></em>
+  									<span class="hd-txt">自提点选择</span>
+  								</div>
+  								<div class="bd">
+  									<div class="bd-inner clearfix bd-hidden" id="jChainList" data-if-chain="<?php echo $output['ifchain']; ?>">
+  									</div>
+  								</div>
+  							</div>
+  						</div>
+  					</div>
+  				</div>
+  				<?php } ?>
+  
+  				<?php if( $output['ifchain'] != 1 ){ ?>
+  				<!-- 收货地址 -->
+  				<div id="jAddress">
+  					<!-- 收货地址 begin -->
+  					<div class="address clearfix" id="jAddrList">
+  						<div class="list">
+  							<div class="inner">
+  								<div class="hd">
+  									<em class="line"></em>
+  									<span class="hd-txt">收货人信息</span>
+  								</div>
+  								<div class="bd">
+  									<div class="bd-inner clearfix jItemWrap bd-hidden">
+  										<?php foreach($output['address_list'] as $address_item) {?>
+  										<div class="item jAddrListItem <?php if($output['selected_address_id'] == $address_item['address_id']) { ?>item-selected<?php } ?>" data-addrid="<?php echo $address_item['address_id']; ?>" data-area-id="<?php echo $address_item['area_id']; ?>">
+  									    <input type="radio" name="address_id" <?php if($output['selected_address_id'] == $address_item['address_id']) { ?>checked="checked"<?php } ?> value="<?php echo $address_item['address_id']; ?>" style="display:none;">
+  									    <div class="oper jOper" data-addrid="<?php echo $address_item['address_id']; ?>">
+  									      <a href="javascript:void('0');" class="jOperEdit"
+  									         data-true-name="<?php echo $address_item['true_name']; ?>" data-pr-id="<?php echo $address_item['pr_id']; ?>"
+  									         data-city-id="<?php echo $address_item['city_id']; ?>" data-area-id="<?php echo $address_item['area_id']; ?>"
+  									         data-area-info="<?php echo $address_item['area_info']; ?>" data-address="<?php echo $address_item['address']; ?>"
+  									         data-mob-phone="<?php echo $address_item['mob_phone']; ?>" data-idcard-no="<?php echo $address_item['idcard_no']; ?>">修改</a>
+  										    <?php if(!$address_item['is_default']) { ?><a href="javascript:void('0');" class="jOperDelete oper-del">删除</a><?php } ?>
+  									    </div>
+  									    <div class="middle">
+  									      <div class="inner-box">
+  									        <div class="list-item">
+  									          <em class="icon iconfont iconfont-user2"></em>
+  									          <span class="span-txt user-name" title="<?php echo $address_item['true_name']; ?>"><?php echo $address_item['true_name']; ?></span>
+  									        </div>
+  									        <div class="list-item">
+  									          <em class="icon iconfont iconfont-dingwei"></em>
+  									          <span class="span-txt addr-info " title="<?php echo $address_item['area_info']; ?>-<?php echo $address_item['address']; ?>">
+  									            <?php echo $address_item['area_info']; ?>-<?php echo $address_item['address']; ?>
+  									          </span>
+  									        </div>
+  									        <div class="list-item">
+  									          <em class="icon iconfont iconfont-tel"></em><span class="span-txt span-ph"><?php echo $address_item['mob_phone']; ?></span>
+  									        </div>
+  									      </div>
+  									    </div>
+  									    <div class="selected"></div>
+  									  </div>
+  										<?php } ?>
+  									</div>
+  									<div class="btn-box clearfix">
+  										<div class="add-new-btn">
+  											<input type="radio" name="addressType" style="display:none;">
+  											<a class="btn-gray  jAddrList" href="javascript:void('0');" data-value="jNew" id="jUseNewAddrChk">
+  												<em class="icon iconfont iconfont-add"></em><span>使用新地址</span>
+  											</a>
+  										</div>
+  									</div>
+  								</div>
+  							</div>
+  						</div>
+  					</div>
+  				</div>
+  				<?php if( $output['need_idcard'] > 0 ){ ?>
+  				<!-- 实名认证 -->
+  				<div id="jVerified">
+  					<div class="list">
+  						<div class="inner">
+  							<!-- 实名认证 begin -->
+  							<div class="verified-box" id="jVerifiedBox">
+  								<div class="hd">
+  									<em class="line"></em>
+  									<span class="hd-txt">身份证信息</span>
+  									<span class="var-info">根据</span>
+  									<a href="http://www.gov.cn/gongbao/content/2007/content_588177.htm" target="_blank" class="b-click">【海关总署令147号第二十二条】</a>
+  									<span class="var-info">规定，海外购包裹需提供身份证照片进行入关申报，第一次海外购</span>
+  									<span class="var-info">填写</span>
+  									<span class="var-info">身份证信息。</span>
+  								</div>
+  								<div class="bd">
+  									<div class="var-box clearfix">
+  										<div id="jNameInfo">
+  											<!-- 实名认证 begin -->
+  											<div class="name-content " data-card-id="150259" id="jNameInfoBox">
+  												<div>
+  													<ul class="clearfix ul-item">
+  														<li class="lft-info">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</li>
+  														<li id="jRealName" class="rit-info"><?php echo $output['selected_address_info']['true_name'];?></li>
+  													</ul>
+  													<ul class="show-id-box clearfix ul-item" id="jIdInfo">
+  														<li class="lft-info">身份证号码</li>
+  														<li class="jIdShowBox id-box" <?php if(empty($output['selected_address_info']['idcard_no'])) { ?> style="display: none;" <?php } ?>>
+  															<b class="ID-card" id="jIdCard"><?php echo $output['selected_address_info']['idcard_no'];?></b>
+  															<a class="a-modify" id="jAModify">修改</a>
+  														</li>
+  														<li class="jIdModifyBox id-edit" <?php if(empty($output['selected_address_info']['idcard_no'])) { ?> style="display: block;" <?php } ?>>
+  															<input type="text" class="input-txt" id="jModInput" data-address-id="<?php echo $output['selected_address_info']['address_id'];?>" value="<?php echo $output['selected_address_info']['idcard_no'];?>">
+  															<a class="btn btn-rose" href="javascript:;" id="jSureMod">确定</a>
+  															<span class="txt-red code-msg" id="jIdMsg"></span>
+  														</li>
+  													</ul>
+  													<?php if( $output['need_idcard'] > 1 ){ ?>
+  													<div id="jIdPic">
+  														<ul class="jFileUploadBox id-page clearfix ul-item">
+  														<li class="lft-info">身份证正面</li>
+  														<li><div class="uploadify" id="jfileUpload"><div class="uploadify-button-wrapper" style="width: 86px; height: 32px; position: relative;"><div id="jfileUpload-button" class="uploadify-button ui-button" style="height: 30px; line-height: 30px;"><span class="uploadify-button-text">上传</span><object id="SWFUpload_0" type="application/x-shockwave-flash" data="./uploadify.swf?ts=1463444031111" width="86" height="32" class="swfupload"><param name="wmode" value="transparent"><param name="movie" value="./uploadify.swf?ts=1463444031111"><param name="quality" value="high"><param name="menu" value="false"><param name="allowScriptAccess" value="always"><param name="flashvars" value="movieName=SWFUpload_0&amp;uploadURL=http%3A%2F%2Fapi.cart.yunhou.com%2Fordercheck%2FuploadIdCardImg&amp;useQueryString=false&amp;requeueOnError=false&amp;httpSuccess=&amp;assumeSuccessTimeout=30&amp;params=buyType%3Dnormal%26amp%3Bid%3D150259%26amp%3Bpos%3D1%26amp%3B_bXs%3D730573836365481699f4d7728253e047&amp;filePostName=Filedata&amp;fileTypes=*.jpeg%3B%20*.jpg%3B%20*.png&amp;fileTypesDescription=Image%20Files&amp;fileSizeLimit=2MB&amp;fileUploadLimit=0&amp;fileQueueLimit=999&amp;debugEnabled=false&amp;buttonImageURL=&amp;buttonWidth=86&amp;buttonHeight=32&amp;buttonText=&amp;buttonTextTopPadding=0&amp;buttonTextLeftPadding=0&amp;buttonTextStyle=color%3A%20%23000000%3B%20font-size%3A%2016pt%3B&amp;buttonAction=-110&amp;buttonDisabled=false&amp;buttonCursor=-2"></object></div></div><div id="jfileUpload-queue" class="uploadify-queue"></div></div></li>
+  														<li class="img-box jFileUploadImg" style="display:none;" id="jFrontImgBox">
+  														<p>
+  														<span class="jFileUploadTxt span-txt txt-els">正面已上传</span>
+  														<i class="i-txt icon iconfont jDocPreview"></i>
+  														</p><div class="img-str jImgStr" style="display:none;" data-img-url=""></div>
+  														<p></p>
+  														</li>
+  														</ul>
+  														<ul class="jFileUploadBox id-page clearfix ul-item">
+  														<li class="lft-info">身份证反面</li>
+  														<li><div class="uploadify" id="jfileUpload_2"><div class="uploadify-button-wrapper" style="width: 86px; height: 32px; position: relative;"><div id="jfileUpload_2-button" class="uploadify-button ui-button" style="height: 30px; line-height: 30px;"><span class="uploadify-button-text">上传</span><object id="SWFUpload_1" type="application/x-shockwave-flash" data="./uploadify.swf?ts=1463444031115" width="86" height="32" class="swfupload"><param name="wmode" value="transparent"><param name="movie" value="./uploadify.swf?ts=1463444031115"><param name="quality" value="high"><param name="menu" value="false"><param name="allowScriptAccess" value="always"><param name="flashvars" value="movieName=SWFUpload_1&amp;uploadURL=http%3A%2F%2Fapi.cart.yunhou.com%2Fordercheck%2FuploadIdCardImg&amp;useQueryString=false&amp;requeueOnError=false&amp;httpSuccess=&amp;assumeSuccessTimeout=30&amp;params=buyType%3Dnormal%26amp%3Bid%3D150259%26amp%3Bpos%3D0%26amp%3B_bXs%3D730573836365481699f4d7728253e047&amp;filePostName=Filedata&amp;fileTypes=*.jpeg%3B%20*.jpg%3B%20*.png&amp;fileTypesDescription=Image%20Files&amp;fileSizeLimit=2MB&amp;fileUploadLimit=0&amp;fileQueueLimit=999&amp;debugEnabled=false&amp;buttonImageURL=&amp;buttonWidth=86&amp;buttonHeight=32&amp;buttonText=&amp;buttonTextTopPadding=0&amp;buttonTextLeftPadding=0&amp;buttonTextStyle=color%3A%20%23000000%3B%20font-size%3A%2016pt%3B&amp;buttonAction=-110&amp;buttonDisabled=false&amp;buttonCursor=-2"></object></div></div><div id="jfileUpload_2-queue" class="uploadify-queue"></div></div></li>
+  														<li class="img-box jFileUploadImg" style="display:none;" id="jReverseImgBox">
+  														<p>
+  														<span class="jFileUploadTxt span-txt txt-els">反面已上传</span>
+  														<i class="i-txt icon iconfont jDocPreview"></i>
+  														</p><div class="img-str jImgStr" style="display:none;" data-img-url=""></div>
+  														<p></p>
+  														</li>
+  														</ul>
+  														<ul><li class="tips">身份证正反面照仅支持JPG、JPEG和PNG格式，大小不超过2MB。</li></ul>
+  													</div>
+  													<?php } ?>
+  												</div>
+  											</div>
+  											<!-- 实名认证 end -->
+  										</div>
+  									</div>
+  								</div>
+  							</div>
+  							<!-- 实名认证 end -->
+  						</div>
+  					</div>
+  				</div>
+  				<?php } ?>
+  			<?php } ?>
+  				<!-- 商品清单 -->
+  				<div id="jProductlist">
+  					<!-- 商品清单 begin -->
+  					<div class="productlist">
+  						<div class="list">
+  							<div class="hd">
+  								<em class="line"></em>
+  								<span class="hd-txt">商品信息</span>
+  							</div>
+  							<div class="bd">
+  								<div class="inner-box">
+  									<!-- list begin   -->
+  									<div class="list-box jListBox">
+  										<div class="table-wrap jTableWrap clearfix" data-index="0">
+  											<table class="list-table">
+  												<tbody>
+  												<tr>
+  													<th class="pkg"></th>
+  													<th class="ico-box"></th>
+  													<th class="product-name"><div>商品</div></th><th class="quantity">数量</th>
+  													<th class="sales-price">销售价</th>
+  													<th class="weight">重量</th>
+  													<th class="subtotal">小计</th>
+  												</tr>
+  												</tbody>
+  											</table>
+  											<?php foreach($output['store_cart_list'] as $cart_info) {?>
+  											<table class="list-table mod-items jGoodItem" data-supported-areaids="<?php echo $cart_info['supported_area_ids']; ?>">
+  												<input type="hidden"  class="jChkItem"  checked = "checked" name="cart_id[]" value="<?php echo $cart_info['cart_id']; ?>|<?php echo $cart_info['goods_num']; ?>">
+  												<tbody>
+  												<tr class="jProductlistTable end">
+  													<td rowspan="1" class="pkg">
+  														<p class="pkg-name"><?php echo $cart_info['transport_title'] ?>:<?php echo $cart_info['freight_supported'] == 1 ? '支持配送' : '不支持配送' ?></p>
+  													</td>
+  													<td class="ico-box">
+  														<i class="icon iconfont ico-right jIcoRight jCouponIco-19300000185"></i>
+  													</td>
+  													<td style="width:280px;">
+  														<div class="product-name">
+  															<a href="<?php echo urlShop('goods','index',array('goods_id'=>$cart_info['goods_id']));?>" target="_blank" class="a-product-name"><?php echo $cart_info['goods_name']; ?></a>
+  														</div>
+  													</td>
+  													<td class="quantity"><?php echo $cart_info['goods_num']; ?></td>
+  													<td class="sales-price">
+  														<b class="bold-pri"><em class="ico-money">￥</em><?php echo $cart_info['goods_price']; ?></b></td>
+  													<td class="weight"><?php echo $cart_info['goods_tweight']; ?>kg</td>
+  													<td class="subtotal">
+  														<b class="bold-pri"><em class="ico-money">￥</em><?php echo $cart_info['goods_tprice']; ?></b>
+  													</td>
+  												</tr>
+  												</tbody>
+  											</table>
+  											<?php } ?>
+  											<div class="mod-cost">
+  												<div class="mod-pro-ft clearfix">
+  													<!-- 给卖家留言 begin -->
+  													<div style="display:none;" class="mod-leave-msg clearfix jLeaveMsg" data-shopid="12168">
+  														<ul class="msg-box clearfix"></ul>
+  														<div class="forth jTotalFreight"></div>
+  													</div>
+  													<!-- 给卖家留言 end -->
+  													<div class=" total-amount">
+  														<div class="pri-subtotal">
+  															<label class="item-label">商品金额</label>
+  															<span class="pri-total">￥<?php echo $output['store_cart_total'] ?></span></div>
+  													</div>
+  												</div>
+  												<?php if( $output['ifchain'] != 1 ){ ?>
+  												<!-- 运送方式 begin -->
+  												<div class="mod-ship-wrap">
+  													<div class="shipment-box"><span class="ship-txt">运费</span><span class="ship-money">￥<?php echo $output['freight_total'] ?></span></div>
+  												</div>
+  												<!-- 运送方式 end -->
+  												<?php } ?>
+  											</div>
+  										</div>
+  									</div>
+  									<!-- list end   -->
+  								</div>
+  							</div>
+  						</div>
+  					</div>
+  					<!-- 商品清单 end -->
+  				</div>
+  				<div class="other-info clearfix" id="jOtherInfo">
+  					<div id="jInvoiceInfo"></div>
+  					<div class="submit-order">
+  						<div id="jHighIconPay"></div>
+  						<div id="jSubOrder">
+  							<!-- 提交订单begin -->
+  								<div class="total-box">
+  									<a href="http://www1.htths.com/index.php?controller=cart" style="color:black;" class="total-a">返回购物车</a>
+  									<span class="total-txt">实付总额：</span>
+  									<em class="em-txt">￥</em>
+  									<span class="money-txt" id="jTotalMoney"><?php echo $output['need2pay'] ?></span>
+  									<a href="javascript:;" class="btn btn-rose" id="jSubBtn" data-need-idcard="<?php echo $output['need_idcard'] ?>" data-allow-submit="<?php echo $output['allow_submit'] ?>"  data-tips="<?php echo $output['error_message'] ?>">提交订单</a>
+  								</div>
+  							  <?php if( $output['need_idcard'] > 0 ){ ?>
+  								<p class="tips">温馨提示：全球购订单提交后无法取消及变更收货信息</p>
+  							  <?php } ?>
+  							<!-- 提交订单end -->
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  			<!-- 结算模板 end -->
+  		</div>
+  	</div>
+  </div>
+  </form>
+  <script id="tpl-address-add" type="text/html">
+  <div class="new-address" id="jNewAddrModule" data-flag="">
+  	<form class="pop-form" id="jAddAddrForm">
+  		<input type="hidden" name="form_submit" value="ok">
+  		<input type="hidden" name="address_id" value="<%= address_id %>">
+  		<input type="hidden" value="<%= pr_id %>" name="pr_id" id="_area_1">
+  		<input type="hidden" value="<%= city_id %>" name="city_id" id="_area_2">
+  		<input type="hidden" value="<%= area_id %>" name="area_id" id="_area">
+  		<ul>
+  			<li>
+  				<label class="control-lable"><span class="txt-red star-flag">*</span>收货人</label>
+  				<div class="d-r">
+  					<input class="input-txt jInput" name="true_name" id="jName" placeholder="限20个字" value="<%= true_name %>" maxlength="20">
+  				</div>
+  			</li>
+  			<li class="z-i-1">
+  				<label class="control-lable"><span class="txt-red star-flag">*</span>收货地址</label>
+  				<div class="d-r">
+  						<input type="hidden" name="area_info" id="region" value="">
+  				</div>
+  			</li>
+  			<li>
+  				<label class="control-lable"><span class="txt-red star-flag">*</span>详细地址</label>
+  				<div class="d-r">
+  					<input class="input-address jInput" name="address" id="jAddr" placeholder="无需重复填写省市区，小于50个字" value="<%= address %>" maxlength="50">
+  				</div>
+  			</li>
+  			<li>
+  				<label class="control-lable"><span class="txt-red star-flag">*</span>手机</label>
+  				<div class="d-r">
+  					<input class="input-txt jInput" name="mob_phone" id="jMobile" placeholder="请输入正确的手机号" value="<%= mob_phone %>">
+  				</div>
+  			</li>
+  			<li>
+  				<label class="control-lable">身份证号码</label>
+  				<div class="d-r">
+  					<input class="input-txt" name="idcard_no" placeholder="有购买保税仓商品时需要" value="" maxlength="20">
+  				</div>
+  			</li>
+  			<li>
+  				<div class="d-r">
+  					<input type="checkbox" class="chk" id="jSetDef" name="is_default">
+  					<label for="jSetDef" class="label-chk">设为默认地址</label>
+  				</div>
+  			</li>
+  			<li>
+  				<div class="d-r">
+  					<a class="btn" id="jSaveBtn">确定</a>
+  					<a class="btn btn-sec" id="jCancelBtn" action-type="close">取消</a>
+  				</div>
+  			</li>
+  		</ul>
+  	</form>
+  	<style type="text/css">.ui-location-select{position:relative;font-size:12px;height:26px;float:left}.ui-location-select .cache-data{display:none}.ui-location-select label.error{position:absolute;left:372px;color:red;text-align:left;width:300px}.ui-location-select .text{border:1px solid #e4e4e4;border-radius:3px;padding-left:5px;padding-right:20px;position:relative;background:#fff;height:26px;line-height:26px;color:#666;cursor:pointer}.ui-location-select .text .hover-arrow,.ui-location-select .text b{border-color:#333132 transparent transparent;-webkit-transition:-webkit-transform .2s ease-in;-moz-transition:-moz-transform .2s ease-in;-o-transition:-o-transform .2s ease-in;-moz-transform-origin:50% 30%;-webkit-transform-origin:50% 30%;-o-transform-origin:50% 30%}.ui-location-select .text .text-div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;zoom:1;max-width:200px}.ui-location-select .text .text-div i{font-style:normal;padding-right:10px;color:#666}.ui-location-select .text b{display:block;-webkit-backface-visibility:hidden;position:absolute;right:8px;top:10px;width:0;height:0;border-width:5px;border-style:solid dashed dashed;font-size:0;line-height:0;transition:transform .2s ease-in;-moz-transform:rotate(0);-webkit-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0);transform-origin:50% 30%}.ui-location-select .text .hover-arrow{transition:transform .2s ease-in;-moz-transform:rotate(180deg);-webkit-transform:rotate(180deg);-o-transform:rotate(180deg);transform:rotate(180deg);transform-origin:50% 30%}.ui-location-select .clr{width:17px;height:17px;background:url(//s3.bbgstatic.com/mall-cart/js/plug/local-select/images/close.png?v=c3bcd2ad527fbcc2) no-repeat;cursor:pointer;position:absolute;right:-9px;top:-9px}.ui-location-select .limit{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:inline-block;_zoom:1;_display:inline;max-width:70px}.ui-location-select .content{border:1px solid #e4e4e4;border-radius:0 3px 3px;box-shadow:1px 1px 6px -1px rgba(0,0,0,.2);position:absolute;width:390px;background:#fff;z-index:0;top:26px;left:0;padding:15px;display:none}.ui-location-select .content .mt .tab{height:25px;border-bottom:1px solid #edd28b}.ui-location-select .content .mt .tab li{display:inline-block;float:left;cursor:pointer;margin-top:0;min-width:50px;position:relative;height:24px;line-height:23px;padding:0 21px 1px 11px;margin-right:3px;border:1px solid #ddd;border-radius:3px 3px 0 0;border-bottom:0;color:#ccc;text-align:center}.ui-location-select .content .mt .tab li i{display:block;-webkit-backface-visibility:hidden;position:absolute;right:8px;top:10px;width:0;height:0;border-width:5px;border-style:solid dashed dashed;border-color:#ccc transparent transparent;font-size:0;line-height:0;-webkit-transition:-webkit-transform .2s ease-in;-moz-transition:-moz-transform .2s ease-in;-o-transition:-o-transform .2s ease-in;transition:transform .2s ease-in;-moz-transform:rotate(0);-moz-transform-origin:50% 30%;-webkit-transform:rotate(0);-webkit-transform-origin:50% 30%;-o-transform:rotate(0);-o-transform-origin:50% 30%;transform:rotate(0);transform-origin:50% 30%}.ui-location-select .content .mt .tab li.hover{height:25px;background-color:#fff;border:1px solid #edd28b;border-bottom:1px solid #fff;padding:0 20px 0 10px;line-height:23px;text-decoration:none;color:#000;z-index:1}.ui-location-select .content .mt .tab li.hover i{border-color:#000 transparent transparent}.ui-location-select .content .mc .load-txt-box{text-align:center;min-height:100px;background:url(//s3.bbgstatic.com/mall-cart/js/plug/local-select/images/loading.gif?v=f4fb8474f151c112) 50% no-repeat}.ui-location-select .content .mc .area-list{padding-top:5px;margin-top:0}.ui-location-select .content .mc .area-list li{display:inline-block;float:left;width:70px;height:auto;min-height:0;padding:2px 0 2px 15px;margin-top:0}.ui-location-select .content .mc .area-list li a{float:left;padding:2px 4px;color:#333;line-height:18px}.ui-location-select .content .mc .area-list li a:hover{background:#eee;text-decoration:none}.ui-location-select .content .mc .area-list li.hover a{background:#005ea7;color:#fff;text-decoration:none}.ui-location-select-hover{position:relative;z-index:2}.ui-location-select-hover .text{border-bottom:0;z-index:1}.ui-location-select-hover .content{display:block}</style>
+  </div>
+  </script>
+  <script id="tpl-address-list" type="text/html">
+  <% for (var i = 0; i < address_list.length; i ++) { %>
+  <div class="item <% if (address_list[i]['address_id']== selected_address_id ) {%>item-selected <%}%> jAddrListItem" data-addrid="<%=address_list[i]['address_id']%>" data-area-id="<%=address_list[i]['area_id']%>">
+  	<input type="radio" name="address_id"  checked="<% if (address_list[i]['address_id']== selected_address_id ) {%>checked <%}%>" value="<%=address_list[i]['address_id']%>" style="display:none;">
+  	<div class="oper jOper" data-addrid="<%=address_list[i]['address_id']%>" data-area-id="<%=address_list[i]['address_id']%>">
+  		<a href="javascript:void('0');" class="jOperEdit"
+  		   data-true-name="<%=address_list[i]['true_name']%>" data-pr-id="<%=address_list[i]['pr_id']%>"
+  		   data-city-id="<%=address_list[i]['city_id']%>" data-area-id="<%=address_list[i]['area_id']%>"
+  		   data-area-info="<%=address_list[i]['area_info']%>" data-address="<%=address_list[i]['address']%>"
+  		   data-mob-phone="<%=address_list[i]['mob_phone']%>" data-idcard-no="<%=address_list[i]['idcard_no']%>">修改</a>
+  		<% if (address_list[i]['is_default'] != 1) {%><a href="javascript:void('0');" class="jOperDelete oper-del">删除</a><% } %>
+  	</div>
+  	<div class="middle">
+  		<div class="inner-box">
+  			<div class="list-item">
+  				<em class="icon iconfont iconfont-user2"></em>
+  				<span class="span-txt user-name" title="<%=address_list[i]['true_name']%>"><%=address_list[i]['true_name']%></span>
+  			</div>
+  			<div class="list-item">
+  				<em class="icon iconfont iconfont-dingwei"></em>
+  				<span class="span-txt addr-info " title="<%=address_list[i]['area_info']%>-<%=address_list[i]['address']%>">
+  					<%=address_list[i]['area_info']%><%=address_list[i]['address']%>
+  				</span>
+  			</div>
+  			<div class="list-item">
+  				<em class="icon iconfont iconfont-tel"></em><span class="span-txt span-ph"><%=address_list[i]['mob_phone']%></span>
+  			</div>
+  		</div>
+  	</div>
+  	<div class="selected"></div>
+  </div>
+  <% } %>
+  </script>
+  <script id="tpl-goods-list" type="text/html">
+  <table class="list-table">
+  	<tbody>
+  	<tr>
+  		<th class="pkg"></th>
+  		<th class="ico-box"></th>
+  		<th class="product-name"><div>商品</div></th><th class="quantity">数量</th>
+  		<th class="sales-price">销售价</th>
+  		<th class="weight">重量</th>
+  		<th class="subtotal">小计</th>
+  	</tr>
+  	</tbody>
+  </table>
+  <% for (var i = 0; i < store_cart_list.length; i ++) { %>
+  <table class="list-table mod-items jGoodItem" data-supported-areaids="<%=store_cart_list[i]['supported_area_ids']%>">
+  	<input type="hidden"  class="jChkItem"  checked = "checked" name="cart_id[]" value="<%=store_cart_list[i]['cart_id']%>|<%=store_cart_list[i]['goods_num']%>">
+  	<tbody>
+  	<tr class="jProductlistTable end">
+  		<td rowspan="1" class="pkg">
+  			<p class="pkg-name"><%=store_cart_list[i]['transport_title']%>:<%= store_cart_list[i]['freight_supported'] == 1 ? '支持配送':'不支持配送' %></p>
+  		</td>
+  		<td class="ico-box">
+  			<i class="icon iconfont ico-right jIcoRight jCouponIco-19300000185"></i>
+  		</td>
+  		<td style="width:280px;">
+  			<div class="product-name">
+  				<a href="<?php echo urlShop('goods','index',array('goods_id'=>$cart_info['goods_id']));?>" target="_blank" class="a-product-name"><%=store_cart_list[i]['goods_name']%></a>
+  			</div>
+  		</td>
+  		<td class="quantity"><%=store_cart_list[i]['goods_num']%></td>
+  		<td class="sales-price">
+  			<b class="bold-pri"><em class="ico-money">￥</em><%=store_cart_list[i]['goods_price']%></b></td>
+  		<td class="weight"><%=store_cart_list[i]['goods_tweight']%>kg</td>
+  		<td class="subtotal">
+  			<b class="bold-pri"><em class="ico-money">￥</em><%=store_cart_list[i]['goods_tprice']%></b>
+  		</td>
+  	</tr>
+  	</tbody>
+  </table>
+  <% } %>
+  <div class="mod-cost">
+  	<div class="mod-pro-ft clearfix">
+  		<!-- 给卖家留言 begin -->
+  		<div style="display:none;" class="mod-leave-msg clearfix jLeaveMsg" data-shopid="12168">
+  			<ul class="msg-box clearfix"></ul>
+  			<div class="forth jTotalFreight"></div>
+  		</div>
+  		<!-- 给卖家留言 end -->
+  		<div class=" total-amount">
+  			<div class="pri-subtotal">
+  				<label class="item-label">商品金额</label>
+  				<span class="pri-total">￥<%=store_cart_total%></span></div>
+  		</div>
+  	</div>
+  	<!-- 运送方式 begin -->
+  	<div class="mod-ship-wrap">
+  		<div class="shipment-box">
+  			<span class="ship-txt">运费</span>
+  			<span class="ship-money">￥<%=freight_total%></span>
+  		</div>
+  	</div>
+  	<!-- 运送方式 end -->
+  </div>
+  </script>
+  <script id="tpl-chain-list" type="text/html">
+  	<% for (var i = 0; i < chain_list.length; i ++) { %>
+  <div class="item jChainItem">
+  	<input type="radio" name="chain_id" value="<%=chain_list[i]['chain_id']%>" style="display:none;">
+    <div class="middle">
+      <div class="inner-box">
+        <div class="list-item">
+          <em class="icon iconfont iconfont-dianpu"></em>
+          <span class="span-txt user-name" title="门店名称"><%=chain_list[i]['chain_name']%></span>
+        </div>
+        <div class="list-item">
+          <em class="icon iconfont iconfont-dingwei"></em>
+          <span class="span-txt addr-info " title="门店地址">
+            <%=chain_list[i]['area_info']%>-<%=chain_list[i]['chain_address']%>
+          </span>
+        </div>
+        <div class="list-item">
+          <em class="icon iconfont iconfont-tel"></em>
+  	      <span class="span-txt span-ph"><%=chain_list[i]['chain_phone']%>  营业时间:<%=chain_list[i]['chain_opening_hours']%></span>
+        </div>
+      </div>
+    </div>
+  	<!--<div class="selected"></div>-->
+  </div>
+  	<% } %>
+  </script>
+  <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+  <div class="footer">
+  	<div class="bd">
+  		<div class="help w1190">
+  
+  			<?php if(is_array($output['article_list']) && !empty($output['article_list'])){ ?>
+  			<div class="list">
+  								<?php foreach ($output['article_list'] as $k=> $article_class){ ?>
+  				<?php if(!empty($article_class)){ ?>
+  				<dl>
+                <dt><?php if(is_array($article_class['class'])) echo $article_class['class']['ac_name'];?></dt>
+  					<?php if(is_array($article_class['list']) && !empty($article_class['list'])){ ?>
+  					<?php foreach ($article_class['list'] as $article){ ?>
+  					<dd>
+  	            <a href="<?php if($article['article_url'] != '')echo $article['article_url'];else echo urlShop('article', 'show',array('article_id'=> $article['article_id']));?>" title="<?php echo $article['article_title']; ?>">
+  		            <?php echo $article['article_title'];?> </a>
+              </dd>
+  					<?php }}?>
+            </dl>
+  				<?php }}?>
+  			</div>
+  			<?php }?>
+  
+  			<div class="contact">
+            <div class="item"><i class="icon iconfont iconfont-tel"></i><span>0512-53228886</span></div>
+            <div class="item item-email"><i class="icon iconfont iconfont-email"></i><span>654370122@qq.com</span></div>
+        </div>
+          </div>
+      </div>
+      <div class="ft">
+        <div class="copyright">
+            <p class="links">
+  	          <a rel="nofollow" href="http://www1.htths.com/article-22.html" target="_blank">关于太划算</a><span>|</span>
+  	          <a rel="nofollow" href="http://www1.htths.com/article-23.html" target="_blank">联系我们</a><span>|</span>
+            </p>
+            <p class="cprt-icp">苏ICP备14036053号-1<span>|</span>Copyright© 太划算商城 2014-2016，All Rights Reserved</p>
+        </div>
+      </div>
+  </div>
+  
+  
+    <script src="http://static.htths.com/js/lib/require.js"></script>
+    <script>
+      requirejs(['http://static.htths.com/js/common.js'], function (common) {
+	      requirejs(['http://static.htths.com/js/app/buy.js']);
+      });
+  </script>
+</body>
+</html>

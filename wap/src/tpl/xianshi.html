@@ -1,0 +1,25 @@
+{{each xianshi as value i}}
+<div class="content-block-title">{{value.title}}<span class="pull-right countdown" data-endtime="{{value.endtime}}"></span></div>
+<div class="list-block media-list">
+  <ul class="list-container goods-list">
+	  {{each value.goods as item k}}
+    <li>
+		  <a href="" data-good_id="{{item.goods_id}}" class="item-content jGo">
+		    <div class="item-media">
+		      <img class="b-lazy" data-src="{{item.goods_image_url}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></div>
+		    <div class="item-inner">
+		      <div class="item-title-row">
+		        <div class="item-title f12">{{item.goods_name}}</div>
+		      </div>
+		      <!--<div class="item-subtitle">{{item.xianshi_discount}}</div>-->
+		      <div class="item-text">
+		        <span class="present color-danger f13 mr10">¥{{item.xianshi_price}}</span>
+		        <span class="original f10 color-gray"><del>¥{{item.goods_price}}</del></span>
+		      </div>
+		    </div>
+		  </a>
+		</li>
+		{{/each}}
+  </ul>
+</div>
+{{/each}}

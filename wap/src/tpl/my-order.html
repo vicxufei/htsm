@@ -1,0 +1,50 @@
+{{if order_list.length == 0}}
+	<div class="empty">
+		<p class="icon iconfont icon-form f14"></p>
+		<p class="emt-txt">暂无订单</p>
+	</div>
+{{else}}
+	{{each order_list as value i}}
+	<div class="card">
+		<div class="card-header">订单号:{{value.order_sn}}<span class="pull-right">{{value.add_time}}</span></div>
+	  <div class="card-content" data-order_id="{{value.order_id}}">
+	    <div class="list-block media-list">
+	      <ul>
+	        {{each value.extend_order_goods as good j}}
+	        <li class="item-content">
+	          <div class="item-media">
+	            <img src="{{good.goods_image}}">
+	          </div>
+	          <div class="item-inner">
+	            <div class="item-title-row">
+	              <div class="item-title">{{good.goods_name}}</div>
+	            </div>
+	            <div class="item-subtitle color-danger">¥{{good.goods_price}}</div>
+	            <div class="item-text pull-right">
+		            <span class="badge">x{{good.goods_num}}</span>
+	            </div>
+	          </div>
+	        </li>
+	        {{/each}}
+	      </ul>
+	    </div>
+	  </div>
+	  <div class="card-footer">
+	    实付款: ¥{{value.order_amount}}
+	    <span class="pull-right" data-order_id="{{value.order_id}}" data-order_sn="{{value.order_sn}}">
+	      {{if value.if_cancel}}<a href="#" class="button button-danger jOrderOp" data-optype="order_cancel">取消订单</a>{{/if}}
+	      {{if value.if_cancel}}<a href="#pay" class="button button-fill button-danger jGoPay" data-pay_sn="{{value.pay_sn}}" data-order_total="{{value.order_amount}}">去支付</a>{{/if}}
+	      {{if value.if_delete}}<a href="#" class="button button-danger jOrderOp" data-optype="order_del">删除订单</a>{{/if}}
+	      {{if value.if_deliver}}<a href="#" class="button button-danger jSearchDeliver">查看物流</a>{{/if}}
+	      {{if value.if_receive}}<a href="#" class="button button-danger jOrderOp" data-optype="order_receive">确认收货</a>{{/if}}
+	      <!--{{if value.if_evaluation}}<a href="" class="button button-danger jEvaluate">评论</a>{{/if}}-->
+	    </span>
+	  </div>
+	</div>
+	{{/each}}
+	{{if hasmore}}
+	<div class="infinite-scroll-preloader">
+		<div class="preloader"></div>
+	</div>
+	{{/if}}
+{{/if}}

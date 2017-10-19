@@ -1,0 +1,16 @@
+#数据库的变更记录
+删除加价购相关表
+p_cou 加价购
+p_cou_level 加价购活动规则
+p_cou_level_sku  加价购活动换购商品
+p_cou_quota 加价购套餐
+p_cou_sku   加价购活动商品
+
+表goods删除is_fcode
+删除表p_fcode_quota,goods_fcode
+
+表goods删除is_presell,presell_deliverdate
+删除表p_book_quota
+htadmin868/modules/shop/control/promotion_book.php
+yf_shop/control/store_promotion_book.php
+data/model/p_book.model.php

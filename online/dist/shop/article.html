@@ -1,0 +1,285 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	  <meta name="keywords" content="<?php echo $output['seo_keywords']; ?>"/>
+    <meta name="description" content="<?php echo $output['seo_description']; ?>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $output['html_title']; ?></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.htths.com/">
+    <link rel="stylesheet" href="http://static.htths.com/css/base.min.css?v10">
+	  <link rel="stylesheet" href="http://static.htths.com/css/article.min.css?v9">
+  </head>
+  <body>
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="global-topbar">
+      <div class="bd w1190 clearfix">
+    	  <ul class="sn-block sn-login f-l">
+    		  <?php if ($_SESSION['is_login'] == '1'){ ?>
+    		  <li>
+    			  您好,
+    			  <a rel="nofollow" href="<?php echo urlMember('member_security', 'index');?>"><?php echo $_SESSION['member_name']; ?></a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'logout'); ?>">退出登录</a>
+    		  </li>
+    		  <?php }else{ ?>
+    		  <li>
+    			  <a rel="nofollow" href="<?php echo urlMember('login'); ?>">登录</a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'register'); ?>">免费注册</a>
+    		  </li>
+    		  <?php } ?>
+    	  </ul>
+        <ul class="sn-block sn-quick f-r">
+          <li class="jMenu">
+              <a class="menu-hd block-item" rel="nofollow" href="<?php echo SHOP_SITE_URL; ?>/index.php?act=member_order">我的订单<b
+    		          class="arrow"></b></a>
+              <div class="menu-bd">
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_new">待付款订单</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_send">待确认收货</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_noeval">待评价交易</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_goods&op=fglist">商品收藏</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_store&op=fslist">店铺收藏</a>
+              </div>
+          </li>
+          <li class="sn-cart"><a class="block-item" href="http://cart.yunhou.com/">我的购物车<b class="jCartCount sn-cart-count">0</b></a></li>
+          <li class="jMenu">
+              <a class="menu-hd block-item" href="#">客户服务<b class="arrow"></b></a>
+              <div class="menu-bd">
+                  <ul>
+                      <li><a href="<?php echo urlMember('article', 'article', array('ac_id' => 2)); ?>">帮助中心</a></li>
+                      <li><a href="<?php echo urlMember('article', 'article', array('ac_id' => 5)); ?>">售后服务</a></li>
+                      <li><a href="<?php echo urlMember('article', 'article', array('ac_id' => 6)); ?>">客服中心</a></li>
+                  </ul>
+              </div>
+          </li>
+          <li class="sn-msg jNotification"><a class="block-item" href="http://i.yunhou.com/news/getUnReadMsg">消息</a></li>
+          <li class="qr-codes jMenu">
+            <a class="menu-hd block-item" href="javascript:;">手机版</a>
+            <div class="menu-bd">
+              <div class="qr-codes-img"><img class="jImgPhoneCode img-error" src="//static.htths.com/img/htsm-qrcode.jpg" alt="太划算二维码"></div><div
+    		        class="qr-codes-txt">太划算手机版</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="site-head">
+      <div class="bd w1190 clearfix">
+        <div class="s-box" id="jSearch" data-node-type="jSearch">
+    	    <div class="s-main">
+    		    <label class="lbl-key" for="mq"></label>
+    		    <input class="input" type="text" name="keyword" autocomplete="off" x-webkit-grammar="builtin:translate" value="" id="mq" data-node-type="mq">
+    		    <a  class="btn-search jBtnAllSearch" href="javascript:;">搜索</a>
+    	    </div>
+    	    <div class="kw-suggest" id="jKwSuggest" data-node-type="jKwSuggest">
+    		    <?php if (is_array($output['hot_search']) && !empty($output['hot_search'])){ ?>
+    		      <?php foreach ($output['hot_search'] as $val){ ?>
+    		    <a href="<?php echo urlShop('search', 'index', array('keyword' => $val)); ?>" target="_blank"><?php echo $val; ?></a>
+    		    <?php } } ?>
+    	    </div>
+    
+          <div class="k-history" id="jSearchHistoryBox">
+    	      <?php if (is_array($output['his_search_list']) && !empty($output['his_search_list'])){ ?>
+    	      <ul class="kh-list">
+    		      <?php foreach ($output['his_search_list'] as $v){ ?>
+    		      <li class="kh-item" data-key="<?php echo $v ?>"><span class="kh-key"><?php echo $v ?></span><a class="kh-button">删除</a></li>
+    		      <?php } ?>
+    	      </ul>
+    	      <div class="kh-infos clearfix"><span>搜索记录</span><a class="kh-clear">清空搜索记录</a></div>
+    	      <?php }else{ ?>
+    	      <div class="kh-none">无历史搜索记录</div>
+    	      <?php } ?>
+          </div>
+        </div>
+        <h1 class="title">
+    	    <a href="<?php echo SHOP_SITE_URL; ?>" title="太划算商城" class="go-home">
+    		    <img alt="太划算商城" class="logo" src="<?php echo STATIC_URL; ?>/images/logo.png">
+            </a>
+        </h1>
+      </div>
+    </div>
+    
+    
+
+    <div class="w1190">
+    	<div class="page-breadcrumb">
+    		<a href="http://help.yunhou.com">首页</a>&gt;<span class="strong">帮助中心</span>
+    	</div>
+    	<div class="page-cnt">
+    		<div class="left-nav">
+    			<dl>
+    				<dt>新手指引</dt>
+    				<dd>
+    					<ul>
+    						<li><a href="/help_105.html" title="消费者告知书">消费者告知书</a></li>
+    						<li><a href="/qa.html" title="常见问题">常见问题</a></li>
+    						<li><a href="/help_142.html" title="购物步骤">购物步骤</a></li>
+    						<li><a href="/help_140.html" title="获得账号">获得账号</a></li>
+    						<li><a href="/help_173.html" title="跨境电商综合税表">跨境电商综合税表</a></li>
+    						<li><a href="/help_177.html" title="价格说明">价格说明</a></li>
+    						<li><a href="/help_143.html" title="账号安全">账号安全</a></li>
+    					</ul>
+    				</dd>
+    			</dl>
+    			<dl>
+    				<dt>会员服务</dt>
+    				<dd>
+    					<ul>
+    						<li><a href="/help_152.html" title="云猴宝和云猴红包">云猴宝和云猴红包</a></li>
+    						<li><a href="/help_147.html" title="会员注册协议">会员注册协议</a></li>
+    						<li><a href="/help_110.html" title="现金券和红包">现金券和红包</a></li>
+    					</ul>
+    				</dd>
+    			</dl>
+    
+    
+    			<dl>
+    				<dt>购物指南</dt>
+    				<dd>
+    					<ul>
+    													<li><a href="/help_175.html" title="优惠券说明">优惠券说明</a></li>
+    													<li><a href="/help_163.html" title="全球购身份证说明">全球购身份证说明</a></li>
+    													<li><a href="/help_154.html" title="秒杀流程说明">秒杀流程说明</a></li>
+    													<li><a href="/help_151.html" title="云猴暗号使用规则">云猴暗号使用规则</a></li>
+    													<li><a href="/help_144.html" title="步步高商务卡">步步高商务卡</a></li>
+    													<li><a href="/help_104.html" title="发票制度">发票制度</a></li>
+    													<li><a href="/help_102.html" title="购物流程">购物流程</a></li>
+    													<li><a href="/help_101.html" title="交易条款">交易条款</a></li>
+    											</ul>
+    				</dd>
+    			</dl>
+    			<dl>
+    				<dt>支付方式</dt>
+    				<dd>
+    					<ul>
+    													<li><a href="/help_127.html" title="中国工商银行支付">中国工商银行支付</a></li>
+    													<li><a href="/help_126.html" title="支付限额">支付限额</a></li>
+    													<li><a href="/help_114.html" title="步步高商务卡">步步高商务卡</a></li>
+    													<li><a href="/help_113.html" title="银联在线支付">银联在线支付</a></li>
+    													<li><a href="/help_112.html" title="支付宝支付">支付宝支付</a></li>
+    											</ul>
+    				</dd>
+    			</dl>
+    
+    			<dl>
+    				<dt>关于售后</dt>
+    				<dd>
+    					<ul>
+    													<li><a href="/help_153.html" title="退款说明">退款说明</a></li>
+    													<li><a href="/help_122.html" title="退款流程">退款流程</a></li>
+    													<li><a href="/help_149.html" title="取消订单">取消订单</a></li>
+    													<li><a href="/help_121.html" title="第三方商家售后">第三方商家售后</a></li>
+    													<li><a href="/help_120.html" title="全球购退货政策">全球购退货政策</a></li>
+    													<li><a class="active" href="/help_172.html" title="家电退货政策">家电退货政策</a></li>
+    													<li><a href="/help_165.html" title="生鲜退货政策">生鲜退货政策</a></li>
+    													<li><a href="/help_164.html" title="贴心保价">贴心保价</a></li>
+    											</ul>
+    				</dd>
+    			</dl>
+    
+    			<dl>
+    				<dt>物流配送</dt>
+    				<dd>
+    					<ul>
+    													<li><a href="/help_116.html" title="配送说明">配送说明</a></li>
+    													<li><a href="/help_128.html" title="生鲜商品配送说明">生鲜商品配送说明</a></li>
+    													<li><a href="/help_118.html" title="配送状态查询">配送状态查询</a></li>
+    													<li><a href="/help_125.html" title="配送时间及范围（大电器）">配送时间及范围（大电器）</a></li>
+    													<li><a href="/help_167.html" title="验货签收">验货签收</a></li>
+    													<li><a href="/help_166.html" title="发货时效">发货时效</a></li>
+    											</ul>
+    				</dd>
+    			</dl>
+    
+    			<dl>
+    				<dt>商务合作</dt>
+    				<dd>
+    					<ul>
+    													<li><a href="/help_169.html" title="商家入驻流程">商家入驻流程</a></li>
+    													<li><a href="/help_168.html" title="关于招商">关于招商</a></li>
+    													<li><a href="/help_155.html" title="商家结算说明">商家结算说明</a></li>
+    											</ul>
+    				</dd>
+    			</dl>
+    
+    			<dl>
+    				<dt>关于我们</dt>
+    				<dd>
+    					<ul>
+    													<li><a href="/help_176.html" title="招商合作">招商合作</a></li>
+    													<li><a href="/help_171.html" title="联系我们">联系我们</a></li>
+    													<li><a href="/help_170.html" title="网站介绍">网站介绍</a></li>
+    											</ul>
+    				</dd>
+    			</dl>
+    
+    </div>
+    <div class="page-content page-content-main">
+    <?php echo $output['article']['article_title'];?>
+    </div>
+      </div>
+    </div>
+
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="footer">
+    	<div class="bd">
+    		<div class="help w1190">
+    
+    			<?php if(is_array($output['article_list']) && !empty($output['article_list'])){ ?>
+    			<div class="list">
+    								<?php foreach ($output['article_list'] as $k=> $article_class){ ?>
+    				<?php if(!empty($article_class)){ ?>
+    				<dl>
+                  <dt><?php if(is_array($article_class['class'])) echo $article_class['class']['ac_name'];?></dt>
+    					<?php if(is_array($article_class['list']) && !empty($article_class['list'])){ ?>
+    					<?php foreach ($article_class['list'] as $article){ ?>
+    					<dd>
+    	            <a href="<?php if($article['article_url'] != '')echo $article['article_url'];else echo urlShop('article', 'show',array('article_id'=> $article['article_id']));?>" title="<?php echo $article['article_title']; ?>">
+    		            <?php echo $article['article_title'];?> </a>
+                </dd>
+    					<?php }}?>
+              </dl>
+    				<?php }}?>
+    			</div>
+    			<?php }?>
+    
+    			<div class="contact">
+              <div class="item"><i class="icon iconfont iconfont-tel"></i><span>0512-53228886</span></div>
+              <div class="item item-email"><i class="icon iconfont iconfont-email"></i><span>654370122@qq.com</span></div>
+          </div>
+            </div>
+        </div>
+        <div class="ft">
+          <div class="copyright">
+              <p class="links">
+    	          <a rel="nofollow" href="http://www.yunhou.com/article-cominfo-146.html" target="_blank">关于云猴</a><span>|</span>
+    	          <a href="http://www.yunhou.com/article-news-list.html" target="_blank">新闻动态</a><span>|</span>
+    	          <a rel="nofollow" href="http://www.yunhou.com/article-cominfo-147.html" target="_blank">联系我们</a><span>|</span>
+    	          <a rel="nofollow" href="http://www.yunhou.com/tag/category/all.html" target="_blank">分类导航</a></p>
+              <p class="cprt-icp">苏ICP备14036053号-1<span>|</span>Copyright© 太划算商城 2014-2016，All Rights Reserved</p>
+          </div>
+        </div>
+    </div>
+    
+    
+
+    <script src="http://static.htths.com/js/lib/require.js"></script>
+    <script>
+      requirejs(['http://static.htths.com/js/common.js'], function (common) {
+        requirejs(['http://static.htths.com/js/app/article.js']);
+      });
+  </script>
+  </body>
+</html>

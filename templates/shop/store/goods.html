@@ -1,0 +1,244 @@
+<?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+<div class="cnt" id="jGoodsItem">
+	<div class="mod-pro-info clearfix">
+		<div class="f-l">
+			<!-- 商品详情左侧商品大图begin -->
+			<div class="goods-preview" id="jGoodsPreview">
+				<div class="loading">正在加载，请稍后...</div>
+			</div>
+			<!-- 分享 begin -->
+			<p class="share-div " id="jShareDiv"
+			   data-share-title="#海购就去云猴全球购#云猴全球购日本花王Merries 纸尿裤NB90片 5KG以下。我刚刚在云猴全球购海外购看到 日本花王Merries 纸尿裤NB90片 5KG以下，海外发货，100%正品，便宜又省心。一起来看看吧">
+				<span>告诉小伙伴</span>
+				<a class="bds-qzone jShareQzone" ref="nofollow" data-cmd="tqzone" title="QQ空间" target="_blank"><i
+						class="icon iconfont">&#xe66f;</i></a>
+				<a class="bds-ten jShareQQ" ref="nofollow" data-cmd="tqq" title="QQ" target="_blank"><i
+						class="icon iconfont">&#xe661;</i></a>
+				<a class="bds-sina jShareSina" ref="nofollow" data-cmd="tsina" title="新浪微博" target="_blank"><i
+						class="icon iconfont">&#xe65a;</i></a>
+				<a class="bds-plp jShareRenRen" ref="nofollow" data-cmd="renren" title="人人网" target="_blank"><i
+						class="icon iconfont">&#xe659;</i></a>
+				<a href="javascript:;" class="col-div jColGoods" data-product-id="9702000208" data-goods-id="9692000130"
+				   id="jColGoods" data-bpm="3.1.1.1.4.9702000208"><span class="colText jHeartTxt">收藏</span><i
+						class="icon iconfont jHeart">&#xe615;</i><i class="icon iconfont jHeart"
+				                                                style="display:none;">&#xe67b;</i></a>
+			</p>
+			<!-- 分享 end -->
+			<!-- 商品详情左侧商品大图end -->
+		</div>
+		<div class="goods-info f-l">
+			<!-- 商品详情右侧商品名称begin -->
+			<div class="clearfix">
+				<div class="goods-name f-l">
+					<h1 id="jGoodsH1"><?php echo $output['goods']['goods_name']; ?></h1>
+				</div>
+				<!--国旗-->
+				<div class="goods-flag f-l">
+					<div class="f-l">
+						<img class="jImg"
+						     src="http://img04.bubugao.com/1518149e161_65_a70855273957b89952e4df6936e33983_42x42.png!s1">
+					</div>
+					<ul class="f-l">
+						<li class="area-en" title="">Japan</li>
+						<li class="area-zh" title="">日本</li>
+					</ul>
+				</div>
+			</div>
+			<div class="goods-desc">
+				<span class="adword">【税改倒计时 立即囤货】日本纸尿裤，无论是柔软性、干爽性、包裹性、立体舒适感等都颇有口碑</span>
+				<?php if($output['goods']['goods_jingle']){?>
+				<span><?php echo str_replace("\n", "<br>", $output['goods']['goods_jingle']); ?></span>
+				<?php } ?>
+			</div>
+			<!-- 商品详情左侧商品详细信息end -->
+			<div id="jProInfo">数据加载中...</div>
+		</div>
+	</div>
+	<!-- 商品详情右侧商品店铺信息begin -->
+	<div class="mod-prefer clearfix">
+		<ul class="clearfix">
+			<li>
+				<div class="ico">
+					<i class="iconglobal">&#xe612;</i>
+				</div>
+				<div class="detail">
+					<div>海外直邮</div>
+					<div>价格同步</div>
+				</div>
+				<div class="title">
+					<div>全球精选</div>
+					<div>正品保证</div>
+				</div>
+			</li>
+			<li>
+				<div class="ico">
+					<i class="iconglobal">&#xe607;</i>
+				</div>
+				<div class="detail">
+					<div>国际物流</div>
+					<div>全程跟踪</div>
+				</div>
+				<div class="title">
+					<div>一键下单</div>
+					<div>方便快捷</div>
+				</div>
+			</li>
+			<li>
+				<div class="ico">
+					<i class="iconfont">&#xe621;</i>
+				</div>
+				<div class="detail">
+					<div>省去麻烦</div>
+					<div>支付便捷</div>
+				</div>
+				<div class="title">
+					<div>中文客服</div>
+					<div>贴心服务</div>
+				</div>
+			</li>
+			<li>
+				<div class="ico">
+					<i class="iconglobal">&#xe606;</i>
+				</div>
+				<div class="detail">
+					<div>关税补贴</div>
+					<div>安全无忧</div>
+				</div>
+				<div class="title">
+					<div>正规清关</div>
+					<div>国检查验</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<!-- 商品详情左侧商品店铺信息end -->
+	<div class="mod-recommend" data-looked="" style="display: none;" id="jRecommend" data-loading="true">
+		<div class="hd">猜您喜欢
+			<a class="jFreshRec" data-page="1"><i class=" icon iconfont">&#xe60e;</i><span>换一换</span></a>
+		</div>
+		<div class="bd">
+			<ul class="recommend-list" id="jUmlikeList"></ul>
+		</div>
+	</div>
+	<div class="cnt-main clearfix" id="jCutmain">
+		<!--详情页title-->
+		<div class="nav-tab-title-cnt">
+			<div class="nav-tab-title-cnt jAnchorNav">
+				<div class="nav-tab-title" id="jNavTabTitle">
+					<ul class="nav-tab-ul">
+						<li class="hover jTabTitle" data-type="msg" style="display:none">
+							<a href="javascript:;">商品信息</a>
+						</li>
+						<li class="jTabTitle" data-type="details">
+							<a href="javascript:;">商品详情</a>
+						</li>
+						<!-- 详细参数 -->
+						<!-- 自定义label -->
+						<li class="jTabTitle jNavForComment" data-type="comment">
+							<a href="javascript:;">商品评价</a>
+						</li>
+					</ul>
+					<ul class="buys-info" data-node-type="buys-info" style="float:right;display:none;" id="jPriceBox">
+               </ul>
+				</div>
+			</div>
+		</div>
+		<!--商品详情页 具体内容-->
+		<div id="jGoodsDetailCnt">
+        <textarea id="jGoodsDetailCntData">
+				<div class="nav-tab-cnt jTabCntBox" id="gd-msg" style="display:none">
+					<!-- 商品详情商品信息begin -->
+					<div class="hd clearfix">
+						<div class="bg"></div>
+						<span>商品信息</span>
+						<div class="bg"></div>
+					</div>
+					<div class="bd">
+						<ul class="detail-list clearfix">
+							<li title="日本花王Merries 纸尿裤NB90片 5KG以下">商品名称：日本花王Merries 纸尿裤NB90片 5KG以下</li>
+							<li>商品编号：9905020016D</li>
+                            <li>品牌：花王/Merries</li>
+							<li>商品毛重：
+						          8000
+					                克</li>
+					            <li title="产地：日本">产地：日本</li>
+						</ul>
+						<div class="pro-img">
+							<img class="img-error jImg"
+							     src="http://img3.bbgstatic.com/150ef7e7188_2_598f9c8cc95c2dcaceb0ab8ace69c653_800x800.jpeg!m1"></img>
+						</div>
+					</div>
+				</div>
+
+			    <!-- 商品详情商品详情begin -->
+				<div class="nav-tab-cnt jTabCntBox" id="gd-details">
+					<div class="hd clearfix">
+						<div class="bg"></div>
+						<span>商品详情</span>
+						<div class="bg"></div>
+					</div>
+					<div class="bd">
+						<div class="pro-detail">
+							<div class="content ke-post" style="height: auto;">
+								<p style="text-align:center">
+									<p style="text-align:center"><img
+											src="//img04.bubugao.com/15302e3c472_2_f45c0130f285bf752fba1d50337fe094_750x326.jpeg"/></p>
+
+
+					                <p style="text-align:center"> </p>
+
+<p style="text-align:center"><img
+src="//img04.bubugao.com/14fe027359e_2_d4ae640ec99ed6aef22ac3b2730abc96_750x1243.jpeg"/><img
+src="//img04.bubugao.com/14f8434241f_2_19d6f011b449a07809933e28e8bd59ed_750x483.jpeg"/><img
+src="//img04.bubugao.com/14d99489db5_2_cee865db7e67f51b4f9e0fef93111428_750x765.jpeg"/><img
+src="//img04.bubugao.com/14d99489f26_2_81639c67832f26ce8c0019857c76d241_750x941.jpeg"/><img
+src="//img04.bubugao.com/14d9948a063_2_288a08e5b0a7e26516703bdbf67377b2_750x961.jpeg"/><img
+src="//img04.bubugao.com/14d9948a1de_2_ff232ab8286906cb5a6332e5b3e5e73b_750x1040.jpeg"/><img
+src="//img04.bubugao.com/14d9948a3db_2_09bf60bfa1a920a2d757998e177a8f76_750x705.jpeg"/><img
+src="//img04.bubugao.com/14d9948a51e_2_068ca0dcccc3ff21c3fc608ecc1564ad_750x895.jpeg"/><img
+src="//img04.bubugao.com/14d9948a69d_2_a858d8ea4586213a435ce79dd508e39d_750x596.jpeg"/><img
+src="//img04.bubugao.com/14d9948a7de_2_31a6617cb62a2536a5ab06a23a482041_750x868.jpeg"/><img
+src="//img04.bubugao.com/14d9948a985_2_f6bfa7242cca328f828ccfc2fd86cbdd_750x1164.jpeg"/></p>
+
+					                <p style="text-align:center"><img
+							                src="//img04.bubugao.com/14f3a7c9f1a_2_4bb0d71a0b845f3432d4eeebbfc431e6_750x578.jpeg"/></p>
+
+<p style="text-align:center"> </p>
+
+					                <p style="text-align:center"> </p>
+
+<p style="text-align:center"><img
+src="//img04.bubugao.com/14fa1c23846_2_2ce572cdf505951915c8655768fe9081_750x868.jpeg"/><img
+src="//img04.bubugao.com/150e087813b_2_f339173600fd7adc25b17025845b4f1c_750x476.jpeg"/></p>
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- 商品详情商品详情end -->
+				</div>
+			    <!-- 商品详情商品实拍begin -->
+			</textarea>
+		</div>
+		<!-- 商品详情商品实拍end -->
+		<!-- 评论 begin -->
+		<div class="nav-tab-cnt jNavTabCnt jTabCntBox" id="gd-comment" data-loading="true">
+		    <div class="jComment">
+		        <div class="loading">评论加载中，请稍后...</div>
+		    </div>
+		      <div class="cmt-pager" id="jCommentPager"></div>
+			</div>
+		</div>
+	<!-- 评论 end -->
+	<!-- 商品信息 end-->
+		<div id="jHistoryBox" class="mod-view-history">
+			<!-- 内容为js动态生成 -start -->
+			<div class="content-body lazy-slider jLazySlider">
+				<div class="hd"><i></i></div>
+				<h2 class="t14">最近浏览</h2>
+				<div id="jHistoryList" data-loading="true" class="jSliderShow history-list">
+					<div class="loading">数据加载中，请稍后...</div>
+				</div>
+			</div>
+			<!-- 内容为js动态生成 -end -->
+		</div>
+</div>

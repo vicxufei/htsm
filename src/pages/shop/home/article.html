@@ -1,0 +1,31 @@
+<div class="w1190">
+	<div class="page-breadcrumb">
+	</div>
+	<div class="page-cnt">
+		<?php if(is_array($output['article_list']) && !empty($output['article_list'])){ ?>
+		<div class="left-nav">
+			<?php foreach ($output['article_list'] as $k=> $article_class){ ?>
+			<?php if(!empty($article_class)){ ?>
+			<dl>
+				<dt><?php if(is_array($article_class['class'])) echo $article_class['class']['ac_name'];?></dt>
+				<?php if(is_array($article_class['list']) && !empty($article_class['list'])){ ?>
+				<dd>
+					<ul>
+						<?php foreach ($article_class['list'] as $article){ ?>
+						<li>
+							<a  class="<?php if($_GET['article_id'] == $article['article_id'] ){ echo 'active';  } ?>"   href="<?php if($article['article_url'] != '')echo $article['article_url'];else echo urlShop('article', 'show',array('article_id'=> $article['article_id']));?>" title="<?php echo $article['article_title']; ?>">
+						    <?php echo $article['article_title'];?>
+					    </a>
+						</li>
+						<?php }}?>
+					</ul>
+				</dd>
+			</dl>
+			<?php }}?>
+		</div>
+		<?php }?>
+<div class="page-content page-content-main">
+	<?php echo $output['article']['article_content'];?>
+</div>
+  </div>
+</div>

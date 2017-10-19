@@ -1,0 +1,357 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	  <meta name="keywords" content="<?php echo $output['seo_keywords']; ?>"/>
+    <meta name="description" content="<?php echo $output['seo_description']; ?>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $output['html_title']; ?></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.htths.com/">
+    <link rel="stylesheet" href="http://static.htths.com/css/base.min.css">
+	  <link rel="stylesheet" href="http://static.htths.com/css/member_order_detail.min.css">
+  </head>
+  <body>
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="global-topbar">
+      <div class="bd w1190 clearfix">
+    	  <ul class="sn-block sn-login f-l" id="is-login">
+    		  <?php if ($_SESSION['is_login'] == '1'){ ?>
+    		  <li data-is-login="1">
+    			  您好,
+    			  <a rel="nofollow" href="<?php echo urlMember('member_security', 'index');?>"><?php echo $_SESSION['member_name']; ?></a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'logout'); ?>">退出登录</a>
+    		  </li>
+    		  <?php }else{ ?>
+    		  <li data-is-login="0">
+    			  <a rel="nofollow" href="<?php echo urlMember('login'); ?>">登录</a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'register'); ?>">免费注册</a>
+    		  </li>
+    		  <?php } ?>
+    	  </ul>
+        <ul class="sn-block sn-quick f-r">
+          <li class="jMenu">
+              <a class="menu-hd block-item" rel="nofollow" href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order">我的订单<b
+    		          class="arrow"></b></a>
+              <div class="menu-bd">
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_new">待付款订单</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_send">待确认收货</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_noeval">待评价交易</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_goods&action=fglist">商品收藏</a>
+              </div>
+          </li>
+          <li class="sn-cart"><a class="block-item" href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=cart">我的购物车<b class="jCartCount sn-cart-count">0</b></a></li>
+          <li class="jMenu">
+              <a class="menu-hd block-item" href="#">客户服务<b class="arrow"></b></a>
+              <div class="menu-bd">
+                  <ul>
+                      <li><a href="<?php SHOP_SITE_URL; ?>/article-23.html">关于我们</a></li>
+                      <li><a href="<?php SHOP_SITE_URL; ?>/article-22.html">联系我们</a></li>
+                  </ul>
+              </div>
+          </li>
+          <li class="qr-codes jMenu">
+            <a class="menu-hd block-item" href="javascript:;">手机版</a>
+            <div class="menu-bd">
+              <div class="qr-codes-img"><img class="jImgPhoneCode img-error" src="//static.htths.com/img/htsm-qrcode.jpg" alt="太划算二维码"></div><div
+    		        class="qr-codes-txt">太划算手机版</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="site-head">
+      <div class="bd w1190 clearfix">
+        <div class="s-box" id="jSearch" data-node-type="jSearch">
+    	    <div class="s-main">
+    		    <label class="lbl-key" for="mq"></label>
+    		    <input class="input" type="text" name="keyword" autocomplete="off" x-webkit-grammar="builtin:translate" value="" id="mq" data-node-type="mq">
+    		    <a  class="btn-search jBtnAllSearch" href="javascript:;">搜索</a>
+    	    </div>
+    	    <div class="kw-suggest" id="jKwSuggest" data-node-type="jKwSuggest">
+    		    <?php if (is_array($output['hot_search']) && !empty($output['hot_search'])){ ?>
+    		      <?php foreach ($output['hot_search'] as $val){ ?>
+    		    <a href="<?php echo urlShop('search', 'index', array('keyword' => $val)); ?>" target="_blank"><?php echo $val; ?></a>
+    		    <?php } } ?>
+    	    </div>
+    
+          <div class="k-history" id="jSearchHistoryBox">
+    	      <?php if (is_array($output['his_search_list']) && !empty($output['his_search_list'])){ ?>
+    	      <ul class="kh-list">
+    		      <?php foreach ($output['his_search_list'] as $v){ ?>
+    		      <li class="kh-item" data-key="<?php echo $v ?>"><span class="kh-key"><?php echo $v ?></span><a class="kh-button">删除</a></li>
+    		      <?php } ?>
+    	      </ul>
+    	      <div class="kh-infos clearfix"><span>搜索记录</span><a class="kh-clear">清空搜索记录</a></div>
+    	      <?php }else{ ?>
+    	      <div class="kh-none">无历史搜索记录</div>
+    	      <?php } ?>
+          </div>
+        </div>
+        <h1>
+    	    <a href="<?php echo SHOP_SITE_URL; ?>" title="太划算商城" class="go-home">
+    		    <img alt="太划算商城" class="logo" src="<?php echo STATIC_URL; ?>/images/logo.png">
+            </a>
+        </h1>
+      </div>
+    </div>
+    
+    
+
+
+    <div class="main">
+    	<div class="clearfix">
+    		<div class="left-nav f-l">
+    		<div id="left">
+    			<h1 class="title-h1">
+    			<!-- <em class="icon iconuc">&#xe605;</em> -->
+    				<a href="http://i.yunhou.com">我的太划算</a>
+    			</h1>
+    			<dl class="nav-item">
+    				<dt>
+    					<i class="icon iconfont iconfont-order"></i>交易管理
+    				</dt>
+    				<dd class="">
+    					<a href="<?php echo urlShop('member_order', 'index');?>">我的订单</a>
+    				</dd>
+    				<dd class="">
+    					<a href="<?php echo urlShop('member_favorite_goods', 'index');?>">收藏夹</a>
+    				</dd>
+    			</dl>
+    			<div class="line"></div>
+    			<dl class="nav-item">
+    				<dt>
+    					<i class="icon iconfont iconfont-avatar2"></i>个人信息管理
+    				</dt>
+    				<dd class="">
+    					<a href="<?php echo urlMember('member_security', 'index');?>">安全中心</a>
+    				</dd>
+    				<dd class="">
+    					<a href="<?php echo urlMember('member_address', 'address');?>">管理收货地址</a>
+    				</dd>
+    			</dl>
+    		</div>
+    						</div>
+    		<div class="cnt f-l">
+    			<!-- 导航begin -->
+    			<div class="order-detail">
+    				<?php if ($output['order_info']['order_state'] != ORDER_STATE_CANCEL && $output['order_info']['order_type'] != 3) { ?>
+    				<div class="nav nav-5">
+    					<div class="<?php  echo $output['order_info']['order_state'] != ORDER_STATE_CANCEL ?  'line-orange':'line-gray';?> line-130"></div>
+    					<div class="nav-item <?php if ($output['order_info']['order_state'] != ORDER_STATE_CANCEL) echo 'nav-item-hover';?>">
+    						<p class="process-ico"><span>1</span></p>
+    						<p><span class="txt-info">订单提交</span></p>
+    						<div class="arrow"></div>
+    					</div>
+    					<?php if ($output['order_info']['payment_code'] != 'offline') { ?>
+    					<div class="<?php echo intval($output['order_info']['payment_time']) && $output['order_info']['order_pay_state'] !== false ? 'line-orange':'line-gray'; ?> line-130"></div>
+    					<div class="nav-item <?php if(intval($output['order_info']['payment_time']) && $output['order_info']['order_pay_state'] !== false) echo 'nav-item-hover'; ?>">
+    						<p class="process-ico"><span>2</span></p>
+    						<p><span class="txt-info">完成付款</span></p>
+    						<div class="arrow"></div>
+    					</div>
+    					<?php } ?>
+    					<div class="<?php echo $output['order_info']['extend_order_common']['shipping_time'] ? 'line-orange':'line-gray'; ?> line-130"></div>
+    					<div class="nav-item <?php if($output['order_info']['extend_order_common']['shipping_time']) echo 'nav-item-hover'; ?>">
+    						<p class="process-ico"><span>3</span></p>
+    						<p><span class="txt-info">商家发货</span></p>
+    						<div class="arrow"></div>
+    					</div>
+    					<div class="<?php echo intval($output['order_info']['finnshed_time'])  ? 'line-orange':'line-gray';  ?> line-130"></div>
+    					<div class="nav-item <?php if(intval($output['order_info']['finnshed_time'])) { echo 'nav-item-hover'; } ?>">
+    						<p class="process-ico"><span>4</span></p>
+    						<p><span class="txt-info">确认收货</span></p>
+    						<div class="arrow"></div>
+    					</div>
+    					<div class="<?php echo $output['order_info']['evaluation_state'] == 1 ? 'line-orange':'line-gray'; ?> line-130"></div>
+    					<div class="nav-item <?php if($output['order_info']['evaluation_state'] == 1) { echo 'nav-item-hover'; } ?>">
+    						<p class="process-ico"><span>5</span></p>
+    						<p><span class="txt-info">评价</span></p>
+    						<div class="arrow"></div>
+    					</div>
+    					<div class="line-gray line-170"></div>
+    				</div>
+    				<?php } ?>
+    				<div class="nav-bottom">
+    					<ul>
+    						<li class="txt-els f ">订单号：<span><?php echo $output['order_info']['order_sn']; ?></span></li>
+    						<li>当前订单状态：<em><?php echo $output['order_info']['state_desc'];?></em></li>
+    					</ul>
+    				</div>
+    			</div>
+    	<!-- 导航end -->
+    
+    	<!-- 订单跟踪begin -->
+    			<?php if ($output['order_info']['order_state'] == ORDER_STATE_SEND) { ?>
+    			<div class="order-tracking">
+    				<h1><span>物流跟踪</span></h1>
+    				<div class="ct">
+    					<div class="line-wrap">
+    						<div class="line-bottom"></div>
+    						<ul id="jCurrentState">
+    							<li>
+    						    <em></em>
+    						    <span>
+    							    <i class="arrow"></i>
+    							    <?php if ($output['order_info']['shipping_code'] != '') { ?>
+    							    <b>物流公司：<?php echo $output['order_info']['express_info']['e_name']?></b>
+    							    <strong>单号：<?php echo $output['order_info']['shipping_code'];?>.<?php if ($output['order_info']['if_deliver']) { ?>
+    								     <a href="javascript:void(0)" id="get_express" class="blue btn"
+    								      data-ecode="<?php echo $output['order_info']['express_info']['e_code']?>" data-shipping-code="<?php echo $output['order_info']['shipping_code'];?>">物流跟踪
+    								    </a> <?php } ?>
+    							    </strong>
+    							    <div id="express-detail">
+    							    </div>
+    							    <?php } ?>
+    						    </span>
+    							</li>
+    						</ul>
+    					</div>
+    				</div>
+    			</div>
+    			<?php } ?>
+    	<!-- 订单跟踪end -->
+    	<!--  订单信息begin -->
+    			<div class="order-info">
+    				<h1><span>订单信息</span></h1>
+    				<div class="ct">
+    					<?php if($output['order_info']['chain_id'] > 0){ ?>
+    					<!-- 提货点信息begin -->
+    					<table class="list-info">
+    						<tbody>
+    						<tr>
+    							<td class="f">
+    								<div class="f-wrap"><span>提货点信息</span><i class="arrow"></i></div>
+    							</td>
+    							<td class="s">
+    								<p><label>店&nbsp;铺&nbsp;名&nbsp;：</label><b><?php echo $output['order_info']['chain_info']['chain_name'];?></b></p>
+    								<p><label>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</label><b class="txt-els"><?php echo $output['order_info']['chain_info']['area_info'].','.$output['order_info']['chain_info']['chain_address'];?></b><!-- span>自提点11</span--></p>
+    								<p><label>联系号码：</label><b><?php echo @$output['order_info']['chain_info']['chain_phone'];?></b></p>
+    								<?php if($output['order_info']['chain_code']){ ?>
+    								<p><label><strong>提&nbsp;货&nbsp;码&nbsp;:</strong></label><b><?php echo @$output['order_info']['chain_code'];?></b></p>
+    								<?php } ?>
+    							</td>
+    						</tr>
+    						</tbody>
+    					</table>
+    					<!-- 提货点信息end -->
+    					<?php }else{ ?>
+    					<!-- 收货人信息begin -->
+    					<table class="list-info">
+    						<tbody>
+    						<tr>
+    							<td class="f">
+    								<div class="f-wrap"><span>收货人信息</span><i class="arrow"></i></div>
+    							</td>
+    							<td class="s">
+    								<p><label>收&nbsp;货&nbsp;人&nbsp;：</label><b><?php echo $output['order_info']['extend_order_common']['reciver_name'];?></b></p>
+    								<p><label>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</label><b class="txt-els"><?php echo @$output['order_info']['extend_order_common']['reciver_info']['address'];?></b><!-- span>自提点11</span--></p>
+    								<p><label>手机号码：</label><b><?php echo @$output['order_info']['extend_order_common']['reciver_info']['phone'];?></b></p>
+    							</td>
+    						</tr>
+    						</tbody>
+    					</table>
+    					<!-- 收货人信息end -->
+    					<?php } ?>
+    
+    					<!-- 商品清单begin -->
+    					<div class="product-list">
+    						<h2>商品清单</h2>
+    						<table>
+    							<tbody><tr>
+    								<th>商品名称</th>
+    								<th>销售价</th>
+    								<th>数量</th>
+    								<th>小计</th>
+    							</tr>
+    							<?php foreach($output['order_info']['goods_list'] as $k => $goods) {?>
+    								<tr>
+    									<td class="f "><div class="order-detail-div">
+    										<a class="order-title-left" title="<?php echo $goods['goods_name']; ?>"
+    										   target="_blank" href="<?php echo $goods['goods_url']; ?>"><?php echo $goods['goods_name']; ?>
+    									</div></td>
+    									<td class="p-normal">￥<?php echo ncPriceFormat($goods['goods_pay_price']);?></td>
+    									<td><?php echo $goods['goods_num']; ?></td>
+    									<td class="txt-red p-normal">￥<?php echo ncPriceFormat($goods['goods_pay_price'] * $goods['goods_num']); ?></td>
+    								</tr>
+    							<?php }?>
+    						</tbody></table>
+    					</div>
+    					<!-- 商品清单end -->
+    					<!-- 结算信息begin -->
+    					<div class="billing-info">
+    						<!-- 订单优惠begin -->
+    						<!-- 订单优惠end -->
+    						<!-- 买家留言begin -->
+    						<div class="order-preferential">
+    						</div>
+    						<!-- 买家留言end -->
+    						<div class="price-box">
+    							<p><label>商品金额：</label><span class="p-normal">+￥<?php echo $output['order_info']['goods_amount']; ?></span></p>
+    							<p><label>运费：</label><span class="p-normal">+￥<?php echo $output['order_info']['shipping_fee']; ?></span></p>
+    							<p><label>总金额：</label><span class="p-normal txt-red">￥<?php echo $output['order_info']['order_amount']; ?></span></p>
+    						</div>
+    					</div>
+    					<!-- 结算信息end -->
+    				</div>
+    			</div>
+    	<!-- 订单信息end -->
+    		</div>
+    
+    	</div>
+    </div>
+
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="footer">
+        <div class="ft">
+          <div class="copyright">
+              <p class="links">
+    	          <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-43.html" target="_blank">隐私政策</a><span>|</span>
+    	          <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-44.html" target="_blank">购物流程</a><span>|</span>
+    	          <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-45.html" target="_blank">退换货政策</a><span>|</span>
+                  <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-22.html" target="_blank">关于太划算</a><span>|</span>
+                  <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-23.html" target="_blank">联系我们</a>
+              </p>
+              <p class="cprt-icp">Copyright© 太划算商城 2014-2016，All Rights Reserved</p>
+              <p class="cprt-icp">ICP备案:苏ICP备14036053号-1<span>|</span>增值电信业务经营许可证：<a href="http://jscainfo.miitbeian.gov.cn/state/outPortal/loginPortal.action">苏B2-20160487</a><span>|</span>食品流通许可证：SP3205851410003535<span>|</span>酒类流通备案：320504101788</p>
+              <p class="pic">
+                  <img border="0" src="http://static.htths.com/images/szicbok.gif">
+              </p>
+          </div>
+        </div>
+    </div>
+    
+    
+    <script>
+	    var require = {urlArgs: 'v=123' };
+    </script>
+	  <script src="http://static.htths.com/js/lib/require.js" data-main="http://static.htths.com/js/member_order_detail"></script>
+    <script type='text/javascript'>
+      (function(m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function() {
+                  (m[i].a = m[i].a || []).push(arguments)
+                };
+        j = ei.createElement(q),
+                s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = '//static.meiqia.com/dist/meiqia.js';
+        s.parentNode.insertBefore(j, s);
+      })(window, document, 'script', '_MEIQIA');
+      _MEIQIA('entId', 29969);
+      _MEIQIA('withoutBtn');
+      _MEIQIA('init');
+    </script>
+  </body>
+</html>

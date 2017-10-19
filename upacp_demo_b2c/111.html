@@ -1,0 +1,27 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body onload="javascript:document.pay_form.submit();">
+    <form id="pay_form" name="pay_form" action="https://101.231.204.80:5000/gateway/api/frontTransReq.do" method="post">
+	    <input type="hidden" name="version" id="version" value="5.0.0" />
+    <input type="hidden" name="encoding" id="encoding" value="utf-8" />
+    <input data="消费" type="hidden" name="txnType" id="txnType" value="01" />
+    <input data="交易子类" type="hidden" name="txnSubType" id="txnSubType" value="01" />
+    <input data="产品类型:b2C网关支付" type="hidden" name="bizType" id="bizType" value="000201" />
+    <input type="hidden" name="frontUrl" id="frontUrl" value="http://localhost:8085/upacp_demo_b2c/demo/api_01_gateway/FrontReceive.php" />
+    <input type="hidden" name="backUrl" id="backUrl" value="http://222.222.222.222/upacp_demo_b2c/demo/api_01_gateway/BackReceive.php" />
+    <input type="hidden" name="signMethod" id="signMethod" value="01" />
+    <input type="hidden" name="channelType" id="channelType" value="08" />
+    <input type="hidden" name="accessType" data="接入类型:商户直接接入" id="accessType" value="0" />
+    <input type="hidden" name="currencyCode" data="156为人民币" id="currencyCode" value="156" />
+    <input type="hidden" name="merId" id="merId" value="777290058110048" />
+    <input type="hidden" name="orderId" id="orderId" value="20160726145912" />
+    <input type="hidden" name="txnTime" id="txnTime" value="20160726145912" />
+    <input type="hidden" name="txnAmt" data="交易金额:单位分" id="txnAmt" value="1000" />
+    <input type="hidden" name="certId" id="certId" value="68759663125" />
+    <input type="hidden" name="signature" id="signature" value="xvtuxV4+usYXBlPBKRqxtf802ggkLRgWOJH99i9jA2ldLXjy2swR7/iblx15fW3YEu+v8VdBmjfNX+z2Dv1PANuofKgkmJH93QzEk6bR2+wv06yeyS6v3wOxVVsioOPB3fhjHOVMKGnwuyhFkKn7u059Px9p8I29TRvKt1bpkq8VQaFKUOlh7LyzJIa6NcsDALwY6CrHTEpmAsvpx3qk/I4usVXbs5QspLMAm8HBbocRmRTjhWQy1oGPZeGq4ryVQEAEMkM2mZfpcEY1hRs/gUYlKTP4H7DEVNzaWC6982yCTBj7xiCHQyQpQqGHcreeTWE7Y+pcgiCschf/YdLq6g==" />
+	    <!-- <input type="submit" type="hidden">-->
+    </form>
+</body>
+</html>

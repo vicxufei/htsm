@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{#ifpage 'cart'}}购物车{{/ifpage}}{{#ifpage 'buy'}}下单页{{/ifpage}}-太划算商城-更近更贴心</title>
+ 	<meta charset="utf-8" />
+  <meta name="renderer" content="webkit" />
+	<link rel="stylesheet" href="http://static.htths.com/css/base.min.css">
+	<link rel="stylesheet" href="http://static.htths.com/css/{{page}}.min.css">
+</head>
+<body>
+  {{> topbar}}
+  <div class="site-head">
+<div class="bd w1190 clearfix">
+<h1 class="title">
+<a href="<?php echo SHOP_SITE_URL; ?>" title="太划算商城" class="go-home">
+<img alt="太划算商城" class="logo" src="<?php echo STATIC_URL; ?>/images/logo.png">
+</a>
+<span class="span-txt" id="jHdTxt">{{#ifpage 'cart'}}购物车{{/ifpage}}{{#ifpage 'buy'}}下单页{{/ifpage}}</span>
+</h1>
+<ul class="s-process">
+<li><em class="icon iconcart process-item"></em><span class="pro-txt">100%正品</span></li>
+<li><em class="icon iconcart  process-item"></em><span class="pro-txt">闪电发货</span></li>
+<li><em class="icon iconcart process-item"></em><span class="pro-txt">售后无忧</span></li>
+</ul>
+</div>
+</div>
+  {{> body}}
+  {{> footer}}
+  	<script>var require = {urlArgs: 'v=123'};</script>
+	  <script src="http://static.htths.com/js/lib/require.js" data-main="http://static.htths.com/js/{{page}}"></script>
+<script type='text/javascript'>
+    (function(m, ei, q, i, a, j, s) {
+	    m[i] = m[i] || function() {
+			    (m[i].a = m[i].a || []).push(arguments)
+		    };
+	    j = ei.createElement(q),
+		    s = ei.getElementsByTagName(q)[0];
+	    j.async = true;
+	    j.charset = 'UTF-8';
+	    j.src = '//static.meiqia.com/dist/meiqia.js';
+	    s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', 29969);
+</script>
+</body>
+</html>

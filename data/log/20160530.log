@@ -1,0 +1,2 @@
+[2016-05-30 11:19:58] /api/payment/wxpay/notify_url.php ( act=payment&op=wxpay_notify ) 
+ERR: {"appid":"wxeda52f5413d2e571","attach":"r","bank_type":"CCB_DEBIT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1226353802","nonce_str":"k0je6taog0q5dgfy8xk1pada6c5tzyqy","openid":"o7Tftjm9K2sZWnfTPgLOsPJ7-m_o","out_trade_no":"300517922339413023","result_code":"SUCCESS","return_code":"SUCCESS","sign":"1AFE9C5D125884C5071586E8AAEDA502","time_end":"20160530111957","total_fee":"1","trade_type":"NATIVE","transaction_id":"4002842001201605306503444769"}

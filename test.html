@@ -1,0 +1,109 @@
+<header class="words">
+  <h1>Spin Cycle</h1>
+  <p>Take any simple inline SVG and turn it into a spinner! Branding is super-flexible and set through a Sass mixin.</p>
+  <p><b>The only rule is that the things you want to animate have to be DIRECT CHILDREN of the SVG element.</b></p>
+</header>
+<style>
+.ic-Spin-cycle--circles {
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: visible; }
+.ic-Spin-cycle--circles > svg {
+	display: block;
+	overflow: visible; }
+.ic-Spin-cycle--circles > svg > * {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-transform-origin: center;
+	-ms-transform-origin: center;
+	transform-origin: center;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite; }
+
+body:not(:-moz-handler-blocked) svg > * {
+	transform: none !important;
+	transform-origin: 0 0; }
+
+.ic-Spin-cycle--circles {
+	margin: 12px 24px;
+	width: 100px;
+	height: 40px; }
+
+@-webkit-keyframes circles {
+	from {
+		fill: rgba(0, 255, 0, 0.8);
+		-webkit-transform: scale(1.6);
+		transform: scale(1.6); }
+	to {
+		fill: rgba(255, 255, 255, 0.5);
+		-webkit-transform: scale(1);
+		transform: scale(1); } }
+
+@keyframes circles {
+	from {
+		fill: rgba(0, 255, 0, 0.8);
+		-webkit-transform: scale(1.6);
+		transform: scale(1.6); }
+	to {
+		fill: rgba(255, 255, 255, 0.5);
+		-webkit-transform: scale(1);
+		transform: scale(1); } }
+.ic-Spin-cycle--circles > svg {
+	width: 100px;
+	height: 40px; }
+.ic-Spin-cycle--circles > svg > * {
+	fill: rgba(255, 255, 255, 0.5);
+	-webkit-animation-name: circles;
+	animation-name: circles;
+	-webkit-animation-duration: 0.8s;
+	animation-duration: 0.8s; }
+.ic-Spin-cycle--circles > svg > *:nth-of-type(1) {
+	-webkit-animation-delay: 0.1s;
+	animation-delay: 0.1s; }
+.ic-Spin-cycle--circles > svg > *:nth-of-type(2) {
+	-webkit-animation-delay: 0.2s;
+	animation-delay: 0.2s; }
+.ic-Spin-cycle--circles > svg > *:nth-of-type(3) {
+	-webkit-animation-delay: 0.3s;
+	animation-delay: 0.3s; }
+.ic-Spin-cycle--circles > svg > *:nth-of-type(4) {
+	-webkit-animation-delay: 0.4s;
+	animation-delay: 0.4s; }
+.ic-Spin-cycle--circles > svg > *:nth-of-type(5) {
+	-webkit-animation-delay: 0.5s;
+	animation-delay: 0.5s; }
+.ic-Spin-cycle--circles > svg > *:nth-of-type(6) {
+	-webkit-animation-delay: 0.6s;
+	animation-delay: 0.6s; }
+.ic-Spin-cycle--circles > svg > *:nth-of-type(7) {
+	-webkit-animation-delay: 0.7s;
+	animation-delay: 0.7s; }
+
+
+body {
+	background: black;
+ }
+
+
+.examples {
+	text-align: center; }
+</style>
+<main class="examples">
+
+
+  <div class="ic-Spin-cycle--circles">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0" y="0" viewBox="0 0 200 79" enable-background="new 0 0 200 79" xml:space="preserve">
+      <circle cx="39.5" cy="39.5" r="39.5"/>
+      <circle cx="100" cy="39.5" r="39.5"/>
+      <circle cx="160.5" cy="39.5" r="39.5"/>
+    </svg>
+  </div>
+
+  <span id="get_province" data-province=""></span>
+	<span id="get_city" data-city=""></span>
+	<span id="get_area" data-area=""></span>
+	<script>
+
+	</script>
+</main>

@@ -1,0 +1,392 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	  <meta name="keywords" content="<?php echo $output['seo_keywords']; ?>"/>
+    <meta name="description" content="<?php echo $output['seo_description']; ?>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $output['html_title']; ?></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.htths.com/">
+    <link rel="stylesheet" href="http://static.htths.com/css/base.min.css">
+	  <link rel="stylesheet" href="http://static.htths.com/css/member_order.min.css">
+  </head>
+  <body>
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="global-topbar">
+      <div class="bd w1190 clearfix">
+    	  <ul class="sn-block sn-login f-l" id="is-login">
+    		  <?php if ($_SESSION['is_login'] == '1'){ ?>
+    		  <li data-is-login="1">
+    			  您好,
+    			  <a rel="nofollow" href="<?php echo urlMember('member_security', 'index');?>"><?php echo $_SESSION['member_name']; ?></a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'logout'); ?>">退出登录</a>
+    		  </li>
+    		  <?php }else{ ?>
+    		  <li data-is-login="0">
+    			  <a rel="nofollow" href="<?php echo urlMember('login'); ?>">登录</a>
+    			  <span class="split"></span>
+    			  <a rel="nofollow" href="<?php echo urlLogin('login', 'register'); ?>">免费注册</a>
+    		  </li>
+    		  <?php } ?>
+    	  </ul>
+        <ul class="sn-block sn-quick f-r">
+          <li class="jMenu">
+              <a class="menu-hd block-item" rel="nofollow" href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order">我的订单<b
+    		          class="arrow"></b></a>
+              <div class="menu-bd">
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_new">待付款订单</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_send">待确认收货</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_order&state_type=state_noeval">待评价交易</a>
+                  <a rel="nofollow"
+                     href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=member_favorite_goods&action=fglist">商品收藏</a>
+              </div>
+          </li>
+          <li class="sn-cart"><a class="block-item" href="<?php echo SHOP_SITE_URL; ?>/index.php?controller=cart">我的购物车<b class="jCartCount sn-cart-count">0</b></a></li>
+          <li class="jMenu">
+              <a class="menu-hd block-item" href="#">客户服务<b class="arrow"></b></a>
+              <div class="menu-bd">
+                  <ul>
+                      <li><a href="<?php SHOP_SITE_URL; ?>/article-23.html">关于我们</a></li>
+                      <li><a href="<?php SHOP_SITE_URL; ?>/article-22.html">联系我们</a></li>
+                  </ul>
+              </div>
+          </li>
+          <li class="qr-codes jMenu">
+            <a class="menu-hd block-item" href="javascript:;">手机版</a>
+            <div class="menu-bd">
+              <div class="qr-codes-img"><img class="jImgPhoneCode img-error" src="//static.htths.com/img/htsm-qrcode.jpg" alt="太划算二维码"></div><div
+    		        class="qr-codes-txt">太划算手机版</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="site-head">
+      <div class="bd w1190 clearfix">
+        <div class="s-box" id="jSearch" data-node-type="jSearch">
+    	    <div class="s-main">
+    		    <label class="lbl-key" for="mq"></label>
+    		    <input class="input" type="text" name="keyword" autocomplete="off" x-webkit-grammar="builtin:translate" value="" id="mq" data-node-type="mq">
+    		    <a  class="btn-search jBtnAllSearch" href="javascript:;">搜索</a>
+    	    </div>
+    	    <div class="kw-suggest" id="jKwSuggest" data-node-type="jKwSuggest">
+    		    <?php if (is_array($output['hot_search']) && !empty($output['hot_search'])){ ?>
+    		      <?php foreach ($output['hot_search'] as $val){ ?>
+    		    <a href="<?php echo urlShop('search', 'index', array('keyword' => $val)); ?>" target="_blank"><?php echo $val; ?></a>
+    		    <?php } } ?>
+    	    </div>
+    
+          <div class="k-history" id="jSearchHistoryBox">
+    	      <?php if (is_array($output['his_search_list']) && !empty($output['his_search_list'])){ ?>
+    	      <ul class="kh-list">
+    		      <?php foreach ($output['his_search_list'] as $v){ ?>
+    		      <li class="kh-item" data-key="<?php echo $v ?>"><span class="kh-key"><?php echo $v ?></span><a class="kh-button">删除</a></li>
+    		      <?php } ?>
+    	      </ul>
+    	      <div class="kh-infos clearfix"><span>搜索记录</span><a class="kh-clear">清空搜索记录</a></div>
+    	      <?php }else{ ?>
+    	      <div class="kh-none">无历史搜索记录</div>
+    	      <?php } ?>
+          </div>
+        </div>
+        <h1>
+    	    <a href="<?php echo SHOP_SITE_URL; ?>" title="太划算商城" class="go-home">
+    		    <img alt="太划算商城" class="logo" src="<?php echo STATIC_URL; ?>/images/logo.png">
+            </a>
+        </h1>
+      </div>
+    </div>
+    
+    
+
+
+    <div class="main">
+    	<div class="clearfix">
+    		<div class="left-nav f-l">
+    		<div id="left">
+    			<h1 class="title-h1">
+    			<!-- <em class="icon iconuc">&#xe605;</em> -->
+    				<a href="http://i.yunhou.com">我的太划算</a>
+    			</h1>
+    			<dl class="nav-item">
+    				<dt>
+    					<i class="icon iconfont iconfont-order"></i>交易管理
+    				</dt>
+    				<dd class="hover">
+    					<a href="<?php echo urlShop('member_order', 'index');?>">我的订单</a>
+    				</dd>
+    				<dd class="">
+    					<a href="<?php echo urlShop('member_favorite_goods', 'index');?>">收藏夹</a>
+    				</dd>
+    			</dl>
+    			<div class="line"></div>
+    			<dl class="nav-item">
+    				<dt>
+    					<i class="icon iconfont iconfont-avatar2"></i>个人信息管理
+    				</dt>
+    				<dd class="">
+    					<a href="<?php echo urlMember('member_security', 'index');?>">安全中心</a>
+    				</dd>
+    				<dd class="">
+    					<a href="<?php echo urlMember('member_address', 'address');?>">管理收货地址</a>
+    				</dd>
+    			</dl>
+    		</div>
+    						</div>
+    		<div class="cnt f-l">
+    			<div class="tab">
+    				<div class="tab-title clearfix">
+    					<a class="<?php echo $_GET['state_type']==''?'hover':''; ?>"
+    					   href="<?php echo urlShop('member_order', 'index'); ?>">全部订单</a>
+    					<a class="<?php echo $_GET['state_type']=='state_new'?'hover':''; ?>"
+    					   href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_new')); ?>">
+    						待付款
+    					</a>
+    					<a class="<?php echo $_GET['state_type']=='state_pay'?'hover':''; ?>"
+    					   href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_pay')); ?>">
+    						待发货
+    					</a>
+    					<a class="<?php echo $_GET['state_type']=='state_send'?'hover':''; ?>"
+    					   href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_send')); ?>">
+    						待收货
+    					</a>
+    					<a class="<?php echo $_GET['state_type']=='state_success'?'hover':''; ?>"
+    					   href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_success')); ?>">
+    						已完成
+    					</a>
+    					<a class="<?php echo $_GET['state_type']=='state_noeval'?'hover':''; ?>"
+    					   href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_noeval')); ?>">
+    						待评价
+    					</a>
+    					<a class="<?php echo $_GET['state_type']=='state_notakes'?'hover':''; ?>"
+    					   href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_notakes')); ?>">
+    						待自提
+    					</a>
+    					<a class="<?php echo $_GET['state_type']=='state_cancel'?'hover':''; ?>"
+    					   href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_cancel')); ?>">
+    						已取消
+    					</a>
+    				</div>
+    			</div>
+    			<table class="table order">
+    				<thead>
+    		      <tr>
+    		        <th colspan="2">商品</th>
+    		        <th class="w90">单价（元）</th>
+    		        <th class="w40">数量</th>
+    		        <th class="w110">订单金额</th>
+    		        <th class="w90">交易状态</th>
+    		        <th class="w120">交易操作</th>
+    		      </tr>
+    				</thead>
+    				<?php if ($output['order_group_list']) { ?>
+    				<?php foreach ($output['order_group_list'] as $order_pay_sn => $group_info) { ?>
+    				<tbody>
+    				<?php foreach($group_info['order_list'] as $order_id => $order_info) {?>
+    	      <tr>
+    	        <td colspan="19" class="pay-td">
+    		        <span>订单号:<?php echo $order_info['order_sn']; ?>
+    			        <?php if ($order_info['order_from'] == 2){?><i class="icon-mobile-phone"></i><?php }?>
+    						</span>
+    						<span>下单时间:<?php echo date("Y-m-d H:i:s",$order_info['add_time']); ?></span>
+    
+    		        <?php if ($order_info['chain_id']) { ?>
+    		        <span>取货方式：门店自提</span>
+    		        <?php } ?>
+    
+    	        </td>
+    	      </tr>
+    
+    				<!-- S 商品列表 -->
+    				<?php $i = 0;?>
+    				<?php if (is_array($order_info['goods_list'])) { ?>
+    				<?php foreach ($order_info['goods_list'] as $k => $goods_info) {?>
+    				<?php $i++;?>
+    				<tr>
+    					<td class="w70 bdleft">
+    						<div class="goods-thumb">
+    							<a href="<?php echo $goods_info['goods_url'];?>" target="_blank">
+    								<img src="<?php echo $goods_info['image_60_url'];?>"/></a>
+    						</div>
+    					</td>
+    					<td class="tl">
+    						<dl class="goods-name">
+    							<dt>
+    								<a href="<?php echo $goods_info['goods_url'];?>" target="_blank">
+    									<?php echo $goods_info['goods_name']; ?>
+    								</a>
+    							</dt>
+    							<?php if (!empty($goods_info['goods_spec'])) { ?>
+    							<dd><?php echo $goods_info['goods_spec'];?></dd>
+    							<?php } ?>
+    							<?php if (!empty($goods_info['goods_type_cn'])) { ?>
+    							<dd class="goods-type"><?php echo $goods_info['goods_type_cn'];?></>
+    							<?php } ?>
+    						</dl>
+    					</td>
+    					<td><?php echo ncPriceFormat($goods_info['goods_price']);?>
+    		        <p class="green">
+    	            <?php if (is_array($order_info['refund_all']) && !empty($order_info['refund_all']) && $order_info['refund_all']['admin_time'] > 0) {?>
+    			        <?php echo $goods_info['goods_pay_price'];?>(退)
+    			        <?php } elseif ($goods_info['extend_refund']['admin_time'] > 0) { ?>
+    			        <?php echo $goods_info['extend_refund']['refund_amount'];?>(退)
+    			        <?php } ?>
+    	          </p>
+    					</td>
+            <td><?php echo $goods_info['goods_num']; ?></td>
+    					<!-- S 合并TD -->
+    					<?php if (($order_info['goods_count'] > 1 && $k ==0) || ($order_info['goods_count'] == 1)){?>
+            <td class="bdl" rowspan="<?php echo $order_info['goods_count'];?>">
+    	        <p class="">
+    		        <strong><?php echo $order_info['order_amount']; ?></strong>
+    	        </p>
+              <p class="goods-freight">
+                <?php if ($order_info['shipping_fee'] > 0){?>
+                (<?php echo $lang['member_order_shipping_han'];?>运费<?php echo $order_info['shipping_fee'];?>)
+    	          <?php }else{?>
+    	          <?php echo $lang['nc_common_shipping_free'];?>
+    	          <?php }?>
+              </p>
+              <p title="<?php echo $lang['member_order_pay_method'].$lang['nc_colon'];?><?php echo $order_info['payment_name']; ?>">
+    	          <?php echo $order_info['payment_name']; ?>
+              </p>
+            </td>
+            <td class="bdl" rowspan="<?php echo $order_info['goods_count'];?>">
+    	        <p>
+    		        <?php echo $order_info['state_desc']; ?>
+    		        <?php echo $order_info['evaluation_status'] ? $lang['member_order_evaluated'] : '';?>
+    	        </p>
+    	        <p>
+    		        <?php if ($group_info['pay_amount'] > 0) {?>
+    		        <span class="ml15">在线支付金额：<em>￥<?php echo ncPriceFormat($group_info['pay_amount']);?></em></span>
+    		        <?php }?>
+    	        </p>
+    	        <!-- 物流跟踪 -->
+    	        <?php if ($order_info['if_deliver']){ ?>
+    	        <p><a href='index.php?controller=member_order&action=search_deliver&order_id=<?php echo $order_info['order_id']; ?>&order_sn=<?php echo $order_info['order_sn']; ?>' target="_blank"><?php echo $lang['member_order_show_deliver']?></a></p>
+    	        <?php } ?>
+            </td>
+            <td class="bdl bdr" rowspan="<?php echo $order_info['goods_count'];?>"><!-- 永久删除 -->
+    	        <!-- 锁定-->
+    	        <?php if ($order_info['if_lock']) { ?>
+    	        <p>退款退货中</p>
+    	        <?php } ?>
+    
+    	        <?php if ($order_info['if_delete']) { ?><!-- 放入回收站 -->
+    		        <a href="javascript:void(0);" class="jOrderOp" data-op-type="order_delete" data-order-id="<?php echo $order_info['order_id']; ?>">删除</a>
+    	        <?php } ?>
+    	        <?php if ($order_info['if_restore']) { ?><!-- 还原订单 -->
+    		        <a href="javascript:void(0);" class="jOrderOp" data-op-type="order_restore" data-order-id="<?php echo $order_info['order_id']; ?>">还原</a>
+    	        <?php } ?>
+    
+    
+    	        <?php if ($order_info['if_complain']){ ?><!-- 投诉 -->
+    	        <?php } ?>
+    
+    	        <a href="index.php?controller=member_order&action=show_order&order_id=<?php echo $order_info['order_id']; ?>" target="_blank">订单查看</a>
+    	        <?php if ($order_info['if_buyer_cancel']) { ?>
+    	        <a href="javascript:void(0)"  class="jOrderOp" data-op-type="order_cancel" data-order-id="<?php echo $order_info['order_id']; ?>">取消订单</a>
+    	        <?php } ?>
+    
+    	        <?php if ($group_info['pay_amount'] > 0) {?>
+    	        <a class="btn" href="index.php?controller=buy&action=pay&pay_sn=<?php echo $order_pay_sn; ?>">订单支付</a>
+    	        <?php }?>
+    
+    	        <?php if ($order_info['if_refund_cancel'] =='yefengKK'){ ?><!-- 退款取消订单 -->
+    	        <?php } ?>
+    
+    	        <?php if ($order_info['if_receive']) { ?>
+    	        <a href="javascript:void(0)" class="jOrderOp btn"  data-op-type="order_receive" data-order-id="<?php echo $order_info['order_id']; ?>"   data-order-sn="<?php echo $order_info['order_sn']; ?>">确认收货</a>
+    	        <?php } ?>
+    
+    	        <?php if ($order_info['if_evaluation']) { ?><!-- 评价 -->
+    	        <a class="btn" href="index.php?controller=member_evaluate&action=add&order_id=<?php echo $order_info['order_id']; ?>"><?php echo $lang['member_order_want_evaluate'];?></a>
+    	        <?php } ?>
+    
+    	        <?php if ($order_info['if_evaluation_again']) { ?>
+    	        <a class="ncbtn" href="index.php?controller=member_evaluate&action=add_again&order_id=<?php echo $order_info['order_id']; ?>"><i class="icon-thumbs-up-alt"></i>追加评价</a>
+    	        <?php } ?>
+    	        <?php if ($order_info['if_drop']) { ?>
+    	        <a href="javascript:void(0);" onclick="ajax_get_confirm('您确定要永久删除吗?永久删除后您将无法再查看该订单，也无法进行投诉维权，请谨慎操作！', 'index.php?controller=member_order&action=change_state&state_type=order_drop&order_id=<?php echo $order_info['order_id']; ?>');" class="ncbtn ncbtn-grapefruit mt5"><i class="icon-trash"></i>永久删除</a>
+    	        <?php } ?>
+            </td>
+    					  <!-- E 合并TD -->
+    					  <?php } ?>
+          </tr>
+    
+    
+    				  <?php } ?>
+    				  <?php } ?>
+    				  <!-- E 商品列表 -->
+    
+    				  <?php } ?>
+    				  </tbody>
+    				  <?php } ?>
+    				  <?php } else { ?>
+    				  <tbody>
+          <tr>
+            <td colspan="20" class="norecord"><div class="warning-option"><i>&nbsp;</i><span><?php echo $lang['no_record'];?></span></div></td>
+          </tr>
+        </tbody>
+    				  <?php } ?>
+      </table>
+    			<?php if($output['order_group_list']) { ?>
+    			<?php echo $output['show_page']; ?>
+    			<?php } ?>
+    		</div>
+    	</div>
+    </div>
+
+    <?php defined('ByYfShop') or exit('非法进入,IP记录...'); ?>
+    <div class="footer">
+        <div class="ft">
+          <div class="copyright">
+              <p class="links">
+    	          <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-43.html" target="_blank">隐私政策</a><span>|</span>
+    	          <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-44.html" target="_blank">购物流程</a><span>|</span>
+    	          <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-45.html" target="_blank">退换货政策</a><span>|</span>
+                  <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-22.html" target="_blank">关于太划算</a><span>|</span>
+                  <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-23.html" target="_blank">联系我们</a>
+              </p>
+              <p class="cprt-icp">Copyright© 太划算商城 2014-2016，All Rights Reserved</p>
+              <p class="cprt-icp">ICP备案:苏ICP备14036053号-1<span>|</span>增值电信业务经营许可证：<a href="http://jscainfo.miitbeian.gov.cn/state/outPortal/loginPortal.action">苏B2-20160487</a><span>|</span>食品流通许可证：SP3205851410003535<span>|</span>酒类流通备案：320504101788</p>
+              <p class="pic">
+                  <img border="0" src="http://static.htths.com/images/szicbok.gif">
+              </p>
+          </div>
+        </div>
+    </div>
+    
+    
+    <script>
+	    var require = {urlArgs: 'v=123' };
+    </script>
+	  <script src="http://static.htths.com/js/lib/require.js" data-main="http://static.htths.com/js/member_order"></script>
+    <script type='text/javascript'>
+      (function(m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function() {
+                  (m[i].a = m[i].a || []).push(arguments)
+                };
+        j = ei.createElement(q),
+                s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = '//static.meiqia.com/dist/meiqia.js';
+        s.parentNode.insertBefore(j, s);
+      })(window, document, 'script', '_MEIQIA');
+      _MEIQIA('entId', 29969);
+      _MEIQIA('withoutBtn');
+      _MEIQIA('init');
+    </script>
+  </body>
+</html>

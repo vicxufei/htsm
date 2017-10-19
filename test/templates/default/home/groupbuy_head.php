@@ -1,0 +1,1 @@
+<?php defined('ByShopWWI') or exit('Access Invalid!');?><style type="text/css">.nch-breadcrumb-layout {display: none;}</style>

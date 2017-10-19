@@ -1,0 +1,56 @@
+
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+</head>
+
+<body align="center">
+<div align="center">
+<h1>Jquery Form Submit Demo</h1>
+
+<form name="myForm" id="testForm" method="POST" action="send.php">
+UserName: <input type="text" name="user" value="test" /> <br/>
+Password: <input type="password" name="password" value="test"/> <br/>
+</form>
+
+<br/>
+<input type="button" id="submit1" value="Submit by Form ID" />
+<input type="button" id="submit2" value="Submit by Form Name" />
+<input type="button" id="submit3" value="Submit by Form Index" />
+<input type="button" id="submit4" value="Submit with Event Handler" />
+
+</div>
+</body>
+<script>
+$(document).ready(function()
+{
+	$("#submit1").click(function()
+	{
+		$("#testForm").submit();
+
+	});
+	$("#submit2").click(function()
+	{
+		$("form[name='myForm']").submit();
+	});
+	$("#submit3").click(function()
+	{
+		$("form:first").submit();
+
+	});
+
+	$("#submit4").click(function()
+	{
+		$("#testForm").submit(function()
+		{
+			alert('Form is submitting');
+			return true;
+		});
+
+		$("#testForm").submit();
+
+
+	});
+});
+</script>
+</html>

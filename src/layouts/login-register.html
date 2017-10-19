@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>用户登录-太划算商城-更近更贴心</title>
+ 	<meta charset="utf-8" />
+  <meta name="renderer" content="webkit" />
+	{{#ifpage 'login'}}
+	<link rel="stylesheet" href="http://static.htths.com/css/login.min.css">
+  {{/ifpage}}
+	{{#ifpage 'register'}}
+	<link rel="stylesheet" href="http://static.htths.com/css/reg.min.css">
+  {{/ifpage}}
+
+</head>
+<body>
+	<div class="head">
+		<div class="login w990">
+			<a href="<?php echo SHOP_SITE_URL;?>" class="hd f-l">
+				<img alt="" src="<?php echo STATIC_URL; ?>/images/logo.png">
+			</a>
+			{{#ifpage 'login'}}
+			<span class="bd f-l">欢迎登录</span>
+			<span class="ft f-r">
+				<label>没有账号？</label>
+				<a href="<?php echo urlLogin('login','register');?>" class="barder" >立即注册</a>
+				<a target="_blank" href="<?php echo SHOP_SITE_URL;?>/article-26.html">帮助中心</a>
+			</span>
+			{{/ifpage}}
+			{{#ifpage 'register'}}
+			<span class="bd f-l">欢迎注册</span>
+			<span class="ft f-r">
+				<label>已有账号？</label>
+				<a href="<?php echo urlLogin('login','index');?>" class="barder" >立即登录</a>
+				<a target="_blank" href="<?php echo SHOP_SITE_URL;?>/article-26.html">帮助中心</a>
+			</span>
+			{{/ifpage}}
+		</div>
+	</div>
+	    {{> body}}
+	<!--footer begin-->
+<div class="footer">
+	  <p class="links">
+	  <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-22.html" target="_blank">关于太划算</a><span>|</span>
+	  <a rel="nofollow" href="<?php echo SHOP_SITE_URL;?>/article-23.html" target="_blank">联系我们</a>
+	</p>
+	<p class="cprt-icp">苏ICP备14036053号-1<span>|</span>食品流通许可证：SP3205851410003535<span>|</span>酒类流通备案：320504101788</p>
+	<p class="cprt-icp">Copyright© 太划算商城 2014-2016，All Rights Reserved</p>
+</div>
+
+	<!--footer end-->
+    {{#ifpage 'login' 'register'}}
+	<script>var require = {urlArgs: 'v=123'};</script>
+	<script src="http://static.htths.com/js/lib/require.js" data-main="http://static.htths.com/js/{{page}}"></script>
+
+    <!--<script>-->
+      <!--requirejs(['http://static.htths.com/js/common.js'], function (common) {-->
+	      <!--requirejs(['http://static.htths.com/js/app/{{page}}.js']);-->
+      <!--});-->
+  <!--</script>-->
+    {{/ifpage}}
+<script type='text/javascript'>
+    (function(m, ei, q, i, a, j, s) {
+	    m[i] = m[i] || function() {
+			    (m[i].a = m[i].a || []).push(arguments)
+		    };
+	    j = ei.createElement(q),
+		    s = ei.getElementsByTagName(q)[0];
+	    j.async = true;
+	    j.charset = 'UTF-8';
+	    j.src = '//static.meiqia.com/dist/meiqia.js';
+	    s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', 29969);
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<input type="hidden" name="address_id" id="address-id" value="{{address_info.address_id}}"/>
+			    <input type="hidden" name="pr_id" id="area1" value="{{address_info.pr_id}}"/>
+			    <input type="hidden" name="city_id" id="area2" value="{{address_info.city_id}}"/>
+			    <input type="hidden" name="area_id" id="area3" value="{{address_info.area_id}}"/>
+		      <li>
+			      <a href="#" class="item-link item-content open-popup" data-popup=".popup-area">
+            <div class="item-inner">
+              <div class="item-title">地区选择</div>
+              <div class="item-after" id="area-info">{{address_info.area_info}}</div>
+            </div>
+			      </a>
+		      </li>
+		      <li>
+		        <div class="item-content">
+		          <div class="item-inner">
+		            <div class="item-title label">详细地址</div>
+		            <div class="item-input">
+		              <input type="text" placeholder="请输入详细地址" id="addr-detail" value="{{address_info.address}}">
+		            </div>
+		          </div>
+		        </div>
+		      </li>
+		      <li>
+		        <div class="item-content">
+		          <div class="item-inner">
+		            <div class="item-title label">收 件 人</div>
+		            <div class="item-input">
+		              <input type="text" placeholder="请输入收货人姓名" id="true-name" value="{{address_info.true_name}}">
+		            </div>
+		          </div>
+		        </div>
+		      </li>
+		      <li>
+		        <div class="item-content">
+		          <div class="item-inner">
+		            <div class="item-title label">手 机 号</div>
+		            <div class="item-input">
+		              <input type="text" placeholder="请输入收货人手机号" id="mob-phone" value="{{address_info.mob_phone}}">
+		            </div>
+		          </div>
+		        </div>
+		      </li>
+		      <li>
+		        <div class="item-content">
+		          <div class="item-inner">
+		            <div class="item-title label">身份证号码</div>
+		            <div class="item-input">
+		              <input type="text" placeholder="购保税仓商品必填" id="idcard_no" value="{{address_info.idcard_no}}">
+		            </div>
+		          </div>
+		        </div>
+		      </li>

@@ -1,0 +1,8 @@
+{{each area_list as value i}}
+				  <li class="item-content {{if value.area_deep != 3}}item-link{{/if}}" data-area-id="{{value.area_id}}"
+				      data-area-deep="{{value.area_deep}}" data-area-name="{{value.area_name}}">
+		        <div class="item-inner">
+		          <div class="item-title">{{value.area_name}}</div>
+		        </div>
+		      </li>
+{{/each}}

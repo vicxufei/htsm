@@ -1,0 +1,9 @@
+{{each class_list as value i}}
+<dl>
+  <dt><a href=""  data-gcid="{{value.gc_id}}">{{value.gc_name}}</a></dt>
+  {{each value.child as cValue i}}
+  <dd><a href="" data-gcid="{{cValue.gc_id}}">{{cValue.gc_name}}</a>
+  </dd>
+  {{/each}}
+</dl>
+{{/each}}

@@ -1,0 +1,85 @@
+@import "common/register-login";
+
+.box .txt-box-captcha-verify, .box .txt-box-email, .box .txt-box-email-verify, .box .txt-box-msg-verify, .box .txt-box-pw2, .login-box-by-email .txt-box-email, .txt-box-captcha-verify, .txt-code-captcha-verify {
+  display: block;
+}
+.box, form {
+  position: relative;
+}
+
+form {
+  margin: 0 auto;
+  width: 316px;
+  z-index:1;
+}
+
+form .txt-box .code-text {
+  width: 75px;
+  float: left
+}
+
+form .txt-box .code-text2 {
+  width: 145px
+}
+
+.box .advertisement {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%
+}
+
+.box .valid {
+  border: 1px solid #7bdea7
+}
+
+.box .btn {
+  width: 316px
+}
+
+.box .txt-pro {
+  margin: 20px 0 15px
+}
+
+.box .txt-pro a {
+  color: #f03468
+}
+
+.box .txt-box-msg-verify .btn {
+  width: 123px
+}
+
+.login-box-by-email .txt-box-captcha-verify, .login-box-by-email .txt-box-email-verify, .login-box-by-email .txt-box-pw2 {
+  display: block
+}
+
+.login-box-by-mobile .txt-box-email {
+  display: none
+}
+
+.login-box-by-mobile .txt-box-captcha-verify, .login-box-by-mobile .txt-box-msg-verify, .login-box-by-username .txt-box-captcha-verify, .login-box-by-username .txt-box-email, .login-box-by-username .txt-box-email-verify {
+  display: block
+}
+
+.login-box-by-username .txt-box-msg-verify {
+  display: none
+}
+
+.login-box-by-username .txt-box-pw2 {
+  display: block
+}
+
+.userText0918 {
+  border: 1px solid #ddd
+}
+
+.userText0918 li {
+  line-height: 26px;
+  padding: 0 5px;
+  cursor: pointer
+}
+
+.jItemColor {
+  background: #eee
+}

@@ -1,0 +1,645 @@
+@charset "UTF-8";
+
+@import "common/member";
+
+.linkage-tab .content .mt .tab li a em,.linkage-tab .limit {
+  _zoom: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+
+select {
+  padding: 3px 0;
+  border: 1px solid #ccc;
+  display: inline-block;
+  vertical-align: middle;
+  font-style: normal;
+  border-radius: 2px
+}
+
+input[type=tel],input[type=text] {
+  display: inline-block;
+  vertical-align: middle;
+  font-style: normal;
+  height: 22px;
+  line-height: 22px;
+  padding: 0 5px;
+  width: auto;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  outline: 0
+}
+
+textarea {
+  border-radius: 2px;
+  border: 1px solid #ccc
+}
+
+.form {
+  overflow: hidden
+}
+
+.form .group {
+  clear: both;
+  overflow: hidden;
+  color: #666
+}
+
+.form .group label {
+  width: 190px;
+  padding-right: 10px;
+  text-align: right;
+  float: left;
+  display: inline-block;
+  padding-top: 10px
+}
+
+.form .group label em {
+  color: red;
+  margin-right: 5px;
+  display: inline-block;
+  vertical-align: middle
+}
+
+.form .group .controls {
+  padding-left: 20px;
+  float: left;
+  min-width: 165px;
+  padding-top: 10px
+}
+
+.form .end .controls,.form .end label {
+  padding-bottom: 10px
+}
+
+.pop-form {
+  font-size: 12px;
+  float: left
+}
+
+.pop-form .group {
+  clear: both;
+  color: #999;
+  margin: 7px 0;
+  min-height: 35px
+}
+
+.tips-msg {
+  margin: 0;
+  color: #f03468;
+  display: none;
+  padding: 0 0 0 130px;
+  min-height: 0;
+  height: 10px
+}
+
+.pop-form .group .label,.validate-form .group label {
+  padding-right: 10px;
+  text-align: right;
+  display: inline-block;
+  float: left
+}
+
+.pop-form .z-index-1 {
+  z-index: 1
+}
+
+.pop-form .group .label {
+  width: 120px;
+  padding-top: 10px;
+  color: #999;
+  line-height: 24px
+}
+
+.pop-form .group .label em {
+  color: #f03468;
+  margin-right: 5px;
+  display: inline-block;
+  vertical-align: middle
+}
+
+.pop-form .group .controls {
+  float: left;
+  min-width: 165px;
+  padding-top: 10px
+}
+
+.pop-form .group .controls input[type=text] {
+  height: 25px;
+  line-height: 25px
+}
+
+.pop-form .group .controls input[type=checkbox] {
+  display: inline-block;
+  vertical-align: middle
+}
+
+.pop-form .group .controls .tips {
+  color: #ccc;
+  font-size: 12px;
+  font-family: '宋体'
+}
+
+.pop-form .group .controls span {
+  margin-left: 5px
+}
+
+.pop-form .group .controls .btn-sec {
+  margin-left: 40px
+}
+
+.pop-form label.error,.validate-form .group .controls span {
+  margin-left: 5px
+}
+
+.pop-form .end .controls,.pop-form .end label {
+  padding-top: 20px
+}
+
+.pop-form .input-address {
+  width: 320px
+}
+
+.pop-form .group .controls .address {
+  width: 331px
+}
+
+.pop-form .group .controls .address .linkage-tab .content,.pop-form .group .controls .address .linkage-tab .text {
+  border: 1px solid #ccc
+}
+
+.pop-form .group .controls .linkage-tab-hover .text {
+  border-bottom: 0!important;
+  z-index: 1
+}
+
+.validate-form {
+  overflow: hidden
+}
+
+.validate-form .group {
+  position: relative;
+  clear: both;
+  overflow: hidden;
+  color: #666
+}
+
+.validate-form .group label {
+  width: 140px;
+  padding-top: 10px;
+  line-height: 25px
+}
+
+.validate-form .group label em {
+  color: #f03468;
+  margin-right: 5px;
+  display: inline-block;
+  vertical-align: middle
+}
+
+.validate-form .group label i {
+  display: inline-block;
+  vertical-align: middle;
+  font-style: normal
+}
+
+.validate-form .group .controls {
+  float: left;
+  min-width: 165px;
+  padding-top: 10px
+}
+
+.validate-form .group .controls input[type=text] {
+  height: 25px;
+  line-height: 25px;
+  width: 165px
+}
+
+.validate-form .group .controls a {
+  color: #06c;
+  cursor: pointer
+}
+
+.validate-form .group .controls .btn {
+  color: #666
+}
+
+.form .end .controls,.validate-form .end label {
+  padding-bottom: 10px
+}
+
+.validate-form .group .controls .phone-txt {
+  color: #55c788;
+  font-family: 'microsoft yahei';
+  margin-left: 0;
+  line-height: 25px
+}
+
+.validate-form .tips {
+  color: #f03468;
+  padding-top: 3px;
+  padding-left: 150px;
+  line-height: 16px
+}
+
+.validate-form .info {
+  text-align: center;
+  background: #fff3d0;
+  line-height: 30px;
+  margin-top: 10px
+}
+
+.validate-form .btn-box {
+  padding-top: 20px;
+  padding-left: 150px
+}
+
+.placeholder {
+  display: inline-block
+}
+
+.placeholder label,.placeholder span {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 5px!important;
+  font-style: normal;
+  color: #ccc;
+  width: auto;
+  line-height: normal!important;
+  padding: 4px 0 0!important
+}
+
+.address-list ul li,.cnt .tips {
+  font-family: 'Microsoft yahei';
+  color: #666
+}
+
+.btn-box .btn {
+  line-height: 11px
+}
+
+.cnt {
+  width: 950px;
+  margin-top: 15px;
+  padding: 35px;
+  background-color: #fff;
+  overflow: hidden;
+  min-height: 428px
+}
+
+.cnt .tips {
+  font-size: 16px
+}
+
+.cnt .tips .txt-red {
+  margin: 0 5px
+}
+
+.btn .iconfont {
+  font-size: 18px;
+  margin-right: 0
+}
+
+.address-list .address-list-inner {
+  margin-left: -60px;
+  overflow: hidden
+}
+
+.address-list ul {
+  background: url(../img/delivery-address.png) no-repeat;
+  width: 410px;
+  height: 167px;
+  margin: 20px 0 0 60px;
+  padding: 10px 15px 0;
+  position: relative;
+  float: left;
+  display: inline-block
+}
+
+.address-list ul li {
+  padding: 5px 0 5px 80px;
+  position: relative;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+.address-list ul .operate a,.address-list ul li label {
+  font-family: '宋体';
+  font-size: 12px
+}
+
+.address-list ul li .addr-data .txt-els {
+  display: block;
+  line-height: 18px
+}
+
+.address-list ul .addr {
+  min-height: 40px
+}
+
+.address-list ul .operate {
+  border-bottom: 0
+}
+
+.address-list ul .operate .operate-elem a {
+  vertical-align: middle
+}
+
+.address-list ul .operate a {
+  color: #06c;
+  cursor: pointer;
+  margin-right: 20px;
+  display: inline-block;
+  float: left;
+  vertical-align: top;
+  line-height: 23px
+}
+
+.address-list ul .operate .jDeleteAddr {
+  width: 38px
+}
+
+.address-list ul li label {
+  display: block;
+  position: absolute;
+  width: 75px;
+  text-align: right;
+  left: 0;
+  color: #999;
+  line-height: 22px
+}
+
+.address-list ul .postmark,.address-list ul .setDefault {
+  background: url(../img/delivery-address.png) -440px 0 no-repeat;
+  width: 91px;
+  height: 91px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0;
+  border-bottom: 0;
+  z-index: 1
+}
+
+.address-list ul .setDefault {
+  width: 68px;
+  height: 68px;
+  background-position: -440px -91px;
+  left: -4px;
+  top: -4px
+}
+
+.address-list ul .add-new-address {
+  width: 180px;
+  height: 155px;
+  position: absolute;
+  z-index: 1;
+  padding: 0;
+  border-bottom: 0;
+  display: block;
+  top: 25px;
+  left: 130px
+}
+
+.address-list ul .add-new-address a {
+  display: block;
+  width: 80px;
+  height: 115px;
+  position: relative;
+  cursor: pointer
+}
+
+.address-list ul .add-new-address a em {
+  display: block;
+  height: 80px;
+  line-height: 80px;
+//  *+line-height: 90px;
+  font-size: 95px;
+  color: #ccc;
+  position: absolute;
+  top: 0;
+  left: 48px
+}
+
+.address-list ul .add-new-address a span {
+  display: block;
+  width: 191px;
+  text-align: center;
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  font-size: 18px;
+  font-family: 'Microsoft yahei';
+  color: #ccc
+}
+
+.address-list ul .add-new-address a:hover {
+  text-decoration: none
+}
+
+.address-list ul .add-new-address a:hover em {
+  color: #f03468
+}
+
+.address-list ul .add-new-address a:hover span {
+  color: #666
+}
+
+.pop-form .group .controls span {
+  vertical-align: middle
+}
+
+.pop-form label.error {
+  color: #f03468
+}
+
+.linkage-tab label.error {
+  left: 331px!important;
+  top: 5px
+}
+
+.pop-form .group .controls .tips-span em,.pop-form .group .controls .tips-span i {
+  font-style: normal;
+  color: red
+}
+
+//added by gyf for 新增/编辑地址
+.new-address,.new-address label .star-flag {
+  font-family: 宋体
+}
+
+.new-address {
+  padding: 20px 0;
+  height: 1%;
+  border-radius: 2px
+}
+
+.new-address .ui-location-select li {
+  min-height: auto
+}
+
+.new-address ul {
+  margin-top: -10px;
+  zoom:1}
+
+.new-address ul li {
+  position: relative;
+  margin-top: 10px;
+  min-height: 30px
+}
+
+.new-address .area-list {
+  margin-top: 0
+}
+
+.new-address .control-lable {
+  height: 24px;
+  line-height: 24px
+}
+
+.new-address label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 75px;
+  height: 24px;
+  color: #333;
+  vertical-align: middle;
+  text-align: right
+}
+
+.new-address .error,.new-address .label-chk {
+  display: inline-block;
+  width: auto;
+  line-height: 24px
+}
+
+.new-address label .txt-red {
+  display: inline-block;
+  margin-right: 5px;
+  color: #f03468!important;
+  vertical-align: middle;
+  font-size: 20px
+}
+
+.new-address label .star-flag {
+  font-size: 12px
+}
+
+.new-address .error {
+  position: relative;
+  padding-left: 5px;
+  color: #f03468;
+  vertical-align: middle
+}
+
+.new-address label.error {
+  padding-left: 20px;
+  //background: url(//s3.bbgstatic.com/mall-cart/img/order/error-flag.jpg?v=97228a0896933219) 5px 50% no-repeat
+}
+
+.new-address input.error {
+  border: 1px solid #f03468;
+  background: #fefaf2
+}
+
+.new-address .label-chk {
+  position: relative;
+  padding-left: 5px
+}
+
+.new-address .d-r {
+  position: relative;
+  margin-left: 85px;
+  line-height: 23px
+}
+
+.new-address .d-r .addr-div {
+  position: relative;
+  width: 370px
+}
+
+.new-address .d-r .input-txt,.new-address .d-r a,.new-address .d-r em,.new-address .d-r input,.new-address .d-r select,.new-address .d-r span {
+  display: inline-block;
+  vertical-align: middle;
+  font-style: normal
+}
+
+.new-address .d-r .span-box {
+  padding-left: 7px;
+  color: #666
+}
+
+.new-address .d-r .span-ztd {
+  padding-left: 0;
+  color: #666
+}
+
+.new-address .d-r em {
+  padding-left: 7px;
+  color: #f03468
+}
+
+.new-address .d-r i {
+  color: #090
+}
+
+.new-address .d-r .input-address {
+  width: 360px
+}
+
+.new-address .d-r .btn {
+  padding: 5px 35px;
+  background: #f03468;
+  color: #fff;
+  font-size: 14px
+}
+
+.new-address .d-r .btn-sec {
+  margin-left: 50px;
+  border: 1px solid #ccc;
+  background: #f2f2f2;
+  color: #000
+}
+
+.new-address .d-r .btn-disabled {
+  color: #ccc
+}
+
+.new-address .d-r .mar-20 {
+  margin-top: 20px
+}
+
+.new-address .input-address,.new-address .input-employees-num,.new-address .input-integration,.new-address .input-message,.new-address .input-txt {
+  padding: 3px 5px 2px;
+  width: 160px;
+  height: 18px;
+  outline: 0;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  line-height: 18px
+}
+
+.new-address .input-integration {
+  width: 45px
+}
+
+.new-address .input-message {
+  width: 350px
+}
+
+.new-address .z-i-1 {
+  z-index: 2!important
+}
+
+.new-address .place-holder-label {
+  left: 0!important;
+  z-index: 1
+}
